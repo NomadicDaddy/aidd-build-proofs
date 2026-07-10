@@ -1,0 +1,13 @@
+{
+	"category": "UI",
+	"createdAt": "2026-07-02T20:51:56.000Z",
+	"dependencies": ["streak-computation", "habit-list-page"],
+	"description": "show current streak, longest streak, and completion rate",
+	"id": "streak-display",
+	"passes": true,
+	"priority": 3,
+	"spec": "1. Fetch per-habit stats via the stats hook.\n2. Display current streak, longest streak, and 30-day completion rate.\n3. Confirm the numbers match the streak service output.\n4. Verify a missed day lowers current streak but keeps longest streak.",
+	"status": "completed",
+	"title": "Streak stats display",
+	"updatedAt": "2026-07-02T22:12:48.253Z"
+}

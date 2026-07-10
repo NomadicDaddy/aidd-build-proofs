@@ -1,0 +1,17 @@
+{
+  "id": "reference-data-management",
+  "title": "Reference data management for sites, zones, owners, and vendors",
+  "description": "Admin UI and API for maintaining infrastructure reference records used by assets, interfaces, services, reports, and filters",
+  "category": "Core",
+  "dependencies": [
+    "asset-domain-schema",
+    "network-interface-tracking"
+  ],
+  "status": "backlog",
+  "passes": false,
+  "priority": 4,
+  "createdAt": "2026-07-09T00:00:00.000Z",
+  "justFinishedAt": null,
+  "spec": "1. Add backend reference-data routes under /api/v1/reference for sites, network zones, owners, and vendors.\n2. Support list, create, update, and soft-delete operations for each reference type with TypeBox validation and standard response envelopes.\n3. Register the reference routes through backend/src/create-api-app.ts so they appear in OpenAPI and check:api-types.\n4. Add frontend API modules and TanStack Query hooks for sites, zones, owners, and vendors.\n5. Add a settings page at /settings/reference-data for managing reference records, reachable from settings navigation and command/search surfaces where appropriate.\n6. Wire asset forms, network interface dialogs, service catalog forms, relationship filters, reports, saved views, and dashboard filters to use resolved reference data instead of raw numeric IDs where practical.\n7. Preserve the existing asset, network interface, service, search, report, and dashboard behavior while adding the management surface.\n8. Verify create/update/delete flows for each reference type via UI and API.\n9. Run bun run check:api-types, bun scripts/crawltest.ts --page /settings/reference-data, and bun run smoke:qc.",
+  "updatedAt": "2026-07-09T00:00:00.000Z"
+}

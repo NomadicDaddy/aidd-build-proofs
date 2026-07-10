@@ -1,0 +1,96 @@
+{
+  "durationMs": 106379,
+  "endedAt": "2026-07-03T02:12:27.280Z",
+  "iteration": 0,
+  "runId": "run_1783044639896_7d342730",
+  "snapshotKey": "claude-code/directive/directive/none",
+  "startedAt": "2026-07-03T02:10:40.901Z",
+  "summary": "directive run finished with exit code 0",
+  "timeToFirstEventMs": 3517,
+  "exitCode": 0,
+  "idleWarningTimestamps": [],
+  "promptChars": 18391,
+  "backend": "claude-code",
+  "executionMode": "single_agent",
+  "mode": "directive",
+  "model": "claude-opus-4-8",
+  "phase": "directive",
+  "provider": null,
+  "reasoningEffort": "medium",
+  "allowedFeatureIds": [],
+  "commands": [
+    "ls -la d:/applications/kanban-board/.aidd/ 2>/dev/null; echo \"---REPORTS---\"; ls -la d:/applications/kanban-board/.aidd/reports/ 2>/dev/null; echo \"---FEATURES---\"; ls d:/applications/kanban-board/.aidd/features/ 2>/dev/null",
+    "for d in remediation-quality-gate-scripts remediation-remove-config-drift remediation-tsconfig-strict; do echo \"=== $d ===\"; ls d:/applications/kanban-board/.aidd/features/$d/; done",
+    "ls -la d:/applications/kanban-board/.aidd/audit-reports/; echo \"---\"; ls d:/applications/kanban-board/.aidd/responses/; echo \"---questions---\"; ls d:/applications/kanban-board/.aidd/questions.md 2>/dev/null || echo \"no questions.md\"",
+    "cd d:/applications/kanban-board/.aidd/audit-reports && for f in *-2026-07-03.md; do echo \"=== $f ===\"; cat \"$f\"; echo; done",
+    "cd d:/applications/kanban-board && git rev-parse --show-toplevel 2>&1; echo \"---\"; git status --short 2>&1 | head -20"
+  ],
+  "commitsCreated": [],
+  "completedFeatures": [],
+  "detailsSummary": {
+    "bashCommandsRun": 5,
+    "finalChecks": {},
+    "hasBuildErrors": false,
+    "hasLintErrors": false,
+    "hasTypeErrors": false,
+    "totalToolCalls": 20,
+    "uniqueFilesCreated": 1,
+    "uniqueFilesEdited": 1,
+    "uniqueFilesRead": 12
+  },
+  "errors": [],
+  "extraCompletedFeatures": [],
+  "filesCreated": [
+    "d:/applications/kanban-board/.aidd/reports/intake.md"
+  ],
+  "filesEdited": [
+    "d:/applications/kanban-board/.aidd/CHANGELOG.md"
+  ],
+  "filesRead": [
+    "d:/applications/kanban-board/.aidd/project-profile.json",
+    "d:/applications/kanban-board/.aidd/spec.md",
+    "d:/applications/kanban-board/.aidd/project.md",
+    "d:/applications/kanban-board/.aidd/project-structure.md",
+    "d:/applications/kanban-board/.aidd/.artifacts-check.json",
+    "d:/applications/kanban-board/.aidd/testing-scenarios.md",
+    "d:/applications/kanban-board/.aidd/CHANGELOG.md",
+    "d:/applications/kanban-board/.aidd/reports/feature-coverage-audit-2026-07-02.md",
+    "d:/applications/kanban-board/.aidd/features/remediation-quality-gate-scripts/feature.json",
+    "d:/applications/kanban-board/.aidd/features/remediation-remove-config-drift/feature.json",
+    "d:/applications/kanban-board/.aidd/features/remediation-tsconfig-strict/feature.json",
+    "d:/applications/kanban-board/.aidd/responses/response1.md"
+  ],
+  "metrics": {
+    "cachedTokens": 0,
+    "costUsd": 1.0139704999999999,
+    "errorCount": 0,
+    "errorReasons": [],
+    "filesCreatedCount": 1,
+    "filesEditedCount": 1,
+    "idleWarningCount": 0,
+    "inputTokens": 42658,
+    "outputTokens": 8250,
+    "rateLimitCount": 0,
+    "reasoningTokens": 0,
+    "toolBreakdown": {
+      "bash": 5,
+      "glob": 1,
+      "read": 12,
+      "write": 1,
+      "edit": 1
+    },
+    "toolCallCount": 20
+  },
+  "outcome": {
+    "exitCode": 0,
+    "status": "success"
+  },
+  "scopeOverrun": false,
+  "selectedFeatures": [],
+  "unacceptedCompletedFeatures": [],
+  "commitsCreatedCount": 0,
+  "filesCreatedCount": 1,
+  "filesEditedCount": 1,
+  "residualDirtyFilesCount": 0,
+  "stopRequested": false
+}

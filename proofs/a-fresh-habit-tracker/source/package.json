@@ -1,0 +1,40 @@
+{
+	"devDependencies": {
+		"@eslint/js": "10.0.1",
+		"@types/node": "^26.1.0",
+		"eslint": "10.6.0",
+		"eslint-plugin-perfectionist": "5.9.1",
+		"eslint-plugin-react-hooks": "7.1.1",
+		"eslint-plugin-react-refresh": "0.5.3",
+		"eslint-plugin-unused-imports": "4.4.1",
+		"globals": "17.7.0",
+		"only-allow": "^1.2.2",
+		"prettier": "^3.9.4",
+		"prettier-plugin-organize-attributes": "1.0.0",
+		"prettier-plugin-sort-json": "4.2.0",
+		"prettier-plugin-tailwindcss": "0.8.0",
+		"typescript-eslint": "8.62.1"
+	},
+	"engines": {
+		"bun": ">=1.3.14",
+		"node": ">=24.0.0 <25.0.0"
+	},
+	"packageManager": "bun@1.3.14",
+	"scripts": {
+		"crawltest": "bun scripts/crawltest.ts",
+		"dev": "bun run --cwd frontend dev",
+		"dev:backend": "bun run --cwd backend dev",
+		"dev:frontend": "bun run --cwd frontend dev",
+		"format": "bun update --latest --minimum-release-age=4321 && bunx prettier --write .",
+		"format:check": "bun update --latest --minimum-release-age=4321 && bunx prettier --check .",
+		"lint": "eslint . --max-warnings 0",
+		"lint:fix": "eslint . --fix --max-warnings 0",
+		"preinstall": "only-allow bun",
+		"setup": "bun run scripts/setup.ts",
+		"smoke:qc": "bunx prettier --check . && bun run lint && bun run typecheck",
+		"start": "bun run scripts/start.ts",
+		"stop": "bun run scripts/stop.ts",
+		"typecheck": "tsc --noEmit && bun run --cwd backend typecheck && bun run --cwd frontend typecheck"
+	},
+	"type": "module"
+}

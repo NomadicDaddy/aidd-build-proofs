@@ -1,0 +1,103 @@
+{
+  "durationMs": 162145,
+  "endedAt": "2026-07-03T02:10:31.402Z",
+  "iteration": 0,
+  "runId": "run_1783044468185_a9f30c63",
+  "snapshotKey": "claude-code/directive/directive/none",
+  "startedAt": "2026-07-03T02:07:49.257Z",
+  "summary": "directive run finished with exit code 0",
+  "timeToFirstEventMs": 4406,
+  "exitCode": 0,
+  "idleWarningTimestamps": [],
+  "promptChars": 35947,
+  "backend": "claude-code",
+  "executionMode": "single_agent",
+  "mode": "directive",
+  "model": "claude-opus-4-8",
+  "phase": "directive",
+  "provider": null,
+  "reasoningEffort": "medium",
+  "allowedFeatureIds": [],
+  "commands": [
+    "ls -la d:/applications/kanban-board/.aidd/features/ 2>/dev/null | head -50",
+    "for d in remediation-quality-gate-scripts remediation-remove-config-drift remediation-tsconfig-strict; do echo \"=== $d ===\"; ls d:/applications/kanban-board/.aidd/features/$d/; done",
+    "cd d:/applications/kanban-board && echo \"=== root files ===\" && ls -la && echo \"=== frontend dir ===\" && ls -la frontend/ 2>/dev/null && echo \"=== .prettierrc exists? ===\" && ls -la .prettierrc* 2>/dev/null && echo \"=== eslint configs ===\" && ls -la eslint.config.js frontend/eslint.config.js 2>/dev/null && echo \"=== tsconfigs ===\" && ls tsconfig*.json",
+    "cd d:/applications/kanban-board && echo \"=== smoke:qc refs in AGENTS.md ===\" && grep -n \"smoke:qc\\|typecheck\\|zero.tolerance\\|no.*any\\|strict\" AGENTS.md | head -30 && echo \"=== .aidd contents ===\" && ls .aidd/ && echo \"=== roadmap exists? ===\" && ls .aidd/roadmap.json 2>/dev/null && echo \"=== prettier in bun.lock? ===\" && grep -c \"prettier\" bun.lock",
+    "cd d:/applications/kanban-board && echo \"=== spec.md smoke refs ===\" && grep -n \"smoke:qc\\|typecheck\" .aidd/spec.md 2>/dev/null | head && echo \"=== src tree ===\" && find src -type f | head -30 && echo \"=== git log ===\" && git log --oneline -8",
+    "cd d:/applications/kanban-board && echo \"=== prettier in bun.lock ===\" && grep -c \"prettier\" bun.lock; echo \"=== prettier installed? ===\" && ls node_modules/prettier/package.json node_modules/.bin/prettier 2>/dev/null && echo \"NOT-FOUND-OK\"; echo \"=== git tracked config files ===\" && git ls-files | grep -E \"eslint.config.js|.prettierrc|frontend/\" ; echo \"=== git status ===\" && git status --short",
+    "cd d:/applications/kanban-board && echo \"=== .gitignore ===\" && cat .gitignore && echo \"=== tracked files count ===\" && git ls-files | wc -l && echo \"=== sample tracked ===\" && git ls-files | head -20",
+    "cd d:/applications && echo \"=== git root ===\" && git rev-parse --show-toplevel && echo \"=== is kanban-board ignored? ===\" && git check-ignore kanban-board && echo \"(ignored)\" || echo \"(NOT ignored)\"; echo \"=== status of kanban-board path ===\" && git status --short kanban-board/ | head",
+    "cd d:/applications/kanban-board && tail -40 .aidd/CHANGELOG.md",
+    "cd d:/applications/kanban-board && for f in .aidd/features/*/feature.json; do node -e \"JSON.parse(require('fs').readFileSync('$f','utf8')); console.log('OK  $f')\"; done; echo \"=== dirs vs feature.json ===\"; for d in .aidd/features/*/; do [ -f \"$d/feature.json\" ] && echo \"has feature.json: $d\" || echo \"ORPHAN: $d\"; done"
+  ],
+  "commitsCreated": [],
+  "completedFeatures": [],
+  "detailsSummary": {
+    "bashCommandsRun": 10,
+    "finalChecks": {
+      "format": "failed"
+    },
+    "hasBuildErrors": false,
+    "hasLintErrors": true,
+    "hasTypeErrors": false,
+    "totalToolCalls": 23,
+    "uniqueFilesCreated": 0,
+    "uniqueFilesEdited": 1,
+    "uniqueFilesRead": 11
+  },
+  "errors": [
+    {
+      "message": "Exit code 2\n=== smoke:qc refs in AGENTS.md ===\n92:Do not attempt to skip, bypass, or disable any checks. You are in no rush, take your time and do it correctly.\n97:Do not state the application is \"working\" if `bun run smoke:qc` does not pass. If smoke:qc does not exist, run the project's equivalent to linting, type checking, and format validation.\n146:- **Config**: JSON-only configuration (no .env files anywhere)\n165:- **Testing strategy**: crawltest + smoke:qc (no unit test frameworks -- do NOT",
+      "type": "lint"
+    }
+  ],
+  "extraCompletedFeatures": [],
+  "filesCreated": [],
+  "filesEdited": [
+    "d:/applications/kanban-board/.aidd/CHANGELOG.md"
+  ],
+  "filesRead": [
+    "d:/applications/kanban-board/package.json",
+    "d:/applications/kanban-board/.aidd/features/remediation-quality-gate-scripts/feature.json",
+    "d:/applications/kanban-board/.aidd/features/remediation-remove-config-drift/feature.json",
+    "d:/applications/kanban-board/.aidd/features/remediation-tsconfig-strict/feature.json",
+    "d:/applications/kanban-board/tsconfig.app.json",
+    "d:/applications/kanban-board/tsconfig.node.json",
+    "d:/applications/kanban-board/.prettierrc",
+    "d:/applications/kanban-board/eslint.config.js",
+    "d:/applications/kanban-board/frontend/eslint.config.js",
+    "d:/applications/kanban-board/.oxlintrc.json",
+    "d:/applications/kanban-board/.aidd/CHANGELOG.md"
+  ],
+  "metrics": {
+    "cachedTokens": 0,
+    "costUsd": 1.136931,
+    "errorCount": 0,
+    "errorReasons": [],
+    "filesCreatedCount": 0,
+    "filesEditedCount": 1,
+    "idleWarningCount": 0,
+    "inputTokens": 33337,
+    "outputTokens": 12003,
+    "rateLimitCount": 0,
+    "reasoningTokens": 0,
+    "toolBreakdown": {
+      "bash": 10,
+      "read": 11,
+      "edit": 2
+    },
+    "toolCallCount": 23
+  },
+  "outcome": {
+    "exitCode": 0,
+    "status": "success"
+  },
+  "scopeOverrun": false,
+  "selectedFeatures": [],
+  "unacceptedCompletedFeatures": [],
+  "commitsCreatedCount": 0,
+  "filesCreatedCount": 0,
+  "filesEditedCount": 1,
+  "residualDirtyFilesCount": 0,
+  "stopRequested": false
+}

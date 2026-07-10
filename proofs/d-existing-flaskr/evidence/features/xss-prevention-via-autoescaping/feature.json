@@ -1,0 +1,14 @@
+{
+	"id": "xss-prevention-via-autoescaping",
+	"title": "XSS prevention via Jinja2 autoescaping",
+	"category": "Security",
+	"description": "All user-supplied data (post titles, bodies, usernames, flash messages) is rendered through Jinja2 templates with autoescaping enabled by default for .html files. This prevents stored and reflected XSS. This is a verified security control (assertions.md §3) that must not regress.",
+	"priority": 2,
+	"status": "completed",
+	"passes": true,
+	"spec": "1. Verify all templates are .html files (Jinja2 autoescapes .html by default).\n2. Verify user-supplied data (post.title, post.body, post.username, flash messages) is rendered using {{ }} Jinja2 syntax (autoescaped), not {{ ...|safe }} or {% autoescape false %}.\n3. Verify no template disables autoescaping.\n4. Verify the index template renders post['title'] and post['body'] via standard Jinja2 output.",
+	"dependencies": ["base-template-and-navigation", "blog-post-management", "flash-message-system"],
+	"affectedFiles": ["flaskr/templates/blog/index.html", "flaskr/templates/base.html", "flaskr/templates/auth/register.html", "flaskr/templates/auth/login.html"],
+	"createdAt": "2026-07-04T00:00:00.000Z",
+	"updatedAt": "2026-07-04T00:00:00.000Z"
+}

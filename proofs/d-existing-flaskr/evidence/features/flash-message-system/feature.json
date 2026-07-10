@@ -1,0 +1,14 @@
+{
+	"id": "flash-message-system",
+	"title": "Flash message feedback for validation errors and status",
+	"category": "UI",
+	"description": "The app uses Flask's flash() to display one-time feedback messages for validation errors (missing username, missing password, duplicate username, incorrect credentials, missing title) and the base template renders them via get_flashed_messages(). Messages appear only once per request cycle.",
+	"priority": 5,
+	"status": "completed",
+	"passes": true,
+	"spec": "1. Verify flaskr/auth.py calls flash(error) for each validation path: 'Username is required.', 'Password is required.', 'User {username} is already registered.', 'Incorrect username.', 'Incorrect password.'.\n2. Verify flaskr/blog.py calls flash(error) for 'Title is required.' on create and update.\n3. Verify flaskr/templates/base.html renders flash messages via get_flashed_messages() in a .flash div.\n4. Verify tests/test_auth.py and tests/test_blog.py assert on flash message content in response bodies.",
+	"dependencies": ["base-template-and-navigation", "user-authentication", "blog-post-management"],
+	"affectedFiles": ["flaskr/auth.py", "flaskr/blog.py", "flaskr/templates/base.html", "tests/test_auth.py", "tests/test_blog.py"],
+	"createdAt": "2026-07-04T00:00:00.000Z",
+	"updatedAt": "2026-07-04T00:00:00.000Z"
+}

@@ -1,0 +1,28 @@
+{
+	"completedAt": 1783086541822,
+	"durationMs": 814675,
+	"failedStepNames": [],
+	"producedArtifacts": [
+		{
+			"runId": "run_1783085727187_f76e09bb",
+			"stepName": "Run coding",
+			"stepType": "aidd-cli"
+		}
+	],
+	"recipeId": "coding-native",
+	"recipeName": "coding-native",
+	"sessionId": "pipe_1783085727147_467a635b",
+	"startedAt": 1783085727147,
+	"status": "completed",
+	"steps": [
+		{
+			"depth": 0,
+			"durationMs": 814646,
+			"errorMessage": null,
+			"name": "Run coding",
+			"runId": "run_1783085727187_f76e09bb",
+			"status": "completed",
+			"stepType": "aidd-cli"
+		}
+	]
+}

@@ -1,0 +1,94 @@
+{
+  "durationMs": 104150,
+  "endedAt": "2026-07-03T05:50:49.203Z",
+  "iteration": 0,
+  "runId": "run_1783057743936_ae64bcc9",
+  "snapshotKey": "claude-code/directive/directive/none",
+  "startedAt": "2026-07-03T05:49:05.053Z",
+  "summary": "directive run finished with exit code 0",
+  "timeToFirstEventMs": 3735,
+  "exitCode": 0,
+  "idleWarningTimestamps": [],
+  "promptChars": 18188,
+  "backend": "claude-code",
+  "executionMode": "single_agent",
+  "mode": "directive",
+  "model": "claude-opus-4-8",
+  "phase": "directive",
+  "provider": null,
+  "reasoningEffort": "medium",
+  "allowedFeatureIds": [],
+  "commands": [
+    "ls -la .aidd/ && echo \"---REPORTS---\" && ls -la .aidd/reports/ && echo \"---RESPONSES---\" && ls -la .aidd/responses/ && echo \"---ITERATIONS---\" && ls -la .aidd/iterations/ 2>/dev/null && echo \"---ACTIVE---\" && ls -la .aidd/active-runs/ 2>/dev/null",
+    "cat CLAUDE.md 2>/dev/null || cat AGENTS.md 2>/dev/null || echo \"No agent rules file\"",
+    "ls -la .aidd/features/ && echo \"---\" && for d in .aidd/features/*/; do echo \"=== $d ===\"; cat \"$d/feature.json\" 2>/dev/null; echo; done",
+    "git add .aidd/assertions.md .aidd/CHANGELOG.md && git status --short && echo \"---\" && git commit -m \"docs(aidd): consolidate intake assertions into assertions.md\n\nDeduplicated checklist of claims/assumptions/conclusions from the interview\nand remediation-review artifacts. Tagged [verified]/[open]/[drift]; flags the\nQ2 stack fork as the load-bearing blocker and notes the S1 severity drift.\n\nCo-Authored-By: Claude Opus 4.8 <<REDACTED_EMAIL>>\" && echo \"---\" && git log --oneline -1"
+  ],
+  "commitsCreated": [
+    {
+      "hash": "7cc1e16db6cf47bf8bba1d781c0bdf34f27551f0",
+      "subject": "docs(aidd): consolidate intake assertions into assertions.md"
+    }
+  ],
+  "completedFeatures": [],
+  "detailsSummary": {
+    "bashCommandsRun": 4,
+    "finalChecks": {},
+    "hasBuildErrors": false,
+    "hasLintErrors": false,
+    "hasTypeErrors": false,
+    "totalToolCalls": 13,
+    "uniqueFilesCreated": 1,
+    "uniqueFilesEdited": 1,
+    "uniqueFilesRead": 7
+  },
+  "errors": [],
+  "extraCompletedFeatures": [],
+  "filesCreated": [
+    "d:\\applications\\flaskr\\.aidd\\assertions.md"
+  ],
+  "filesEdited": [
+    "d:\\applications\\flaskr\\.aidd\\CHANGELOG.md"
+  ],
+  "filesRead": [
+    "d:\\applications\\flaskr\\.aidd\\questions.md",
+    "d:\\applications\\flaskr\\.aidd\\responses\\response1.md",
+    "d:\\applications\\flaskr\\.aidd\\response-review.md",
+    "d:\\applications\\flaskr\\.aidd\\remediation-review.md",
+    "d:\\applications\\flaskr\\.aidd\\audit-reports\\CODEBASE_ANALYSIS-2026-07-03.md",
+    "d:\\applications\\flaskr\\.aidd\\project.md",
+    "d:\\applications\\flaskr\\.aidd\\CHANGELOG.md"
+  ],
+  "metrics": {
+    "cachedTokens": 0,
+    "costUsd": 0.8592725,
+    "errorCount": 0,
+    "errorReasons": [],
+    "filesCreatedCount": 1,
+    "filesEditedCount": 1,
+    "idleWarningCount": 0,
+    "inputTokens": 24029,
+    "outputTokens": 8456,
+    "rateLimitCount": 0,
+    "reasoningTokens": 0,
+    "toolBreakdown": {
+      "bash": 4,
+      "read": 7,
+      "write": 1,
+      "edit": 1
+    },
+    "toolCallCount": 13
+  },
+  "outcome": {
+    "exitCode": 0,
+    "status": "success"
+  },
+  "scopeOverrun": false,
+  "selectedFeatures": [],
+  "unacceptedCompletedFeatures": [],
+  "commitsCreatedCount": 1,
+  "filesCreatedCount": 1,
+  "filesEditedCount": 1,
+  "residualDirtyFilesCount": 37,
+  "stopRequested": false
+}

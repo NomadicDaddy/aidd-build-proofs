@@ -1,0 +1,21 @@
+# Runtime dependency lockfile — fully pinned transitive closure of `flask`.
+#
+# This file makes production installs reproducible. It complements (does not
+# replace) pyproject.toml: pyproject declares the top-level requirement
+# (`flask`), this file pins every transitive version that requirement resolves
+# to.
+#
+# Install (reproducible):   pip install -r requirements.txt -e .
+# Regenerate after a dep change:
+#     pip install -e .            # resolve latest compatible versions
+#     pip freeze > freeze.txt     # inspect, then copy runtime pins here
+# See README.rst "Dependency lockfile" for the full procedure.
+
+blinker==1.9.0
+click==8.4.2
+colorama==0.4.6 ; sys_platform == "win32"
+Flask==3.1.3
+itsdangerous==2.2.0
+Jinja2==3.1.6
+MarkupSafe==3.0.3
+Werkzeug==3.1.8

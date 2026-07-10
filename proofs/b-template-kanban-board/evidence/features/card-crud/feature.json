@@ -1,0 +1,17 @@
+{
+  "id": "card-crud",
+  "title": "Card CRUD — Title, Description, Labels",
+  "description": "Add, edit, and delete cards within a column. A card has a title, optional description, and zero or more labels, with createdAt/updatedAt timestamps maintained.",
+  "category": "Core",
+  "dependencies": [
+    "board-domain-model",
+    "column-management"
+  ],
+  "status": "completed",
+  "passes": true,
+  "priority": 2,
+  "createdAt": "2026-07-02T00:00:00.000Z",
+  "justFinishedAt": null,
+  "spec": "1. Add a card with a title to a chosen column; verify it appends to the column cardOrder\n2. Verify createdAt and updatedAt are set on creation\n3. Edit the card title; verify it persists and updatedAt advances\n4. Add and edit an optional description; verify it persists\n5. Add one or more labels to a card; verify they render and persist\n6. Remove a label; verify it is removed and persists\n7. Delete a card; verify it is removed from the column cardOrder\n8. Verify a card cannot be created with an empty/whitespace-only title (validation)\n9. Verify description/labels render via JSX escaping (no dangerouslySetInnerHTML)\n10. Verify all edits survive a reload\n11. Verify no `any` types and strict compile\n12. Verify `bun run smoke:qc` passes",
+  "updatedAt": "2026-07-03T03:25:38.432Z"
+}

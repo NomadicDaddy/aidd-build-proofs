@@ -1,0 +1,17 @@
+{
+  "id": "board-switcher-ui",
+  "title": "Board Switcher UI",
+  "description": "A UI control (dropdown or list) to switch between boards, create a new board, and trigger rename/delete of the active board.",
+  "category": "UI",
+  "dependencies": [
+    "board-management",
+    "app-shell-layout"
+  ],
+  "status": "completed",
+  "passes": true,
+  "priority": 3,
+  "createdAt": "2026-07-02T00:00:00.000Z",
+  "justFinishedAt": null,
+  "spec": "1. Render a switcher listing all boards with the active one indicated\n2. Selecting a board makes it active and re-renders the board view\n3. Provide an affordance to create a new board from the switcher\n4. Provide affordances to rename and delete the active board\n5. Verify the switcher stays in sync after create/rename/delete",
+  "updatedAt": "2026-07-03T03:41:33.440Z"
+}

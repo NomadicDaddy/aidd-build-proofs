@@ -1,0 +1,13 @@
+{
+	"category": "UI",
+	"createdAt": "2026-07-02T20:51:56.000Z",
+	"dependencies": ["api-client-layer", "navigation-and-routing"],
+	"description": "list habits with today toggle and a compact 7-day grid per habit",
+	"id": "habit-list-page",
+	"passes": true,
+	"priority": 3,
+	"spec": "1. Build a habit list page rendering all non-archived habits.\n2. Show each habit name, notes/target, and current streak.\n3. Render a compact 7-day grid per habit reflecting real check-ins.\n4. Provide a today done/undo toggle on each row.\n5. Toggling updates the grid and streak without a full reload.\n6. Show a loading state while habits fetch.\n7. Show an empty state when no habits exist yet.\n8. Confirm archived habits do not appear.\n9. Verify the page is reachable from navigation.\n10. Run `bun run smoke:qc` and confirm it passes.",
+	"status": "completed",
+	"title": "Habit list page",
+	"updatedAt": "2026-07-02T21:49:53.976Z"
+}

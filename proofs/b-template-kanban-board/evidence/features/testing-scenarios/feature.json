@@ -1,0 +1,24 @@
+{
+  "id": "testing-scenarios",
+  "title": "Crawl Testing Scenarios (CRUD, DnD, Persistence)",
+  "description": "Author and pass the crawl/testing scenarios from .aidd/testing-scenarios.md covering board/column/card CRUD, drag-and-drop, filtering, and reload persistence, integrated into the smoke:qc gate.",
+  "category": "Testing",
+  "dependencies": [
+    "card-crud",
+    "card-drag-and-drop",
+    "local-persistence"
+  ],
+  "status": "completed",
+  "passes": true,
+  "priority": 3,
+  "createdAt": "2026-07-02T00:00:00.000Z",
+  "justFinishedAt": null,
+  "spec": "1. Scenario: create a board, add To Do/Doing/Done, add cards to To Do, drag one to Doing, reload, confirm all survived\n2. Scenario: create several boards, rename one, switch active board, delete a board, confirm remaining boards/cards untouched\n3. Scenario: add a column, rename it, reorder it, reload, confirm name+order persisted\n4. Scenario: attempt to delete a non-empty column and confirm the defined rule is followed\n5. Scenario: add a card with title/description/labels, edit each field, reload, confirm updates stuck\n6. Scenario: reorder two cards within a column, reload, confirm order persisted\n7. Scenario: move a card across columns, confirm source/target updates and reload persistence\n8. Scenario: delete a card, confirm removed from cardOrder and absent after reload\n9. Scenario: filter/search by text and label, confirm only matches visible until cleared\n10. Scenario: corrupt/clear localStorage, reload, confirm clean default board (no crash)\n11. Wire the scenarios into `bun run smoke:qc` (or a documented crawl step) so acceptance is verifiable\n12. Verify all scenarios pass and the gate exits 0",
+  "updatedAt": "2026-07-03T04:27:23.408Z",
+  "approval": {
+    "approvedAt": "2026-07-03T04:27:14.723Z",
+    "decision": null,
+    "decisionRequired": false,
+    "source": "web-ui"
+  }
+}

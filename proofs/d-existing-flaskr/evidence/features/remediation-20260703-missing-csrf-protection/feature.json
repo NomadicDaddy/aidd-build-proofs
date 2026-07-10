@@ -1,0 +1,29 @@
+{
+  "id": "remediation-20260703-missing-csrf-protection",
+  "title": "Remediation: add CSRF protection to all state-changing forms",
+  "description": "No CSRF protection exists on any mutating endpoint; register, login, create, update, and delete are plain unprotected POSTs. The fix must register CSRF enforcement and reject state-changing requests that lack a valid token.",
+  "category": "Security",
+  "dependencies": [],
+  "status": "completed",
+  "passes": true,
+  "priority": 2,
+  "affectedFiles": [
+    "flaskr/__init__.py",
+    "flaskr/templates/auth/register.html",
+    "flaskr/templates/auth/login.html",
+    "flaskr/templates/blog/create.html",
+    "flaskr/templates/blog/update.html",
+    "tests/test_auth.py",
+    "tests/test_blog.py"
+  ],
+  "createdAt": "2026-07-03T05:41:52Z",
+  "notes": "Source: response1.md | Claims: claim-002 | Verified: 2026-07-03. Corroborated by .aidd/response-review.md and CODEBASE_ANALYSIS-2026-07-03.md (S2, High). Confirmed firsthand: no CSRFProtect/token in auth.py, blog.py, or templates; all five POST forms unprotected. RESOLUTION: BLOCKED, held for product-owner approval (waiting_approval). Security review 2026-07-03 (SECURITY audit directive) re-confirmed S2 firsthand — repo-wide search for csrf/csrf_token/CSRFProtect returns zero hits across all .py/.html files, and all five mutating POST forms (register.html, login.html, create.html, and both the update + delete forms in update.html) render no token. The finding is real and correctly scoped. It is NOT completable now because it is a fork-in-the-road gated on the unresolved interview Q2 (project.md 'spernakit-like' TS/Bun vs. actual Python/Flask). assertions.md §9 is authoritative: 'Both remediation specs are written against current Flask paths and must be rewritten — not just re-pathed — if Q2 resolves to port. Hold both features at backlog until answered.' Implementing the Flask-WTF CSRFProtect fix now is agent judgment on a product decision (prohibited by the Blocking-Ambiguity constraint) and would be discarded/rewritten under a port. This matches the sibling S1 secret-key remediation, held at waiting_approval for the same reason (commit 5ae8d2e). Gate to completion: the Q2 decision, plus Q6 (which of CSRF/rate-limiting/etc. are required for the target deployment). On 'keep Flask', this is immediately implementable per the spec (register CSRFProtect in create_app, add csrf_token to all five forms, add a rejected-without-token test) and — per assertions.md §6 — should land as one coherent create_app edit with the S1 fix to avoid a self-inflicted merge collision. RESOLUTION (2026-07-03, completed): Q2 resolved to 'keep Flask' (product owner approved via web UI; sibling S1 secret-key remediation landed on the Flask stack, commit 8976ca0), so this feature was moved in_progress and implemented. Because flask-wtf/wtforms are not installed in this environment and cannot be added under the session's toolchain constraints, CSRF was implemented dependency-free in a new flaskr/csrf.py module using the synchronizer-token pattern (Flask stdlib only: secrets + hmac). csrf.init_app(app) is registered in create_app: it (a) stores a per-session random token in the signed session cookie, (b) exposes it to templates as the {{ csrf_token() }} Jinja global, and (c) enforces it server-side in a before_request hook for POST/PUT/PATCH/DELETE, aborting 400 on a missing/invalid token via constant-time compare (hmac.compare_digest). Protection is on by default and auto-disabled under TESTING (CSRF_ENABLED config key), mirroring Flask-WTF, so the pre-existing 25 tests pass unchanged. Hidden csrf_token fields added to all five mutating forms (register, login, create, update-edit, update-delete). New tests use a CSRF_ENABLED=True app fixture (conftest.csrf_client): test_csrf_protects_auth_forms (register+login rejected without token, accepted with), test_csrf_protects_blog_mutations (create/update/delete all 400 without token, update succeeds with), and test_csrf_leaves_get_requests_unaffected. Full suite green: 28 passed (was 25). GET requests unaffected; tokens validated server-side, not merely rendered.",
+  "spec": "1. Verify a CSRF protection mechanism (e.g. Flask-WTF CSRFProtect) is registered on the app inside create_app in flaskr/__init__.py.\n2. Verify every state-changing form renders a CSRF token: flaskr/templates/auth/register.html, flaskr/templates/auth/login.html, flaskr/templates/blog/create.html, flaskr/templates/blog/update.html, and the delete form in flaskr/templates/blog/update.html.\n3. Verify each mutating endpoint rejects a POST lacking a valid CSRF token with HTTP 400/403: POST /auth/register, POST /auth/login, POST /create, POST /<id>/update, POST /<id>/delete.\n4. Verify the token is validated server-side (not merely present in the template) and that GET requests remain unaffected.\n5. Verify tests/test_auth.py and/or tests/test_blog.py include a rejected-without-token case for at least one POST endpoint.",
+  "updatedAt": "2026-07-03T14:30:00.000Z",
+  "approval": {
+    "approvedAt": "2026-07-03T13:34:16.579Z",
+    "decision": null,
+    "decisionRequired": false,
+    "source": "web-ui"
+  }
+}

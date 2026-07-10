@@ -1,0 +1,17 @@
+{
+  "id": "asset-service-assignment",
+  "title": "Assign services and roles to assets",
+  "description": "Assign one or more catalog services to assets",
+  "category": "Core",
+  "dependencies": [
+    "service-catalog",
+    "asset-inventory-api"
+  ],
+  "status": "completed",
+  "passes": true,
+  "priority": 3,
+  "createdAt": "2026-07-03T14:10:00.000Z",
+  "justFinishedAt": null,
+  "spec": "1. Add API + UI to assign one or more services to an asset via asset_services.\n2. Support role labels for the service on that asset.\n3. Surface assigned services on asset detail and service pages.\n4. Verify assignment/unassignment via API and UI.",
+  "updatedAt": "2026-07-03T23:35:28.419Z"
+}

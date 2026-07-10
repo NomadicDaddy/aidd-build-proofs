@@ -1,0 +1,13 @@
+{
+	"category": "Security",
+	"createdAt": "2026-07-02T20:51:56.000Z",
+	"dependencies": ["habit-crud-api"],
+	"description": "TypeBox request/response schemas on all habit and check-in routes",
+	"id": "api-validation-typebox",
+	"passes": true,
+	"priority": 2,
+	"spec": "1. Add TypeBox body/params/query schemas to each habit route via Elysia.\n2. Reject invalid create payloads (missing name, wrong types) with 422.\n3. Constrain cadence to allowed values (daily in MVP).\n4. Validate date params as YYYY-MM-DD on check-in routes.\n5. Confirm valid requests still succeed unchanged.",
+	"status": "completed",
+	"title": "Request validation with TypeBox",
+	"updatedAt": "2026-07-02T21:26:29.804Z"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "persistence-resilience",
+  "title": "Persistence Resilience — Corrupt State Fallback",
+  "description": "Dedicated verification that corrupt, partial, or version-mismatched localStorage never crashes the app and always yields a clean, usable default board.",
+  "category": "Testing",
+  "dependencies": [
+    "local-persistence"
+  ],
+  "status": "completed",
+  "passes": true,
+  "priority": 4,
+  "createdAt": "2026-07-02T00:00:00.000Z",
+  "justFinishedAt": null,
+  "spec": "1. Inject invalid JSON into the storage key and reload; confirm clean default board renders\n2. Inject structurally-valid-but-wrong-shape JSON and reload; confirm graceful fallback\n3. Inject a future/unknown version and reload; confirm no crash\n4. Verify the app never shows a blank/error screen for any of the above\n5. Verify a subsequent normal edit re-persists valid state",
+  "updatedAt": "2026-07-03T04:17:13.046Z"
+}

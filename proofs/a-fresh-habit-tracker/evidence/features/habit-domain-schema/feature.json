@@ -1,0 +1,13 @@
+{
+	"category": "Core",
+	"createdAt": "2026-07-02T20:51:56.000Z",
+	"dependencies": ["config-and-bootstrap"],
+	"description": "habits + checkins Drizzle tables and migrations with unique (habit, date)",
+	"id": "habit-domain-schema",
+	"passes": true,
+	"priority": 1,
+	"spec": "1. Define a Drizzle `habits` table: id, name, cadence, notes, target, archivedAt, createdAt, updatedAt.\n2. Define a Drizzle `checkins` table: id, habitId, date (YYYY-MM-DD), createdAt.\n3. Add a unique constraint on (habitId, date) so a habit cannot be checked twice for one day.\n4. Use snake_case DB columns mapped to camelCase TS fields.\n5. Add a foreign key from checkins.habitId to habits.id via foreignKey({...}).onDelete(...).\n6. Push the schema with `bun run --cwd backend db:push` and confirm tables exist.\n7. Confirm the database file is created only in data/ at project root.",
+	"status": "completed",
+	"title": "Habit and check-in schema",
+	"updatedAt": "2026-07-02T21:05:09.336Z"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "asset-inventory-page",
+  "title": "Searchable asset inventory page",
+  "description": "Dense, filterable asset list page consuming the inventory API",
+  "category": "UI",
+  "dependencies": [
+    "asset-inventory-api"
+  ],
+  "status": "completed",
+  "passes": true,
+  "priority": 2,
+  "createdAt": "2026-07-03T14:10:00.000Z",
+  "justFinishedAt": null,
+  "spec": "1. Add an Assets route and page with a data table.\n2. Show columns for name, type, status, site, owner, role, OS, IP, virtualization state, last verified, and criticality.\n3. Support fast text filter and column filters via TanStack Query.\n4. Support create/edit/soft-delete flows from the list.\n5. Link each row to its asset detail page.\n6. Verify the page loads and filters without console errors via agent-browser.",
+  "updatedAt": "2026-07-03T20:16:56.860Z"
+}

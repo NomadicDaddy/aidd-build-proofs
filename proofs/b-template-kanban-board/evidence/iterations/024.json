@@ -1,0 +1,85 @@
+{
+  "durationMs": 57279,
+  "endedAt": "2026-07-03T01:41:47.289Z",
+  "iteration": 22,
+  "runId": "run_1783041672831_f49ed656",
+  "snapshotKey": "claude-code/interview/interview/none",
+  "startedAt": "2026-07-03T01:40:50.010Z",
+  "summary": "interview questions generation attempted but file not found",
+  "timeToFirstEventMs": 3766,
+  "exitCode": 0,
+  "idleWarningTimestamps": [],
+  "promptChars": 12966,
+  "backend": "claude-code",
+  "executionMode": "single_agent",
+  "mode": "interview",
+  "model": "claude-opus-4-8",
+  "phase": "interview",
+  "provider": null,
+  "reasoningEffort": "medium",
+  "allowedFeatureIds": [],
+  "commands": [
+    "cat <WORKSPACE>/kanban-board/.aidd/questions.md 2>/dev/null; echo \"---RESPONSES---\"; cat <WORKSPACE>/kanban-board/.aidd/responses.md 2>/dev/null; echo \"---DIR---\"; ls -la <WORKSPACE>/kanban-board/.aidd/responses/ 2>/dev/null",
+    "cat <WORKSPACE>/kanban-board/.aidd/responses/response1.md; echo \"===FILES===\"; ls -la <WORKSPACE>/kanban-board/.aidd/ 2>/dev/null",
+    "ls -la <WORKSPACE>/kanban-board/.aidd/active-runs/; echo \"===\"; for f in <WORKSPACE>/kanban-board/.aidd/active-runs/*.json; do echo \"--- $f ---\"; cat \"$f\"; echo; done",
+    "cd <WORKSPACE>/kanban-board; echo \"=== src ===\"; ls -R src 2>/dev/null; echo \"=== features ===\"; ls .aidd/features 2>/dev/null; echo \"=== package scripts ===\"; node -e \"const p=require('./package.json');console.log(JSON.stringify({scripts:p.scripts,dependencies:p.dependencies,devDependencies:p.devDependencies},null,2))\" 2>/dev/null"
+  ],
+  "commitsCreated": [],
+  "completedFeatures": [],
+  "detailsSummary": {
+    "bashCommandsRun": 4,
+    "finalChecks": {},
+    "hasBuildErrors": false,
+    "hasLintErrors": false,
+    "hasTypeErrors": false,
+    "totalToolCalls": 7,
+    "uniqueFilesCreated": 1,
+    "uniqueFilesEdited": 1,
+    "uniqueFilesRead": 1
+  },
+  "errors": [],
+  "extraCompletedFeatures": [],
+  "filesCreated": [
+    "<WORKSPACE>/kanban-board/.aidd/responses/response1.md"
+  ],
+  "filesEdited": [
+    "<WORKSPACE>/kanban-board/.aidd/responses/response1.md"
+  ],
+  "filesRead": [
+    "<WORKSPACE>/kanban-board/.aidd/responses/response1.md"
+  ],
+  "metrics": {
+    "cachedTokens": 0,
+    "costUsd": 0.4004745,
+    "errorCount": 0,
+    "errorReasons": [],
+    "filesCreatedCount": 1,
+    "filesEditedCount": 1,
+    "idleWarningCount": 0,
+    "inputTokens": 23663,
+    "outputTokens": 4170,
+    "rateLimitCount": 0,
+    "reasoningTokens": 0,
+    "toolBreakdown": {
+      "bash": 4,
+      "write": 1,
+      "read": 1,
+      "edit": 1
+    },
+    "toolCallCount": 7
+  },
+  "outcome": {
+    "exitCode": 0,
+    "status": "success"
+  },
+  "scopeOverrun": false,
+  "selectedFeatures": [],
+  "unacceptedCompletedFeatures": [],
+  "commitsCreatedCount": 0,
+  "filesCreatedCount": 1,
+  "filesEditedCount": 1,
+  "residualDirtyFilesCount": 0,
+  "stopRequested": false,
+  "questionsFile": "d:\\applications\\kanban-board\\.aidd\\questions.md",
+  "questionsGenerated": false
+}

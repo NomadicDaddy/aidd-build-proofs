@@ -1,0 +1,24 @@
+{
+  "id": "testing-scenarios",
+  "title": "End-to-end crawl scenarios for dashboard and inventory flows",
+  "description": "Authored crawl/testing scenarios covering primary flows",
+  "category": "Testing",
+  "dependencies": [
+    "dashboard-summary-cards",
+    "asset-inventory-page"
+  ],
+  "status": "completed",
+  "passes": true,
+  "priority": 5,
+  "createdAt": "2026-07-03T14:10:00.000Z",
+  "justFinishedAt": null,
+  "spec": "1. Author testing scenarios for dashboard, inventory, detail, relationships, services, ports, and import.\n2. Cover the acceptance criteria questions from the spec.\n3. Wire scenarios into crawltest where applicable.\n4. Verify scenarios pass against seeded data.\n5. Record results and update .aidd/testing-scenarios.md.",
+  "notes": "Authored .aidd/testing-scenarios.md (seed mode, 24 curated /spernakit-tester scenarios) covering dashboard, inventory, detail (all tabs), network/storage, relationships (table + map), impact analysis, services, ports, global search, saved views, CSV import review, exports, audit trail, admin settings, and full 5-tier RBAC (sysop/admin/manager/operator/viewer), plus the spec acceptance-criteria questions. Crawltest is a generic route auto-discovery harness (bun run crawltest); scenarios reference the real routes it walks (/dashboard, /assets, /relationships, /relationships/map, /services, /search, /reports, /imports). Verified the primary flows against the running seeded app via agent-browser: operator login lands on /dashboard rendering real documentation-health signals (stale 6, missing owner 6, missing backup 6, missing relationship map 1, missing service role 5) and Management/Operations/Audit view tabs; /assets inventory renders the filterable data table with search, type/status/criticality/port filters, New Asset, and Views bar; no console errors.",
+  "updatedAt": "2026-07-04T15:50:57.526Z",
+  "approval": {
+    "approvedAt": "2026-07-04T15:55:24.744Z",
+    "decision": null,
+    "decisionRequired": false,
+    "source": "web-ui"
+  }
+}

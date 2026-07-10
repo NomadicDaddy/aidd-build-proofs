@@ -1,0 +1,13 @@
+{
+	"category": "Testing",
+	"createdAt": "2026-07-02T20:51:56.000Z",
+	"dependencies": ["habit-list-page", "today-toggle", "dashboard-overview"],
+	"description": "crawltest scenarios for list, toggle, and dashboard flows",
+	"id": "testing-scenarios",
+	"passes": true,
+	"priority": 5,
+	"spec": "1. Define crawltest scenarios covering the habit list page.\n2. Cover creating a habit and seeing it in the list.\n3. Cover toggling today done and observing the streak change.\n4. Cover the dashboard done-vs-total count and weekly grid.\n5. Cover the archive flow removing a habit from the active list.\n6. Run the crawltest against affected routes and confirm no console errors.\n7. Confirm `bun run smoke:qc` passes with scenarios in place.\n8. Verify duplicate same-day check-ins cannot be produced through the UI.\n9. Confirm empty-state rendering when all habits are archived.\n10. Capture evidence (screenshots) for the primary flows.",
+	"status": "completed",
+	"title": "Crawl testing scenarios",
+	"updatedAt": "2026-07-02T22:55:49.826Z"
+}

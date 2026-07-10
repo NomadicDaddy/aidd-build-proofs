@@ -1,0 +1,16 @@
+{
+  "id": "role-permission-model",
+  "title": "Role-specific visibility and edit capabilities",
+  "description": "Map infrastructure capabilities onto the 5-tier RBAC",
+  "category": "Security",
+  "dependencies": [
+    "asset-inventory-api"
+  ],
+  "status": "completed",
+  "passes": true,
+  "priority": 2,
+  "createdAt": "2026-07-03T14:10:00.000Z",
+  "justFinishedAt": null,
+  "spec": "1. Define read-only, operator, manager, admin, and sysop access patterns using ROLE_HIERARCHY.\n2. Enforce role checks on every backend route and frontend route.\n3. Hide restricted notes, management URLs, and support contacts from low-privilege users.\n4. Verify each role sees and edits only what it should via API and UI.",
+  "updatedAt": "2026-07-03T21:20:06.298Z"
+}

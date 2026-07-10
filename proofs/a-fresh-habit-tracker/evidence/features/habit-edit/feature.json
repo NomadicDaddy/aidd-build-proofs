@@ -1,0 +1,13 @@
+{
+	"category": "UI",
+	"createdAt": "2026-07-02T20:51:56.000Z",
+	"dependencies": ["habit-list-page", "habit-crud-api"],
+	"description": "edit a habit's name, notes, and target",
+	"id": "habit-edit",
+	"passes": true,
+	"priority": 4,
+	"spec": "1. Add an edit affordance on each habit.\n2. Prefill the form with existing name, notes, and target.\n3. Submit via the update hook and reflect changes in the list.\n4. Confirm updatedAt advances after an edit.",
+	"status": "completed",
+	"title": "Edit habit",
+	"updatedAt": "2026-07-02T22:46:35.087Z"
+}

@@ -1,0 +1,95 @@
+{
+  "durationMs": 146200,
+  "endedAt": "2026-07-03T05:48:44.619Z",
+  "iteration": 0,
+  "runId": "run_1783057577355_e613f3e6",
+  "snapshotKey": "claude-code/directive/directive/none",
+  "startedAt": "2026-07-03T05:46:18.419Z",
+  "summary": "directive run finished with exit code 0",
+  "timeToFirstEventMs": 5230,
+  "exitCode": 0,
+  "idleWarningTimestamps": [],
+  "promptChars": 45529,
+  "backend": "claude-code",
+  "executionMode": "single_agent",
+  "mode": "directive",
+  "model": "claude-opus-4-8",
+  "phase": "directive",
+  "provider": null,
+  "reasoningEffort": "medium",
+  "allowedFeatureIds": [],
+  "commands": [
+    "ls -la && echo \"---FEATURES---\" && ls -la .aidd/features/ 2>/dev/null && echo \"---AIDD---\" && ls -la .aidd/",
+    "echo \"===__init__.py===\" && cat flaskr/__init__.py && echo \"\" && echo \"===TREE===\" && find flaskr tests instance -type f 2>/dev/null && echo \"===pyproject===\" && cat pyproject.toml",
+    "echo \"===conftest.py===\" && cat tests/conftest.py && echo \"\" && echo \"===test_factory.py===\" && cat tests/test_factory.py && echo \"===csrf grep===\" && grep -rin \"csrf\" flaskr tests 2>/dev/null; echo \"grep exit: $?\"",
+    "echo \"===forms in templates===\" && grep -rn \"method=\\|<form\" flaskr/templates/ 2>/dev/null; echo \"===roadmap===\" && ls -la .aidd/roadmap.json 2>/dev/null; echo \"roadmap exit: $?\"; echo \"===other feature dirs===\" && ls .aidd/features/; echo \"===completed features?===\" && grep -rl \"\\\"passes\\\": true\" .aidd/features/ 2>/dev/null; echo \"===aidd-tools?===\" && ls d:/applications/aidd/package.json 2>/dev/null && grep -o \"aidd-tools\" d:/applications/aidd/package.json | head -1",
+    "grep -n \"Blueprint\\|@bp.route\\|url_prefix\\|def \" flaskr/auth.py flaskr/blog.py",
+    "for f in .aidd/features/*/feature.json; do node -e \"JSON.parse(require('fs').readFileSync('$f','utf8')); console.log('OK: $f')\" || echo \"INVALID: $f\"; done",
+    "cd d:/applications/flaskr && git add .aidd/features/ .aidd/CHANGELOG.md && git commit -q -F - <<'EOF'\ndocs(aidd): feature-review auto-fix of 2 security remediation features\n\nRan the feature-review ingredient over both backlog remediation features,\nverifying all spec claims firsthand against the live Flask source.\n\nsecret-key-hardcoded:\n- Rewrote spec point 4 (CONTRADICTION): it claimed the test_config branch\n  supplies its own SECRET_KEY, but tests/conftest.py passes none, so the\n  suite runs on the default \"dev\" key. Guard must key on test mode.\n- Expanded spec point 5 to require updating test_factory.py's bare\n  create_app() call so it does not trip the new fail-fast guard.\n\nmissing-csrf-protection:\n- Added tests/test_auth.py to affectedFiles to match spec point 5.\n\nNo duplication, cathedral, or dependency issues. Phase 6.5 skipped (no\nroadmap.json). Q2 stack fork remains a report-only gate; both stay backlog.\n\nCo-Authored-By: Claude Opus 4.8 <<REDACTED_EMAIL>>\nEOF\ngit log --oneline -1"
+  ],
+  "commitsCreated": [
+    {
+      "hash": "2a5f92061696efc03160e05349562b3deb4a28a1",
+      "subject": "docs(aidd): feature-review auto-fix of 2 security remediation features"
+    }
+  ],
+  "completedFeatures": [],
+  "detailsSummary": {
+    "bashCommandsRun": 7,
+    "finalChecks": {},
+    "hasBuildErrors": false,
+    "hasLintErrors": false,
+    "hasTypeErrors": false,
+    "totalToolCalls": 18,
+    "uniqueFilesCreated": 0,
+    "uniqueFilesEdited": 3,
+    "uniqueFilesRead": 6
+  },
+  "errors": [],
+  "extraCompletedFeatures": [],
+  "filesCreated": [],
+  "filesEdited": [
+    "d:\\applications\\flaskr\\.aidd\\features\\remediation-20260703-secret-key-hardcoded\\feature.json",
+    "d:\\applications\\flaskr\\.aidd\\features\\remediation-20260703-missing-csrf-protection\\feature.json",
+    "d:\\applications\\flaskr\\.aidd\\CHANGELOG.md"
+  ],
+  "filesRead": [
+    "d:\\applications\\flaskr\\.aidd\\features\\remediation-20260703-missing-csrf-protection\\feature.json",
+    "d:\\applications\\flaskr\\.aidd\\features\\remediation-20260703-secret-key-hardcoded\\feature.json",
+    "d:\\applications\\flaskr\\.aidd\\remediation-review.md",
+    "d:\\applications\\flaskr\\.aidd\\project.md",
+    "d:\\applications\\flaskr\\.aidd\\project-structure.md",
+    "d:\\applications\\flaskr\\.aidd\\CHANGELOG.md"
+  ],
+  "metrics": {
+    "cachedTokens": 0,
+    "costUsd": 1.1219700000000001,
+    "errorCount": 0,
+    "errorReasons": [],
+    "filesCreatedCount": 0,
+    "filesEditedCount": 3,
+    "idleWarningCount": 0,
+    "inputTokens": 23411,
+    "outputTokens": 10498,
+    "rateLimitCount": 0,
+    "reasoningTokens": 0,
+    "toolBreakdown": {
+      "bash": 7,
+      "read": 6,
+      "edit": 5
+    },
+    "toolCallCount": 18
+  },
+  "outcome": {
+    "exitCode": 0,
+    "status": "success"
+  },
+  "scopeOverrun": false,
+  "selectedFeatures": [],
+  "unacceptedCompletedFeatures": [],
+  "commitsCreatedCount": 1,
+  "filesCreatedCount": 0,
+  "filesEditedCount": 3,
+  "residualDirtyFilesCount": 35,
+  "stopRequested": false
+}

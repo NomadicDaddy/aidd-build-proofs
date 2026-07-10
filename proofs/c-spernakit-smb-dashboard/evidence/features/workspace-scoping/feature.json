@@ -1,0 +1,17 @@
+{
+  "id": "workspace-scoping",
+  "title": "Workspace-aware asset boundaries where enabled",
+  "description": "Scope infrastructure inventory by workspace where enabled",
+  "category": "Security",
+  "dependencies": [
+    "asset-inventory-api"
+  ],
+  "status": "completed",
+  "passes": true,
+  "priority": 5,
+  "createdAt": "2026-07-03T14:10:00.000Z",
+  "justFinishedAt": null,
+  "spec": "1. Scope asset/relationship/service data to the acting user's workspaces.\n2. Honor SYSOP cross-workspace bypass.\n3. Enforce scoping via the workspaceAccess guard on every domain route.\n4. Verify non-SYSOP users cannot see other workspaces' assets.",
+  "notes": "Added guards/workspaceScope.ts (resolveWorkspaceScope + requireDomainWorkspaceAccess), gated by the app.workspaces_enabled feature flag (fail-closed) so single-inventory deployments are unchanged. Threaded a workspaceScope filter into the asset/relationship/service list queries and single-record getters (getAssetById/getRelationshipById/getServiceById/getServiceDetail), and composed requireDomainWorkspaceAccess after the role guard on every domain route (assets core+mutations, all asset sub-resources via assertAssetVisible, relationships, services read+write). SYSOP with no X-Workspace-ID reads cross-workspace; non-SYSOP must select a workspace they belong to (400 without header, 403 for a non-member workspace) and can never see or mutate another workspace's records (out-of-scope single-record reads/writes return 404). Creates stamp the resolved active workspace. Verified in-process via scripts/test-workspace-scoping.ts (8 assertions, app.handle() on a temp DB): member scoped to A sees only A's 2 assets / 1 relationship / 1 service, non-member workspace 403, cross-workspace asset 404, missing header 400, SYSOP sees all, and with the flag OFF the same user sees every asset. Full bun run smoke:qc green (typecheck, lint, backend+frontend build, API type-contract with 198 endpoints, schema-parity, format).",
+  "updatedAt": "2026-07-04T15:40:00.000Z"
+}

@@ -1,0 +1,80 @@
+{
+  "$schema": "https://aidd.dev/schemas/project-profile.json",
+  "name": "kanban-board",
+  "generatedAt": "2026-07-02",
+  "generatedBy": "aidd project-profile directive",
+  "summary": "Local, single-user Kanban board SPA. Client-only Vite + React + TypeScript app; boards/columns/cards with drag-and-drop, persisted to browser localStorage. No backend, accounts, or cloud sync.",
+  "stack": {
+    "type": "spa",
+    "language": "typescript",
+    "runtime": "browser",
+    "packageManager": "bun",
+    "frontend": {
+      "framework": "react",
+      "frameworkVersion": "19",
+      "bundler": "vite",
+      "bundlerVersion": "8",
+      "language": "typescript",
+      "languageVersion": "6",
+      "routing": "none",
+      "state": "client-store (Zustand or React context, per spec)",
+      "styling": "css"
+    },
+    "backend": null,
+    "database": null
+  },
+  "deployment": {
+    "model": "static-spa",
+    "target": "static-host-or-local",
+    "server": false,
+    "notes": "Client-only single-page app built by Vite to static assets (dist/). No server process, no runtime environment. Runs entirely in the browser."
+  },
+  "auth": {
+    "mode": "none",
+    "notes": "Single-user, local-only. No accounts, login, sessions, tokens, or authorization of any kind."
+  },
+  "dataSensitivity": {
+    "level": "low",
+    "pii": false,
+    "secrets": false,
+    "storage": "browser-localStorage",
+    "notes": "Only user-authored board/column/card content stored in browser localStorage on the user's own machine. No PII, no credentials, no secrets, no network transmission. No .env files."
+  },
+  "criticality": "low",
+  "criticalityNotes": "Personal productivity tool for a single user on their own machine; not business- or safety-critical. Build-proof project (third-party vite-react template init).",
+  "externalIntegrations": [],
+  "network": {
+    "outbound": false,
+    "inbound": false,
+    "notes": "No network I/O by design; no API calls, no telemetry."
+  },
+  "securitySurface": {
+    "level": "minimal",
+    "vectors": [
+      "Free-text card description/labels rendered into the DOM — rely on React JSX escaping, never introduce dangerouslySetInnerHTML.",
+      "Corrupt/poisoned localStorage — hydrate via schema-validated try/catch with fallback to a clean default board."
+    ]
+  },
+  "validation": {
+    "command": "bun run build && bun run lint",
+    "commands": {
+      "build": "bun run build",
+      "lint": "bun run lint",
+      "typecheck": "tsc -b --noEmit (not yet defined as a script; covered transitively by build)"
+    },
+    "declaredGate": "bun run smoke:qc",
+    "declaredGateExists": false,
+    "notes": "spec.md and AGENTS.md declare `bun run smoke:qc` as the quality gate, but package.json defines only dev/build/lint/preview — smoke:qc, typecheck, format, and test/crawl scripts do not exist yet. The runnable validation today is `bun run build` (tsc -b && vite build) and `bun run lint` (oxlint). See remediation-quality-gate-scripts."
+  },
+  "conventions": {
+    "lint": "oxlint (.oxlintrc.json)",
+    "format": "prettier configured (.prettierrc: tabs, 100 cols, single quotes) but not installed / no format script",
+    "typescriptStrict": false,
+    "notes": "AGENTS.md mandates spernakit-like conventions (named exports, no `any`, tabs+semicolons), but the current starter (src/App.tsx, main.tsx) is stock Vite and does not yet conform. tsconfig does not enable strict mode. Vestigial spernakit eslint/prettier config drift present (root + empty frontend/)."
+  },
+  "status": {
+    "phase": "scaffold",
+    "featuresImplemented": false,
+    "notes": "Pristine vite-react third-party scaffold; none of the 8 spec backlog features implemented yet. Build and lint pass on the starter."
+  }
+}

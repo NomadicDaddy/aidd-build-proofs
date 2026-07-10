@@ -1,0 +1,16 @@
+{
+  "id": "dashboard-summary-cards",
+  "title": "Management dashboard summary cards",
+  "description": "Operational dashboard summarizing infrastructure shape and risk",
+  "category": "UI",
+  "dependencies": [
+    "asset-inventory-api"
+  ],
+  "status": "completed",
+  "passes": true,
+  "priority": 2,
+  "createdAt": "2026-07-03T14:10:00.000Z",
+  "justFinishedAt": null,
+  "spec": "1. Make the post-login landing screen the operational dashboard.\n2. Show total asset counts by type, status, site, owner, and criticality.\n3. Show physical vs virtual server breakdown and virtualization summary.\n4. Show storage, memory, and CPU summaries where data is available.\n5. Show top business services and their backing infrastructure.\n6. Show risk cues (internet-exposed services, unknown ports, unsupported OS, critical assets without backups, unowned assets).\n7. Provide saved dashboard filters for management, operations, and audit views.\n8. Verify cards render real counts via agent-browser with no console errors.",
+  "updatedAt": "2026-07-03T20:36:28.135Z"
+}

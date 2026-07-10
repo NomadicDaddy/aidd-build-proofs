@@ -1,0 +1,112 @@
+{
+  "durationMs": 90823,
+  "endedAt": "2026-07-03T02:30:46.014Z",
+  "iteration": 2,
+  "runId": "cli_1783045289347_d655f7e1",
+  "snapshotKey": "claude-code/coding/coding/none",
+  "startedAt": "2026-07-03T02:29:15.191Z",
+  "summary": "coding has no incomplete feature work",
+  "timeToFirstEventMs": 3403,
+  "exitCode": 0,
+  "idleWarningTimestamps": [],
+  "promptChars": 56719,
+  "backend": "claude-code",
+  "executionMode": "single_agent",
+  "mode": "coding",
+  "model": "claude-opus-4-8",
+  "phase": "coding",
+  "provider": null,
+  "reasoningEffort": "medium",
+  "allowedFeatureIds": [
+    "remediation-remove-config-drift"
+  ],
+  "commands": [
+    "ls -la && echo \"---frontend---\" && ls -la frontend 2>/dev/null || echo \"no frontend dir\" && echo \"---eslint files---\" && ls -la eslint.config.js frontend/eslint.config.js .prettierrc 2>/dev/null",
+    "git ls-files eslint.config.js frontend/eslint.config.js && echo \"---status---\" && git status --short",
+    "git rm eslint.config.js frontend/eslint.config.js && rmdir frontend 2>/dev/null; echo \"--- frontend exists? ---\"; ls -la frontend 2>/dev/null || echo \"frontend removed\"",
+    "bun run format && echo \"===SMOKEQC===\" && bun run smoke:qc 2>&1",
+    "git add .aidd/CHANGELOG.md .aidd/features/remediation-remove-config-drift/feature.json && git diff --staged --name-only",
+    "git commit -m \"chore(quality): remove vestigial spernakit eslint config drift\" \\\n  -m \"- Deleted orphaned root and frontend/ eslint.config.js (imported uninstalled eslint packages, referenced nonexistent backend/scripts/drizzle/tailwind paths); linting runs via oxlint\" \\\n  -m \"- Removed now-empty frontend/ directory\" \\\n  -m \"- Kept .prettierrc (live, backed by installed prettier from remediation-quality-gate-scripts)\" \\\n  -m \"- Verified: bun run smoke:qc passes clean\" \\\n  -m \"- Marked remediation-remove-config-drift passes:true, status:completed\" 2>&1 | tail -20",
+    "git status --short"
+  ],
+  "commitsCreated": [
+    {
+      "hash": "514314899e8049ad7605d39533f498f7999ddfab",
+      "subject": "chore(quality): remove vestigial spernakit eslint config drift"
+    }
+  ],
+  "completedFeatures": [
+    "remediation-remove-config-drift"
+  ],
+  "detailsSummary": {
+    "bashCommandsRun": 7,
+    "finalChecks": {},
+    "hasBuildErrors": false,
+    "hasLintErrors": false,
+    "hasTypeErrors": false,
+    "totalToolCalls": 18,
+    "uniqueFilesCreated": 0,
+    "uniqueFilesEdited": 2,
+    "uniqueFilesRead": 9
+  },
+  "errors": [],
+  "extraCompletedFeatures": [],
+  "filesCreated": [],
+  "filesEdited": [
+    "D:\\applications\\kanban-board\\.aidd\\features\\remediation-remove-config-drift\\feature.json",
+    "D:\\applications\\kanban-board\\.aidd\\CHANGELOG.md"
+  ],
+  "filesRead": [
+    "D:\\applications\\kanban-board\\.aidd\\features\\remediation-remove-config-drift\\feature.json",
+    "D:\\applications\\kanban-board\\AGENTS.md",
+    "D:\\applications\\kanban-board\\.aidd\\project.md",
+    "D:\\applications\\kanban-board\\.aidd\\features\\remediation-quality-gate-scripts\\feature.json",
+    "D:\\applications\\kanban-board\\package.json",
+    "D:\\applications\\kanban-board\\.prettierrc",
+    "D:\\applications\\kanban-board\\eslint.config.js",
+    "D:\\applications\\kanban-board\\frontend\\eslint.config.js",
+    "D:\\applications\\kanban-board\\.aidd\\CHANGELOG.md"
+  ],
+  "metrics": {
+    "cachedTokens": 0,
+    "costUsd": 1.021727,
+    "errorCount": 0,
+    "errorReasons": [],
+    "filesCreatedCount": 0,
+    "filesEditedCount": 2,
+    "idleWarningCount": 0,
+    "inputTokens": 30383,
+    "outputTokens": 5663,
+    "rateLimitCount": 0,
+    "reasoningTokens": 0,
+    "toolBreakdown": {
+      "read": 9,
+      "bash": 7,
+      "edit": 2
+    },
+    "toolCallCount": 18
+  },
+  "outcome": {
+    "exitCode": 0,
+    "status": "success"
+  },
+  "scopeOverrun": false,
+  "selectedFeatures": [
+    "remediation-remove-config-drift"
+  ],
+  "unacceptedCompletedFeatures": [],
+  "backendCompletionFinalizedEarly": true,
+  "featureSlug": "remediation-remove-config-drift",
+  "featureDescription": "Remove Vestigial Spernakit Config Drift",
+  "commitsCreatedCount": 1,
+  "filesCreatedCount": 0,
+  "filesEditedCount": 2,
+  "residualDirtyFilesCount": 4,
+  "stopRequested": false,
+  "completedFeature": "remediation-remove-config-drift",
+  "eligibleFeatures": 0,
+  "remainingDependencyBlockedFeatures": 0,
+  "remainingFeatures": 0,
+  "remainingPendingApproval": 0,
+  "completionOutcome": "completed"
+}

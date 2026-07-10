@@ -1,0 +1,262 @@
+{
+  "campaign": {
+    "aiddRepository": "https://github.com/NomadicDaddy/aidd",
+    "aiddRevisionCaptured": false,
+    "environment": {
+      "bun": "1.3.14",
+      "os": "Windows 11",
+      "shell": "PowerShell 7"
+    },
+    "id": "aidd-build-proofs-2026-07",
+    "name": "AIDD four-lane build-proofs campaign",
+    "publicAiddBaseline": "v2.102.0"
+  },
+  "proofs": [
+    {
+      "appName": "Habit Tracker",
+      "backend": {
+        "id": "claude-code",
+        "model": "claude-opus-4-8",
+        "reasoningEffort": "medium"
+      },
+      "endedAt": "2026-07-02T23:21:01.708Z",
+      "evidence": {
+        "iterationCount": 27,
+        "path": "proofs/a-fresh-habit-tracker/evidence",
+        "treeSha256": "ba5acb030d2025d8018e14716be1fb30c4bb4364d5fde0bbb8810376b9d90bb8"
+      },
+      "features": {
+        "nonPassing": 0,
+        "passing": 25,
+        "total": 25
+      },
+      "id": "a-fresh-habit-tracker",
+      "keyArtifacts": [
+        {
+          "path": "proofs/a-fresh-habit-tracker/spec.md",
+          "sha256": "4340430e387bdba962826718f07cfd32d74d6db50816db77c4aa8d10f68ee2ef"
+        },
+        {
+          "path": "proofs/a-fresh-habit-tracker/commits.tsv",
+          "sha256": "e94d642892c633d089d37bd3510695d6bbd8286cd298b9447ee55f47accd4a0c"
+        },
+        {
+          "path": "proofs/a-fresh-habit-tracker/evidence/runs.jsonl",
+          "sha256": "7db356a27ace77cb07501776b6ae20406754b2a976d0a6c750c35adfaf1a0ffd"
+        }
+      ],
+      "lane": "fresh",
+      "limitations": [
+        "The exact AIDD source revision used for each run was not captured.",
+        "The initializer-to-coding and timeout continuations required manual relaunches."
+      ],
+      "source": {
+        "commitCount": 27,
+        "exportedFileCount": 83,
+        "originalHeadCommit": "9326ccbc1db69aea1bb0c37fcdce88bbf0ec9f33",
+        "originalRootCommit": "1e48e3ada706be804488dd15945b4e90189f1823",
+        "path": "proofs/a-fresh-habit-tracker/source",
+        "treeSha256": "55ec788be82169b16a6911693ca2cd43d2379fc1f2339853dd7b2740eb625fae"
+      },
+      "stack": "Bun, TypeScript, Elysia, React 19, and Drizzle",
+      "startedAt": "2026-07-02T20:49:58.529Z",
+      "validation": {
+        "recordedCommand": "bun run smoke:qc",
+        "recordedResult": "passed",
+        "replay": {
+          "checkedAt": "2026-07-09T23:01:31.5179938-05:00",
+          "command": "bun run smoke:qc",
+          "note": "Failed after a clean root install because the committed root manifest does not declare or install the backend/frontend workspaces; lint then reports unresolved frontend dependency types. The archival source was not changed.",
+          "status": "failed"
+        }
+      }
+    },
+    {
+      "appName": "Kanban Board",
+      "backend": {
+        "id": "claude-code",
+        "model": "claude-opus-4-8",
+        "reasoningEffort": "medium"
+      },
+      "endedAt": "2026-07-03T04:31:45.754Z",
+      "evidence": {
+        "iterationCount": 64,
+        "path": "proofs/b-template-kanban-board/evidence",
+        "treeSha256": "026780a4b70c801220508322df2b241d88371fccb2bd89e2db6092a004bb674b"
+      },
+      "features": {
+        "nonPassing": 0,
+        "passing": 23,
+        "total": 23
+      },
+      "id": "b-template-kanban-board",
+      "keyArtifacts": [
+        {
+          "path": "proofs/b-template-kanban-board/spec.md",
+          "sha256": "7078aac9debd8a06564cbbe445dba533f7238b95c1b170f8c8928b9284b4da43"
+        },
+        {
+          "path": "proofs/b-template-kanban-board/commits.tsv",
+          "sha256": "5f1f18fc90c1b96d49f1b4cd53209b4348b5568443062e569d45d075117a065c"
+        },
+        {
+          "path": "proofs/b-template-kanban-board/evidence/runs.jsonl",
+          "sha256": "7ba5e15d4b97ff85d82f41450153b26d88b0371338fe5d487a203ee00e5cf306"
+        }
+      ],
+      "lane": "third-party-template",
+      "limitations": [
+        "The exact AIDD source revision used for each run was not captured.",
+        "Template path handling and spec-to-feature onboarding required intervention."
+      ],
+      "source": {
+        "commitCount": 26,
+        "exportedFileCount": 38,
+        "originalHeadCommit": "d1d0eeaa6a412d88f241a191d9eff76dee81c67c",
+        "originalRootCommit": "522b12287629afd4662117c3174435c4d8e1d653",
+        "path": "proofs/b-template-kanban-board/source",
+        "treeSha256": "f9706a3389b3b31663527ea090385f6640624c2bf8f118954375a516d9e3e788"
+      },
+      "stack": "Vite, React 19, TypeScript, and Zustand",
+      "startedAt": "2026-07-03T01:17:00.879Z",
+      "validation": {
+        "recordedCommand": "bun run smoke:qc",
+        "recordedResult": "passed",
+        "replay": {
+          "checkedAt": "2026-07-09T23:01:31.5179938-05:00",
+          "command": "bun run smoke:qc",
+          "note": "Passed after a clean frozen-lockfile install, including typecheck, lint, production build, format check, and 10/10 scenarios.",
+          "status": "passed"
+        }
+      }
+    },
+    {
+      "appName": "SMB Infrastructure Dashboard",
+      "backend": {
+        "id": "claude-code",
+        "model": "claude-opus-4-8",
+        "reasoningEffort": "medium"
+      },
+      "endedAt": "2026-07-04T15:50:57.465Z",
+      "evidence": {
+        "iterationCount": 31,
+        "path": "proofs/c-spernakit-smb-dashboard/evidence",
+        "treeSha256": "f10771813ae60411bfb28f3423c40c2c796ea2ae20cd7f667270ba692ace7742"
+      },
+      "features": {
+        "nonPassing": 1,
+        "passing": 26,
+        "total": 27
+      },
+      "id": "c-spernakit-smb-dashboard",
+      "keyArtifacts": [
+        {
+          "path": "proofs/c-spernakit-smb-dashboard/spec.md",
+          "sha256": "6713659111f1ba4fd27c2266dd6e487f35725fd51d3ee373d382890f48baa48b"
+        },
+        {
+          "path": "proofs/c-spernakit-smb-dashboard/commits.tsv",
+          "sha256": "3a7b6d07f94c1620166f69fe1f2aa51e251833189c63eb60cb3cfcc57e017ef8"
+        },
+        {
+          "path": "proofs/c-spernakit-smb-dashboard/evidence/runs.jsonl",
+          "sha256": "21cc16225668ec5fdc9ef057725e8941b3130ea2018317b6c5c0a33da36cbe43"
+        }
+      ],
+      "lane": "spernakit",
+      "limitations": [
+        "The exact AIDD source revision used for each run was not captured.",
+        "The retained metadata includes one non-passing remediation alongside 26 passing features.",
+        "The campaign exposed masked quality gates and approval-context gaps."
+      ],
+      "source": {
+        "commitCount": 27,
+        "exportedFileCount": 1202,
+        "originalHeadCommit": "4ec9747efca48772452a010251d4c668427c6c2c",
+        "originalRootCommit": "2fc935423550610792d61c00d576ccbc49638c84",
+        "path": "proofs/c-spernakit-smb-dashboard/source",
+        "treeSha256": "5fff63c695e0259674c9fbccd7758e6c370fdf11b9423b1960e85d615aac2abc"
+      },
+      "stack": "Spernakit v3: Bun, Elysia, React 19, Drizzle, and SQLite",
+      "startedAt": "2026-07-03T19:05:52.121Z",
+      "validation": {
+        "recordedCommand": "bun run smoke:qc",
+        "recordedResult": "passed",
+        "replay": {
+          "checkedAt": "2026-07-09T23:01:31.5179938-05:00",
+          "command": "bun run smoke:qc",
+          "note": "Passed after a clean frozen-lockfile install. Template drift was explicitly skipped because the external Spernakit checkout is not part of the archive; generated default config validation emitted one placeholder-secret warning.",
+          "status": "passed"
+        }
+      }
+    },
+    {
+      "appName": "Flaskr",
+      "backend": {
+        "id": "claude-code",
+        "model": "claude-opus-4-8",
+        "reasoningEffort": "medium"
+      },
+      "endedAt": "2026-07-03T14:36:30.007Z",
+      "evidence": {
+        "iterationCount": 37,
+        "path": "proofs/d-existing-flaskr/evidence",
+        "treeSha256": "1687808834d749de7c970050a93c61b44c02de8ccf7b1291cc6f2de318885fef"
+      },
+      "features": {
+        "nonPassing": 0,
+        "passing": 22,
+        "total": 22
+      },
+      "id": "d-existing-flaskr",
+      "keyArtifacts": [
+        {
+          "path": "proofs/d-existing-flaskr/spec.md",
+          "sha256": "6540bdc91b0e6294dc32cf67478435190c32e1144d4d95a02a7d0e973a6e1d17"
+        },
+        {
+          "path": "proofs/d-existing-flaskr/commits.tsv",
+          "sha256": "7bb1695d35e03ef4e2e6bca328b63332e38d8442ed28c4b5a4ec82f234a06a48"
+        },
+        {
+          "path": "proofs/d-existing-flaskr/evidence/runs.jsonl",
+          "sha256": "0c12faa60fcff41928c45a6758002bb3d9348cdb5852a4850e0247dcd0486b1f"
+        }
+      ],
+      "lane": "existing-ingest",
+      "limitations": [
+        "The exact AIDD source revision used for each run was not captured.",
+        "The retained 22-feature total includes the post-ingest security stretch work.",
+        "Early runs required fixes for scaffold and metadata-only write-boundary assumptions."
+      ],
+      "source": {
+        "commitCount": 33,
+        "exportedFileCount": 28,
+        "originalHeadCommit": "4552ec939e03aefeca439c0193d631106f507dd4",
+        "originalRootCommit": "1440aa6b0f421fe1a78c23533a676d82dc908c81",
+        "path": "proofs/d-existing-flaskr/source",
+        "treeSha256": "a7f60fb68fb21f937b971d9c77a372a2eda9447795d977b3943a7b07b8a083e8"
+      },
+      "stack": "Python, Flask, SQLite, and pytest",
+      "startedAt": "2026-07-03T05:27:15.942Z",
+      "validation": {
+        "recordedCommand": "pytest",
+        "recordedResult": "passed",
+        "replay": {
+          "checkedAt": "2026-07-09T23:01:31.5179938-05:00",
+          "command": "pytest",
+          "note": "Passed 36/36 tests in a clean Python 3.14.6 virtual environment installed from the pinned requirements files.",
+          "status": "passed"
+        }
+      }
+    }
+  ],
+  "schemaVersion": 1,
+  "transcriptArchive": {
+    "assetName": "aidd-build-proofs-2026-07-transcripts.zip",
+    "entryCount": 175,
+    "indexPath": "release/transcript-index.json",
+    "sha256": "dcdc75d02ab0bd5244ad62b112564549562a12e95732465c851074a37f0d5b40",
+    "uniqueFileCount": 172
+  }
+}

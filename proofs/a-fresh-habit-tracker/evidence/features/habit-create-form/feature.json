@@ -1,0 +1,13 @@
+{
+	"category": "UI",
+	"createdAt": "2026-07-02T20:51:56.000Z",
+	"dependencies": ["habit-list-page", "habit-crud-api"],
+	"description": "form to create a new habit with name, cadence, notes, target",
+	"id": "habit-create-form",
+	"passes": true,
+	"priority": 3,
+	"spec": "1. Add a create-habit form using shadcn/ui inputs.\n2. Require a name; cadence defaults to daily.\n3. Allow optional notes and target.\n4. Submit via the create hook and show the new habit in the list.\n5. Validate empty name client-side before submit.\n6. Reset the form after a successful create.",
+	"status": "completed",
+	"title": "Add habit form",
+	"updatedAt": "2026-07-02T22:00:20.784Z"
+}

@@ -1,0 +1,28 @@
+commit	authored_at	subject
+2fc935423550610792d61c00d576ccbc49638c84	2026-07-03T14:05:49-05:00	init
+6d64191172e6ea7a4291bba4e2e9dcf35431779c	2026-07-03T14:11:21-05:00	docs(readme): describe SMB Infrastructure Dashboard product scope
+a40738bbc05c1241667a9d683ccecba4ccba23b3	2026-07-03T14:36:06-05:00	feat(db): add SMB infrastructure asset domain schema
+f7799e59b2d7c0980faa0037d43e02ed9558bfdb	2026-07-03T14:52:07-05:00	feat(assets): add asset CRUD and inventory list API
+620b107787a4023725a6b25d825db5a22bbd1aa0	2026-07-03T15:16:11-05:00	feat(assets): add tabbed asset detail page
+f051ffbefc8d5004b907e4db278596306a5646e6	2026-07-03T15:35:53-05:00	feat(assets): add searchable asset inventory page
+ff50ff96e3b1c5674c408ac0f6e0825df32ac5ba	2026-07-03T15:59:35-05:00	feat(dashboard): add operational infrastructure summary dashboard
+0527bc87cab89458335588eac368ea032e6e84f4	2026-07-03T16:19:31-05:00	feat(relationships): add directed asset relationship API with validation
+6d3984de8b92018031a3d178cb69697a071fc567	2026-07-03T16:41:05-05:00	feat(rbac): redact sensitive asset fields from low-privilege viewers
+9e6c6ecd9d453ed6aca86f9cc97640f61821a3d3	2026-07-03T16:57:22-05:00	feat(audit): surface filterable per-asset change history
+9db32ecfdc535a953ae5615d3658561032f05cad	2026-07-03T17:20:24-05:00	feat(dashboard): surface documentation-health signals and filterable lists
+2ed187a50cb855ee83a62067301ab869e4349b87	2026-07-03T17:39:59-05:00	feat(assets): track hardware profiles and lifecycle fields
+afdaf2368a6ac1ce0b9ba3d9afda3d56b033f511	2026-07-03T17:55:54-05:00	feat(assets): add network interface CRUD and detail-page management
+3cb525aba933791396ac324a7879314c84ac2d24	2026-07-03T18:09:52-05:00	feat(relationships): add accessible relationship table view
+a43b75c3da2094ba18083000ef81f4adcb3bb311	2026-07-03T18:35:07-05:00	feat(services): add business and technical service catalog
+8267cf7e5052a70a1670a95febd8060aaf20b04a	2026-07-03T18:55:32-05:00	feat(assets): assign catalog services to assets with role labels
+ba8da0358983b25ec13f8b437eac691035e994f3	2026-07-03T19:13:42-05:00	feat(search): add cross-domain global search across assets and services
+30e53af81f99bb13e901a5fc2e759d30a4e6d603	2026-07-03T19:31:48-05:00	feat(assets): track expected and observed ports per asset
+f9ccccff43f393a4635bb77fd0657153b88a15ad	2026-07-03T19:52:48-05:00	feat(settings): add infrastructure domain admin settings
+cebc4c00367471adf5cb694f3d2427d42e57118e	2026-07-03T20:22:13-05:00	feat(imports): add staged CSV asset import with review and apply
+03e7e4b898b29b52d3084bf6c3ad87dcd68ee6ad	2026-07-03T20:39:53-05:00	feat(reports): add CSV/JSON exports and audit-friendly reports
+2caf591a85ef0182af16d088a16ba5b1e677d3c6	2026-07-03T20:58:49-05:00	feat(impact): add upstream/downstream dependency impact analysis
+baa76614b8b6bd049e397befb07dcd77e0163416	2026-07-03T21:21:52-05:00	feat(relationships): add interactive dependency and topology map
+02e296b247f5a75b533cbfdf2cd15a904d35e822	2026-07-03T21:44:28-05:00	feat(assets): add reusable saved inventory filter views
+8750d0048c7a0e559e84b32eb4f04ece261261ae	2026-07-03T22:07:44-05:00	feat(storage): add storage allocation and capacity tracking
+84ec64e17639fc3b468829c94397f8ac1726a94a	2026-07-04T10:13:16-05:00	refactor(modularity): split 24 oversized modules under the 300-line gate
+4ec9747efca48772452a010251d4c668427c6c2c	2026-07-04T10:40:56-05:00	feat(security): scope asset/relationship/service data by workspace where enabled

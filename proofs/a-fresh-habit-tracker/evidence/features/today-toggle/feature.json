@@ -1,0 +1,13 @@
+{
+	"category": "UI",
+	"createdAt": "2026-07-02T20:51:56.000Z",
+	"dependencies": ["habit-list-page", "checkin-tracking"],
+	"description": "mark or unmark a habit done for today from the list",
+	"id": "today-toggle",
+	"passes": true,
+	"priority": 3,
+	"spec": "1. Wire the today toggle to the check-in mark/unmark hooks.\n2. Marking today increments the current streak immediately.\n3. Unmarking today decrements/resets the current streak.\n4. Prevent duplicate same-day marks (button reflects done state).\n5. Confirm the weekly grid updates in sync with the toggle.",
+	"status": "completed",
+	"title": "Today done toggle",
+	"updatedAt": "2026-07-02T22:15:42.651Z"
+}

@@ -1,0 +1,16 @@
+# .templateoverrides — acknowledge intentional divergence from the Spernakit template baseline.
+# Format:  ACTION  PATH  [# REASON]   (ACTION = SKIP | KEEP | DELETED)
+#   KEEP/SKIP  suppress drift on a file we intentionally maintain locally
+#   DELETED    suppress "missing-in-app" for a template file we intentionally removed
+
+# The API route-registration hub. Every SMB-domain feature must register its Elysia
+# routes here (this is the single wiring point, exactly as the template registers its
+# own auth/users/etc. routes). Our additions to the routePlugins chain are intentional
+# and required; keep our version rather than the stock template baseline.
+KEEP  backend/src/create-api-app.ts  # register SMB asset-domain routes (asset-inventory-api)
+
+# The settings tab list is the single wiring point for settings sub-pages (the
+# template hardcodes its own Application/Auth/Users/etc. tabs here). Adding the
+# Infrastructure domain settings tab requires editing this pure file; keep our
+# version rather than the stock template baseline.
+KEEP  frontend/src/pages/settings/SettingsLayout.tsx  # register Infrastructure settings tab (admin-settings)

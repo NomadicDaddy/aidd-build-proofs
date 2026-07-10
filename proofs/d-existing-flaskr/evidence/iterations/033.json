@@ -1,0 +1,95 @@
+{
+  "durationMs": 80425,
+  "endedAt": "2026-07-03T14:22:28.729Z",
+  "iteration": 0,
+  "runId": "run_1783088467420_86a5a1a2",
+  "snapshotKey": "claude-code/directive/directive/none",
+  "startedAt": "2026-07-03T14:21:08.304Z",
+  "summary": "directive run finished with exit code 0",
+  "timeToFirstEventMs": 7933,
+  "exitCode": 0,
+  "idleWarningTimestamps": [],
+  "promptChars": 35846,
+  "backend": "claude-code",
+  "executionMode": "single_agent",
+  "mode": "directive",
+  "model": "claude-opus-4-8",
+  "phase": "directive",
+  "provider": null,
+  "reasoningEffort": "medium",
+  "allowedFeatureIds": [],
+  "commands": [
+    "ls -la d:/applications/flaskr/.aidd/features/ 2>/dev/null; echo \"---ROADMAP---\"; ls d:/applications/flaskr/.aidd/roadmap.json 2>/dev/null",
+    "cd d:/applications/flaskr && git log --oneline -20",
+    "cd d:/applications/flaskr && echo \"=== git status --short ===\"; git status --short | head -30; echo \"=== csrf.py exists? ===\"; ls flaskr/csrf.py 2>/dev/null && echo FOUND || echo MISSING",
+    "cd d:/applications/flaskr && ls .aidd/CHANGELOG.md 2>/dev/null && tail -5 .aidd/CHANGELOG.md || echo \"NO CHANGELOG\"",
+    "cd d:/applications/flaskr && git add .aidd/CHANGELOG.md && git commit -m \"docs(aidd): record promote-remediation no-op (both remediations already shipped)\n\nCo-Authored-By: Claude Opus 4.8 <<REDACTED_EMAIL>>\" 2>&1 | tail -5"
+  ],
+  "commitsCreated": [
+    {
+      "hash": "ba3274aa928ceb6bc71538577d4ad96bc34a8459",
+      "subject": "docs(aidd): record promote-remediation no-op (both remediations already shipped)"
+    }
+  ],
+  "completedFeatures": [],
+  "detailsSummary": {
+    "bashCommandsRun": 5,
+    "finalChecks": {},
+    "hasBuildErrors": false,
+    "hasLintErrors": true,
+    "hasTypeErrors": false,
+    "totalToolCalls": 11,
+    "uniqueFilesCreated": 0,
+    "uniqueFilesEdited": 1,
+    "uniqueFilesRead": 4
+  },
+  "errors": [
+    {
+      "message": "Exit code 2\ntotal 0\ndrwxr-xr-x 1 phill 197609 0 Jul  3 08:42 .\ndrwxr-xr-x 1 phill 197609 0 Jul  3 09:18 ..\ndrwxr-xr-x 1 phill 197609 0 Jul  3 00:55 app-factory-and-configuration\ndrwxr-xr-x 1 phill 197609 0 Jul  3 01:51 audit-security-1783061475-add-http-security-response-headers-csp-x-frame-options-x-content-type-options-re\ndrwxr-xr-x 1 phill 197609 0 Jul  3 01:51 audit-security-1783061475-harden-the-flask-session-cookie-session-cookie-secure-samesite-httponly\ndrwxr-xr-x 1 phill 197609 0 Jul  3 ",
+      "type": "lint"
+    }
+  ],
+  "extraCompletedFeatures": [],
+  "filesCreated": [],
+  "filesEdited": [
+    "d:\\applications\\flaskr\\.aidd\\CHANGELOG.md"
+  ],
+  "filesRead": [
+    "d:\\applications\\flaskr\\CLAUDE.md",
+    "d:\\applications\\flaskr\\.aidd\\features\\remediation-20260703-missing-csrf-protection\\feature.json",
+    "d:\\applications\\flaskr\\.aidd\\features\\remediation-20260703-secret-key-hardcoded\\feature.json",
+    "d:\\applications\\flaskr\\.aidd\\CHANGELOG.md"
+  ],
+  "metrics": {
+    "cachedTokens": 0,
+    "costUsd": 0.6535549999999999,
+    "errorCount": 0,
+    "errorReasons": [],
+    "filesCreatedCount": 0,
+    "filesEditedCount": 1,
+    "idleWarningCount": 0,
+    "inputTokens": 29216,
+    "outputTokens": 5475,
+    "rateLimitCount": 0,
+    "reasoningTokens": 0,
+    "toolBreakdown": {
+      "bash": 5,
+      "read": 4,
+      "grep": 1,
+      "edit": 1
+    },
+    "toolCallCount": 11
+  },
+  "outcome": {
+    "exitCode": 0,
+    "status": "success"
+  },
+  "scopeOverrun": false,
+  "selectedFeatures": [],
+  "unacceptedCompletedFeatures": [],
+  "commitsCreatedCount": 1,
+  "filesCreatedCount": 0,
+  "filesEditedCount": 1,
+  "residualDirtyFilesCount": 26,
+  "stopRequested": false
+}

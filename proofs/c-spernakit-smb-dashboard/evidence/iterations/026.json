@@ -1,0 +1,138 @@
+{
+  "durationMs": 403574,
+  "endedAt": "2026-07-04T03:14:56.510Z",
+  "iteration": 5,
+  "runId": "cli_1783127932366_e29df55c",
+  "snapshotKey": "claude-code/coding/coding/none",
+  "startedAt": "2026-07-04T03:08:12.936Z",
+  "summary": "coding completed testing-scenarios; 1 incomplete feature(s) remain",
+  "timeToFirstEventMs": 4534,
+  "exitCode": 0,
+  "idleWarningTimestamps": [],
+  "promptChars": 57682,
+  "backend": "claude-code",
+  "executionMode": "single_agent",
+  "mode": "coding",
+  "model": "claude-opus-4-8",
+  "phase": "coding",
+  "provider": null,
+  "reasoningEffort": "medium",
+  "allowedFeatureIds": [
+    "testing-scenarios"
+  ],
+  "commands": [
+    "git log --oneline -5 && echo \"---STATUS---\" && git status --short",
+    "for f in .aidd/features/*/feature.json; do echo \"=== $f ===\"; cat \"$f\"; echo; done 2>/dev/null | head -200",
+    "for f in .aidd/features/*/feature.json; do id=$(grep -m1 '\"id\"' \"$f\" | sed 's/.*: *\"//;s/\".*//'); passes=$(grep -m1 '\"passes\"' \"$f\" | grep -o 'true\\|false'); status=$(grep -m1 '\"status\"' \"$f\" | sed 's/.*: *\"//;s/\".*//'); echo \"$passes | $status | $id\"; done",
+    "cat .aidd/features/testing-scenarios/feature.json",
+    "cat .aidd/roadmap.json 2>/dev/null | head -80",
+    "cat .aidd/testing-scenarios.md 2>/dev/null | head -120; echo \"=== EOF ===\"; wc -l .aidd/testing-scenarios.md 2>/dev/null",
+    "ls -la; echo \"=== crawltest ===\"; find . -iname \"*crawl*\" -not -path \"*/node_modules/*\" 2>/dev/null | head; echo \"=== package scripts ===\"; grep -A40 '\"scripts\"' package.json 2>/dev/null | head -60",
+    "cat scripts/crawltest-config.ts",
+    "grep -rn \"testing-scenarios\\|testing_scenarios\\|scenarios\" scripts/*.ts .aidd/ 2>/dev/null | grep -iv \"node_modules\" | head -30",
+    "sed -n '65,95p' .aidd/.artifacts-check.json",
+    "sed -n '1030,1045p' .aidd/CHANGELOG.md",
+    "ls .aidd/; echo \"=== spec size ===\"; wc -l .aidd/spec.md .aidd/screen-map.md 2>/dev/null",
+    "find frontend/src -maxdepth 2 -name \"routes*.tsx\" -o -maxdepth 2 -name \"App.tsx\" 2>/dev/null | head; echo \"=== pages ===\"; ls frontend/src/pages/ 2>/dev/null; echo \"=== assets pages ===\"; ls frontend/src/pages/assets 2>/dev/null",
+    "grep -rn \"path=\\|<Route\\|createBrowserRouter\\|element:\" frontend/src/App.tsx frontend/src/routes*.tsx frontend/src/router*.tsx 2>/dev/null | head -60",
+    "grep -rn \"SYSOP\\|VIEWER\\|MANAGER\\|OPERATOR\" backend/src/db/seed* backend/src/seed* 2>/dev/null | head; echo \"=== seed files ===\"; find backend -iname \"*seed*\" -not -path \"*/node_modules/*\" | head; echo \"=== dev users ===\"; grep -rn \"username\\|email.*@\\|password\" backend/src/db/seed*.ts 2>/dev/null | head -20",
+    "grep -rn \"username\\|role\\|password\" backend/src/db/seed/users*.ts backend/src/db/seed/constants.ts 2>/dev/null | head -40; echo \"=== seed dir ===\"; ls backend/src/db/seed/",
+    "grep -rn \"username:\\|role:\\|password:\\|SEED_USER\\|seedUserList\" backend/src/db/seed/*.ts backend/src/config* config/ 2>/dev/null | grep -i \"user\\|admin\\|sysop\\|viewer\\|manager\\|operator\" | head -30",
+    "grep -rn \"sysop\\|admin\\|manager\\|operator\\|viewer\" backend/src/db/seed/orchestration.ts backend/src/db/seed/index.ts | head -20; echo \"=== search whole backend for seedUserList def ===\"; grep -rln \"seedUserList\\|getSeedUsers\\|devSeedUsers\" backend/src --include=*.ts | head",
+    "grep -rn \"username\\|role\\|password\\|USERNAMES\\|sysop\\|viewer\" backend/src/utils/auth/passwordGenerator.ts | head -40",
+    "grep -rn \"name:\\|hostname:\\|'.*[Ss]erver\\|VM-\\|host\\|DNS\\|Active Directory\\|file share\\|backup\" backend/src/db/seed/domain.ts 2>/dev/null | head -50",
+    "grep -rn \"assets\\|createAsset\\|type:.*server\\|VIRTUAL\\|PHYSICAL\\|hypervisor\" backend/src/db/seed/domain.ts | head -30; echo \"=== line count ===\"; wc -l backend/src/db/seed/domain.ts",
+    "grep -rn \"port\\|3460\\|3461\\|PORT\" config/*.json 2>/dev/null | grep -i port | head; echo \"=== try curl ===\"; curl -s -o /dev/null -w \"3460:%{http_code}\\n\" http://localhost:3460 --max-time 5 2>/dev/null; curl -s -o /dev/null -w \"3461:%{http_code}\\n\" http://localhost:3461/api/v1/health --max-time 5 2>/dev/null",
+    "agent-browser open http://localhost:3460/dashboard 2>&1 | head -20",
+    "agent-browser open http://localhost:3460/ 2>&1 | head -20; echo \"=== title ===\"; agent-browser eval \"document.title\" 2>&1 | head -5",
+    "agent-browser snapshot -i -c 2>&1 | head -40",
+    "agent-browser fill @e8 \"operator\" 2>&1 | tail -1; agent-browser fill @e10 \"operator123\" 2>&1 | tail -1; agent-browser click @e11 2>&1 | tail -1; sleep 3; agent-browser eval \"location.pathname\" 2>&1 | head -3",
+    "agent-browser snapshot -c 2>&1 | head -50; echo \"=== CONSOLE ERRORS ===\"; agent-browser errors 2>&1 | head -20",
+    "agent-browser errors 2>&1; echo \"---EXIT $?---\"",
+    "agent-browser click @e15 2>&1 | tail -1; sleep 2; agent-browser eval \"location.pathname\" 2>&1 | head -2; echo \"=== inventory snapshot ===\"; agent-browser snapshot -c 2>&1 | grep -iE \"asset|table|filter|row|name|type|status|criticality|New|Add\" | head -25",
+    "bun run format 2>&1 | tail -15",
+    "bun run smoke:qc 2>&1 | tail -40",
+    "git status --short",
+    "git check-ignore .aidd/testing-scenarios.md .aidd/features/testing-scenarios/feature.json .aidd/CHANGELOG.md; echo \"---\"; git status --porcelain --ignored | grep -i \"testing-scenarios\\|aidd\" | head"
+  ],
+  "commitsCreated": [],
+  "completedFeatures": [
+    "testing-scenarios"
+  ],
+  "detailsSummary": {
+    "bashCommandsRun": 33,
+    "finalChecks": {
+      "smokeQc": "failed"
+    },
+    "hasBuildErrors": false,
+    "hasLintErrors": false,
+    "hasTypeErrors": false,
+    "totalToolCalls": 41,
+    "uniqueFilesCreated": 1,
+    "uniqueFilesEdited": 2,
+    "uniqueFilesRead": 4
+  },
+  "errors": [],
+  "extraCompletedFeatures": [],
+  "filesCreated": [
+    "D:\\applications\\smb-infrastructure-dashboard\\.aidd\\testing-scenarios.md"
+  ],
+  "filesEdited": [
+    "D:\\applications\\smb-infrastructure-dashboard\\.aidd\\features\\testing-scenarios\\feature.json",
+    "D:\\applications\\smb-infrastructure-dashboard\\.aidd\\CHANGELOG.md"
+  ],
+  "filesRead": [
+    "D:\\applications\\smb-infrastructure-dashboard\\.aidd\\spec.md",
+    "D:\\applications\\smb-infrastructure-dashboard\\frontend\\src\\routes.tsx",
+    "D:\\applications\\smb-infrastructure-dashboard\\.aidd\\features\\testing-scenarios\\feature.json",
+    "D:\\applications\\smb-infrastructure-dashboard\\.aidd\\CHANGELOG.md"
+  ],
+  "metrics": {
+    "cachedTokens": 0,
+    "costUsd": 2.5901945,
+    "errorCount": 0,
+    "errorReasons": [],
+    "filesCreatedCount": 1,
+    "filesEditedCount": 2,
+    "idleWarningCount": 0,
+    "inputTokens": 25081,
+    "outputTokens": 17711,
+    "rateLimitCount": 0,
+    "reasoningTokens": 0,
+    "toolBreakdown": {
+      "bash": 33,
+      "read": 4,
+      "skill": 1,
+      "write": 1,
+      "edit": 2
+    },
+    "toolCallCount": 41
+  },
+  "outcome": {
+    "exitCode": 0,
+    "status": "completion_pending_commit"
+  },
+  "scopeOverrun": false,
+  "selectedFeatures": [
+    "testing-scenarios"
+  ],
+  "unacceptedCompletedFeatures": [
+    "testing-scenarios"
+  ],
+  "completionMarkerIssue": "completion_marker_missing_or_unaccepted",
+  "backendCompletionFinalizedEarly": true,
+  "completionPendingCommit": true,
+  "featureSlug": "testing-scenarios",
+  "featureDescription": "End-to-end crawl scenarios for dashboard and inventory flows",
+  "commitsCreatedCount": 0,
+  "filesCreatedCount": 1,
+  "filesEditedCount": 2,
+  "residualDirtyFilesCount": 0,
+  "stopRequested": false,
+  "completedFeature": "testing-scenarios",
+  "eligibleFeatures": 1,
+  "remainingDependencyBlockedFeatures": 0,
+  "remainingFeatures": 1,
+  "remainingPendingApproval": 0,
+  "completionOutcome": "completed"
+}

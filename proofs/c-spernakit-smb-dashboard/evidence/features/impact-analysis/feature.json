@@ -1,0 +1,16 @@
+{
+  "id": "impact-analysis",
+  "title": "Upstream and downstream dependency impact view",
+  "description": "Impact analysis from any asset or service",
+  "category": "Core",
+  "dependencies": [
+    "relationship-model"
+  ],
+  "status": "completed",
+  "passes": true,
+  "priority": 4,
+  "createdAt": "2026-07-03T14:10:00.000Z",
+  "justFinishedAt": null,
+  "spec": "1. Compute what depends on an asset, what it depends on, and which business services are affected.\n2. Expose impact analysis from asset detail and relationship views.\n3. Answer 'what breaks if this asset is offline?'.\n4. Verify multi-hop impact traversal via API and UI.",
+  "updatedAt": "2026-07-04T01:40:13.325Z"
+}

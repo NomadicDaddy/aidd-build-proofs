@@ -1,0 +1,16 @@
+{
+  "id": "export-reports",
+  "title": "CSV/JSON exports and management summaries",
+  "description": "Export assets, relationships, services, ports, and dashboard summaries",
+  "category": "Core",
+  "dependencies": [
+    "asset-inventory-api"
+  ],
+  "status": "completed",
+  "passes": true,
+  "priority": 4,
+  "createdAt": "2026-07-03T14:10:00.000Z",
+  "justFinishedAt": null,
+  "spec": "1. Export assets, relationship lists, services, ports, and dashboard summaries to CSV and JSON.\n2. Provide printable/exportable management summaries.\n3. Provide audit-friendly reports for changes, ownership gaps, exposed ports, and lifecycle status.\n4. Verify exports contain correct, permission-filtered data.",
+  "updatedAt": "2026-07-04T01:45:00.000Z"
+}

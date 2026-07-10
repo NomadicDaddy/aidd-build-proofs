@@ -1,0 +1,27 @@
+commit	authored_at	subject
+522b12287629afd4662117c3174435c4d8e1d653	2026-07-02T21:27:42-05:00	chore(quality): add typecheck + smoke:qc gate and adopt prettier
+9c71c98227eca204b51e4ae0add258b15caff6fb	2026-07-02T21:29:05-05:00	chore(quality): enable typescript strict mode in tsconfigs
+514314899e8049ad7605d39533f498f7999ddfab	2026-07-02T21:30:32-05:00	chore(quality): remove vestigial spernakit eslint config drift
+b182087c42d4c6a059b6b017be447255e478571d	2026-07-02T21:41:12-05:00	chore(aidd): onboard product feature backlog + fill tracking docs
+510d10d01e1469c07d5f734ff6b623a1d6e4fd8e	2026-07-02T21:51:31-05:00	feat(board): add board/column/card domain model and store
+e245ca5eae39d36c573d0a34acbc6f1f2a8f675d	2026-07-02T22:03:35-05:00	feat(persistence): hydrate + persist board state to localStorage
+f9d34b66efda6974948659191af6ce0fc7bc497f	2026-07-02T22:09:47-05:00	feat(ui): build kanban app shell with header + horizontal columns
+d28232e5cc67400a98dfbf8a7cd5a49077577825	2026-07-02T22:16:35-05:00	feat(board): add board management — create/rename/delete/switch
+7d1bb188d7f701d3a6303d57fd6c7a20c70d558e	2026-07-02T22:21:19-05:00	feat(board): add column management — add/rename/delete/reorder columns
+6754c533e3290f3847e4347f77f1663c6ad681a3	2026-07-02T22:25:29-05:00	feat(board): render columns and cards in order with empty states
+eb61fb6394c16fa619ff273b67ebee92e6a5b1df	2026-07-02T22:31:45-05:00	feat(card): add card CRUD — title, description, labels
+f065d9ba2bde494638e20ac45dae7e6d464698e8	2026-07-02T22:36:44-05:00	feat(card): add shared card editor modal for create/edit
+a7ee28a2a43ecff3f3ace30e533c5cef22719e5d	2026-07-02T22:41:24-05:00	feat(card): truncate description preview and guard card overflow
+40a958319aa1809ec2a5e68d557a6aa84ba35f3a	2026-07-02T22:44:44-05:00	feat(board): verify and complete board switcher UI
+3e086718df54ab8270d832ffc3867d2ba0b4edd0	2026-07-02T22:53:31-05:00	feat(dnd): drag cards within/across columns and reorder columns
+88ece2e0d0c18986beaaf46293503b1d3033d513	2026-07-02T22:57:09-05:00	feat(column): block deleting a non-empty column
+afa96117c402c59a7e754ccb479a1f5b662c7d1d	2026-07-02T22:59:28-05:00	feat(column): verify and complete column header controls
+49b5067686cb1f5f1cde06799f3244d88690fa90	2026-07-02T23:02:36-05:00	docs(testing): record blocker for testing-scenarios (scenario 9 needs board-filters-search)
+e7c4ae838fb41aacdccb28fe48c2ce5c97753cfc	2026-07-02T23:09:51-05:00	feat(filter): filter and search cards by text and label
+96420f60bc28cb246ba6bf260c03e2ba695660ce	2026-07-02T23:12:44-05:00	feat(ui): complete empty and first-run states
+7dc1084133c116d2b1e3b553274f376b2977257a	2026-07-02T23:16:56-05:00	feat(a11y): keyboard-accessible card move and visible focus ring
+6158624e87d1bb64d2659ddcd1eff14738821c72	2026-07-02T23:20:14-05:00	feat(persistence): reject version-mismatched state, fall back to seed
+3ddb0627700f54c90520f6851cb5b892ef490401	2026-07-02T23:23:45-05:00	feat(ui): verify and complete responsive board layout
+1b4493453c029af814117a35775da5a8fb861959	2026-07-02T23:25:20-05:00	docs(usage): document shipped kanban UI in README
+f9788551f32ef8fa896fcbedfc210bc56a56d51a	2026-07-02T23:25:41-05:00	docs(usage): record usage-documentation in changelog
+d1d0eeaa6a412d88f241a191d9eff76dee81c67c	2026-07-02T23:31:30-05:00	test(scenarios): add headless acceptance scenarios wired into smoke:qc

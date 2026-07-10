@@ -1,0 +1,111 @@
+{
+  "durationMs": 192092,
+  "endedAt": "2026-07-03T04:02:48.708Z",
+  "iteration": 13,
+  "runId": "cli_1783046564992_bb3f91c0",
+  "snapshotKey": "claude-code/coding/coding/none",
+  "startedAt": "2026-07-03T03:59:36.616Z",
+  "summary": "coding finished with exit code 0; 7 incomplete feature(s) remain",
+  "timeToFirstEventMs": 3367,
+  "exitCode": 0,
+  "idleWarningTimestamps": [],
+  "promptChars": 57196,
+  "backend": "claude-code",
+  "executionMode": "single_agent",
+  "mode": "coding",
+  "model": "claude-opus-4-8",
+  "phase": "coding",
+  "provider": null,
+  "reasoningEffort": "medium",
+  "allowedFeatureIds": [
+    "testing-scenarios"
+  ],
+  "commands": [
+    "pwd && ls -la && echo \"---CLAUDE---\" && ls CLAUDE.md AGENTS.md 2>/dev/null && echo \"---FEATURE---\" && cat .aidd/features/testing-scenarios/feature.json",
+    "cat .aidd/features/testing-scenarios/feature.json && echo \"---PROJECT.MD---\" && ls .aidd/project.md 2>/dev/null && echo \"---ROADMAP---\" && cat .aidd/roadmap.json 2>/dev/null | head -80",
+    "cat .aidd/project.md 2>/dev/null; echo \"===DEPS===\"; for f in card-crud card-drag-and-drop local-persistence; do echo -n \"$f: \"; jq -r '.passes' .aidd/features/$f/feature.json 2>/dev/null || echo MISSING; done; echo \"===PKG===\"; cat package.json",
+    "cat .aidd/testing-scenarios.md 2>/dev/null; echo \"===SRC TREE===\"; find src -type f | head -60; echo \"===SCRIPTS===\"; ls scripts 2>/dev/null",
+    "grep -rni \"filter\\|search\\|query\" src --include=*.tsx --include=*.ts -l; echo \"===labels===\"; grep -rni \"label\" src/types/board.ts",
+    "grep -rni \"filter\\|search\\|query\" src/store/selectors.ts src/store/boardStore.ts src/components/CardItem.tsx src/components/ColumnLane.tsx",
+    "for d in .aidd/features/*/; do id=$(basename \"$d\"); printf \"%-32s passes=%s status=%s\\n\" \"$id\" \"$(jq -r .passes \"$d/feature.json\")\" \"$(jq -r .status \"$d/feature.json\")\"; done",
+    "echo \"===board-filters-search===\"; cat .aidd/features/board-filters-search/feature.json; echo \"===persistence-resilience===\"; cat .aidd/features/persistence-resilience/feature.json",
+    "bun run smoke:qc 2>&1 | tail -20",
+    "bun run format >/dev/null 2>&1 && bun run smoke:qc 2>&1 | tail -3",
+    "git add .aidd/CHANGELOG.md .aidd/features/testing-scenarios/feature.json && git diff --staged --name-only && git commit -m \"docs(testing): record blocker for testing-scenarios (scenario 9 needs board-filters-search)\" -m \"- Scenario 9 (filter/search by text+label) requires the separate unbuilt feature board-filters-search; implementing it is out of scope per the single-feature scope guard\" -m \"- Scenarios 1-8 and 10 are supported by existing passing features (persistence resilience already handled in persistence.ts)\" -m \"- Set testing-scenarios status to waiting_approval, passes remains false; smoke:qc green\" 2>&1 | tail -8",
+    "git status --short | grep -E \"testing-scenarios|CHANGELOG\" || echo \"clean (selected feature committed)\""
+  ],
+  "commitsCreated": [
+    {
+      "hash": "49b5067686cb1f5f1cde06799f3244d88690fa90",
+      "subject": "docs(testing): record blocker for testing-scenarios (scenario 9 needs board-filters-search)"
+    }
+  ],
+  "completedFeatures": [],
+  "detailsSummary": {
+    "bashCommandsRun": 12,
+    "finalChecks": {},
+    "hasBuildErrors": false,
+    "hasLintErrors": true,
+    "hasTypeErrors": false,
+    "totalToolCalls": 18,
+    "uniqueFilesCreated": 0,
+    "uniqueFilesEdited": 2,
+    "uniqueFilesRead": 4
+  },
+  "errors": [
+    {
+      "message": "Exit code 2\n<WORKSPACE>/kanban-board\ntotal 62\ndrwxr-xr-x 1 phill 197609     0 Jul  2 22:56 .\ndrwxr-xr-x 1 phill 197609     0 Jul  2 21:42 ..\ndrwxr-xr-x 1 phill 197609     0 Jul  2 22:59 .aidd\n-rw-r--r-- 1 phill 197609   167 Jun 29 18:43 .editorconfig\ndrwxr-xr-x 1 phill 197609     0 Jul  2 22:59 .git\n-rw-r--r-- 1 phill 197609  1441 Jun 29 18:43 .gitattributes\n-rw-r--r-- 1 phill 197609   253 Jul  2 20:08 .gitignore\n-rw-r--r-- 1 phill 197609     3 Jun 29 18:43 .nvmrc\n-rw-r--r-- 1 phill 197609  ",
+      "type": "lint"
+    }
+  ],
+  "extraCompletedFeatures": [],
+  "filesCreated": [],
+  "filesEdited": [
+    "D:\\applications\\kanban-board\\.aidd\\CHANGELOG.md",
+    "D:\\applications\\kanban-board\\.aidd\\features\\testing-scenarios\\feature.json"
+  ],
+  "filesRead": [
+    "D:\\applications\\kanban-board\\src\\App.tsx",
+    "D:\\applications\\kanban-board\\src\\store\\persistence.ts",
+    "D:\\applications\\kanban-board\\.aidd\\CHANGELOG.md",
+    "D:\\applications\\kanban-board\\.aidd\\features\\testing-scenarios\\feature.json"
+  ],
+  "metrics": {
+    "cachedTokens": 0,
+    "costUsd": 1.371513,
+    "errorCount": 0,
+    "errorReasons": [],
+    "filesCreatedCount": 0,
+    "filesEditedCount": 2,
+    "idleWarningCount": 0,
+    "inputTokens": 24004,
+    "outputTokens": 12642,
+    "rateLimitCount": 0,
+    "reasoningTokens": 0,
+    "toolBreakdown": {
+      "bash": 12,
+      "read": 4,
+      "edit": 2
+    },
+    "toolCallCount": 18
+  },
+  "outcome": {
+    "exitCode": 0,
+    "status": "success"
+  },
+  "scopeOverrun": false,
+  "selectedFeatures": [],
+  "unacceptedCompletedFeatures": [],
+  "featureSlug": "testing-scenarios",
+  "featureDescription": "Crawl Testing Scenarios (CRUD, DnD, Persistence)",
+  "commitsCreatedCount": 1,
+  "filesCreatedCount": 0,
+  "filesEditedCount": 2,
+  "residualDirtyFilesCount": 23,
+  "stopRequested": false,
+  "completedFeature": null,
+  "eligibleFeatures": 6,
+  "remainingDependencyBlockedFeatures": 0,
+  "remainingFeatures": 7,
+  "remainingPendingApproval": 1
+}

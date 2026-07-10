@@ -1,0 +1,17 @@
+{
+  "id": "network-interface-tracking",
+  "title": "IP, MAC, subnet, VLAN, DNS, and zone records",
+  "description": "Network interface and addressing records per asset",
+  "category": "Core",
+  "dependencies": [
+    "asset-domain-schema",
+    "asset-detail-page"
+  ],
+  "status": "completed",
+  "passes": true,
+  "priority": 3,
+  "createdAt": "2026-07-03T14:10:00.000Z",
+  "justFinishedAt": null,
+  "spec": "1. Persist asset_network_interfaces with MAC, IP, subnet, VLAN, DNS name, and network zone.\n2. Support multiple interfaces per asset.\n3. Link interfaces to network_zones records.\n4. Surface addressing data on the asset detail network section.\n5. Verify create/update/delete of interfaces via API and UI.",
+  "updatedAt": "2026-07-03T22:40:40.883Z"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "relationship-table-view",
+  "title": "Accessible table fallback for relationships",
+  "description": "Structured relationship list view",
+  "category": "UI",
+  "dependencies": [
+    "relationship-model"
+  ],
+  "status": "completed",
+  "passes": true,
+  "priority": 3,
+  "createdAt": "2026-07-03T14:10:00.000Z",
+  "justFinishedAt": null,
+  "spec": "1. Add a table view listing relationships with type, direction, source, target, confidence, and notes.\n2. Support filtering by type, owner, site, criticality, status, and relationship type.\n3. Ensure every graph result has a table/list equivalent.\n4. Verify the table renders and filters via agent-browser.",
+  "updatedAt": "2026-07-03T22:56:15.136Z"
+}

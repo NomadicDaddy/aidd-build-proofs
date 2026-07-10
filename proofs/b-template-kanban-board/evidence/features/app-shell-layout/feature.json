@@ -1,0 +1,16 @@
+{
+  "id": "app-shell-layout",
+  "title": "Kanban App Shell (replace stock Vite scaffold)",
+  "description": "Replace the stock Vite starter (counter + doc/social links) in src/App.tsx with the kanban application shell: header, active-board region, and a horizontal columns area.",
+  "category": "UI",
+  "dependencies": [
+    "board-domain-model"
+  ],
+  "status": "completed",
+  "passes": true,
+  "priority": 2,
+  "createdAt": "2026-07-02T00:00:00.000Z",
+  "justFinishedAt": null,
+  "spec": "1. Remove the stock counter/doc/social-links markup from src/App.tsx\n2. Render an app header showing the app name and the active board name\n3. Render a horizontal, scrollable columns area beneath the header\n4. Wire the shell to the store so it renders the active board from state\n5. Verify no leftover references to hero/react/vite starter assets remain in the rendered UI\n6. Verify the page has no console errors on load (agent-browser errors is empty)",
+  "updatedAt": "2026-07-03T03:03:50.853Z"
+}

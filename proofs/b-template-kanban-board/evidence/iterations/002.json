@@ -1,0 +1,81 @@
+{
+  "durationMs": 65730,
+  "endedAt": "2026-07-03T01:22:19.601Z",
+  "iteration": 0,
+  "runId": "run_1783041672831_f49ed656",
+  "snapshotKey": "claude-code/interview/interview/none",
+  "startedAt": "2026-07-03T01:21:13.871Z",
+  "summary": "interview questions generation attempted but file not found",
+  "timeToFirstEventMs": 3101,
+  "exitCode": 0,
+  "idleWarningTimestamps": [],
+  "promptChars": 12966,
+  "backend": "claude-code",
+  "executionMode": "single_agent",
+  "mode": "interview",
+  "model": "claude-opus-4-8",
+  "phase": "interview",
+  "provider": null,
+  "reasoningEffort": "medium",
+  "allowedFeatureIds": [],
+  "commands": [
+    "ls -la .aidd/ 2>/dev/null && echo \"---QUESTIONS---\" && cat .aidd/questions.md 2>/dev/null && echo \"---RESPONSES---\" && ls -la .aidd/responses/ 2>/dev/null",
+    "echo \"---active-runs---\"; ls -la .aidd/active-runs/; echo \"---runs.jsonl---\"; cat .aidd/runs.jsonl; echo \"---iterations---\"; ls -la .aidd/iterations/ | tail -20",
+    "cat .aidd/active-runs/run_1783041672831_f49ed656.json",
+    "grep -a -i -o -E \"(question|interview)[^\\\"]{0,200}\" \"D:\\\\applications\\\\aidd\\\\data\\\\run-logs\\\\run_1783041672831_f49ed656.log\" 2>/dev/null | head -30",
+    "echo \"---_common---\"; ls -R .aidd/_common/ 2>/dev/null | head; echo \"---reports---\"; ls -la .aidd/reports/; echo \"---responses.md---\"; cat .aidd/responses.md 2>/dev/null; echo \"(none)\"; echo \"---spec---\"; cat .aidd/spec.md",
+    "cat .aidd/reports/session-pipe_1783041419784_91b3a533.json; echo; echo \"---CHANGELOG---\"; cat .aidd/CHANGELOG.md"
+  ],
+  "commitsCreated": [],
+  "completedFeatures": [],
+  "detailsSummary": {
+    "bashCommandsRun": 6,
+    "finalChecks": {},
+    "hasBuildErrors": false,
+    "hasLintErrors": false,
+    "hasTypeErrors": false,
+    "totalToolCalls": 7,
+    "uniqueFilesCreated": 1,
+    "uniqueFilesEdited": 0,
+    "uniqueFilesRead": 0
+  },
+  "errors": [],
+  "extraCompletedFeatures": [],
+  "filesCreated": [
+    "d:\\applications\\kanban-board\\.aidd\\responses\\response1.md"
+  ],
+  "filesEdited": [],
+  "filesRead": [],
+  "metrics": {
+    "cachedTokens": 0,
+    "costUsd": 0.50155,
+    "errorCount": 0,
+    "errorReasons": [],
+    "filesCreatedCount": 1,
+    "filesEditedCount": 0,
+    "idleWarningCount": 0,
+    "inputTokens": 24657,
+    "outputTokens": 4426,
+    "rateLimitCount": 0,
+    "reasoningTokens": 0,
+    "toolBreakdown": {
+      "bash": 6,
+      "write": 1
+    },
+    "toolCallCount": 7
+  },
+  "outcome": {
+    "exitCode": 0,
+    "status": "success"
+  },
+  "scopeOverrun": false,
+  "selectedFeatures": [],
+  "unacceptedCompletedFeatures": [],
+  "commitsCreatedCount": 0,
+  "filesCreatedCount": 1,
+  "filesEditedCount": 0,
+  "residualDirtyFilesCount": 0,
+  "stopRequested": false,
+  "questionsFile": "d:\\applications\\kanban-board\\.aidd\\questions.md",
+  "questionsGenerated": false
+}

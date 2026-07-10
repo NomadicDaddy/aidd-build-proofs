@@ -1,0 +1,17 @@
+{
+  "id": "column-delete-nonempty-rule",
+  "title": "Non-Empty Column Delete Rule",
+  "description": "Implement and enforce the defined behavior when deleting a column that still holds cards — per spec, MVP may block deleting a non-empty column; whichever rule is chosen must be predictable and must not orphan cards.",
+  "category": "Core",
+  "dependencies": [
+    "column-management",
+    "card-crud"
+  ],
+  "status": "completed",
+  "passes": true,
+  "priority": 3,
+  "createdAt": "2026-07-02T00:00:00.000Z",
+  "justFinishedAt": null,
+  "spec": "1. Choose and document the rule (block delete of a non-empty column OR move/remove its cards predictably)\n2. Verify deleting an empty column succeeds\n3. Verify deleting a non-empty column follows the chosen rule exactly\n4. Verify no card entity is left orphaned (referenced by no column) after the operation\n5. Verify the rule outcome persists across reload",
+  "updatedAt": "2026-07-03T03:53:45.595Z"
+}

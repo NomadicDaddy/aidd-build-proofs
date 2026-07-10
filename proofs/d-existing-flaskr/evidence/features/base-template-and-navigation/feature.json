@@ -1,0 +1,14 @@
+{
+	"id": "base-template-and-navigation",
+	"title": "Base template with conditional navigation",
+	"category": "UI",
+	"description": "The base template (base.html) provides the shared page scaffold: title block, static CSS link, a navigation bar that switches between Register/Log In (anonymous) and username/Log Out (authenticated) based on g.user, and a flash-message display section. All other templates extend this base.",
+	"priority": 4,
+	"status": "completed",
+	"passes": true,
+	"spec": "1. Verify flaskr/templates/base.html defines an HTML scaffold with a title block ('{% block title %}'), a CSS link to static/style.css, and a content block.\n2. Verify the nav element conditionally renders: when g.user is set, shows the username span and a Log Out link (url_for 'auth.logout'); when g.user is None, shows Register and Log In links.\n3. Verify a flash-message loop renders get_flashed_messages() inside a .flash div.\n4. Verify all templates (register, login, index, create, update) extend base.html and populate its blocks.",
+	"dependencies": ["app-factory-and-configuration", "user-authentication"],
+	"affectedFiles": ["flaskr/templates/base.html", "flaskr/static/style.css"],
+	"createdAt": "2026-07-04T00:00:00.000Z",
+	"updatedAt": "2026-07-04T00:00:00.000Z"
+}

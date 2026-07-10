@@ -1,0 +1,13 @@
+{
+	"category": "Core",
+	"createdAt": "2026-07-02T20:51:56.000Z",
+	"dependencies": ["habit-crud-api", "frontend-bootstrap"],
+	"description": "frontend API modules, independent types, and TanStack Query hooks",
+	"id": "api-client-layer",
+	"passes": true,
+	"priority": 3,
+	"spec": "1. Define frontend API types independently in frontend/src/api/types.ts.\n2. Add an API module per domain using native fetch (no Axios).\n3. Add TanStack Query hooks for listing, creating, updating, and archiving habits.\n4. Add hooks for check-in toggle and habit stats.\n5. Confirm the frontend does not import from the backend workspace.\n6. Verify query invalidation refreshes lists after mutations.",
+	"status": "completed",
+	"title": "Frontend API client and types",
+	"updatedAt": "2026-07-02T21:33:42.244Z"
+}

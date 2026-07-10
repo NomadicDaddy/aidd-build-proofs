@@ -1,0 +1,17 @@
+{
+  "id": "storage-tracking",
+  "title": "Storage appliance, pool, volume, allocation, and capacity",
+  "description": "Storage capacity and allocation tracking",
+  "category": "Core",
+  "dependencies": [
+    "asset-domain-schema",
+    "asset-detail-page"
+  ],
+  "status": "completed",
+  "passes": true,
+  "priority": 4,
+  "createdAt": "2026-07-03T14:10:00.000Z",
+  "justFinishedAt": null,
+  "spec": "1. Persist storage appliances, pools/volumes, and asset_storage_allocations.\n2. Track used capacity, free capacity, and assets depending on each pool.\n3. Surface storage data on asset detail and dashboard storage summary.\n4. Verify capacity math and allocation links via API and UI.",
+  "updatedAt": "2026-07-04T02:45:16.414Z"
+}

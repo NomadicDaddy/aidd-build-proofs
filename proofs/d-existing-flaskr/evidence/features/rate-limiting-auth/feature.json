@@ -1,0 +1,21 @@
+{
+  "id": "rate-limiting-auth",
+  "title": "Add rate limiting / brute-force protection on login and register",
+  "description": "There is no rate limiting or lockout on the login or register endpoints, exposing the app to credential brute-force attacks. This is verified finding S4 (Medium, assertions.md §3). Implementation requires a rate-limiting strategy (e.g. Flask-Limiter or a custom middleware). Scope depends on the Q2 stack fork and Q6 security posture answers.",
+  "category": "Security",
+  "dependencies": [
+    "user-authentication"
+  ],
+  "status": "completed",
+  "passes": true,
+  "notes": "Resolved 2026-07-03 on the Flask stack (Q2 = keep Flask). Implemented a dependency-free in-memory rate limiter in flaskr/ratelimit.py (sliding window per client IP) enforced via before_request on the auth.login and auth.register POST endpoints; returns HTTP 429 once RATELIMIT_MAX_ATTEMPTS (default 5) is exceeded within RATELIMIT_WINDOW_SECONDS (default 60). Registered in create_app; disabled by default under TESTING (RATELIMIT_ENABLED), mirroring flaskr/csrf.py, so the pre-existing 28 tests pass unchanged. Added ratelimit_app/ratelimit_client fixtures and 4 tests covering login brute-force throttling, register flood throttling, no-throttle-by-default, and GET requests unaffected. Full suite green: 32 passed.",
+  "priority": 3,
+  "spec": "1. Add rate limiting to POST /auth/login to prevent brute-force password guessing (e.g. max N attempts per IP per time window).\n2. Add rate limiting to POST /auth/register to prevent automated account creation.\n3. Return HTTP 429 (Too Many Requests) when the limit is exceeded.\n4. Add a test verifying the rate-limit response after exceeding the threshold.\n5. Ensure the rate limit does not interfere with legitimate single-attempt usage in tests.",
+  "affectedFiles": [
+    "flaskr/auth.py",
+    "flaskr/__init__.py",
+    "tests/test_auth.py"
+  ],
+  "createdAt": "2026-07-04T00:00:00.000Z",
+  "updatedAt": "2026-07-03T14:04:13.309Z"
+}

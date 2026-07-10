@@ -1,0 +1,28 @@
+commit	authored_at	subject
+1e48e3ada706be804488dd15945b4e90189f1823	2026-07-02T15:59:24-05:00	chore: initialize habit-tracker project
+ecd093a4a7c99a690c42f03df39216fe8f806167	2026-07-02T15:59:54-05:00	chore(aidd): record run ledger
+283bb30c2bfd57e0084f8717b6b05a5a85537635	2026-07-02T16:04:56-05:00	feat(backend): add config loader and Elysia bootstrap under /api/v1
+01ab7533ce171402b7f79318dc53e012fd6c332c	2026-07-02T16:10:57-05:00	feat(db): add habits and checkins Drizzle schema with unique (habit, date)
+09702117b32e614b3dbd6a52e620c7e92e34f61f	2026-07-02T16:12:58-05:00	feat(devex): wire typecheck into smoke:qc quality gate
+3d71dccdd2664ff2c80eec2d51c4c703d4f46ab7	2026-07-02T16:21:57-05:00	feat(frontend): scaffold React 19 app shell with router, query, and zustand
+ddd3d42c922e002799351cb7da5f3c7f2bb28205	2026-07-02T16:25:52-05:00	feat(api): implement habit CRUD REST endpoints under /api/v1
+e1c72a6b93901c569e9f1c2d88f42b474c16998a	2026-07-02T16:29:56-05:00	feat(api): add TypeBox params validation to habit routes
+079c2c591d56c1e7e61e30a7a8696196114e5947	2026-07-02T16:33:12-05:00	feat(api): add habit check-in tracking endpoints
+8f4a7983d04ef74defbbf658cd9f7158160d2788	2026-07-02T16:41:23-05:00	feat(api): add frontend API client, types, and TanStack Query hooks
+8fce7f445e3d4a380e2a18bcd80b270fbb5adde4	2026-07-02T16:46:14-05:00	feat(api): serve OpenAPI contract at /api/v1/docs/json
+0cfc4827e041e3bf0b1c00319ba54c4a8631143a	2026-07-02T16:49:44-05:00	feat(ui): add navigation bar and routes for dashboard, habits, and detail
+2e96bb73506d761b14b158e3c20795dc907167df	2026-07-02T16:59:58-05:00	feat(ui): implement habit list page with today toggle and 7-day grid
+2c63a44796e90edf669b163d87311115b68dd780	2026-07-02T17:04:11-05:00	feat(ui): add create-habit form to the habit list page
+878d9bc9f0e300f7c0fa7dbc65f03d6309102c2c	2026-07-02T17:07:21-05:00	feat(db): add dev seed script for sample habits and streaks
+a98878910d9a126a7e317a5bfd05c3269f71b073	2026-07-02T17:12:30-05:00	feat(api): add habit streak and completion stats endpoint
+7eb1811575e20325c4ecd3e1ee5008e845adcfd5	2026-07-02T17:15:33-05:00	feat(ui): display current, longest, and 30-day streak stats
+701dd88c355f93134158cfa571c9bd2c448ad984	2026-07-02T17:17:47-05:00	feat(ui): verify and complete today done toggle
+38bf9b9a147b787f150714601b6e44beccd9a254	2026-07-02T17:20:30-05:00	feat(ui): verify and complete rolling weekly check-in grid
+1951db1a33ae501582eb520a244eed1ae294f68f	2026-07-02T17:26:56-05:00	feat(ui): build dashboard overview with progress, weekly grid, and toggles
+137d8f95beae1509401dfbcc9667f6a186047021	2026-07-02T17:32:22-05:00	feat(ui): link empty states to the create-habit action
+1098d97ff81c3101eec884f2cd38404efa1fb1c9	2026-07-02T17:40:36-05:00	feat(ui): add sonner toasts for mutation errors and success feedback
+ed861bf68054acf5509326b69d7f71ea5c300571	2026-07-02T17:46:23-05:00	feat(ui): add archive habit action with inline confirm step
+9a4d96e9e6362023916764a8162e2e2614afcd97	2026-07-02T17:50:19-05:00	feat(ui): add inline edit form for habit name, notes, and target
+5e3bad0f0d834b9b8a06f7d4fd5ab8df56e61cd0	2026-07-02T17:55:33-05:00	feat(ui): make layout responsive across mobile and desktop widths
+5054d8d3770a911096425908c24d9a96b2abfab4	2026-07-02T18:15:21-05:00	test(crawltest): add route crawler scenarios for list, toggle, and dashboard
+9326ccbc1db69aea1bb0c37fcdce88bbf0ec9f33	2026-07-02T18:20:50-05:00	feat(ui): apply theme before paint to prevent reload flash

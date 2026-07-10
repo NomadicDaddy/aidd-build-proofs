@@ -1,0 +1,84 @@
+{
+  "durationMs": 86361,
+  "endedAt": "2026-07-03T05:34:41.481Z",
+  "iteration": 2,
+  "runId": "run_1783056642215_b8c89a94",
+  "snapshotKey": "claude-code/interview/interview/none",
+  "startedAt": "2026-07-03T05:33:15.120Z",
+  "summary": "interview questions generation attempted but file not found",
+  "timeToFirstEventMs": 4022,
+  "exitCode": 0,
+  "idleWarningTimestamps": [],
+  "promptChars": 12958,
+  "backend": "claude-code",
+  "executionMode": "single_agent",
+  "mode": "interview",
+  "model": "claude-opus-4-8",
+  "phase": "interview",
+  "provider": null,
+  "reasoningEffort": "medium",
+  "allowedFeatureIds": [],
+  "commands": [
+    "ls -la d:/applications/flaskr/.aidd/ && echo \"---responses---\" && ls -la d:/applications/flaskr/.aidd/responses/ 2>/dev/null",
+    "echo \"===== active-runs =====\" && find d:/applications/flaskr/.aidd/active-runs/ -type f | head -50 && echo \"===== responses/response1.md =====\" && cat d:/applications/flaskr/.aidd/responses/response1.md",
+    "echo \"===== run record =====\" && cat d:/applications/flaskr/.aidd/active-runs/run_1783056642215_b8c89a94.json && echo \"\" && echo \"===== iterations =====\" && ls -la d:/applications/flaskr/.aidd/iterations/ && echo \"===== questions.md exists? =====\" && ls -la d:/applications/flaskr/.aidd/questions.md 2>&1",
+    "cd d:/applications/flaskr && ls flaskr/ 2>/dev/null && echo \"---\" && head -5 .aidd/project.md"
+  ],
+  "commitsCreated": [],
+  "completedFeatures": [],
+  "detailsSummary": {
+    "bashCommandsRun": 4,
+    "finalChecks": {},
+    "hasBuildErrors": false,
+    "hasLintErrors": false,
+    "hasTypeErrors": false,
+    "totalToolCalls": 9,
+    "uniqueFilesCreated": 1,
+    "uniqueFilesEdited": 0,
+    "uniqueFilesRead": 3
+  },
+  "errors": [],
+  "extraCompletedFeatures": [],
+  "filesCreated": [
+    "d:\\applications\\flaskr\\.aidd\\responses\\response1.md"
+  ],
+  "filesEdited": [],
+  "filesRead": [
+    "d:\\applications\\flaskr\\.aidd\\questions.md",
+    "d:\\applications\\flaskr\\.aidd\\iterations\\004.json",
+    "d:\\applications\\flaskr\\.aidd\\responses\\response1.md"
+  ],
+  "metrics": {
+    "cachedTokens": 0,
+    "costUsd": 0.48778999999999995,
+    "errorCount": 0,
+    "errorReasons": [],
+    "filesCreatedCount": 1,
+    "filesEditedCount": 0,
+    "idleWarningCount": 0,
+    "inputTokens": 23675,
+    "outputTokens": 6197,
+    "rateLimitCount": 0,
+    "reasoningTokens": 0,
+    "toolBreakdown": {
+      "read": 3,
+      "bash": 4,
+      "write": 2
+    },
+    "toolCallCount": 9
+  },
+  "outcome": {
+    "exitCode": 0,
+    "status": "success"
+  },
+  "scopeOverrun": false,
+  "selectedFeatures": [],
+  "unacceptedCompletedFeatures": [],
+  "commitsCreatedCount": 0,
+  "filesCreatedCount": 1,
+  "filesEditedCount": 0,
+  "residualDirtyFilesCount": 24,
+  "stopRequested": false,
+  "questionsFile": "d:\\applications\\flaskr\\.aidd\\questions.md",
+  "questionsGenerated": false
+}

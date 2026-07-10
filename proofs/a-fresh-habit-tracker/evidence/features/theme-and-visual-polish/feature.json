@@ -1,0 +1,13 @@
+{
+	"category": "UI",
+	"createdAt": "2026-07-02T20:51:56.000Z",
+	"dependencies": ["frontend-bootstrap"],
+	"description": "shadcn/ui theming with light/dark mode and consistent visuals",
+	"id": "theme-and-visual-polish",
+	"passes": true,
+	"priority": 5,
+	"spec": "1. Apply a consistent shadcn/ui theme and typography scale.\n2. Support light and dark modes via a Zustand theme store with persist.\n3. Ensure sufficient color contrast for check-in cells and toggles.\n4. Confirm the theme persists across reloads.",
+	"status": "completed",
+	"title": "Theme and visual polish",
+	"updatedAt": "2026-07-02T23:15:36.188Z"
+}

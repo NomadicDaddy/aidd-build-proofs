@@ -1,0 +1,13 @@
+{
+	"category": "UI",
+	"createdAt": "2026-07-02T20:51:56.000Z",
+	"dependencies": ["habit-list-page", "dashboard-overview"],
+	"description": "responsive Tailwind layout for list, grid, and dashboard",
+	"id": "responsive-layout-styling",
+	"passes": true,
+	"priority": 4,
+	"spec": "1. Ensure the layout adapts from mobile to desktop widths.\n2. Keep the weekly grid legible on narrow screens.\n3. Confirm navigation collapses gracefully on small viewports.\n4. Verify no horizontal overflow at common breakpoints.",
+	"status": "completed",
+	"title": "Responsive layout",
+	"updatedAt": "2026-07-02T22:50:30.050Z"
+}

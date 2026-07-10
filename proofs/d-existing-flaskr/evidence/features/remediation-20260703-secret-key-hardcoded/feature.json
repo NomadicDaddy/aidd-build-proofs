@@ -1,0 +1,25 @@
+{
+  "id": "remediation-20260703-secret-key-hardcoded",
+  "title": "Remediation: enforce a non-default SECRET_KEY",
+  "description": "The app-factory hardcodes SECRET_KEY=\"dev\" and the instance override is silent+absent, so the session-cookie signing key is the public dev value and sessions are forgeable. The fix must ensure no deployable default secret ships and startup fails fast when the key is unset or still \"dev\".",
+  "category": "Security",
+  "dependencies": [],
+  "status": "completed",
+  "passes": true,
+  "priority": 1,
+  "affectedFiles": [
+    "flaskr/__init__.py",
+    "instance/config.py",
+    "tests/test_factory.py"
+  ],
+  "createdAt": "2026-07-03T05:41:52Z",
+  "notes": "Source: response1.md | Claims: claim-001 | Verified: 2026-07-03. Corroborated by .aidd/response-review.md and CODEBASE_ANALYSIS-2026-07-03.md (S1, Critical). Confirmed firsthand at flaskr/__init__.py:11 (SECRET_KEY=\"dev\" still present; no instance/config.py). RESOLUTION: BLOCKED, held for product-owner approval (waiting_approval). This remediation is a fork-in-the-road dependent on the unresolved interview Q2 (project.md 'spernakit-like' TS/Bun vs. actual Python/Flask). assertions.md §9 is authoritative: 'Both remediation specs are written against current Flask paths and must be rewritten — not just re-pathed — if Q2 resolves to port. Hold both features at backlog until answered.' Implementing the Flask fail-fast SECRET_KEY guard now is agent judgment on a product decision (prohibited by the Blocking-Ambiguity constraint) and would be discarded/rewritten under a port. Security review 2026-07-03 (SECURITY audit directive) re-confirmed S1 is real and the spec is correctly scoped; the only gate to completion is the Q2 decision + provisioning posture (Q6: how SECRET_KEY/instance config is supplied in production). RESOLUTION (2026-07-03, completed): product owner approved proceeding on the Flask stack (feature moved waiting_approval -> in_progress with approval.approvedAt set, decisionRequired:false via web-ui). Removed the hardcoded SECRET_KEY=\"dev\" default in flaskr/__init__.py; SECRET_KEY is now sourced from the SECRET_KEY environment variable (or instance/config.py, which is gitignored so no secret ships in source). create_app now fails fast with RuntimeError in non-test mode when SECRET_KEY is unset or still \"dev\". The guard keys on the TESTING flag: tests without a key get a throwaway \"test\" key so session signing still works. Updated tests/test_factory.py: test_config now passes a real SECRET_KEY, and new test_secret_key_required asserts create_app raises for \"dev\" and unset keys outside test mode. Full pytest suite green: 25 passed.",
+  "spec": "1. Verify flaskr/__init__.py no longer sets the literal SECRET_KEY=\"dev\" as a deployable default in the create_app config mapping (currently line 11).\n2. Verify SECRET_KEY is sourced from instance config (instance/config.py) or an environment variable, with no hardcoded production secret left in source.\n3. Verify create_app fails fast (raises at startup) in non-test mode when SECRET_KEY is unset or still equals \"dev\", so a forgeable-session deployment cannot start.\n4. Verify the pytest suite continues to build the app without tripping the guard: the fail-fast check must key on test mode (test_config is not None / app.config[\"TESTING\"]) rather than on \"SECRET_KEY != dev\", because tests/conftest.py constructs the app via create_app({\"TESTING\": True, \"DATABASE\": db_path}) and supplies no SECRET_KEY.\n5. Verify tests/test_factory.py is updated: its existing test_config() calls bare create_app() in non-test mode, which will trip the new guard, so update that call (or exempt TESTING mode) and add an assertion that a default/\"dev\" SECRET_KEY is rejected outside test mode.",
+  "updatedAt": "2026-07-03T13:54:30.137Z",
+  "approval": {
+    "approvedAt": "2026-07-03T13:34:24.344Z",
+    "decision": null,
+    "decisionRequired": false,
+    "source": "web-ui"
+  }
+}

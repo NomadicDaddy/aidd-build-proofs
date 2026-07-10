@@ -1,0 +1,112 @@
+{
+  "durationMs": 244170,
+  "endedAt": "2026-07-04T03:38:26.447Z",
+  "iteration": 0,
+  "runId": "cli_1783136062224_1d0fabe2",
+  "snapshotKey": "claude-code/coding/coding/none",
+  "startedAt": "2026-07-04T03:34:22.277Z",
+  "summary": "coding completed testing-scenarios; 1 incomplete feature(s) remain",
+  "timeToFirstEventMs": 3693,
+  "exitCode": 0,
+  "idleWarningTimestamps": [],
+  "promptChars": 57524,
+  "backend": "claude-code",
+  "executionMode": "single_agent",
+  "mode": "coding",
+  "model": "claude-opus-4-8",
+  "phase": "coding",
+  "provider": null,
+  "reasoningEffort": "medium",
+  "allowedFeatureIds": [
+    "testing-scenarios"
+  ],
+  "commands": [
+    "cat .aidd/features/testing-scenarios/feature.json 2>/dev/null; echo \"---GITLOG---\"; git log --oneline -5; echo \"---STATUS---\"; git status --short",
+    "wc -l .aidd/testing-scenarios.md 2>/dev/null && echo \"EXISTS\"; echo \"---\"; git check-ignore .aidd/testing-scenarios.md && echo \"IGNORED\"",
+    "grep -rEoh \"path[:=] ?[\\\"'][^\\\"']+[\\\"']\" frontend/src 2>/dev/null | grep -oE \"/(dashboard|assets|relationships|relationships/map|services|search|reports|reports/summary|imports)\" | sort -u",
+    "curl -s -o /dev/null -w \"backend %{http_code}\\n\" http://localhost:3461/health 2>/dev/null; curl -s -o /dev/null -w \"frontend %{http_code}\\n\" http://localhost:3460 2>/dev/null",
+    "agent-browser open http://localhost:3460 2>&1 | tail -3; echo \"---SNAP---\"; agent-browser snapshot -i -c 2>&1 | head -40",
+    "agent-browser open http://127.0.0.1:3460 2>&1 | tail -3; echo \"---SNAP---\"; agent-browser snapshot -i -c 2>&1 | head -50",
+    "agent-browser eval \"document.location.href + ' | ' + document.title\" 2>&1 | tail -2; echo \"---FULL---\"; agent-browser snapshot -c 2>&1 | head -40",
+    "agent-browser fill @e8 \"operator\" 2>&1 | tail -1; agent-browser fill @e10 \"operator123\" 2>&1 | tail -1; agent-browser click @e11 2>&1 | tail -1; sleep 2; agent-browser eval \"document.location.pathname\" 2>&1 | tail -1",
+    "agent-browser errors 2>&1 | tail -5; echo \"---SNAP---\"; agent-browser snapshot -c 2>&1 | grep -iE \"asset|stale|owner|backup|total|physical|virtual\" | head -20",
+    "bun run smoke:qc 2>&1 | tail -30",
+    "git check-ignore .aidd/features/testing-scenarios/feature.json && echo \"feature.json IGNORED\"; echo \"---\"; git status --short",
+    "git status --short"
+  ],
+  "commitsCreated": [],
+  "completedFeatures": [
+    "testing-scenarios"
+  ],
+  "detailsSummary": {
+    "bashCommandsRun": 12,
+    "finalChecks": {
+      "smokeQc": "failed"
+    },
+    "hasBuildErrors": false,
+    "hasLintErrors": false,
+    "hasTypeErrors": false,
+    "totalToolCalls": 19,
+    "uniqueFilesCreated": 0,
+    "uniqueFilesEdited": 2,
+    "uniqueFilesRead": 3
+  },
+  "errors": [],
+  "extraCompletedFeatures": [],
+  "filesCreated": [],
+  "filesEdited": [
+    "D:\\applications\\smb-infrastructure-dashboard\\.aidd\\features\\testing-scenarios\\feature.json",
+    "D:\\applications\\smb-infrastructure-dashboard\\.aidd\\CHANGELOG.md"
+  ],
+  "filesRead": [
+    "D:\\applications\\smb-infrastructure-dashboard\\.aidd\\testing-scenarios.md",
+    "D:\\applications\\smb-infrastructure-dashboard\\.aidd\\features\\testing-scenarios\\feature.json",
+    "D:\\applications\\smb-infrastructure-dashboard\\.aidd\\CHANGELOG.md"
+  ],
+  "metrics": {
+    "cachedTokens": 0,
+    "costUsd": 1.1917325000000003,
+    "errorCount": 0,
+    "errorReasons": [],
+    "filesCreatedCount": 0,
+    "filesEditedCount": 2,
+    "idleWarningCount": 0,
+    "inputTokens": 18252,
+    "outputTokens": 8063,
+    "rateLimitCount": 0,
+    "reasoningTokens": 0,
+    "toolBreakdown": {
+      "bash": 12,
+      "read": 3,
+      "edit": 4
+    },
+    "toolCallCount": 19
+  },
+  "outcome": {
+    "exitCode": 0,
+    "status": "completion_pending_commit"
+  },
+  "scopeOverrun": false,
+  "selectedFeatures": [
+    "testing-scenarios"
+  ],
+  "unacceptedCompletedFeatures": [
+    "testing-scenarios"
+  ],
+  "completionMarkerIssue": "completion_marker_missing_or_unaccepted",
+  "backendCompletionFinalizedEarly": true,
+  "completionPendingCommit": true,
+  "featureSlug": "testing-scenarios",
+  "featureDescription": "End-to-end crawl scenarios for dashboard and inventory flows",
+  "commitsCreatedCount": 0,
+  "filesCreatedCount": 0,
+  "filesEditedCount": 2,
+  "residualDirtyFilesCount": 1,
+  "stopRequested": false,
+  "completedFeature": "testing-scenarios",
+  "eligibleFeatures": 1,
+  "remainingDependencyBlockedFeatures": 0,
+  "remainingFeatures": 1,
+  "remainingPendingApproval": 0,
+  "completionOutcome": "completed"
+}

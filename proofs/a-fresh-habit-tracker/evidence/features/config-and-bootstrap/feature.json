@@ -1,0 +1,13 @@
+{
+	"category": "Core",
+	"createdAt": "2026-07-02T20:51:56.000Z",
+	"dependencies": [],
+	"description": "JSON config loader and Elysia app bootstrap under /api/v1",
+	"id": "config-and-bootstrap",
+	"passes": true,
+	"priority": 1,
+	"spec": "1. Create config/habit-tracker.json with app, database, and server sections.\n2. Implement a config loader in backend/src that reads the JSON config (no .env).\n3. Bootstrap an Elysia app mounted under /api/v1 with pino logging.\n4. Add a health route (GET /api/v1/health) returning ok status.\n5. Confirm the backend starts and the database path resolves to data/habit-tracker.db.\n6. Verify no database file is created outside data/ at project root.",
+	"status": "completed",
+	"title": "Backend config loader and Elysia bootstrap",
+	"updatedAt": "2026-07-02T21:00:39.998Z"
+}

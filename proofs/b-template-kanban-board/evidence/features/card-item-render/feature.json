@@ -1,0 +1,17 @@
+{
+  "id": "card-item-render",
+  "title": "Card Item Rendering",
+  "description": "A card component that renders title, optional description preview, and label chips, and exposes edit/delete affordances.",
+  "category": "UI",
+  "dependencies": [
+    "card-crud",
+    "app-shell-layout"
+  ],
+  "status": "completed",
+  "passes": true,
+  "priority": 2,
+  "createdAt": "2026-07-02T00:00:00.000Z",
+  "justFinishedAt": null,
+  "spec": "1. Render the card title prominently\n2. Render a truncated description preview when present\n3. Render label chips when present\n4. Expose edit and delete affordances on the card\n5. Verify long titles/descriptions do not break the layout",
+  "updatedAt": "2026-07-03T03:36:56.305Z"
+}

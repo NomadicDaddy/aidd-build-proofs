@@ -1,0 +1,17 @@
+{
+  "id": "documentation-health",
+  "title": "Staleness, missing-owner, missing-backup, and gap signals",
+  "description": "Documentation health indicators surfaced on the dashboard",
+  "category": "Core",
+  "dependencies": [
+    "asset-inventory-api",
+    "dashboard-summary-cards"
+  ],
+  "status": "completed",
+  "passes": true,
+  "priority": 3,
+  "createdAt": "2026-07-03T14:10:00.000Z",
+  "justFinishedAt": null,
+  "spec": "1. Compute stale assets against a configurable stale-data threshold.\n2. Detect missing owner, missing backup status, missing relationship map, missing service role, and unverified port data.\n3. Surface these as dashboard health signals and filterable list views.\n4. Verify each signal against seeded gap data.",
+  "updatedAt": "2026-07-03T21:57:51.965Z"
+}

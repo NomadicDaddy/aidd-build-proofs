@@ -1,0 +1,16 @@
+{
+  "id": "remediation-remove-config-drift",
+  "title": "Remove Vestigial Spernakit Config Drift",
+  "description": "Remove vestigial spernakit-era configuration that carried over into the bare vite-react scaffold: two orphaned eslint.config.js files, the empty frontend/ directory, and (if prettier is not adopted) the orphaned .prettierrc. These reference backend/, scripts/, drizzle, tailwind, and components/ui that do not exist here and cannot run.",
+  "category": "Quality",
+  "dependencies": [
+    "remediation-quality-gate-scripts"
+  ],
+  "status": "completed",
+  "passes": true,
+  "priority": 2,
+  "createdAt": "2026-07-02T00:00:00Z",
+  "notes": "Removed the two orphaned spernakit-era eslint.config.js files (root + frontend/) — both imported uninstalled packages (@eslint/js, typescript-eslint, eslint-plugin-perfectionist, eslint-plugin-react-hooks, etc.) and referenced nonexistent backend/**, scripts/**, drizzle.config.ts, tailwind.config.js paths; linting in this repo runs via oxlint (.oxlintrc.json), so these configs were dead and unrunnable. Deleted the now-empty frontend/ directory (it contained only the removed eslint config). Kept .prettierrc: it is backed by installed prettier@3.9.4 + prettier-plugin-organize-attributes + prettier-plugin-sort-json (adopted in remediation-quality-gate-scripts) and no longer references prettier-plugin-tailwindcss, so it is live, not orphaned. bun run smoke:qc (typecheck + oxlint + tsc -b && vite build + format:check) passes clean after cleanup.",
+  "spec": "1. Verify the root eslint.config.js is removed OR replaced with a config whose plugins are actually installed and whose file globs match this repo (no backend/**, scripts/**, drizzle.config.ts references)\n2. Verify frontend/eslint.config.js is removed and, if frontend/ then contains no other files, the empty frontend/ directory is removed\n3. Verify .prettierrc is either backed by installed prettier + plugins (see remediation-quality-gate-scripts) or removed — no config referencing prettier-plugin-tailwindcss while tailwind/prettier are uninstalled\n4. Verify linting still runs via `bun run lint` (oxlint) with no errors after cleanup\n5. Verify `bun run build` still passes after cleanup\n6. Rationale: dead configuration referencing a spernakit stack that this client-only Vite SPA does not have will mislead contributors and cannot execute; the repo should match its actual bare-Vite shape",
+  "updatedAt": "2026-07-03T02:29:15.189Z"
+}

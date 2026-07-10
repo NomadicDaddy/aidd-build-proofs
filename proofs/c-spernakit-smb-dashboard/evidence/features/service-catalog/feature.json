@@ -1,0 +1,16 @@
+{
+  "id": "service-catalog",
+  "title": "Business and technical service catalog",
+  "description": "Service catalog with name, category, owner, criticality, and backing assets",
+  "category": "Core",
+  "dependencies": [
+    "asset-domain-schema"
+  ],
+  "status": "completed",
+  "passes": true,
+  "priority": 3,
+  "createdAt": "2026-07-03T14:10:00.000Z",
+  "justFinishedAt": null,
+  "spec": "1. Add API + UI for the service catalog (name, category, owner, criticality, expected availability, business purpose).\n2. Track service dependencies on other services and infrastructure assets.\n3. Show backing assets for each service.\n4. Seed example services (AD, DNS, DHCP, file share, backup, VPN, database).\n5. Verify CRUD via API and UI.",
+  "updatedAt": "2026-07-03T23:10:12.429Z"
+}

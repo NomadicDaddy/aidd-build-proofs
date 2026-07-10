@@ -1,0 +1,17 @@
+{
+  "id": "card-drag-and-drop",
+  "title": "Drag-and-Drop — Cards Within/Across Columns + Column Reorder",
+  "description": "Drag cards to reorder within a column and to move across columns (changing status), and reorder columns, updating the cardOrder / columnOrder arrays deterministically.",
+  "category": "Core",
+  "dependencies": [
+    "card-crud",
+    "column-management"
+  ],
+  "status": "completed",
+  "passes": true,
+  "priority": 3,
+  "createdAt": "2026-07-02T00:00:00.000Z",
+  "justFinishedAt": null,
+  "spec": "1. Drag a card to a new position within the same column; verify cardOrder updates to match\n2. Drag a card from one column to another; verify it is removed from the source cardOrder and inserted into the target cardOrder at the drop index\n3. Verify the card columnId is updated to the target column\n4. Verify dropping a card renders it at the exact drop position, not just appended\n5. Reorder columns by dragging; verify board.columnOrder updates\n6. Verify a drag that is cancelled/dropped outside leaves state unchanged\n7. Verify dragging the only card out of a column leaves an empty but valid column\n8. Verify no duplicate ids appear in any order array after moves\n9. Verify within-column reorder persists across reload\n10. Verify cross-column move persists across reload\n11. Verify there are no console errors during drag operations\n12. Verify `bun run smoke:qc` passes",
+  "updatedAt": "2026-07-03T03:44:56.031Z"
+}

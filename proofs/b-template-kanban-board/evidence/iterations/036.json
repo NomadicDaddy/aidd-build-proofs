@@ -1,0 +1,94 @@
+{
+  "durationMs": 121044,
+  "endedAt": "2026-07-03T02:01:20.819Z",
+  "iteration": 0,
+  "runId": "run_1783043958746_f3ab93ab",
+  "snapshotKey": "claude-code/directive/directive/none",
+  "startedAt": "2026-07-03T01:59:19.775Z",
+  "summary": "directive run finished with exit code 0",
+  "timeToFirstEventMs": 4942,
+  "exitCode": 0,
+  "idleWarningTimestamps": [],
+  "promptChars": 29535,
+  "backend": "claude-code",
+  "executionMode": "single_agent",
+  "mode": "directive",
+  "model": "claude-opus-4-8",
+  "phase": "directive",
+  "provider": null,
+  "reasoningEffort": "medium",
+  "allowedFeatureIds": [],
+  "commands": [
+    "ls -la d:/applications/kanban-board/.aidd/ 2>&1 | head -40",
+    "ls d:/applications/kanban-board/.aidd/features/ 2>&1",
+    "cd d:/applications/kanban-board && find src frontend -type f \\( -name '*.tsx' -o -name '*.ts' \\) 2>/dev/null | grep -v node_modules | head -60",
+    "cd d:/applications/kanban-board && find src -type f 2>/dev/null | grep -v node_modules | sort",
+    "cd d:/applications/kanban-board && wc -l src/App.tsx && cat package.json 2>/dev/null | head -40",
+    "cd d:/applications/kanban-board && git add .aidd/testing-scenarios.md .aidd/CHANGELOG.md && git commit -m \"docs(testing): seed testing-scenarios catalog for kanban-board\n\nAuthor 10 spernakit-tester scenarios from spec.md blueprint covering board/\ncolumn/card management, drag-and-drop, filter/search, and localStorage\npersistence resilience. Client-only SPA so no RBAC scenarios.\n\nCo-Authored-By: Claude Opus 4.8 <<REDACTED_EMAIL>>\" 2>&1 | tail -15",
+    "cd d:/applications/kanban-board && git status --short 2>&1 | head && echo \"---check ignore---\" && git check-ignore -v .aidd/testing-scenarios.md 2>&1",
+    "cd d:/applications/kanban-board && git rev-parse --show-toplevel 2>&1 && echo \"---\" && git log --oneline -3 -- .aidd/ 2>&1 && echo \"---head of gitignore---\" && head -5 .gitignore 2>&1",
+    "cd d:/applications && head -20 .gitignore 2>&1 && echo \"=== is kanban-board tracked? ===\" && git ls-files kanban-board/ 2>&1 | head -5 && echo \"=== count tracked in kanban-board ===\" && git ls-files kanban-board/ 2>&1 | wc -l",
+    "cd d:/applications/kanban-board && ls -la .git 2>&1 | head -3; echo \"=== .git exists? ===\"; test -e .git && echo \"yes .git present\" || echo \"no .git here\""
+  ],
+  "commitsCreated": [],
+  "completedFeatures": [],
+  "detailsSummary": {
+    "bashCommandsRun": 10,
+    "finalChecks": {},
+    "hasBuildErrors": false,
+    "hasLintErrors": false,
+    "hasTypeErrors": false,
+    "totalToolCalls": 18,
+    "uniqueFilesCreated": 1,
+    "uniqueFilesEdited": 1,
+    "uniqueFilesRead": 6
+  },
+  "errors": [],
+  "extraCompletedFeatures": [],
+  "filesCreated": [
+    "d:\\applications\\kanban-board\\.aidd\\testing-scenarios.md"
+  ],
+  "filesEdited": [
+    "d:\\applications\\kanban-board\\.aidd\\CHANGELOG.md"
+  ],
+  "filesRead": [
+    "d:\\applications\\kanban-board\\.aidd\\testing-scenarios.md",
+    "d:\\applications\\kanban-board\\.aidd\\spec.md",
+    "d:\\applications\\kanban-board\\.aidd\\project.md",
+    "d:\\applications\\kanban-board\\.aidd\\project-structure.md",
+    "d:\\applications\\kanban-board\\src\\App.tsx",
+    "d:\\applications\\kanban-board\\.aidd\\CHANGELOG.md"
+  ],
+  "metrics": {
+    "cachedTokens": 0,
+    "costUsd": 0.865509,
+    "errorCount": 0,
+    "errorReasons": [],
+    "filesCreatedCount": 1,
+    "filesEditedCount": 1,
+    "idleWarningCount": 0,
+    "inputTokens": 29353,
+    "outputTokens": 7925,
+    "rateLimitCount": 0,
+    "reasoningTokens": 0,
+    "toolBreakdown": {
+      "bash": 10,
+      "read": 6,
+      "write": 1,
+      "edit": 1
+    },
+    "toolCallCount": 18
+  },
+  "outcome": {
+    "exitCode": 0,
+    "status": "success"
+  },
+  "scopeOverrun": false,
+  "selectedFeatures": [],
+  "unacceptedCompletedFeatures": [],
+  "commitsCreatedCount": 0,
+  "filesCreatedCount": 1,
+  "filesEditedCount": 1,
+  "residualDirtyFilesCount": 0,
+  "stopRequested": false
+}

@@ -1,0 +1,15 @@
+{
+	"id": "blog-post-management",
+	"title": "Blog post listing and author-scoped CRUD",
+	"category": "Blog",
+	"description": "The blog blueprint (mounted at '/') lists all posts newest-first with their author, and lets logged-in users create, update, and delete posts. Title is required on create/update. get_post enforces existence (404) and, for update/delete, author ownership (403). All mutating routes are guarded by login_required.",
+	"priority": 3,
+	"status": "completed",
+	"passes": true,
+	"spec": "1. Verify flaskr/blog.py defines a Blueprint 'blog' registered in create_app and reachable at '/'.\n2. Verify GET / (index) selects post JOIN user ordered by created DESC and renders blog/index.html with all posts and their username.\n3. Verify GET/POST /create is login_required, requires a title (flash 'Title is required.'), inserts the post with author_id = g.user['id'], and redirects to blog.index; renders blog/create.html on GET.\n4. Verify GET/POST /<int:id>/update is login_required, loads the post via get_post (404 if missing, 403 if not author), requires a title, updates title/body, and redirects to blog.index; renders blog/update.html on GET.\n5. Verify POST /<int:id>/delete is login_required, calls get_post (404/403 checks), deletes the post, and redirects to blog.index.\n6. Verify get_post(id, check_author=True) aborts 404 for a missing id and 403 when g.user is not the author. The 404 abort MUST be generic (abort(404) or a static message); it MUST NOT interpolate the requested id into the error body (no reflecting user-controlled input into error pages).\n7. Verify tests/test_blog.py covers index rendering, login-required redirects, create/update/delete, author_required (403), and exists_required (404).",
+	"dependencies": ["user-authentication", "database-and-init-db-cli"],
+	"affectedFiles": ["flaskr/blog.py", "flaskr/templates/blog/index.html", "flaskr/templates/blog/create.html", "flaskr/templates/blog/update.html", "flaskr/templates/base.html", "tests/test_blog.py"],
+	"notes": "Backfilled by feature-coverage-audit from current implementation evidence on 2026-07-03. Documents shipped, test-passing behavior (24 passed). NOTE: the create/update/delete forms lack CSRF protection (S2 in .aidd/assertions.md), tracked by a backlog remediation feature; the verbose 404 body that leaked the post id (S7) has been remediated — get_post now calls a generic abort(404) (see spec point 6). This record describes current behavior. Re-target if the Q2 stack fork resolves to a port.",
+	"createdAt": "2026-07-03T07:00:00Z",
+	"updatedAt": "2026-07-03T07:00:00Z"
+}

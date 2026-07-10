@@ -1,0 +1,15 @@
+{
+	"id": "user-authentication",
+	"title": "User registration, login, logout, and session-based auth",
+	"category": "Authentication",
+	"description": "The auth blueprint (url_prefix /auth) provides account registration, login, and logout backed by a signed session cookie. Registration validates required username/password, stores a werkzeug-hashed password, and rejects duplicate usernames. Login verifies the hash, clears the session (fixation mitigation) and stores user_id. A before_app_request hook loads the logged-in user into g.user, and a login_required decorator redirects anonymous users to the login page.",
+	"priority": 3,
+	"status": "completed",
+	"passes": true,
+	"spec": "1. Verify flaskr/auth.py defines a Blueprint 'auth' with url_prefix '/auth' registered in create_app.\n2. Verify GET/POST /auth/register renders auth/register.html and, on POST, requires username and password, inserts the user with generate_password_hash, flashes 'User {username} is already registered.' on IntegrityError (unique username), and redirects to auth.login on success.\n3. Verify GET/POST /auth/login renders auth/login.html, looks up the user, rejects with 'Incorrect username.'/'Incorrect password.' via check_password_hash, and on success calls session.clear() then sets session['user_id'] and redirects to index.\n4. Verify GET /auth/logout clears the session and redirects to index.\n5. Verify load_logged_in_user (before_app_request) sets g.user from session['user_id'], and login_required redirects anonymous users to auth.login.\n6. Verify tests/test_auth.py covers register, login, logout, session population, and login_required.",
+	"dependencies": ["database-and-init-db-cli"],
+	"affectedFiles": ["flaskr/auth.py", "flaskr/templates/auth/register.html", "flaskr/templates/auth/login.html", "flaskr/templates/base.html", "tests/test_auth.py"],
+	"notes": "Backfilled by feature-coverage-audit from current implementation evidence on 2026-07-03. Documents shipped, test-passing behavior (24 passed). NOTE: state-changing forms here have no CSRF protection and the session cookie is signed with the default 'dev' key (S1, S2 in .aidd/assertions.md), tracked by the backlog remediation features; this record describes current behavior, not the hardened target. Re-target if the Q2 stack fork resolves to a port.",
+	"createdAt": "2026-07-03T07:00:00Z",
+	"updatedAt": "2026-07-03T07:00:00Z"
+}

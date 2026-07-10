@@ -1,0 +1,115 @@
+{
+  "durationMs": 111071,
+  "endedAt": "2026-07-03T14:32:25.879Z",
+  "iteration": 0,
+  "runId": "cli_1783089034761_5e0f7117",
+  "snapshotKey": "claude-code/coding/coding/none",
+  "startedAt": "2026-07-03T14:30:34.808Z",
+  "summary": "coding has no incomplete feature work",
+  "timeToFirstEventMs": 5220,
+  "exitCode": 0,
+  "idleWarningTimestamps": [],
+  "promptChars": 56278,
+  "backend": "claude-code",
+  "executionMode": "single_agent",
+  "mode": "coding",
+  "model": "claude-opus-4-8",
+  "phase": "coding",
+  "provider": null,
+  "reasoningEffort": "medium",
+  "allowedFeatureIds": [
+    "audit-security-1783061475-remove-post-id-from-the-404-error-body-in-get-post"
+  ],
+  "commands": [
+    "ruff check flaskr tests && python -m pytest -q 2>&1 | tail -20",
+    "ruff check flaskr tests",
+    "pytest -q 2>&1 | tail -20",
+    "ls -d venv .venv env 2>/dev/null; ls *.cfg *.toml 2>/dev/null; which python ruff pytest 2>/dev/null",
+    "source .venv/Scripts/activate && ruff check flaskr tests && pytest -q 2>&1 | tail -15",
+    "git add flaskr/blog.py .aidd/features/audit-security-1783061475-remove-post-id-from-the-404-error-body-in-get-post/feature.json .aidd/features/blog-post-management/feature.json && git diff --staged --name-only",
+    "git add .aidd/CHANGELOG.md && git commit -m \"fix(security): remove post id from the 404 error body in get_post\" -m \"- flaskr/blog.py: replaced abort(404, f\\\"Post id {id} doesn't exist.\\\") with generic abort(404)\" -m \"- hardened blog-post-management spec point 6 to forbid interpolating the id into the 404 body\" -m \"- Verified: ruff clean, pytest 34 passed; test_exists_required (status-only) unaffected\" -m \"Co-Authored-By: Claude Opus 4.8 <<REDACTED_EMAIL>>\"",
+    "git status --short | grep -E \"feature.json|blog.py\" || echo \"no tracked feature/source files dirty\""
+  ],
+  "commitsCreated": [
+    {
+      "hash": "aa8ac41b09050e5636c9e063ed486b569aa4c7aa",
+      "subject": "fix(security): remove post id from the 404 error body in get_post"
+    }
+  ],
+  "completedFeatures": [
+    "audit-security-1783061475-remove-post-id-from-the-404-error-body-in-get-post"
+  ],
+  "detailsSummary": {
+    "bashCommandsRun": 8,
+    "finalChecks": {},
+    "hasBuildErrors": false,
+    "hasLintErrors": false,
+    "hasTypeErrors": false,
+    "totalToolCalls": 26,
+    "uniqueFilesCreated": 0,
+    "uniqueFilesEdited": 4,
+    "uniqueFilesRead": 7
+  },
+  "errors": [],
+  "extraCompletedFeatures": [],
+  "filesCreated": [],
+  "filesEdited": [
+    "D:\\applications\\flaskr\\flaskr\\blog.py",
+    "D:\\applications\\flaskr\\.aidd\\features\\blog-post-management\\feature.json",
+    "D:\\applications\\flaskr\\.aidd\\features\\audit-security-1783061475-remove-post-id-from-the-404-error-body-in-get-post\\feature.json",
+    "D:\\applications\\flaskr\\.aidd\\CHANGELOG.md"
+  ],
+  "filesRead": [
+    "D:\\applications\\flaskr\\.aidd\\features\\audit-security-1783061475-remove-post-id-from-the-404-error-body-in-get-post\\feature.json",
+    "D:\\applications\\flaskr\\.aidd\\CLAUDE.md",
+    "D:\\applications\\flaskr\\CLAUDE.md",
+    "D:\\applications\\flaskr\\flaskr\\blog.py",
+    "D:\\applications\\flaskr\\tests\\test_blog.py",
+    "D:\\applications\\flaskr\\.aidd\\features\\blog-post-management\\feature.json",
+    "D:\\applications\\flaskr\\.aidd\\CHANGELOG.md"
+  ],
+  "metrics": {
+    "cachedTokens": 0,
+    "costUsd": 0,
+    "errorCount": 0,
+    "errorReasons": [],
+    "filesCreatedCount": 0,
+    "filesEditedCount": 4,
+    "idleWarningCount": 0,
+    "inputTokens": 23751,
+    "outputTokens": 820,
+    "rateLimitCount": 0,
+    "reasoningTokens": 0,
+    "toolBreakdown": {
+      "read": 8,
+      "grep": 4,
+      "edit": 5,
+      "glob": 1,
+      "bash": 8
+    },
+    "toolCallCount": 26
+  },
+  "outcome": {
+    "exitCode": 0,
+    "status": "success"
+  },
+  "scopeOverrun": false,
+  "selectedFeatures": [
+    "audit-security-1783061475-remove-post-id-from-the-404-error-body-in-get-post"
+  ],
+  "unacceptedCompletedFeatures": [],
+  "backendCompletionFinalizedEarly": true,
+  "featureSlug": "audit-security-1783061475-remove-post-id-from-the-404-error-body-in-get-post",
+  "featureDescription": "Remove post id from the 404 error body in get_post",
+  "commitsCreatedCount": 1,
+  "filesCreatedCount": 0,
+  "filesEditedCount": 4,
+  "residualDirtyFilesCount": 31,
+  "stopRequested": false,
+  "completedFeature": "audit-security-1783061475-remove-post-id-from-the-404-error-body-in-get-post",
+  "eligibleFeatures": 0,
+  "remainingDependencyBlockedFeatures": 0,
+  "remainingFeatures": 0,
+  "remainingPendingApproval": 0,
+  "completionOutcome": "completed"
+}

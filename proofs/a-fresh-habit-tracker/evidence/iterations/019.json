@@ -1,0 +1,136 @@
+{
+  "durationMs": 388673,
+  "endedAt": "2026-07-02T22:27:08.520Z",
+  "iteration": 17,
+  "runId": "cli_1783026039958_45e2fabf",
+  "snapshotKey": "claude-code/coding/coding/none",
+  "startedAt": "2026-07-02T22:20:39.847Z",
+  "summary": "coding completed dashboard-overview; 7 incomplete feature(s) remain",
+  "timeToFirstEventMs": 4931,
+  "exitCode": 0,
+  "idleWarningTimestamps": [],
+  "promptChars": 56824,
+  "backend": "claude-code",
+  "executionMode": "single_agent",
+  "mode": "coding",
+  "model": "claude-opus-4-8",
+  "phase": "coding",
+  "provider": null,
+  "reasoningEffort": "medium",
+  "allowedFeatureIds": [
+    "dashboard-overview"
+  ],
+  "commands": [
+    "git log --oneline -15 && echo \"---STATUS---\" && git status --short",
+    "for f in streak-computation today-toggle weekly-grid; do echo \"$f:\"; grep -E '\"passes\"|\"status\"' .aidd/features/$f/feature.json; done",
+    "bun run format 2>&1 | tail -20",
+    "bun run smoke:qc 2>&1 | tail -40",
+    "netstat -ano | findstr \":3000 :5173 :3210\" | head; echo \"---\"; curl -s http://localhost:5173 -o /dev/null -w \"5173:%{http_code}\\n\" --max-time 3; curl -s http://localhost:3000/api/v1/health -w \"\\n3000health:%{http_code}\\n\" --max-time 3",
+    "bun run start 2>&1 | tail -20",
+    "grep -rE \"port|server\" frontend/vite.config.ts; echo \"---config---\"; grep -iE \"port\" config/*.json 2>/dev/null",
+    "for i in $(seq 1 30); do\n  code=$(curl -s -o /dev/null -w \"%{http_code}\" --max-time 2 http://localhost:3330)\n  bcode=$(curl -s -o /dev/null -w \"%{http_code}\" --max-time 2 http://localhost:3331/api/v1/health)\n  if [ \"$code\" = \"200\" ] && [ \"$bcode\" = \"200\" ]; then echo \"READY frontend:$code backend:$bcode (iter $i)\"; break; fi\n  sleep 2\ndone\necho \"final frontend:$code backend:$bcode\"\necho \"--- habits API ---\"\ncurl -s --max-time 3 http://localhost:3331/api/v1/habits",
+    "for h in seed-habit-morning-run seed-habit-read seed-habit-meditate seed-habit-water; do\n  echo \"== $h ==\"\n  curl -s --max-time 3 http://localhost:3331/api/v1/habits/$h/checkins | tr ',' '\\n' | grep '\"date\"'\n  echo \"-- stats --\"\n  curl -s --max-time 3 http://localhost:3331/api/v1/habits/$h/stats\n  echo\ndone",
+    "agent-browser open http://localhost:3330/ 2>&1 | tail -5; sleep 2; agent-browser snapshot -c 2>&1 | head -80",
+    "agent-browser click @e14 2>&1 | tail -2; sleep 2\necho \"=== after toggling Meditate done ===\"\nagent-browser snapshot -c 2>&1 | grep -E \"done\\\"|of 4 done|Mark today|streak|day\" | head -40",
+    "echo \"=== streak text via eval ===\"\nagent-browser eval \"Array.from(document.querySelectorAll('main li')).map(li => li.querySelector('h3').textContent + ' => ' + li.querySelector('p').textContent).join(' | ')\" 2>&1 | tail -3\necho \"=== revert: unmark Meditate ===\"\nagent-browser click @e14 2>&1 | tail -1; sleep 2\nagent-browser snapshot -c 2>&1 | grep -E \"of 4 done|Mark today\" | head -12\necho \"=== console errors ===\"\nagent-browser errors 2>&1 | tail -10",
+    "agent-browser screenshot D:/applications/habit-tracker/.aidd/tmp-dashboard.png 2>&1 | tail -2\necho \"=== stopping servers I started ===\"\nbun run stop 2>&1 | tail -8",
+    "rm -f D:/applications/habit-tracker/.aidd/tmp-dashboard.png",
+    "bun run format >/dev/null 2>&1; bun run smoke:qc 2>&1 | tail -8",
+    "git status --short",
+    "git add .aidd/CHANGELOG.md .aidd/features/dashboard-overview/feature.json frontend/src/pages/dashboard/DashboardPage.tsx frontend/src/pages/dashboard/DashboardHabitItem.tsx && git diff --staged --name-only && echo \"=== committing ===\" && git commit -m \"feat(ui): build dashboard overview with progress, weekly grid, and toggles\" -m \"- Replace placeholder dashboard with today progress (done vs total), a 7-day grid aggregated across all habits, and per-habit quick toggles with current streaks\" -m \"- Share the check-in query cache with the list page so both views agree and toggling updates counts/grid/streaks live\" -m \"- Handle empty, loading, and error states; exclude archived habits via the non-archived list route\" -m \"- Verified end-to-end with agent-browser against seeded data (2 of 4 done; weekly 2,3,2,2,3,3,2; live toggle 2->3); smoke:qc passes clean\" -m \"- Marked feature dashboard-overview passes: true, status completed\" 2>&1 | tail -8",
+    "git status --short"
+  ],
+  "commitsCreated": [
+    {
+      "hash": "1951db1a33ae501582eb520a244eed1ae294f68f",
+      "subject": "feat(ui): build dashboard overview with progress, weekly grid, and toggles"
+    }
+  ],
+  "completedFeatures": [
+    "dashboard-overview"
+  ],
+  "detailsSummary": {
+    "bashCommandsRun": 18,
+    "finalChecks": {},
+    "hasBuildErrors": false,
+    "hasLintErrors": false,
+    "hasTypeErrors": false,
+    "totalToolCalls": 42,
+    "uniqueFilesCreated": 2,
+    "uniqueFilesEdited": 2,
+    "uniqueFilesRead": 17
+  },
+  "errors": [],
+  "extraCompletedFeatures": [],
+  "filesCreated": [
+    "D:\\applications\\habit-tracker\\frontend\\src\\pages\\dashboard\\DashboardHabitItem.tsx",
+    "D:\\applications\\habit-tracker\\frontend\\src\\pages\\dashboard\\DashboardPage.tsx"
+  ],
+  "filesEdited": [
+    "D:\\applications\\habit-tracker\\.aidd\\features\\dashboard-overview\\feature.json",
+    "D:\\applications\\habit-tracker\\.aidd\\CHANGELOG.md"
+  ],
+  "filesRead": [
+    "D:\\applications\\habit-tracker\\.aidd\\features\\dashboard-overview\\feature.json",
+    "D:\\applications\\habit-tracker\\.aidd\\spec.md",
+    "D:\\applications\\habit-tracker\\frontend\\src\\pages\\dashboard\\DashboardPage.tsx",
+    "D:\\applications\\habit-tracker\\frontend\\src\\pages\\habits\\HabitRow.tsx",
+    "D:\\applications\\habit-tracker\\frontend\\src\\pages\\habits\\HabitsPage.tsx",
+    "D:\\applications\\habit-tracker\\frontend\\src\\routes.tsx",
+    "D:\\applications\\habit-tracker\\frontend\\src\\hooks\\useCheckins.ts",
+    "D:\\applications\\habit-tracker\\frontend\\src\\hooks\\useHabits.ts",
+    "D:\\applications\\habit-tracker\\frontend\\src\\lib\\dates.ts",
+    "D:\\applications\\habit-tracker\\frontend\\src\\api\\types.ts",
+    "D:\\applications\\habit-tracker\\frontend\\src\\api\\queryKeys.ts",
+    "D:\\applications\\habit-tracker\\frontend\\src\\api\\checkins.ts",
+    "D:\\applications\\habit-tracker\\frontend\\src\\components\\layout\\RootLayout.tsx",
+    "D:\\applications\\habit-tracker\\package.json",
+    "D:\\applications\\habit-tracker\\scripts\\start.ts",
+    "D:\\applications\\habit-tracker\\.aidd\\tmp-dashboard.png",
+    "D:\\applications\\habit-tracker\\.aidd\\CHANGELOG.md"
+  ],
+  "metrics": {
+    "cachedTokens": 0,
+    "costUsd": 2.207959,
+    "errorCount": 0,
+    "errorReasons": [],
+    "filesCreatedCount": 2,
+    "filesEditedCount": 2,
+    "idleWarningCount": 0,
+    "inputTokens": 48368,
+    "outputTokens": 16654,
+    "rateLimitCount": 0,
+    "reasoningTokens": 0,
+    "toolBreakdown": {
+      "read": 18,
+      "bash": 18,
+      "glob": 1,
+      "write": 2,
+      "edit": 3
+    },
+    "toolCallCount": 42
+  },
+  "outcome": {
+    "exitCode": 0,
+    "status": "success"
+  },
+  "scopeOverrun": false,
+  "selectedFeatures": [
+    "dashboard-overview"
+  ],
+  "unacceptedCompletedFeatures": [],
+  "backendCompletionFinalizedEarly": true,
+  "featureSlug": "dashboard-overview",
+  "featureDescription": "Dashboard overview",
+  "commitsCreatedCount": 1,
+  "filesCreatedCount": 2,
+  "filesEditedCount": 2,
+  "residualDirtyFilesCount": 0,
+  "stopRequested": false,
+  "completedFeature": "dashboard-overview",
+  "eligibleFeatures": 7,
+  "remainingDependencyBlockedFeatures": 0,
+  "remainingFeatures": 7,
+  "remainingPendingApproval": 0,
+  "completionOutcome": "completed"
+}

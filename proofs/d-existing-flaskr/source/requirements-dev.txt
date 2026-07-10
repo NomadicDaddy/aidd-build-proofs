@@ -1,0 +1,19 @@
+# Development / test dependency lockfile — fully pinned.
+#
+# Pins the transitive closure of the `dev` optional-dependency group
+# (`pytest`, `pytest-cov`, `ruff`) on top of the runtime lockfile, so the
+# lint and coverage gates run against known versions.
+#
+# Install (reproducible):   pip install -r requirements-dev.txt -e .
+# Regenerate: see README.rst "Dependency lockfile".
+
+-r requirements.txt
+
+coverage==7.15.0
+iniconfig==2.3.0
+packaging==26.2
+pluggy==1.6.0
+Pygments==2.20.0
+pytest==9.1.1
+pytest-cov==7.1.0
+ruff==0.15.20

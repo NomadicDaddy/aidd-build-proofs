@@ -1,0 +1,17 @@
+{
+  "id": "hardware-profile-tracking",
+  "title": "Server, VM, CPU, RAM, OS, and lifecycle fields",
+  "description": "Hardware profile records and lifecycle metadata for assets",
+  "category": "Core",
+  "dependencies": [
+    "asset-domain-schema",
+    "asset-detail-page"
+  ],
+  "status": "completed",
+  "passes": true,
+  "priority": 3,
+  "createdAt": "2026-07-03T14:10:00.000Z",
+  "justFinishedAt": null,
+  "spec": "1. Persist CPU model/count, RAM, disk/storage allocation, OS, platform, hypervisor, and hardware model.\n2. Persist VM fields (guest OS, vCPU, vRAM, virtual disks, host, cluster, tools status, snapshot notes).\n3. Persist physical-host fields (chassis/model, serial, host role, cluster, VM count, totals).\n4. Persist lifecycle fields (purchase, warranty, support end, planned replacement, decommission).\n5. Surface these on the asset detail hardware/virtualization sections.\n6. Verify create/update round-trips via API and UI.",
+  "updatedAt": "2026-07-03T22:20:40.908Z"
+}

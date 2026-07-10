@@ -1,0 +1,15 @@
+{
+	"id": "database-and-init-db-cli",
+	"title": "SQLite data layer, request-scoped connection, and init-db CLI",
+	"category": "Data",
+	"description": "Persistence is a single-file SQLite database in the instance folder. get_db opens one sqlite3 connection per request (cached on flask.g, sqlite3.Row factory, PARSE_DECLTYPES), and close_db tears it down at app-context teardown. A registered timestamp converter parses stored timestamps into datetime. The 'init-db' Flask CLI command runs schema.sql, which (destructively) drops and recreates the user and post tables.",
+	"priority": 3,
+	"status": "completed",
+	"passes": true,
+	"spec": "1. Verify flaskr/db.py get_db() opens sqlite3.connect(current_app.config['DATABASE'], detect_types=PARSE_DECLTYPES), sets row_factory = sqlite3.Row, and caches the connection on flask.g so repeated calls in one request reuse it.\n2. Verify close_db() pops and closes the connection, and init_app registers it via app.teardown_appcontext.\n3. Verify init_db() executes flaskr/schema.sql and the 'init-db' click command calls it and echoes 'Initialized the database.'; init_app registers the command via app.cli.add_command.\n4. Verify the registered 'timestamp' converter parses stored values into datetime via datetime.fromisoformat.\n5. Verify flaskr/schema.sql drops and creates a 'user' table (id, unique username, password) and a 'post' table (id, author_id FK -> user, created TIMESTAMP default now, title, body).\n6. Verify tests/test_db.py covers connection reuse within a request, close-on-teardown, and the init-db command invoking init_db.",
+	"dependencies": [],
+	"affectedFiles": ["flaskr/db.py", "flaskr/schema.sql", "tests/test_db.py"],
+	"notes": "Backfilled by feature-coverage-audit from current implementation evidence on 2026-07-03. Documents shipped, test-passing behavior (24 passed). NOTE: init-db is a destructive re-init with no migration framework, and post.author_id / post.created are unindexed (performance findings in .aidd/assertions.md sect. 4). This record describes current behavior. Re-target if the Q2 stack fork resolves to a port.",
+	"createdAt": "2026-07-03T07:00:00Z",
+	"updatedAt": "2026-07-03T07:00:00Z"
+}

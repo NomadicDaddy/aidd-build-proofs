@@ -1,0 +1,17 @@
+{
+  "id": "global-search",
+  "title": "Cross-domain search across assets, services, IPs, ports",
+  "description": "Global search across the infrastructure domain",
+  "category": "Core",
+  "dependencies": [
+    "asset-inventory-api",
+    "service-catalog"
+  ],
+  "status": "completed",
+  "passes": true,
+  "priority": 3,
+  "createdAt": "2026-07-03T14:10:00.000Z",
+  "justFinishedAt": null,
+  "spec": "1. Add global search across assets, hostnames, IPs, services, ports, owners, tags, notes, and aliases.\n2. Return typed, grouped results linking to the relevant detail pages.\n3. Enforce role checks so restricted fields are not searchable by low-privilege users.\n4. Verify search relevance and permissions via API and UI.",
+  "updatedAt": "2026-07-03T23:56:17.118Z"
+}

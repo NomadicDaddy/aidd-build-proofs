@@ -1,0 +1,16 @@
+{
+  "id": "asset-detail-page",
+  "title": "Asset detail overview and tabbed sections",
+  "description": "Asset detail page with overview, hardware, network, services, ports, relationships, history",
+  "category": "UI",
+  "dependencies": [
+    "asset-inventory-api"
+  ],
+  "status": "completed",
+  "passes": true,
+  "priority": 2,
+  "createdAt": "2026-07-03T14:10:00.000Z",
+  "justFinishedAt": null,
+  "spec": "1. Add an asset detail route keyed by asset id.\n2. Show an overview header exposing type, role, owner, service, criticality, and status immediately.\n3. Add sections/tabs for overview, hardware, virtualization, storage, network, services, ports, relationships, notes, and history.\n4. Show upstream and downstream dependencies.\n5. Show related business services and offline impact.\n6. Show services provided by the asset and their ports.\n7. Show interface/addressing data (MAC, IP, subnet, VLAN, DNS, zone).\n8. Show server resources (CPU, RAM, disk, OS, platform, hypervisor, model).\n9. Show VM-specific and physical-host-specific data where applicable.\n10. Verify the page renders each section with real data via agent-browser.\n11. Confirm no console errors and role-gated fields respect permissions.",
+  "updatedAt": "2026-07-03T19:52:41.645Z"
+}

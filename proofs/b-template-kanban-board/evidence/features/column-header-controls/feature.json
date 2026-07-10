@@ -1,0 +1,17 @@
+{
+  "id": "column-header-controls",
+  "title": "Column Header Controls",
+  "description": "Each column lane has a header with its name and controls to rename, delete, and add a card to that column.",
+  "category": "UI",
+  "dependencies": [
+    "column-management",
+    "app-shell-layout"
+  ],
+  "status": "completed",
+  "passes": true,
+  "priority": 3,
+  "createdAt": "2026-07-02T00:00:00.000Z",
+  "justFinishedAt": null,
+  "spec": "1. Render each column header with its name and a card count\n2. Provide an inline rename affordance that commits to the store\n3. Provide a delete affordance that respects the non-empty rule\n4. Provide an add-card affordance scoped to that column\n5. Verify controls are keyboard reachable and labeled",
+  "updatedAt": "2026-07-03T03:57:20.924Z"
+}

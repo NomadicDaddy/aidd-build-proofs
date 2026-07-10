@@ -1,0 +1,124 @@
+{
+  "durationMs": 174271,
+  "endedAt": "2026-07-02T22:15:42.525Z",
+  "iteration": 14,
+  "runId": "cli_1783026039958_45e2fabf",
+  "snapshotKey": "claude-code/coding/coding/none",
+  "startedAt": "2026-07-02T22:12:48.254Z",
+  "summary": "coding completed streak-display; 10 incomplete feature(s) remain",
+  "timeToFirstEventMs": 2478,
+  "exitCode": 0,
+  "idleWarningTimestamps": [],
+  "promptChars": 56530,
+  "backend": "claude-code",
+  "executionMode": "single_agent",
+  "mode": "coding",
+  "model": "claude-opus-4-8",
+  "phase": "coding",
+  "provider": null,
+  "reasoningEffort": "medium",
+  "allowedFeatureIds": [
+    "streak-display"
+  ],
+  "commands": [
+    "git log --oneline -8 && echo \"---FRONTEND SRC---\" && ls -R frontend/src 2>/dev/null | head -80",
+    "cd D:/applications/habit-tracker && find backend/src -name \"*stat*\" -o -name \"*streak*\" | head; echo \"---\"; ls backend/src/routes backend/src/services 2>/dev/null",
+    "cd D:/applications/habit-tracker && bun run format 2>&1 | tail -5",
+    "cd D:/applications/habit-tracker && bun run smoke:qc 2>&1 | tail -25",
+    "cd D:/applications/habit-tracker && (curl -s -o /dev/null -w \"front:%{http_code}\\n\" http://localhost:3330 2>&1; curl -s -o /dev/null -w \"api:%{http_code}\\n\" http://localhost:3331/api/v1/health 2>&1)",
+    "cd D:/applications/habit-tracker && agent-browser open http://localhost:3330/habits 2>&1 | tail -3 && agent-browser snapshot -i -c 2>&1 | head -60",
+    "cd D:/applications/habit-tracker && agent-browser eval \"Array.from(document.querySelectorAll('li')).slice(0,2).map(li => li.querySelector('h2')?.textContent + ' :: ' + (li.querySelector('dl')?.textContent||'')).join(' | ')\" 2>&1 | tail -5\necho \"---API---\"\nIDS=$(curl -s http://localhost:3331/api/v1/habits | bun -e \"const d=JSON.parse(require('fs').readFileSync(0));console.log(d.slice(0,2).map(h=>h.id+','+h.name).join('\\n'))\")\necho \"$IDS\" | while IFS=, read id name; do echo \"$name: $(curl -s http://localhost:3331/api/v1/habits/$id/stats)\"; done",
+    "cd D:/applications/habit-tracker && agent-browser click @e14 2>&1 | tail -1 && sleep 1 && agent-browser eval \"document.querySelector('li dl')?.textContent\" 2>&1 | tail -2",
+    "cd D:/applications/habit-tracker && agent-browser click @e14 2>&1 | tail -1 && sleep 1 && agent-browser eval \"document.querySelector('li dl')?.textContent\" 2>&1 | tail -1 && echo \"---errors---\" && agent-browser errors 2>&1 | tail -5",
+    "cd D:/applications/habit-tracker && agent-browser screenshot ./frontend/streak-display-evidence.png 2>&1 | tail -1",
+    "cd D:/applications/habit-tracker && agent-browser eval \"document.querySelector('li h2')?.scrollIntoView(); 'scrolled'\" 2>&1 | tail -1 && agent-browser screenshot ./frontend/streak-display-evidence.png 2>&1 | tail -1",
+    "cd D:/applications/habit-tracker && rm -f ./frontend/streak-display-evidence.png && bun run format 2>&1 | grep -iE \"habitrow|feature|changelog|error\" | head; echo \"---qc---\"; bun run smoke:qc 2>&1 | tail -8",
+    "cd D:/applications/habit-tracker && git add frontend/src/pages/habits/HabitRow.tsx .aidd/features/streak-display/feature.json .aidd/CHANGELOG.md && git status --short && echo \"---staged---\" && git diff --staged --name-only",
+    "cd D:/applications/habit-tracker && git commit -m \"feat(ui): display current, longest, and 30-day streak stats\" -m \"- Extended HabitRow to render current streak, longest streak, and 30-day completion rate from the useHabitStats hook as a semantic dl with sr-only labels\" -m \"- Verified rendered numbers match GET /api/v1/habits/:id/stats and that unmarking today lowers current streak while longest persists\" -m \"- Marked streak-display feature.json passes: true / status: completed\" 2>&1 | tail -8 && echo \"---post---\" && git status --short"
+  ],
+  "commitsCreated": [
+    {
+      "hash": "7eb1811575e20325c4ecd3e1ee5008e845adcfd5",
+      "subject": "feat(ui): display current, longest, and 30-day streak stats"
+    }
+  ],
+  "completedFeatures": [
+    "streak-display"
+  ],
+  "detailsSummary": {
+    "bashCommandsRun": 14,
+    "finalChecks": {},
+    "hasBuildErrors": false,
+    "hasLintErrors": false,
+    "hasTypeErrors": false,
+    "totalToolCalls": 34,
+    "uniqueFilesCreated": 0,
+    "uniqueFilesEdited": 3,
+    "uniqueFilesRead": 13
+  },
+  "errors": [],
+  "extraCompletedFeatures": [],
+  "filesCreated": [],
+  "filesEdited": [
+    "D:\\applications\\habit-tracker\\frontend\\src\\pages\\habits\\HabitRow.tsx",
+    "D:\\applications\\habit-tracker\\.aidd\\features\\streak-display\\feature.json",
+    "D:\\applications\\habit-tracker\\.aidd\\CHANGELOG.md"
+  ],
+  "filesRead": [
+    "D:\\applications\\habit-tracker\\.aidd\\features\\streak-display\\feature.json",
+    "D:\\applications\\habit-tracker\\.aidd\\spec.md",
+    "D:\\applications\\habit-tracker\\.aidd\\features\\streak-computation\\feature.json",
+    "D:\\applications\\habit-tracker\\.aidd\\features\\habit-list-page\\feature.json",
+    "D:\\applications\\habit-tracker\\frontend\\src\\api\\stats.ts",
+    "D:\\applications\\habit-tracker\\frontend\\src\\api\\types.ts",
+    "D:\\applications\\habit-tracker\\frontend\\src\\pages\\habits\\HabitRow.tsx",
+    "D:\\applications\\habit-tracker\\frontend\\src\\hooks\\useCheckins.ts",
+    "D:\\applications\\habit-tracker\\backend\\src\\services\\stats.ts",
+    "D:\\applications\\habit-tracker\\frontend\\src\\api\\queryKeys.ts",
+    "D:\\applications\\habit-tracker\\frontend\\src\\pages\\habits\\HabitDetailPage.tsx",
+    "D:\\applications\\habit-tracker\\frontend\\streak-display-evidence.png",
+    "D:\\applications\\habit-tracker\\.aidd\\CHANGELOG.md"
+  ],
+  "metrics": {
+    "cachedTokens": 0,
+    "costUsd": 1.7559415,
+    "errorCount": 0,
+    "errorReasons": [],
+    "filesCreatedCount": 0,
+    "filesEditedCount": 3,
+    "idleWarningCount": 0,
+    "inputTokens": 33932,
+    "outputTokens": 10301,
+    "rateLimitCount": 0,
+    "reasoningTokens": 0,
+    "toolBreakdown": {
+      "read": 15,
+      "bash": 14,
+      "edit": 5
+    },
+    "toolCallCount": 34
+  },
+  "outcome": {
+    "exitCode": 0,
+    "status": "success"
+  },
+  "scopeOverrun": false,
+  "selectedFeatures": [
+    "streak-display"
+  ],
+  "unacceptedCompletedFeatures": [],
+  "backendCompletionFinalizedEarly": true,
+  "featureSlug": "streak-display",
+  "featureDescription": "Streak stats display",
+  "commitsCreatedCount": 1,
+  "filesCreatedCount": 0,
+  "filesEditedCount": 3,
+  "residualDirtyFilesCount": 0,
+  "stopRequested": false,
+  "completedFeature": "streak-display",
+  "eligibleFeatures": 6,
+  "remainingDependencyBlockedFeatures": 4,
+  "remainingFeatures": 10,
+  "remainingPendingApproval": 0,
+  "completionOutcome": "completed"
+}

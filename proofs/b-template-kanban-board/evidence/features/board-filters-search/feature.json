@@ -1,0 +1,17 @@
+{
+  "id": "board-filters-search",
+  "title": "Filter / Search Cards by Text and Label",
+  "description": "Filter and search cards by free text (title/description) and by label across the active board; non-matching cards are hidden until the filter is cleared.",
+  "category": "Core",
+  "dependencies": [
+    "card-crud",
+    "app-shell-layout"
+  ],
+  "status": "completed",
+  "passes": true,
+  "priority": 4,
+  "createdAt": "2026-07-02T00:00:00.000Z",
+  "justFinishedAt": null,
+  "spec": "1. Provide a text search input scoped to the active board\n2. Provide label-based filtering\n3. Verify only matching cards remain visible while a filter is active\n4. Verify clearing the filter restores all cards\n5. Verify filtering is case-insensitive for text\n6. Verify columns still render (as empty) when all their cards are filtered out",
+  "updatedAt": "2026-07-03T04:02:48.834Z"
+}

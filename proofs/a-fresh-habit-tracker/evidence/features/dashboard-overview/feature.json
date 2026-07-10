@@ -1,0 +1,13 @@
+{
+	"category": "UI",
+	"createdAt": "2026-07-02T20:51:56.000Z",
+	"dependencies": ["streak-computation", "today-toggle", "weekly-grid"],
+	"description": "today's habits with quick-toggle, done vs total, and weekly grid",
+	"id": "dashboard-overview",
+	"passes": true,
+	"priority": 4,
+	"spec": "1. Build a dashboard page as the app landing route.\n2. List today's habits with a quick done/undo toggle.\n3. Show a count of done vs total habits for today.\n4. Render a rolling weekly grid across all habits.\n5. Toggling on the dashboard updates counts and grid live.\n6. Reflect current streaks for each habit.\n7. Show an empty state when no habits exist.\n8. Confirm archived habits are excluded.\n9. Verify the dashboard matches the list page check-in data.\n10. Confirm the dashboard is the default navigation target.\n11. Run `bun run smoke:qc` and confirm it passes.",
+	"status": "completed",
+	"title": "Dashboard overview",
+	"updatedAt": "2026-07-02T22:20:39.846Z"
+}

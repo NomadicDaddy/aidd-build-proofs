@@ -1,0 +1,16 @@
+{
+  "id": "saved-views",
+  "title": "Reusable filtered views for management, operations, and audit",
+  "description": "Saved filtered views for common infrastructure questions",
+  "category": "UI",
+  "dependencies": [
+    "asset-inventory-page"
+  ],
+  "status": "completed",
+  "passes": true,
+  "priority": 4,
+  "createdAt": "2026-07-03T14:10:00.000Z",
+  "justFinishedAt": null,
+  "spec": "1. Allow saving/naming/loading filtered inventory views.\n2. Seed common questions (what servers do we have, which are VMs, which VMs run on this host, which services run on this server, what ports are open, what breaks if offline, which assets are stale).\n3. Persist saved views per user/workspace.\n4. Verify save/load round-trips via UI.",
+  "updatedAt": "2026-07-04T02:22:15.906Z"
+}

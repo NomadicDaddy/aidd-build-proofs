@@ -1,0 +1,1931 @@
+{
+  "archive": "aidd-build-proofs-2026-07-transcripts.zip",
+  "entries": [
+    {
+      "proofId": "a-fresh-habit-tracker",
+      "publishedPath": "transcripts/a-fresh-habit-tracker/iteration-a06d92d59d-001.log",
+      "redactions": [
+        "email-address",
+        "private-environment",
+        "workspace-root"
+      ],
+      "sha256": "a06d92d59dfddcf6181b669f35b83fa4fbca75de8472df2e0beb1addc82761cf",
+      "size": 578408,
+      "source": "a-fresh-habit-tracker/iterations/001.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "a-fresh-habit-tracker",
+      "publishedPath": "transcripts/a-fresh-habit-tracker/iteration-a8d813c7c0-002.log",
+      "redactions": [
+        "workspace-root"
+      ],
+      "sha256": "a8d813c7c047d7c6afe3eacb21a8e2e866771d38498945193864a441a06a2c21",
+      "size": 327586,
+      "source": "a-fresh-habit-tracker/iterations/002.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "a-fresh-habit-tracker",
+      "publishedPath": "transcripts/a-fresh-habit-tracker/iteration-9cb2c8c0ff-003.log",
+      "redactions": [
+        "private-environment",
+        "workspace-root"
+      ],
+      "sha256": "9cb2c8c0ff4dae89c5b39679be4af1cc7d29cabe7fea572c1facfc9e54d3d6a7",
+      "size": 486557,
+      "source": "a-fresh-habit-tracker/iterations/003.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "a-fresh-habit-tracker",
+      "publishedPath": "transcripts/a-fresh-habit-tracker/iteration-33f3fe40aa-004.log",
+      "redactions": [],
+      "sha256": "33f3fe40aa0e05951ad0e605c72f41bdea8c2728ce77ca89a14f196d1aad8478",
+      "size": 165620,
+      "source": "a-fresh-habit-tracker/iterations/004.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "a-fresh-habit-tracker",
+      "publishedPath": "transcripts/a-fresh-habit-tracker/iteration-7317d23572-005.log",
+      "redactions": [
+        "email-address",
+        "private-environment",
+        "workspace-root"
+      ],
+      "sha256": "7317d23572f6fbe7676ebf1df7cb4ab808d0e1eef35a2dafe1377e634a5a4ae9",
+      "size": 646023,
+      "source": "a-fresh-habit-tracker/iterations/005.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "a-fresh-habit-tracker",
+      "publishedPath": "transcripts/a-fresh-habit-tracker/iteration-1861024a50-006.log",
+      "redactions": [],
+      "sha256": "1861024a50476c4e0fc04a339c587162525898461fb403797b11461563d75c19",
+      "size": 330507,
+      "source": "a-fresh-habit-tracker/iterations/006.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "a-fresh-habit-tracker",
+      "publishedPath": "transcripts/a-fresh-habit-tracker/iteration-80a3a570bf-007.log",
+      "redactions": [],
+      "sha256": "80a3a570bf96be94ab36c192284fd3b0738fa6286eb51a6840d3dd007bf85440",
+      "size": 265060,
+      "source": "a-fresh-habit-tracker/iterations/007.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "a-fresh-habit-tracker",
+      "publishedPath": "transcripts/a-fresh-habit-tracker/iteration-ac00fbc0f7-008.log",
+      "redactions": [
+        "workspace-root"
+      ],
+      "sha256": "ac00fbc0f739b16241a0b25c92ab684916dcebde72ff8bf1114ec78a2d0d120f",
+      "size": 273946,
+      "source": "a-fresh-habit-tracker/iterations/008.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "a-fresh-habit-tracker",
+      "publishedPath": "transcripts/a-fresh-habit-tracker/iteration-0ac4a59336-009.log",
+      "redactions": [
+        "workspace-root"
+      ],
+      "sha256": "0ac4a59336db6b2b09782a42b97e8d4282c08681961cba2e2136b33468512cbc",
+      "size": 560433,
+      "source": "a-fresh-habit-tracker/iterations/009.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "a-fresh-habit-tracker",
+      "publishedPath": "transcripts/a-fresh-habit-tracker/iteration-33fe63f551-010.log",
+      "redactions": [
+        "workspace-root"
+      ],
+      "sha256": "33fe63f551ff161c2f88bd4b4ea046e1736c0e1b3987de30c3fd2ac8a40ab84a",
+      "size": 408373,
+      "source": "a-fresh-habit-tracker/iterations/010.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "a-fresh-habit-tracker",
+      "publishedPath": "transcripts/a-fresh-habit-tracker/iteration-399ec52664-011.log",
+      "redactions": [
+        "private-ip"
+      ],
+      "sha256": "399ec526640be68ca8a68ad237d13f57f61b5c7a2b93813770e8a90763805aff",
+      "size": 262754,
+      "source": "a-fresh-habit-tracker/iterations/011.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "a-fresh-habit-tracker",
+      "publishedPath": "transcripts/a-fresh-habit-tracker/iteration-559354e463-012.log",
+      "redactions": [
+        "private-environment",
+        "private-ip",
+        "workspace-root"
+      ],
+      "sha256": "559354e463d3e1b37b8bdd35c77cfa47594727bdc74969741841101975a02b5d",
+      "size": 667285,
+      "source": "a-fresh-habit-tracker/iterations/012.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "a-fresh-habit-tracker",
+      "publishedPath": "transcripts/a-fresh-habit-tracker/iteration-b64ef51916-013.log",
+      "redactions": [],
+      "sha256": "b64ef51916101b00c9b86ea4bff2d210facf2e54a8062774879ad7c45e3cd93e",
+      "size": 347909,
+      "source": "a-fresh-habit-tracker/iterations/013.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "a-fresh-habit-tracker",
+      "publishedPath": "transcripts/a-fresh-habit-tracker/iteration-2669ba362e-014.log",
+      "redactions": [],
+      "sha256": "2669ba362e57c5c6ef0e8539fa4e386411aec5407ca8a8d23410ad44977047dc",
+      "size": 242365,
+      "source": "a-fresh-habit-tracker/iterations/014.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "a-fresh-habit-tracker",
+      "publishedPath": "transcripts/a-fresh-habit-tracker/iteration-d3ea30b587-015.log",
+      "redactions": [
+        "workspace-root"
+      ],
+      "sha256": "d3ea30b5875158735783018725180f65bc7793660d726c68b2f62bdec0bc55b3",
+      "size": 513035,
+      "source": "a-fresh-habit-tracker/iterations/015.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "a-fresh-habit-tracker",
+      "publishedPath": "transcripts/a-fresh-habit-tracker/iteration-188a8542e5-016.log",
+      "redactions": [],
+      "sha256": "188a8542e54976e40991537aec72da8a8bb9a54da5475d8a46b155b673bab7bd",
+      "size": 572093,
+      "source": "a-fresh-habit-tracker/iterations/016.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "a-fresh-habit-tracker",
+      "publishedPath": "transcripts/a-fresh-habit-tracker/iteration-2da19d097e-017.log",
+      "redactions": [],
+      "sha256": "2da19d097eace1f80df6862900149fd44767dfdba2d7137aee24e0957e4abffe",
+      "size": 216501,
+      "source": "a-fresh-habit-tracker/iterations/017.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "a-fresh-habit-tracker",
+      "publishedPath": "transcripts/a-fresh-habit-tracker/iteration-590762ad5e-018.log",
+      "redactions": [],
+      "sha256": "590762ad5e72eb364d8aedcc59a4711ae3a3c05d8089a456b736b86887f0a593",
+      "size": 394107,
+      "source": "a-fresh-habit-tracker/iterations/018.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "a-fresh-habit-tracker",
+      "publishedPath": "transcripts/a-fresh-habit-tracker/iteration-b0fa7e2e75-019.log",
+      "redactions": [],
+      "sha256": "b0fa7e2e75291ef64699f54bfdf2cd69ce033737c7e232c57c2547bd18b5f7f3",
+      "size": 510124,
+      "source": "a-fresh-habit-tracker/iterations/019.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "a-fresh-habit-tracker",
+      "publishedPath": "transcripts/a-fresh-habit-tracker/iteration-a0f50c4e02-020.log",
+      "redactions": [],
+      "sha256": "a0f50c4e023d4bfe7206e12fc10f5c8565cde694e2173705d3895a7753a8acc2",
+      "size": 711985,
+      "source": "a-fresh-habit-tracker/iterations/020.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "a-fresh-habit-tracker",
+      "publishedPath": "transcripts/a-fresh-habit-tracker/iteration-514ed11d4f-021.log",
+      "redactions": [
+        "workspace-root"
+      ],
+      "sha256": "514ed11d4f45e7d158f6dbae622ef19824763175743ff456e4e46a6424db8ec3",
+      "size": 624543,
+      "source": "a-fresh-habit-tracker/iterations/021.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "a-fresh-habit-tracker",
+      "publishedPath": "transcripts/a-fresh-habit-tracker/iteration-6f20f7144e-022.log",
+      "redactions": [
+        "workspace-root"
+      ],
+      "sha256": "6f20f7144e14cff977b73aa265a0d5775e9995a47451e1ef288ff3b6ff61f6a4",
+      "size": 394905,
+      "source": "a-fresh-habit-tracker/iterations/022.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "a-fresh-habit-tracker",
+      "publishedPath": "transcripts/a-fresh-habit-tracker/iteration-85fafd06d9-023.log",
+      "redactions": [],
+      "sha256": "85fafd06d9529f4b5848960ddd09e7823d49cccf5ade6d3a8d45b087865d4f3e",
+      "size": 391253,
+      "source": "a-fresh-habit-tracker/iterations/023.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "a-fresh-habit-tracker",
+      "publishedPath": "transcripts/a-fresh-habit-tracker/iteration-277171e3d8-024.log",
+      "redactions": [
+        "private-environment",
+        "workspace-root"
+      ],
+      "sha256": "277171e3d8a6c25d0b57b20d0988acd0668a50eecd7035b108acbab1eff0ff94",
+      "size": 1038752,
+      "source": "a-fresh-habit-tracker/iterations/024.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "a-fresh-habit-tracker",
+      "publishedPath": "transcripts/a-fresh-habit-tracker/iteration-69d98156a9-025.log",
+      "redactions": [],
+      "sha256": "69d98156a911b57b54c7b1d96afaba5a09c787806b4e1bfcce68455b424c108b",
+      "size": 246947,
+      "source": "a-fresh-habit-tracker/iterations/025.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "a-fresh-habit-tracker",
+      "publishedPath": "transcripts/a-fresh-habit-tracker/iteration-6770b9788d-026.log",
+      "redactions": [
+        "workspace-root"
+      ],
+      "sha256": "6770b9788de2ee7e1e3c6c10fbc3dcc7fd3449ef32b830ead2f859d6f4a936bf",
+      "size": 733502,
+      "source": "a-fresh-habit-tracker/iterations/026.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "a-fresh-habit-tracker",
+      "publishedPath": "transcripts/a-fresh-habit-tracker/iteration-13329e10d7-027.log",
+      "redactions": [
+        "private-environment",
+        "workspace-root"
+      ],
+      "sha256": "13329e10d7780f2430382aff1ff7e5ddbcdf281eb2a956e194dda4f747b5c553",
+      "size": 613600,
+      "source": "a-fresh-habit-tracker/iterations/027.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-91b722e823-001.log",
+      "redactions": [
+        "private-environment",
+        "workspace-root"
+      ],
+      "sha256": "91b722e8234500bf24e65dbcc136c993648612530382b7e97023cb4a45480f09",
+      "size": 348089,
+      "source": "b-template-kanban-board/iterations/001.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-b450be9adc-002.log",
+      "redactions": [],
+      "sha256": "b450be9adc8055b0f3488d54c4afd8e6da1a17dac1636303e4d7ebe6119917b6",
+      "size": 95177,
+      "source": "b-template-kanban-board/iterations/002.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-ed32ab9c0a-003.log",
+      "redactions": [],
+      "sha256": "ed32ab9c0a1c294f0adc3703ea1980c475f2a77bb170617a763c4cb08bf60095",
+      "size": 116530,
+      "source": "b-template-kanban-board/iterations/003.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-e393052252-004.log",
+      "redactions": [],
+      "sha256": "e39305225282c34eadd0bbf37d747f291585717fc2431d6c53e594a85237884f",
+      "size": 111266,
+      "source": "b-template-kanban-board/iterations/004.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-ed6e2eb72c-005.log",
+      "redactions": [],
+      "sha256": "ed6e2eb72ccd8ef4d21c25062af53319dba52cea21e994dc55a64abed7ed07e6",
+      "size": 53266,
+      "source": "b-template-kanban-board/iterations/005.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-fc603a2d2c-006.log",
+      "redactions": [],
+      "sha256": "fc603a2d2c8d415e78743de6c22e7b8d9a278f001f98f01bcc80c0eea8dd394a",
+      "size": 94013,
+      "source": "b-template-kanban-board/iterations/006.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-f26d2fe1c4-007.log",
+      "redactions": [
+        "workspace-root"
+      ],
+      "sha256": "f26d2fe1c4a36467b2b97ae66689cd886362745afe2ddaa65011b66bfb6a89e6",
+      "size": 82499,
+      "source": "b-template-kanban-board/iterations/007.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-4e30c471b6-008.log",
+      "redactions": [
+        "workspace-root"
+      ],
+      "sha256": "4e30c471b6efd32b03e327e6e340fcef55495c8fac23b226ab43a9fe2add08b8",
+      "size": 73215,
+      "source": "b-template-kanban-board/iterations/008.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-f1ddf42feb-009.log",
+      "redactions": [],
+      "sha256": "f1ddf42feb7c1d1dfe9c55197ddfb19dc142815d7606e0783a43ba59adf9699a",
+      "size": 91952,
+      "source": "b-template-kanban-board/iterations/009.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-b83a39be01-010.log",
+      "redactions": [
+        "workspace-root"
+      ],
+      "sha256": "b83a39be011742f88d26196c4308a7b9563cff6381b1cb80f92e6e80e84c30cb",
+      "size": 56760,
+      "source": "b-template-kanban-board/iterations/010.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-032b39b569-011.log",
+      "redactions": [
+        "workspace-root"
+      ],
+      "sha256": "032b39b569c1e384efba8bfa783ea62e8d881522595c69c22db81d7c7948acbb",
+      "size": 58261,
+      "source": "b-template-kanban-board/iterations/011.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-82cb6583e7-012.log",
+      "redactions": [
+        "workspace-root"
+      ],
+      "sha256": "82cb6583e76f03efc16cafe24b53c84d9e70ded409af4f18d5aea6acc7198a93",
+      "size": 88731,
+      "source": "b-template-kanban-board/iterations/012.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-34ed3005c5-013.log",
+      "redactions": [
+        "private-environment"
+      ],
+      "sha256": "34ed3005c5a9089740f7c39f015474350468f732a46c315ee85633ea103a854f",
+      "size": 137511,
+      "source": "b-template-kanban-board/iterations/013.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-c8890ddb2c-014.log",
+      "redactions": [
+        "workspace-root"
+      ],
+      "sha256": "c8890ddb2cfc2803421621cc65b614387b3db38df91bbedb9159988e402769bc",
+      "size": 73347,
+      "source": "b-template-kanban-board/iterations/014.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-ca26723d0d-015.log",
+      "redactions": [],
+      "sha256": "ca26723d0dee97c81dfc83b91b701f729634b8647e3bc5a4808b163c4c297601",
+      "size": 72899,
+      "source": "b-template-kanban-board/iterations/015.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-5388892d78-016.log",
+      "redactions": [],
+      "sha256": "5388892d787fa301297642a28cc2fe00cf436d45cba8afe00728e34ca371119b",
+      "size": 90136,
+      "source": "b-template-kanban-board/iterations/016.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-0ef5b4de31-017.log",
+      "redactions": [
+        "workspace-root"
+      ],
+      "sha256": "0ef5b4de310112fe80c14433fa995c7553d85e9c3b3dc561e302a8c8b9f52c13",
+      "size": 68875,
+      "source": "b-template-kanban-board/iterations/017.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-2434c94059-018.log",
+      "redactions": [
+        "workspace-root"
+      ],
+      "sha256": "2434c94059fb83956f52f6b5e7dc594f7c708f0d9545e076d5efb2b10b0e1100",
+      "size": 56446,
+      "source": "b-template-kanban-board/iterations/018.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-f70022f31a-019.log",
+      "redactions": [],
+      "sha256": "f70022f31a95b75e09fd548174092d3fbb7db7f79b813e3dbd4d127cde93ffa7",
+      "size": 88792,
+      "source": "b-template-kanban-board/iterations/019.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-e501ba4e9d-020.log",
+      "redactions": [
+        "private-environment",
+        "workspace-root"
+      ],
+      "sha256": "e501ba4e9db12bfe5b7569955d4515b438ec1c96f580247ee2859d83e71071a4",
+      "size": 104351,
+      "source": "b-template-kanban-board/iterations/020.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-fc47cdd231-021.log",
+      "redactions": [
+        "workspace-root"
+      ],
+      "sha256": "fc47cdd231dafc0c20b5bf8b267518fbb4e1f816666223a93d566cd5c75f5aa8",
+      "size": 101191,
+      "source": "b-template-kanban-board/iterations/021.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-e2ed8afe97-022.log",
+      "redactions": [
+        "workspace-root"
+      ],
+      "sha256": "e2ed8afe9733188bf392ad48cb31adb292663837f3ae60130056a3b74c987202",
+      "size": 80976,
+      "source": "b-template-kanban-board/iterations/022.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-80cf5134c4-023.log",
+      "redactions": [
+        "workspace-root"
+      ],
+      "sha256": "80cf5134c47971d8627ea42eb1abab76b84eb6108c71877c2fef5e4f99ed6427",
+      "size": 65585,
+      "source": "b-template-kanban-board/iterations/023.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-122110f08e-024.log",
+      "redactions": [
+        "workspace-root"
+      ],
+      "sha256": "122110f08e8f5b633ae8a92e02ce2ded684c862f4693db484cfeb95b2cd4c86b",
+      "size": 89288,
+      "source": "b-template-kanban-board/iterations/024.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-be86df5825-025.log",
+      "redactions": [
+        "workspace-root"
+      ],
+      "sha256": "be86df58254d660f010cd69b33e202e3ae546146d817cba34ec639a57a2b366c",
+      "size": 104627,
+      "source": "b-template-kanban-board/iterations/025.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-b92c823d00-026.log",
+      "redactions": [],
+      "sha256": "b92c823d00e32f7cd4b6631ef63dfb4afdd9fcb7f031006a3fd2a01ca5753442",
+      "size": 57177,
+      "source": "b-template-kanban-board/iterations/026.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-0735d9f3e2-027.log",
+      "redactions": [
+        "private-environment",
+        "workspace-root"
+      ],
+      "sha256": "0735d9f3e2dd5879b997b5b1c86d793d2bab4f720092cbe14c3dd5364c1a5b65",
+      "size": 137776,
+      "source": "b-template-kanban-board/iterations/027.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-015d87dc98-028.log",
+      "redactions": [],
+      "sha256": "015d87dc98085154810f2772dc7c3bb19bafb72aa86065080b34866a5b3df975",
+      "size": 80167,
+      "source": "b-template-kanban-board/iterations/028.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-9ddaba1589-029.log",
+      "redactions": [
+        "workspace-root"
+      ],
+      "sha256": "9ddaba15891be4dbd08e980a1246c49b338f08345d958b3a2a200cd7b1b76c9e",
+      "size": 95783,
+      "source": "b-template-kanban-board/iterations/029.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-ebdeec86e1-030.log",
+      "redactions": [
+        "workspace-root"
+      ],
+      "sha256": "ebdeec86e1748e2f7df87ebb6bc79320838b971b36658de339d8c4dd8d4dee8c",
+      "size": 61698,
+      "source": "b-template-kanban-board/iterations/030.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-6dc68a0c56-031.log",
+      "redactions": [],
+      "sha256": "6dc68a0c56249b16ca471f9bb228fd52bb110c88c5ab301237fb69d657aa8983",
+      "size": 54353,
+      "source": "b-template-kanban-board/iterations/031.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-73feb1a341-032.log",
+      "redactions": [
+        "email-address",
+        "workspace-root"
+      ],
+      "sha256": "73feb1a34121b850fca8622739c0ea025e61c754eba70250d2539bd464fba913",
+      "size": 147658,
+      "source": "b-template-kanban-board/iterations/032.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-8b25305aef-033.log",
+      "redactions": [
+        "email-address",
+        "private-environment",
+        "unrelated-project",
+        "workspace-root"
+      ],
+      "sha256": "8b25305aef2c66b5601b15257e85ff61b56d492546506512dc7d91efb8b55c35",
+      "size": 250688,
+      "source": "b-template-kanban-board/iterations/033.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-d0716be435-034.log",
+      "redactions": [
+        "email-address"
+      ],
+      "sha256": "d0716be435e1d9b0ea85ab408d009fc154b456c11def3aff543cfa7828ab69b5",
+      "size": 296608,
+      "source": "b-template-kanban-board/iterations/034.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-1169d75d2c-035.log",
+      "redactions": [
+        "email-address",
+        "unrelated-project",
+        "workspace-root"
+      ],
+      "sha256": "1169d75d2c4472ae79cdcdc707c587382886edc9603f5911a6e13d08da35cd09",
+      "size": 207158,
+      "source": "b-template-kanban-board/iterations/035.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-5c26b14d6d-036.log",
+      "redactions": [
+        "email-address"
+      ],
+      "sha256": "5c26b14d6db958a629ae3c607a1de30f5b049a49a90b4c3587f08a67eb700e1b",
+      "size": 154213,
+      "source": "b-template-kanban-board/iterations/036.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-22b9828334-037.log",
+      "redactions": [
+        "workspace-root"
+      ],
+      "sha256": "22b9828334c2d39b999e83ecbefa1f5f9223d296d392c90e5672c3d46692ba65",
+      "size": 337145,
+      "source": "b-template-kanban-board/iterations/037.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-ec294f8163-038.log",
+      "redactions": [],
+      "sha256": "ec294f8163c6219917f6dbe6ac1c33b7213af13e5ff523e38fd0686d29554226",
+      "size": 226043,
+      "source": "b-template-kanban-board/iterations/038.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-5042fd0fd0-039.log",
+      "redactions": [],
+      "sha256": "5042fd0fd0577c335b6ace2ca9ccb284e72ea555147450e980da857389369810",
+      "size": 333288,
+      "source": "b-template-kanban-board/iterations/039.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-85a201ffd6-040.log",
+      "redactions": [
+        "private-environment",
+        "unrelated-project",
+        "workspace-root"
+      ],
+      "sha256": "85a201ffd650425fb41c1752266731b7c4a8bb7715e1c116caf5e3cd5476fbf1",
+      "size": 394005,
+      "source": "b-template-kanban-board/iterations/040.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-5bd7970902-041.log",
+      "redactions": [],
+      "sha256": "5bd7970902761dd480f6e25341afeddd92aa64e03351f90eb2b8723ea00b5336",
+      "size": 125491,
+      "source": "b-template-kanban-board/iterations/041.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-66c9174d85-042.log",
+      "redactions": [
+        "private-environment",
+        "workspace-root"
+      ],
+      "sha256": "66c9174d8572471cd60d9d7e7da1051d92047d2c0a59d08ae8c471d4926eb03e",
+      "size": 209107,
+      "source": "b-template-kanban-board/iterations/042.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-0d00fab8db-043.log",
+      "redactions": [
+        "email-address",
+        "workspace-root"
+      ],
+      "sha256": "0d00fab8db6bcf43eea464b334e9cbed2fbea3222617ef772aee0461f4e01980",
+      "size": 603739,
+      "source": "b-template-kanban-board/iterations/043.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-61b8146970-044.log",
+      "redactions": [
+        "private-environment",
+        "workspace-root"
+      ],
+      "sha256": "61b81469700abd927e7b2970f8fd657e27f8946e19c3e836ed1449f26e77dfa3",
+      "size": 704212,
+      "source": "b-template-kanban-board/iterations/044.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-7067bc6cd1-045.log",
+      "redactions": [
+        "private-environment",
+        "workspace-root"
+      ],
+      "sha256": "7067bc6cd1e2e1e1fd96e4407069defbba4f7c8e44f0d3fefdc6464955e57464",
+      "size": 590403,
+      "source": "b-template-kanban-board/iterations/045.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-12c66468e2-046.log",
+      "redactions": [
+        "private-environment",
+        "workspace-root"
+      ],
+      "sha256": "12c66468e28cbd1e3d6cf3dd6151f0dd2f5dd2c0f93f60059e1a4e1b1a827a82",
+      "size": 350170,
+      "source": "b-template-kanban-board/iterations/046.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-20cd67d88e-047.log",
+      "redactions": [
+        "workspace-root"
+      ],
+      "sha256": "20cd67d88eedd41b34beae6021dfabfc0098d3055b779edf5e08db1c3013a6dc",
+      "size": 569246,
+      "source": "b-template-kanban-board/iterations/047.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-458bce59ec-048.log",
+      "redactions": [],
+      "sha256": "458bce59ecc9c5162a83bc815b4bf04d90c5e960de9278f89e50dfcdc7ca8961",
+      "size": 560154,
+      "source": "b-template-kanban-board/iterations/048.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-073ddd7ee3-049.log",
+      "redactions": [
+        "private-environment"
+      ],
+      "sha256": "073ddd7ee30ce80cb2874b80c8f6ab2fcbdd30b347137bf7a811f306a4040000",
+      "size": 344209,
+      "source": "b-template-kanban-board/iterations/049.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-95c8256f9f-050.log",
+      "redactions": [
+        "workspace-root"
+      ],
+      "sha256": "95c8256f9fd8e38aeb1bdf2684f88d5bf14ab1787b120717619c152b4bd92a74",
+      "size": 409233,
+      "source": "b-template-kanban-board/iterations/050.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-816f09e94f-051.log",
+      "redactions": [
+        "workspace-root"
+      ],
+      "sha256": "816f09e94f4cc52ecfc75dc87f890a56935643041206f2221a025f6877b1654d",
+      "size": 505750,
+      "source": "b-template-kanban-board/iterations/051.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-c672bc66b6-052.log",
+      "redactions": [],
+      "sha256": "c672bc66b6a85c5141e2fe70d52c88e231333d3959008db1513acd600e2fef5e",
+      "size": 354466,
+      "source": "b-template-kanban-board/iterations/052.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-1bc4d5d39c-053.log",
+      "redactions": [],
+      "sha256": "1bc4d5d39c679b30803acaed1282d9455f998fe0315dbb7873e3a25727e9cd42",
+      "size": 304101,
+      "source": "b-template-kanban-board/iterations/053.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-1e23941d0b-054.log",
+      "redactions": [
+        "email-address",
+        "workspace-root"
+      ],
+      "sha256": "1e23941d0b49c06b0176450b8a162dee77c080b0e546b6969a7d955823bf5640",
+      "size": 758396,
+      "source": "b-template-kanban-board/iterations/054.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-5c6d019671-055.log",
+      "redactions": [
+        "workspace-root"
+      ],
+      "sha256": "5c6d019671b8258e1c9fb6076c7470b5115fceaafb4d7b68a40e619a14c614d8",
+      "size": 400514,
+      "source": "b-template-kanban-board/iterations/055.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-b8b823a3c9-056.log",
+      "redactions": [
+        "workspace-root"
+      ],
+      "sha256": "b8b823a3c9ded51d051156a2bf79dc02e11500f2f2e1f9cca446145814e6a572",
+      "size": 232174,
+      "source": "b-template-kanban-board/iterations/056.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-355415aff7-057.log",
+      "redactions": [
+        "workspace-root"
+      ],
+      "sha256": "355415aff7b009f9f251aeca28812e4d10129e1834ba88beca92cc8024a201df",
+      "size": 258421,
+      "source": "b-template-kanban-board/iterations/057.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-ae228d42be-058.log",
+      "redactions": [],
+      "sha256": "ae228d42be7093181bb857a0ec222102e5179a4d5f8c61db6ba4dd7fce1c3796",
+      "size": 575394,
+      "source": "b-template-kanban-board/iterations/058.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-bd9f1af988-059.log",
+      "redactions": [
+        "workspace-root"
+      ],
+      "sha256": "bd9f1af988bcbfc8ac4992f4961a66c150b0a27d3d16aa8031a1ea3538739d9e",
+      "size": 371977,
+      "source": "b-template-kanban-board/iterations/059.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-7c90d8348d-060.log",
+      "redactions": [
+        "private-environment",
+        "workspace-root"
+      ],
+      "sha256": "7c90d8348de621afb590c7f4cfcabd8f8ceacd77cdfdee9c4959ef2d459a151a",
+      "size": 581323,
+      "source": "b-template-kanban-board/iterations/060.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-27783b3037-061.log",
+      "redactions": [
+        "private-environment",
+        "workspace-root"
+      ],
+      "sha256": "27783b3037b4396cd1f7e804b2927b091a9cbeee0761f81542f59c5adb621b30",
+      "size": 375070,
+      "source": "b-template-kanban-board/iterations/061.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-1d2812e670-062.log",
+      "redactions": [
+        "private-environment",
+        "workspace-root"
+      ],
+      "sha256": "1d2812e670b90824b7a755b5d3bf159a52d54a3794fc8007366a66c0ccd6c916",
+      "size": 373405,
+      "source": "b-template-kanban-board/iterations/062.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-574df5d1ea-063.log",
+      "redactions": [],
+      "sha256": "574df5d1ea2d2b323372971e383eee4ed8b304b77943215d7648e89bfae6cac1",
+      "size": 373046,
+      "source": "b-template-kanban-board/iterations/063.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/iteration-c7b8ca3e97-064.log",
+      "redactions": [
+        "email-address"
+      ],
+      "sha256": "c7b8ca3e97db794b0a15baf29d7a42ad2d9fc976de2d303efe6d4c7e9564c789",
+      "size": 443915,
+      "source": "b-template-kanban-board/iterations/064.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "c-spernakit-smb-dashboard",
+      "publishedPath": "transcripts/c-spernakit-smb-dashboard/iteration-4a7d398b3d-001.log",
+      "redactions": [
+        "email-address"
+      ],
+      "sha256": "4a7d398b3dbf3328cca40695592b93281ab1779ffb35cf3a84d7c5a99c53d2cb",
+      "size": 444000,
+      "source": "c-spernakit-smb-dashboard/iterations/001.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "c-spernakit-smb-dashboard",
+      "publishedPath": "transcripts/c-spernakit-smb-dashboard/iteration-8e62b50cb9-002.log",
+      "redactions": [
+        "email-address"
+      ],
+      "sha256": "8e62b50cb927f950018523bf8c3402bcba6d1a6bda8df828e89457a3ba5806c2",
+      "size": 1599777,
+      "source": "c-spernakit-smb-dashboard/iterations/002.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "c-spernakit-smb-dashboard",
+      "publishedPath": "transcripts/c-spernakit-smb-dashboard/iteration-6a3ddefbb8-003.log",
+      "redactions": [
+        "email-address",
+        "private-ip",
+        "workspace-root"
+      ],
+      "sha256": "6a3ddefbb89df798396df8d1f65b18a6396660e33be6bde5a5cae88542fea9de",
+      "size": 2433570,
+      "source": "c-spernakit-smb-dashboard/iterations/003.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "c-spernakit-smb-dashboard",
+      "publishedPath": "transcripts/c-spernakit-smb-dashboard/iteration-71735edc30-004.log",
+      "redactions": [
+        "email-address",
+        "private-ip",
+        "workspace-root"
+      ],
+      "sha256": "71735edc30d0dd783f93026026d17ea3cc2fd9cf0db8f1fd84db3619aa873693",
+      "size": 1453026,
+      "source": "c-spernakit-smb-dashboard/iterations/004.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "c-spernakit-smb-dashboard",
+      "publishedPath": "transcripts/c-spernakit-smb-dashboard/iteration-0de23d6281-005.log",
+      "redactions": [
+        "private-ip",
+        "workspace-root"
+      ],
+      "sha256": "0de23d6281070b0ed6bc553cc048f312af8911ce8871b043194c04f251871f4c",
+      "size": 1176697,
+      "source": "c-spernakit-smb-dashboard/iterations/005.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "c-spernakit-smb-dashboard",
+      "publishedPath": "transcripts/c-spernakit-smb-dashboard/iteration-350d262823-006.log",
+      "redactions": [
+        "private-ip",
+        "workspace-root"
+      ],
+      "sha256": "350d262823044b96e88d75d39d9843b748a52dc632a24cdc998eeb1e7e95b825",
+      "size": 1680968,
+      "source": "c-spernakit-smb-dashboard/iterations/006.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "c-spernakit-smb-dashboard",
+      "publishedPath": "transcripts/c-spernakit-smb-dashboard/iteration-5b42452939-007.log",
+      "redactions": [
+        "email-address",
+        "private-ip",
+        "workspace-root"
+      ],
+      "sha256": "5b42452939813bd342028a0dc3679e91139bd25e22a7844dbbdc11dbdab6228d",
+      "size": 1213815,
+      "source": "c-spernakit-smb-dashboard/iterations/007.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "c-spernakit-smb-dashboard",
+      "publishedPath": "transcripts/c-spernakit-smb-dashboard/iteration-aef201b3b8-008.log",
+      "redactions": [
+        "credential-assignment",
+        "email-address",
+        "private-ip",
+        "workspace-root"
+      ],
+      "sha256": "aef201b3b87016b2432fd68efe69cc856c5a224fcb1c5651a55e0512ed13c443",
+      "size": 1365044,
+      "source": "c-spernakit-smb-dashboard/iterations/008.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "c-spernakit-smb-dashboard",
+      "publishedPath": "transcripts/c-spernakit-smb-dashboard/iteration-5f082e31dd-009.log",
+      "redactions": [
+        "email-address",
+        "jwt",
+        "private-ip",
+        "workspace-root"
+      ],
+      "sha256": "5f082e31dd5020a135ff4bdf50cdbd7d4d7ad8be5d3ab99f91c8080ca1cba1d0",
+      "size": 1082589,
+      "source": "c-spernakit-smb-dashboard/iterations/009.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "c-spernakit-smb-dashboard",
+      "publishedPath": "transcripts/c-spernakit-smb-dashboard/iteration-d977997407-010.log",
+      "redactions": [
+        "email-address",
+        "private-ip",
+        "workspace-root"
+      ],
+      "sha256": "d977997407e22519ee8065ecda3b1eef7404c872f161b6ad74e50a5ad98576c0",
+      "size": 1828399,
+      "source": "c-spernakit-smb-dashboard/iterations/010.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "c-spernakit-smb-dashboard",
+      "publishedPath": "transcripts/c-spernakit-smb-dashboard/iteration-bae539b1da-011.log",
+      "redactions": [
+        "email-address",
+        "private-ip",
+        "workspace-root"
+      ],
+      "sha256": "bae539b1da316a22d03f3e8ed2372a57b2c4501d1c4db9fcd7fbbef66389bc30",
+      "size": 456769,
+      "source": "c-spernakit-smb-dashboard/iterations/011.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "c-spernakit-smb-dashboard",
+      "publishedPath": "transcripts/c-spernakit-smb-dashboard/iteration-918d3603a5-012.log",
+      "redactions": [
+        "credential-assignment",
+        "email-address",
+        "private-ip",
+        "workspace-root"
+      ],
+      "sha256": "918d3603a51476adae7917426aed6f64c8498f8c2a94f4d6b0b87b18c2573877",
+      "size": 1908037,
+      "source": "c-spernakit-smb-dashboard/iterations/012.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "c-spernakit-smb-dashboard",
+      "publishedPath": "transcripts/c-spernakit-smb-dashboard/iteration-f186d0ac23-013.log",
+      "redactions": [
+        "email-address",
+        "private-ip",
+        "workspace-root"
+      ],
+      "sha256": "f186d0ac233f7f9de3fba1e0efc78c903952dc25a44667596849535cf4bfb273",
+      "size": 1608838,
+      "source": "c-spernakit-smb-dashboard/iterations/013.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "c-spernakit-smb-dashboard",
+      "publishedPath": "transcripts/c-spernakit-smb-dashboard/iteration-371f8a19ea-014.log",
+      "redactions": [],
+      "sha256": "371f8a19ea1cd0c703c24b25f0af5867089e72c3a7b3275fd676fc9304c5f3f5",
+      "size": 1401183,
+      "source": "c-spernakit-smb-dashboard/iterations/014.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "c-spernakit-smb-dashboard",
+      "publishedPath": "transcripts/c-spernakit-smb-dashboard/iteration-03bfe09ac3-015.log",
+      "redactions": [
+        "email-address",
+        "private-ip",
+        "workspace-root"
+      ],
+      "sha256": "03bfe09ac3fa3ef13c66ecc403a74cb12cd2852f8eb02e3de7a7d82786b8b45f",
+      "size": 2340924,
+      "source": "c-spernakit-smb-dashboard/iterations/015.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "c-spernakit-smb-dashboard",
+      "publishedPath": "transcripts/c-spernakit-smb-dashboard/iteration-b949d21295-016.log",
+      "redactions": [
+        "credential-assignment",
+        "email-address",
+        "private-ip",
+        "workspace-root"
+      ],
+      "sha256": "b949d21295d9874cfd077102bcfe3d00b93ab8f805bbbe446ef7b5d5d63218a8",
+      "size": 2165561,
+      "source": "c-spernakit-smb-dashboard/iterations/016.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "c-spernakit-smb-dashboard",
+      "publishedPath": "transcripts/c-spernakit-smb-dashboard/iteration-1c1bade498-017.log",
+      "redactions": [
+        "email-address",
+        "private-ip"
+      ],
+      "sha256": "1c1bade498aa20de27fc84e33d7ca3446c76b5fec2879099c41ad1df0e23cd5d",
+      "size": 1430985,
+      "source": "c-spernakit-smb-dashboard/iterations/017.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "c-spernakit-smb-dashboard",
+      "publishedPath": "transcripts/c-spernakit-smb-dashboard/iteration-5e0d4fe2a7-018.log",
+      "redactions": [
+        "email-address",
+        "private-ip",
+        "workspace-root"
+      ],
+      "sha256": "5e0d4fe2a7f6c3fe1344d335f282a679060498e1334e67db9a66e2d69645f224",
+      "size": 2315201,
+      "source": "c-spernakit-smb-dashboard/iterations/018.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "c-spernakit-smb-dashboard",
+      "publishedPath": "transcripts/c-spernakit-smb-dashboard/iteration-43ae7e9556-019.log",
+      "redactions": [
+        "credential-assignment",
+        "email-address",
+        "private-ip",
+        "workspace-root"
+      ],
+      "sha256": "43ae7e9556679e800df8986687cf4ff11d90b7deaa54ae8b321e6627c352a23e",
+      "size": 1816825,
+      "source": "c-spernakit-smb-dashboard/iterations/019.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "c-spernakit-smb-dashboard",
+      "publishedPath": "transcripts/c-spernakit-smb-dashboard/iteration-32452746e3-020.log",
+      "redactions": [
+        "email-address",
+        "private-ip"
+      ],
+      "sha256": "32452746e3a4fdd034fec8ce6865af8c78856cf460a49ed8d78a47246b6696a9",
+      "size": 2515395,
+      "source": "c-spernakit-smb-dashboard/iterations/020.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "c-spernakit-smb-dashboard",
+      "publishedPath": "transcripts/c-spernakit-smb-dashboard/iteration-ee896e7bc9-021.log",
+      "redactions": [
+        "email-address",
+        "workspace-root"
+      ],
+      "sha256": "ee896e7bc95223dfdbaa0eef228c03e06dadefd63369fede7b9f1487b0063731",
+      "size": 2201965,
+      "source": "c-spernakit-smb-dashboard/iterations/021.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "c-spernakit-smb-dashboard",
+      "publishedPath": "transcripts/c-spernakit-smb-dashboard/iteration-c2973fd2b2-022.log",
+      "redactions": [],
+      "sha256": "c2973fd2b2d9ed21e6d4e0a51412871920caebe49a6b22ed76c16f2f2f66a24a",
+      "size": 1889366,
+      "source": "c-spernakit-smb-dashboard/iterations/022.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "c-spernakit-smb-dashboard",
+      "publishedPath": "transcripts/c-spernakit-smb-dashboard/iteration-ee7526a56e-023.log",
+      "redactions": [
+        "workspace-root"
+      ],
+      "sha256": "ee7526a56e3848711eedffb4422442d6e3839c3988d901a38aa7b62e93ddaf55",
+      "size": 2221278,
+      "source": "c-spernakit-smb-dashboard/iterations/023.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "c-spernakit-smb-dashboard",
+      "publishedPath": "transcripts/c-spernakit-smb-dashboard/iteration-26e0fbbad7-024.log",
+      "redactions": [
+        "credential-assignment",
+        "email-address",
+        "workspace-root"
+      ],
+      "sha256": "26e0fbbad7757aa33d52fcd25f2658d5ae20d48b6bd850f608f2706a8f780418",
+      "size": 1902251,
+      "source": "c-spernakit-smb-dashboard/iterations/024.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "c-spernakit-smb-dashboard",
+      "publishedPath": "transcripts/c-spernakit-smb-dashboard/iteration-23450b7804-025.log",
+      "redactions": [
+        "credential-assignment",
+        "email-address",
+        "private-ip"
+      ],
+      "sha256": "23450b7804a4c0a4766a926fef9517ec33a6f3190780b0026d2d0f47cfd22642",
+      "size": 2882578,
+      "source": "c-spernakit-smb-dashboard/iterations/025.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "c-spernakit-smb-dashboard",
+      "publishedPath": "transcripts/c-spernakit-smb-dashboard/iteration-e7b29f7456-026.log",
+      "redactions": [
+        "email-address"
+      ],
+      "sha256": "e7b29f745643d32676b0c594ea155d2c6a91e4102bd2eb8015b1b641f95125ec",
+      "size": 619210,
+      "source": "c-spernakit-smb-dashboard/iterations/026.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "c-spernakit-smb-dashboard",
+      "publishedPath": "transcripts/c-spernakit-smb-dashboard/iteration-8a0e12ff85-027.log",
+      "redactions": [],
+      "sha256": "8a0e12ff85e6ef1623cac0cf807e761b77a3d9cef134d37475f3b3d7e63c2572",
+      "size": 279781,
+      "source": "c-spernakit-smb-dashboard/iterations/027.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "c-spernakit-smb-dashboard",
+      "publishedPath": "transcripts/c-spernakit-smb-dashboard/iteration-18df6c3f49-028.log",
+      "redactions": [],
+      "sha256": "18df6c3f49273d087b5b8113f2304c7ddb26bfe88ba71c468b8e9827e91e7784",
+      "size": 254099,
+      "source": "c-spernakit-smb-dashboard/iterations/028.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "c-spernakit-smb-dashboard",
+      "publishedPath": "transcripts/c-spernakit-smb-dashboard/iteration-0f46a35c3a-029.log",
+      "redactions": [
+        "private-ip",
+        "workspace-root"
+      ],
+      "sha256": "0f46a35c3a8fd5c8bc4c561cb9bd320a39bb54703d935f79e4e4d6e848666282",
+      "size": 3674774,
+      "source": "c-spernakit-smb-dashboard/iterations/029.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "c-spernakit-smb-dashboard",
+      "publishedPath": "transcripts/c-spernakit-smb-dashboard/iteration-190e74b85d-030.log",
+      "redactions": [
+        "credential-assignment",
+        "email-address",
+        "private-ip",
+        "workspace-root"
+      ],
+      "sha256": "190e74b85d1101695674ae64ca573ca0546e3de74470049a84d2f94c1e59c04b",
+      "size": 2819217,
+      "source": "c-spernakit-smb-dashboard/iterations/030.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "c-spernakit-smb-dashboard",
+      "publishedPath": "transcripts/c-spernakit-smb-dashboard/iteration-0691ccd19a-031.log",
+      "redactions": [],
+      "sha256": "0691ccd19a375586ac851dc7b9e9b0da0a174ecc90dcc6463ce573ce6ab3d361",
+      "size": 345888,
+      "source": "c-spernakit-smb-dashboard/iterations/031.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "d-existing-flaskr",
+      "publishedPath": "transcripts/d-existing-flaskr/campaign-fe04be0662-flaskr-audit-fixes.log",
+      "redactions": [],
+      "sha256": "fe04be0662649fa607427c6e329a909f43dd6b5d9da104c517c29b0eabf38adb",
+      "size": 1074,
+      "source": "campaign/flaskr-audit-fixes.log",
+      "type": "campaign-log"
+    },
+    {
+      "proofId": "d-existing-flaskr",
+      "publishedPath": "transcripts/d-existing-flaskr/campaign-b4771d0a01-flaskr-audit.log",
+      "redactions": [
+        "workspace-root"
+      ],
+      "sha256": "b4771d0a0163ea9643963b66f30f52f6fa10ba5db56ee2b4822f05ede0b7f701",
+      "size": 40172,
+      "source": "campaign/flaskr-audit.log",
+      "type": "campaign-log"
+    },
+    {
+      "proofId": "d-existing-flaskr",
+      "publishedPath": "transcripts/d-existing-flaskr/campaign-be2560f579-flaskr-coding.log",
+      "redactions": [
+        "workspace-root"
+      ],
+      "sha256": "be2560f5799dcd047e143ddbe040d5fe3988c18343e249dad4aaea47f24fb58d",
+      "size": 193390,
+      "source": "campaign/flaskr-coding.log",
+      "type": "campaign-log"
+    },
+    {
+      "proofId": "a-fresh-habit-tracker",
+      "publishedPath": "transcripts/a-fresh-habit-tracker/campaign-c295735f25-habit-tracker-build.log",
+      "redactions": [
+        "workspace-root"
+      ],
+      "sha256": "c295735f25c1f9c0204a431576438825d5bb8f3d54cbfd20a95df740bc4158e0",
+      "size": 49246,
+      "source": "campaign/habit-tracker-build.log",
+      "type": "campaign-log"
+    },
+    {
+      "proofId": "a-fresh-habit-tracker",
+      "publishedPath": "transcripts/a-fresh-habit-tracker/campaign-0cdc9d9f4b-habit-tracker-coding.log",
+      "redactions": [
+        "unrelated-project",
+        "user-home",
+        "workspace-root"
+      ],
+      "sha256": "0cdc9d9f4bfe5f5157a86d423ad3410aae55dd195d51cd561dd7294a389589f6",
+      "size": 974542,
+      "source": "campaign/habit-tracker-coding.log",
+      "type": "campaign-log"
+    },
+    {
+      "proofId": "a-fresh-habit-tracker",
+      "publishedPath": "transcripts/a-fresh-habit-tracker/campaign-ac9679683b-habit-tracker-coding2.log",
+      "redactions": [
+        "unrelated-project",
+        "user-home",
+        "workspace-root"
+      ],
+      "sha256": "ac9679683b590e1a8c7cab358d6cf84d07bf0d6f004acf6fe720ba0d0f9f91fd",
+      "size": 107955,
+      "source": "campaign/habit-tracker-coding2.log",
+      "type": "campaign-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/campaign-995cd308db-kanban-board-coding.log",
+      "redactions": [
+        "unrelated-project",
+        "workspace-root"
+      ],
+      "sha256": "995cd308db62d57e5a4b50a59b345b4228d39b84a656aca83e04de4d90a72c8c",
+      "size": 70606,
+      "source": "campaign/kanban-board-coding.log",
+      "type": "campaign-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/campaign-7d7513ed39-kanban-board-coding2.log",
+      "redactions": [
+        "user-home",
+        "workspace-root"
+      ],
+      "sha256": "7d7513ed390416a29baaea0588fc42ccbf0dc7f15bd356976fdd89023c51cf22",
+      "size": 743732,
+      "source": "campaign/kanban-board-coding2.log",
+      "type": "campaign-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/campaign-bda1bd5347-kanban-board-coding3.log",
+      "redactions": [
+        "workspace-root"
+      ],
+      "sha256": "bda1bd53476814df0b4bb1738dd6dda81ff9dbda9d0e89cb482e1dee76b804c8",
+      "size": 27872,
+      "source": "campaign/kanban-board-coding3.log",
+      "type": "campaign-log"
+    },
+    {
+      "proofId": "b-template-kanban-board",
+      "publishedPath": "transcripts/b-template-kanban-board/campaign-87ac745424-kanban-board-onboarding.log",
+      "redactions": [
+        "workspace-root"
+      ],
+      "sha256": "87ac7454249425cab6be92b409b313a28cc261ebdb76f969810577a94939aca7",
+      "size": 40284,
+      "source": "campaign/kanban-board-onboarding.log",
+      "type": "campaign-log"
+    },
+    {
+      "proofId": "c-spernakit-smb-dashboard",
+      "publishedPath": "transcripts/c-spernakit-smb-dashboard/campaign-c10ba17f3d-smb-coding.log",
+      "redactions": [
+        "private-ip",
+        "unrelated-project",
+        "user-home",
+        "workspace-root"
+      ],
+      "sha256": "c10ba17f3da5bb79b528b1948070fdc2eafe94cbdbb38ec026b6526029dd70d1",
+      "size": 915329,
+      "source": "campaign/smb-coding.log",
+      "type": "campaign-log"
+    },
+    {
+      "proofId": "c-spernakit-smb-dashboard",
+      "publishedPath": "transcripts/c-spernakit-smb-dashboard/campaign-4b664e807e-smb-coding2.log",
+      "redactions": [
+        "credential-assignment",
+        "user-home",
+        "workspace-root"
+      ],
+      "sha256": "4b664e807e9528fd3e9c2ad16764e8194d2b7a56c9764dd147017b57b3f52dfb",
+      "size": 1022672,
+      "source": "campaign/smb-coding2.log",
+      "type": "campaign-log"
+    },
+    {
+      "proofId": "c-spernakit-smb-dashboard",
+      "publishedPath": "transcripts/c-spernakit-smb-dashboard/campaign-7e209217d6-smb-coding3.log",
+      "redactions": [
+        "user-home",
+        "workspace-root"
+      ],
+      "sha256": "7e209217d602125864b543c1052aaf3020848ecc2d52912b022532f05b84b27c",
+      "size": 650272,
+      "source": "campaign/smb-coding3.log",
+      "type": "campaign-log"
+    },
+    {
+      "proofId": "c-spernakit-smb-dashboard",
+      "publishedPath": "transcripts/c-spernakit-smb-dashboard/campaign-0170068dc7-smb-coding4.log",
+      "redactions": [
+        "workspace-root"
+      ],
+      "sha256": "0170068dc7b1ccf17430e86b880252079bb203e36fb2ee5c4d570a1e51ba7a25",
+      "size": 24210,
+      "source": "campaign/smb-coding4.log",
+      "type": "campaign-log"
+    },
+    {
+      "proofId": "c-spernakit-smb-dashboard",
+      "publishedPath": "transcripts/c-spernakit-smb-dashboard/campaign-511b783c04-smb-coding5.log",
+      "redactions": [
+        "workspace-root"
+      ],
+      "sha256": "511b783c044471db8daba30a27d6e5d0bf1fd6e865895f5abf1a59b8882a0e09",
+      "size": 19564,
+      "source": "campaign/smb-coding5.log",
+      "type": "campaign-log"
+    },
+    {
+      "proofId": "c-spernakit-smb-dashboard",
+      "publishedPath": "transcripts/c-spernakit-smb-dashboard/campaign-1def0e86d0-smb-coding6.log",
+      "redactions": [
+        "user-home",
+        "workspace-root"
+      ],
+      "sha256": "1def0e86d00ad5b45e1b467e5d436b74f76b1c3b8191ebf1081fee530d243144",
+      "size": 351095,
+      "source": "campaign/smb-coding6.log",
+      "type": "campaign-log"
+    },
+    {
+      "proofId": "d-existing-flaskr",
+      "publishedPath": "transcripts/d-existing-flaskr/iteration-bd2aafca83-001.log",
+      "redactions": [
+        "email-address"
+      ],
+      "sha256": "bd2aafca83142a3d3a17c2cfe1563ede506e20ef0ef074da1327c7665367e840",
+      "size": 315511,
+      "source": "d-existing-flaskr/iterations/001.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "d-existing-flaskr",
+      "publishedPath": "transcripts/d-existing-flaskr/iteration-af154562c7-002.log",
+      "redactions": [
+        "workspace-root"
+      ],
+      "sha256": "af154562c70df25b52326471d3c299039cb793657ddd363ae7d7cc119913131f",
+      "size": 204063,
+      "source": "d-existing-flaskr/iterations/002.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "d-existing-flaskr",
+      "publishedPath": "transcripts/d-existing-flaskr/iteration-41491ea41d-003.log",
+      "redactions": [],
+      "sha256": "41491ea41d0bbc00beb21f430613576bb122f05f06c47a5a67a03c912399c0b1",
+      "size": 122053,
+      "source": "d-existing-flaskr/iterations/003.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "d-existing-flaskr",
+      "publishedPath": "transcripts/d-existing-flaskr/iteration-a82bd0082d-004.log",
+      "redactions": [],
+      "sha256": "a82bd0082ddb924f30c4786e506a5aafe6719055eeb420de8c4fd529c374ab78",
+      "size": 112995,
+      "source": "d-existing-flaskr/iterations/004.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "d-existing-flaskr",
+      "publishedPath": "transcripts/d-existing-flaskr/iteration-e2820da371-005.log",
+      "redactions": [
+        "email-address"
+      ],
+      "sha256": "e2820da371d51232921f4f1d21eb7b4447a9b6d69ce20513c4b14b8d326fab7f",
+      "size": 213000,
+      "source": "d-existing-flaskr/iterations/005.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "d-existing-flaskr",
+      "publishedPath": "transcripts/d-existing-flaskr/iteration-58a49b6dd9-006.log",
+      "redactions": [
+        "email-address"
+      ],
+      "sha256": "58a49b6dd9b2581a112485431e74235856dffbe713b4d4cbcedd3aa1f4274dfa",
+      "size": 120807,
+      "source": "d-existing-flaskr/iterations/006.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "d-existing-flaskr",
+      "publishedPath": "transcripts/d-existing-flaskr/iteration-a199f490f5-007.log",
+      "redactions": [
+        "email-address"
+      ],
+      "sha256": "a199f490f51f38df25d2bc148ba47fda34b4a4f81f29f34b6a1418c32a25f846",
+      "size": 334711,
+      "source": "d-existing-flaskr/iterations/007.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "d-existing-flaskr",
+      "publishedPath": "transcripts/d-existing-flaskr/iteration-be33a540f1-008.log",
+      "redactions": [
+        "email-address"
+      ],
+      "sha256": "be33a540f10080bc2ec38fe334de39beaeeb9581d396de61b239c9b40221799d",
+      "size": 208428,
+      "source": "d-existing-flaskr/iterations/008.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "d-existing-flaskr",
+      "publishedPath": "transcripts/d-existing-flaskr/iteration-11435a4870-009.log",
+      "redactions": [
+        "email-address"
+      ],
+      "sha256": "11435a4870f4f010afee489dda33dab5590a186cf64398d9165c85e2c25419f0",
+      "size": 223083,
+      "source": "d-existing-flaskr/iterations/009.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "d-existing-flaskr",
+      "publishedPath": "transcripts/d-existing-flaskr/iteration-0a79a4db07-010.log",
+      "redactions": [
+        "email-address"
+      ],
+      "sha256": "0a79a4db077084b7a07c7fd59a4e50a451bbd65965e5b7a943a961b5ef7ca9f5",
+      "size": 264115,
+      "source": "d-existing-flaskr/iterations/010.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "d-existing-flaskr",
+      "publishedPath": "transcripts/d-existing-flaskr/iteration-01ba4719c8-011.log",
+      "redactions": [],
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size": 1,
+      "source": "d-existing-flaskr/iterations/011.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "d-existing-flaskr",
+      "publishedPath": "transcripts/d-existing-flaskr/iteration-4e7d3e8dce-012.log",
+      "redactions": [
+        "email-address"
+      ],
+      "sha256": "4e7d3e8dce933ca73319567febfd96eeb7c1b37406d1807938d1808800397f92",
+      "size": 111710,
+      "source": "d-existing-flaskr/iterations/012.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "d-existing-flaskr",
+      "publishedPath": "transcripts/d-existing-flaskr/iteration-b0db334030-013.log",
+      "redactions": [
+        "email-address"
+      ],
+      "sha256": "b0db334030024f25dfa4623a1d9301efbb2f8a5ce6999846f3c2d51026285ba4",
+      "size": 163022,
+      "source": "d-existing-flaskr/iterations/013.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "d-existing-flaskr",
+      "publishedPath": "transcripts/d-existing-flaskr/iteration-e50705de15-014.log",
+      "redactions": [
+        "email-address",
+        "workspace-root"
+      ],
+      "sha256": "e50705de1513d1c32289129d4fe15a4d3b64867a994c0a1954f309eb917c04e7",
+      "size": 343212,
+      "source": "d-existing-flaskr/iterations/014.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "d-existing-flaskr",
+      "publishedPath": "transcripts/d-existing-flaskr/iteration-2780e3e7a5-015.log",
+      "redactions": [
+        "email-address"
+      ],
+      "sha256": "2780e3e7a5b123924af8d4d81c062a59a030a9fa6d53e2cea0fd15915a42b54a",
+      "size": 271166,
+      "source": "d-existing-flaskr/iterations/015.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "d-existing-flaskr",
+      "publishedPath": "transcripts/d-existing-flaskr/iteration-62ac02f5b7-016.log",
+      "redactions": [
+        "email-address"
+      ],
+      "sha256": "62ac02f5b7cbdf0c318d2e7c318862775fc86e1d8b58b275e9d3e9261857f52c",
+      "size": 265120,
+      "source": "d-existing-flaskr/iterations/016.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "d-existing-flaskr",
+      "publishedPath": "transcripts/d-existing-flaskr/iteration-263dff2352-017.log",
+      "redactions": [
+        "workspace-root"
+      ],
+      "sha256": "263dff235239279625d978f4502e2062b47a993ac64e06036c327befed2a0d8e",
+      "size": 197781,
+      "source": "d-existing-flaskr/iterations/017.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "d-existing-flaskr",
+      "publishedPath": "transcripts/d-existing-flaskr/iteration-01ba4719c8-011.log",
+      "redactions": [],
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size": 1,
+      "source": "d-existing-flaskr/iterations/018.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "d-existing-flaskr",
+      "publishedPath": "transcripts/d-existing-flaskr/iteration-01ba4719c8-011.log",
+      "redactions": [],
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size": 1,
+      "source": "d-existing-flaskr/iterations/019.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "d-existing-flaskr",
+      "publishedPath": "transcripts/d-existing-flaskr/iteration-01ba4719c8-011.log",
+      "redactions": [],
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size": 1,
+      "source": "d-existing-flaskr/iterations/020.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "d-existing-flaskr",
+      "publishedPath": "transcripts/d-existing-flaskr/iteration-83ea73b76e-021.log",
+      "redactions": [
+        "email-address"
+      ],
+      "sha256": "83ea73b76e173f8a4bcefa9138a97406e905197bd357652c5a8802e8e0390422",
+      "size": 264659,
+      "source": "d-existing-flaskr/iterations/021.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "d-existing-flaskr",
+      "publishedPath": "transcripts/d-existing-flaskr/iteration-37a245dfa0-022.log",
+      "redactions": [
+        "email-address"
+      ],
+      "sha256": "37a245dfa07dbbbca5221d0c36a0d0a2fb707ebb5f53194c3fa9278c3fa9cd03",
+      "size": 257114,
+      "source": "d-existing-flaskr/iterations/022.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "d-existing-flaskr",
+      "publishedPath": "transcripts/d-existing-flaskr/iteration-2a7d093093-023.log",
+      "redactions": [
+        "email-address"
+      ],
+      "sha256": "2a7d0930935b16291545e38d3f277acc23782ca5cdbbec698742665c55ad21de",
+      "size": 259712,
+      "source": "d-existing-flaskr/iterations/023.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "d-existing-flaskr",
+      "publishedPath": "transcripts/d-existing-flaskr/iteration-7ce798a5b8-024.log",
+      "redactions": [
+        "email-address",
+        "workspace-root"
+      ],
+      "sha256": "7ce798a5b81aa4bf3e24b04c1b984996bf5a8ab177038ce9172b91d737da067d",
+      "size": 230241,
+      "source": "d-existing-flaskr/iterations/024.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "d-existing-flaskr",
+      "publishedPath": "transcripts/d-existing-flaskr/iteration-875f3243d9-025.log",
+      "redactions": [
+        "email-address"
+      ],
+      "sha256": "875f3243d9469a84a63fe1dac83c99349d80dcaa6614daf71eca6d5f601f4680",
+      "size": 265253,
+      "source": "d-existing-flaskr/iterations/025.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "d-existing-flaskr",
+      "publishedPath": "transcripts/d-existing-flaskr/iteration-fa66220d71-026.log",
+      "redactions": [
+        "email-address",
+        "unrelated-project",
+        "workspace-root"
+      ],
+      "sha256": "fa66220d710d41e5eaf5478034286e7b66407a1b17a32890c825e35feebbf9a8",
+      "size": 449997,
+      "source": "d-existing-flaskr/iterations/026.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "d-existing-flaskr",
+      "publishedPath": "transcripts/d-existing-flaskr/iteration-32cdbbe975-027.log",
+      "redactions": [
+        "email-address"
+      ],
+      "sha256": "32cdbbe975dc6019ede0b4166e6716c012622c1c7d6ecac116f6e62d635fe816",
+      "size": 288706,
+      "source": "d-existing-flaskr/iterations/027.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "d-existing-flaskr",
+      "publishedPath": "transcripts/d-existing-flaskr/iteration-8bbcbed112-028.log",
+      "redactions": [
+        "email-address"
+      ],
+      "sha256": "8bbcbed112890357562da9791c5c818cc3a196f939879ce5dac26a383ebd3456",
+      "size": 181111,
+      "source": "d-existing-flaskr/iterations/028.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "d-existing-flaskr",
+      "publishedPath": "transcripts/d-existing-flaskr/iteration-86eb9c51a2-029.log",
+      "redactions": [
+        "email-address"
+      ],
+      "sha256": "86eb9c51a2aafbefa0aab5c57c29198c9670f42d51b25cb4b3a84e3f1adf8587",
+      "size": 229994,
+      "source": "d-existing-flaskr/iterations/029.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "d-existing-flaskr",
+      "publishedPath": "transcripts/d-existing-flaskr/iteration-d852829590-030.log",
+      "redactions": [
+        "email-address"
+      ],
+      "sha256": "d8528295903a1f8c8c11f0efefed5d0918331a57185a1205a2be6fc6e0c1085c",
+      "size": 337848,
+      "source": "d-existing-flaskr/iterations/030.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "d-existing-flaskr",
+      "publishedPath": "transcripts/d-existing-flaskr/iteration-faa0294809-031.log",
+      "redactions": [
+        "email-address"
+      ],
+      "sha256": "faa0294809a62ea0fa81a6fb44a7ed3777322520a00270147bf29e725ac9b3ac",
+      "size": 212116,
+      "source": "d-existing-flaskr/iterations/031.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "d-existing-flaskr",
+      "publishedPath": "transcripts/d-existing-flaskr/iteration-13d9022f93-032.log",
+      "redactions": [],
+      "sha256": "13d9022f93d654a57b4499b86ca9f6bb33956012c889d1199a36f00a994691ee",
+      "size": 203907,
+      "source": "d-existing-flaskr/iterations/032.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "d-existing-flaskr",
+      "publishedPath": "transcripts/d-existing-flaskr/iteration-0248ba11c5-033.log",
+      "redactions": [
+        "email-address"
+      ],
+      "sha256": "0248ba11c560662fe75b5e6943af5a6a447219b85c0b632ba0d12bd53c2fe3cd",
+      "size": 156631,
+      "source": "d-existing-flaskr/iterations/033.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "d-existing-flaskr",
+      "publishedPath": "transcripts/d-existing-flaskr/iteration-157baa423d-034.log",
+      "redactions": [
+        "email-address"
+      ],
+      "sha256": "157baa423d6dfd362bd5dc7bba1f9d65535821be885442c6c23b4c4e636fa573",
+      "size": 196378,
+      "source": "d-existing-flaskr/iterations/034.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "d-existing-flaskr",
+      "publishedPath": "transcripts/d-existing-flaskr/iteration-75c7fe89ab-035.log",
+      "redactions": [
+        "email-address"
+      ],
+      "sha256": "75c7fe89abef925479c28f54acdfa4688e50f74113b155780734a010ab4b127a",
+      "size": 182039,
+      "source": "d-existing-flaskr/iterations/035.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "d-existing-flaskr",
+      "publishedPath": "transcripts/d-existing-flaskr/iteration-53efd761fa-036.log",
+      "redactions": [],
+      "sha256": "53efd761facf2ac4496dcff54a71f3091383b55a4841d809536352f912f1f9a0",
+      "size": 175014,
+      "source": "d-existing-flaskr/iterations/036.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "d-existing-flaskr",
+      "publishedPath": "transcripts/d-existing-flaskr/iteration-08b70d1cac-037.log",
+      "redactions": [
+        "email-address"
+      ],
+      "sha256": "08b70d1cacc5bd0039860b29644a83c2571ea34a7d26b717d6fdafd86ea69890",
+      "size": 226435,
+      "source": "d-existing-flaskr/iterations/037.log",
+      "type": "iteration-log"
+    }
+  ],
+  "generatedAt": "2026-07-10T04:13:55.032Z",
+  "policy": "Public transcripts are normalized and scrubbed for credentials, private paths, environment identifiers, private IPs, and unrelated project names.",
+  "schemaVersion": 1
+}

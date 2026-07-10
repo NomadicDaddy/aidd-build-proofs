@@ -1,0 +1,13 @@
+.release/
+node_modules/
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+*.log
+*.pem
+*.pfx
+*.p12
+*.key
+.env
+.env.*

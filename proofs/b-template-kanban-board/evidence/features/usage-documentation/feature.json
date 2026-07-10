@@ -1,0 +1,17 @@
+{
+  "id": "usage-documentation",
+  "title": "User-Facing Usage Documentation",
+  "description": "Document how to use the kanban board (create boards/columns/cards, drag-and-drop, filtering, persistence behavior) in the README so a new user can operate the app.",
+  "category": "Documentation",
+  "dependencies": [
+    "card-crud",
+    "card-drag-and-drop"
+  ],
+  "status": "completed",
+  "passes": true,
+  "priority": 5,
+  "createdAt": "2026-07-02T00:00:00.000Z",
+  "justFinishedAt": null,
+  "spec": "1. README describes creating boards, columns, and cards\n2. README describes drag-and-drop reordering and moving cards between columns\n3. README describes filtering/search and where data is stored (localStorage, single-user, local-only)\n4. README notes the non-empty-column delete rule and the corrupt-state fallback behavior\n5. Verify the README reflects the shipped UI (not the stock Vite template)",
+  "updatedAt": "2026-07-03T04:23:56.098Z"
+}

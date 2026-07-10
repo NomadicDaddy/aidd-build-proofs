@@ -1,0 +1,14 @@
+{
+	"id": "timestamp-type-converter",
+	"title": "SQLite timestamp type converter for datetime parsing",
+	"category": "Core",
+	"description": "flaskr/db.py registers a custom 'timestamp' converter via sqlite3.register_converter that parses stored TIMESTAMP values into Python datetime objects using datetime.fromisoformat. This enables template calls like post['created'].strftime('%Y-%m-%d') for date formatting.",
+	"priority": 5,
+	"status": "completed",
+	"passes": true,
+	"spec": "1. Verify flaskr/db.py registers a 'timestamp' converter via sqlite3.register_converter('timestamp', lambda v: datetime.fromisoformat(v.decode())).\n2. Verify get_db() opens the connection with detect_types=sqlite3.PARSE_DECLTYPES so the converter is applied.\n3. Verify flaskr/schema.sql declares the post.created column as TIMESTAMP.\n4. Verify flaskr/templates/blog/index.html calls post['created'].strftime('%Y-%m-%d'), which requires the converter to return a datetime object.",
+	"dependencies": ["database-and-init-db-cli"],
+	"affectedFiles": ["flaskr/db.py", "flaskr/schema.sql", "flaskr/templates/blog/index.html"],
+	"createdAt": "2026-07-04T00:00:00.000Z",
+	"updatedAt": "2026-07-04T00:00:00.000Z"
+}

@@ -1,0 +1,17 @@
+{
+	"app": {
+		"description": "A single-user, local-first habit tracker with streaks and a weekly grid.",
+		"name": "Habit Tracker",
+		"slug": "habit-tracker"
+	},
+	"database": {
+		"allowDbPush": true,
+		"url": "file:./data/habit-tracker.db"
+	},
+	"server": {
+		"backendPort": 3331,
+		"backendUrl": "http://localhost:3331",
+		"frontendPort": 3330,
+		"frontendUrl": "http://localhost:3330"
+	}
+}

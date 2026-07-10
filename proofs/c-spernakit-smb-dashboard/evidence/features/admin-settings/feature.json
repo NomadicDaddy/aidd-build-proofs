@@ -1,0 +1,16 @@
+{
+  "id": "admin-settings",
+  "title": "Required fields, stale thresholds, and import policy settings",
+  "description": "Admin settings for the infrastructure domain",
+  "category": "Core",
+  "dependencies": [
+    "asset-inventory-api"
+  ],
+  "status": "completed",
+  "passes": true,
+  "priority": 4,
+  "createdAt": "2026-07-03T14:10:00.000Z",
+  "justFinishedAt": null,
+  "spec": "1. Add settings for required asset fields, default stale-data threshold, default dashboard filters, and import behavior.\n2. Persist via the Setting store and validate input.\n3. Apply settings across dashboard, inventory, and import flows.\n4. Verify settings changes take effect via UI.",
+  "updatedAt": "2026-07-04T00:32:08.723Z"
+}

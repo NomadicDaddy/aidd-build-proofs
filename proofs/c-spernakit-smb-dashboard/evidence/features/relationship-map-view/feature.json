@@ -1,0 +1,17 @@
+{
+  "id": "relationship-map-view",
+  "title": "Interactive dependency and topology map",
+  "description": "Interactive infrastructure relationship map",
+  "category": "UI",
+  "dependencies": [
+    "relationship-model",
+    "relationship-table-view"
+  ],
+  "status": "completed",
+  "passes": true,
+  "priority": 4,
+  "createdAt": "2026-07-03T14:10:00.000Z",
+  "justFinishedAt": null,
+  "spec": "1. Add an interactive map for scopes: all assets, one site, one business service, one host, or one asset dependency tree.\n2. Use distinct node styling per asset type and relationship type.\n3. Support graph filtering by type, owner, site, criticality, status, and relationship type.\n4. Support expanding an asset to one-hop or multi-hop dependencies.\n5. Provide impact analysis entry points from any node.\n6. Keep the table fallback reachable from the map.\n7. Use icons for asset types and relationship direction.\n8. Verify the map renders nodes/edges for seeded data via agent-browser.\n9. Confirm filtering updates the graph without console errors.\n10. Confirm the map degrades gracefully when there is no relationship data.",
+  "updatedAt": "2026-07-04T01:59:18.912Z"
+}

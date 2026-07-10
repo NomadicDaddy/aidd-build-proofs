@@ -1,0 +1,96 @@
+{
+  "durationMs": 156186,
+  "endedAt": "2026-07-03T01:51:35.321Z",
+  "iteration": 0,
+  "runId": "run_1783043338115_afe0cdcb",
+  "snapshotKey": "claude-code/directive/directive/none",
+  "startedAt": "2026-07-03T01:48:59.135Z",
+  "summary": "directive run finished with exit code 0",
+  "timeToFirstEventMs": 3745,
+  "exitCode": 0,
+  "idleWarningTimestamps": [],
+  "promptChars": 28218,
+  "backend": "claude-code",
+  "executionMode": "single_agent",
+  "mode": "directive",
+  "model": "claude-opus-4-8",
+  "phase": "directive",
+  "provider": null,
+  "reasoningEffort": "medium",
+  "allowedFeatureIds": [],
+  "commands": [
+    "git status --short && echo \"---BRANCH---\" && git branch --show-current",
+    "echo \"=== .aidd ===\" && ls -la .aidd/ && echo \"=== features ===\" && ls .aidd/features/ && echo \"=== reports ===\" && ls .aidd/reports/ 2>/dev/null || echo \"no reports dir\"",
+    "for f in .aidd/features/*/feature.json; do echo \"=== $f ===\"; cat \"$f\"; echo; done",
+    "echo \"=== roadmap ===\" && cat .aidd/roadmap.json 2>/dev/null || echo \"NO ROADMAP\"; echo \"=== ls root ===\" && ls; echo \"=== src tree ===\"; find src -type f 2>/dev/null | head -100",
+    "echo \"=== all src/frontend/public ts/tsx ===\"; find src frontend public -type f \\( -name '*.ts' -o -name '*.tsx' -o -name '*.js' -o -name '*.jsx' \\) 2>/dev/null; echo \"=== frontend dir ===\"; ls -la frontend/ 2>/dev/null; echo \"=== grep kanban/board/card/column in src ===\"; grep -ril \"kanban\\|board\\|column\\|localStorage\\|zustand\" src/ 2>/dev/null || echo \"none\"",
+    "git add .aidd/reports/feature-coverage-audit-2026-07-02.md .aidd/CHANGELOG.md && git status --short && echo \"---\" && git commit -m \"docs(aidd): feature-coverage-audit finds zero implemented capabilities\n\nRan feature-coverage-audit --apply. Repo is a pristine vite-react\nscaffold with 0/8 spec features implemented, so no coverage gaps exist\nto backfill. No feature JSONs created (scaffold boilerplate cannot be\nhonestly marked completed); no feature metadata changed so validators\nwere not run.\n\nCo-Authored-By: Claude Opus 4.8 <<REDACTED_EMAIL>>\"",
+    "git rev-parse --show-toplevel; echo \"---pwd---\"; pwd",
+    "ls -la .git 2>/dev/null && echo \"HAS OWN .git\" || echo \"no own .git\"; echo \"---\"; grep -rn \"kanban-board\" <WORKSPACE>/<REDACTED_PROJECT> 2>/dev/null; echo \"--- check ignore ---\"; git check-ignore -v .aidd/CHANGELOG.md",
+    "ls -la .aidd/reports/feature-coverage-audit-2026-07-02.md && echo \"--- changelog head ---\" && head -20 .aidd/CHANGELOG.md"
+  ],
+  "commitsCreated": [],
+  "completedFeatures": [],
+  "detailsSummary": {
+    "bashCommandsRun": 9,
+    "finalChecks": {},
+    "hasBuildErrors": false,
+    "hasLintErrors": false,
+    "hasTypeErrors": false,
+    "totalToolCalls": 20,
+    "uniqueFilesCreated": 1,
+    "uniqueFilesEdited": 1,
+    "uniqueFilesRead": 9
+  },
+  "errors": [],
+  "extraCompletedFeatures": [],
+  "filesCreated": [
+    "d:\\applications\\kanban-board\\.aidd\\reports\\feature-coverage-audit-2026-07-02.md"
+  ],
+  "filesEdited": [
+    "d:\\applications\\kanban-board\\.aidd\\CHANGELOG.md"
+  ],
+  "filesRead": [
+    "d:\\applications\\kanban-board\\AGENTS.md",
+    "d:\\applications\\kanban-board\\.aidd\\project.md",
+    "d:\\applications\\kanban-board\\.aidd\\spec.md",
+    "d:\\applications\\kanban-board\\.aidd\\project-structure.md",
+    "d:\\applications\\kanban-board\\src\\App.tsx",
+    "d:\\applications\\kanban-board\\src\\main.tsx",
+    "d:\\applications\\kanban-board\\package.json",
+    "d:\\applications\\kanban-board\\README.md",
+    "d:\\applications\\kanban-board\\.aidd\\CHANGELOG.md"
+  ],
+  "metrics": {
+    "cachedTokens": 0,
+    "costUsd": 1.063624,
+    "errorCount": 0,
+    "errorReasons": [],
+    "filesCreatedCount": 1,
+    "filesEditedCount": 1,
+    "idleWarningCount": 0,
+    "inputTokens": 35968,
+    "outputTokens": 10899,
+    "rateLimitCount": 0,
+    "reasoningTokens": 0,
+    "toolBreakdown": {
+      "bash": 9,
+      "read": 9,
+      "write": 1,
+      "edit": 1
+    },
+    "toolCallCount": 20
+  },
+  "outcome": {
+    "exitCode": 0,
+    "status": "success"
+  },
+  "scopeOverrun": false,
+  "selectedFeatures": [],
+  "unacceptedCompletedFeatures": [],
+  "commitsCreatedCount": 0,
+  "filesCreatedCount": 1,
+  "filesEditedCount": 1,
+  "residualDirtyFilesCount": 0,
+  "stopRequested": false
+}

@@ -1,0 +1,114 @@
+{
+  "durationMs": 216251,
+  "endedAt": "2026-07-03T05:57:26.449Z",
+  "iteration": 0,
+  "runId": "run_1783058029265_4d782236",
+  "snapshotKey": "claude-code/directive/directive/none",
+  "startedAt": "2026-07-03T05:53:50.198Z",
+  "summary": "directive run finished with exit code 0",
+  "timeToFirstEventMs": 5901,
+  "exitCode": 0,
+  "idleWarningTimestamps": [],
+  "promptChars": 28206,
+  "backend": "claude-code",
+  "executionMode": "single_agent",
+  "mode": "directive",
+  "model": "claude-opus-4-8",
+  "phase": "directive",
+  "provider": null,
+  "reasoningEffort": "medium",
+  "allowedFeatureIds": [],
+  "commands": [
+    "git status --short && echo \"---BRANCH---\" && git branch --show-current",
+    "ls -la && echo \"---AIDD---\" && ls -la .aidd/ && echo \"---FEATURES---\" && ls -la .aidd/features/ 2>/dev/null",
+    "find flaskr tests -type f | head -50 && echo \"---CLAUDE/AGENTS---\" && ls AGENTS.md CLAUDE.md 2>/dev/null",
+    "for d in .aidd/features/*/; do echo \"=== $d ===\"; ls \"$d\"; done",
+    "ls .aidd/roadmap.json .aidd/spec.md .aidd/screen-map.md .aidd/testing-scenarios.md 2>&1; echo \"---REPORTS---\"; ls .aidd/reports/; echo \"---AUDIT---\"; ls .aidd/audit-reports/",
+    "ls .venv/Scripts/pytest.exe 2>/dev/null && .venv/Scripts/pytest.exe -q 2>&1 | tail -15",
+    "grep -rilE \"csrf|csrf_token|CSRFProtect\" flaskr/ 2>/dev/null | head; echo \"csrf-hits-above(expect none)\"; grep -n 'SECRET_KEY' flaskr/__init__.py",
+    "cd <WORKSPACE>/aidd && bun run start -- --project-dir <WORKSPACE>/flaskr --check-features 2>&1 | tail -40",
+    "git add .aidd/features/app-factory-and-configuration .aidd/features/user-authentication .aidd/features/blog-post-management .aidd/features/database-and-init-db-cli .aidd/reports/feature-coverage-audit-2026-07-03.md .aidd/CHANGELOG.md && git status --short",
+    "git commit -m \"docs(aidd): backfill feature-JSON coverage for implemented flaskr capabilities\n\nRan feature-coverage-audit --apply. Implemented Flask capabilities had no\nfeature-JSON coverage (only 2 backlog security remediations existed).\nBackfilled 4 completed/passes:true coverage records with concrete Verify\nspecs: app-factory-and-configuration, user-authentication,\nblog-post-management, database-and-init-db-cli. Validated via --check-features\n(6 valid, 0 invalid). No app source, tests, config, or remediation features\nchanged.\n\nCo-Authored-By: Claude Opus 4.8 <<REDACTED_EMAIL>>\" 2>&1 | tail -8"
+  ],
+  "commitsCreated": [
+    {
+      "hash": "3e218300d051ce12d85d6a75cdcd64ee7104dac6",
+      "subject": "docs(aidd): backfill feature-JSON coverage for implemented flaskr capabilities"
+    }
+  ],
+  "completedFeatures": [
+    "app-factory-and-configuration",
+    "blog-post-management",
+    "database-and-init-db-cli",
+    "user-authentication"
+  ],
+  "detailsSummary": {
+    "bashCommandsRun": 10,
+    "finalChecks": {},
+    "hasBuildErrors": false,
+    "hasLintErrors": false,
+    "hasTypeErrors": false,
+    "totalToolCalls": 28,
+    "uniqueFilesCreated": 5,
+    "uniqueFilesEdited": 1,
+    "uniqueFilesRead": 12
+  },
+  "errors": [],
+  "extraCompletedFeatures": [],
+  "filesCreated": [
+    "d:\\applications\\flaskr\\.aidd\\features\\app-factory-and-configuration\\feature.json",
+    "d:\\applications\\flaskr\\.aidd\\features\\user-authentication\\feature.json",
+    "d:\\applications\\flaskr\\.aidd\\features\\blog-post-management\\feature.json",
+    "d:\\applications\\flaskr\\.aidd\\features\\database-and-init-db-cli\\feature.json",
+    "d:\\applications\\flaskr\\.aidd\\reports\\feature-coverage-audit-2026-07-03.md"
+  ],
+  "filesEdited": [
+    "d:\\applications\\flaskr\\.aidd\\CHANGELOG.md"
+  ],
+  "filesRead": [
+    "d:\\applications\\flaskr\\.aidd\\project.md",
+    "d:\\applications\\flaskr\\.aidd\\project-structure.md",
+    "d:\\applications\\flaskr\\README.rst",
+    "d:\\applications\\flaskr\\flaskr\\__init__.py",
+    "d:\\applications\\flaskr\\flaskr\\auth.py",
+    "d:\\applications\\flaskr\\flaskr\\blog.py",
+    "d:\\applications\\flaskr\\flaskr\\db.py",
+    "d:\\applications\\flaskr\\flaskr\\schema.sql",
+    "d:\\applications\\flaskr\\.aidd\\features\\remediation-20260703-missing-csrf-protection\\feature.json",
+    "d:\\applications\\flaskr\\.aidd\\features\\remediation-20260703-secret-key-hardcoded\\feature.json",
+    "d:\\applications\\flaskr\\.aidd\\assertions.md",
+    "d:\\applications\\flaskr\\.aidd\\CHANGELOG.md"
+  ],
+  "metrics": {
+    "cachedTokens": 0,
+    "costUsd": 1.3328425,
+    "errorCount": 0,
+    "errorReasons": [],
+    "filesCreatedCount": 5,
+    "filesEditedCount": 1,
+    "idleWarningCount": 0,
+    "inputTokens": 30821,
+    "outputTokens": 16243,
+    "rateLimitCount": 0,
+    "reasoningTokens": 0,
+    "toolBreakdown": {
+      "bash": 10,
+      "read": 12,
+      "write": 5,
+      "edit": 1
+    },
+    "toolCallCount": 28
+  },
+  "outcome": {
+    "exitCode": 0,
+    "status": "success"
+  },
+  "scopeOverrun": false,
+  "selectedFeatures": [],
+  "unacceptedCompletedFeatures": [],
+  "commitsCreatedCount": 1,
+  "filesCreatedCount": 5,
+  "filesEditedCount": 1,
+  "residualDirtyFilesCount": 46,
+  "stopRequested": false
+}

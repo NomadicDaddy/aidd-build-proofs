@@ -1,0 +1,17 @@
+{
+  "id": "lint-and-coverage-gates",
+  "title": "Wire ruff lint and coverage gates into the development workflow",
+  "description": "pyproject.toml declares [tool.ruff] and [tool.coverage.run] but ruff and coverage/pytest-cov are not installed and never invoked. There is no CI workflow. Branch coverage is configured but not measured. These tools should be installed and wired into a pre-commit or CI gate so lint and coverage are enforced. Verified finding (assertions.md §5).",
+  "category": "Testing",
+  "dependencies": [],
+  "status": "completed",
+  "passes": true,
+  "priority": 4,
+  "notes": "Installed ruff and pytest-cov into the .venv and pinned them (ruff==0.15.20, pytest-cov==7.1.0, coverage==7.15.0) in requirements-dev.txt plus a new [project.optional-dependencies] dev extra. Fixed pyproject [tool.ruff] src=['src'] -> src=['flaskr','tests'], set line-length=88 and [tool.ruff.lint] select=[E,F,W,I]. Ran ruff check --fix (11 import-sort fixes) and wrapped one long docstring in test_factory.py; ruff check now clean. Added [tool.coverage.report] show_missing + fail_under=90; pytest --cov measures branch coverage from [tool.coverage.run] branch=true (33 passed, 99% total, gate green). Documented the lint/coverage commands in README.rst and added .github/workflows/ci.yml running ruff check + pytest --cov on push/PR.",
+  "spec": "1. Install ruff and pytest-cov as dev dependencies.\n2. Configure ruff rules in pyproject.toml (currently [tool.ruff] src=['src'] which does not match the flaskr/ layout).\n3. Run ruff check on flaskr/ and tests/ and fix any violations.\n4. Run pytest with coverage reporting and verify branch coverage is measured.\n5. Document the lint and coverage commands in README.\n6. Optionally add a pre-commit hook or CI workflow that runs lint + coverage + tests.",
+  "affectedFiles": [
+    "pyproject.toml"
+  ],
+  "createdAt": "2026-07-04T00:00:00.000Z",
+  "updatedAt": "2026-07-03T14:11:17.274Z"
+}

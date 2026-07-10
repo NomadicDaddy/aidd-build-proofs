@@ -1,0 +1,18 @@
+{
+  "id": "csv-import-review",
+  "title": "Staged CSV import with duplicate detection and review",
+  "description": "CSV import with staged review that never silently overwrites human context",
+  "category": "Core",
+  "dependencies": [
+    "asset-inventory-api",
+    "relationship-model",
+    "service-catalog"
+  ],
+  "status": "completed",
+  "passes": true,
+  "priority": 4,
+  "createdAt": "2026-07-03T14:10:00.000Z",
+  "justFinishedAt": null,
+  "spec": "1. Support CSV import for assets, services, ports, and relationships.\n2. Validate all import data server-side before staging.\n3. Stage import rows for review before records are created or updated.\n4. Detect duplicates by hostname, FQDN, IP, serial number, and asset tag.\n5. Preserve manually entered ownership, notes, lifecycle, and relationship context unless the operator explicitly accepts an update.\n6. Record import source, time, row count, accepted changes, rejected changes, and warnings.\n7. Let the operator accept/reject individual staged changes.\n8. Audit every import decision.\n9. Verify a full import->review->accept->audit flow via UI.\n10. Confirm rejected rows do not mutate existing records.",
+  "updatedAt": "2026-07-04T00:53:11.648Z"
+}

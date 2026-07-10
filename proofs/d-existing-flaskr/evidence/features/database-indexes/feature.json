@@ -1,0 +1,21 @@
+{
+  "id": "database-indexes",
+  "title": "Add database indexes for post.author_id and post.created",
+  "description": "The post table has no indexes on author_id (FK) or created (the ORDER BY key). Queries do a full table scan plus filesort. Adding indexes (idx_post_created, idx_post_author_id) would improve query performance as the post count grows. Verified finding (assertions.md §4).",
+  "category": "Performance",
+  "dependencies": [
+    "database-and-init-db-cli"
+  ],
+  "status": "completed",
+  "passes": true,
+  "priority": 4,
+  "notes": "Resolved 2026-07-03. Added CREATE INDEX idx_post_created ON post (created DESC) and CREATE INDEX idx_post_author_id ON post (author_id) to flaskr/schema.sql, covering the index.html ORDER BY created DESC listing and the author_id ownership lookups. Verified with a new test tests/test_db.py::test_post_indexes_created that asserts both indexes appear in PRAGMA index_list('post') after init-db. Full suite green: 33 passed (was 32). No migration framework exists and init-db is a destructive re-init, so existing databases pick up the indexes on the next init-db; no separate migration was added (consistent with the current no-migration design).",
+  "spec": "1. Add CREATE INDEX idx_post_created ON post (created DESC) to flaskr/schema.sql.\n2. Add CREATE INDEX idx_post_author_id ON post (author_id) to flaskr/schema.sql.\n3. Verify the index list via PRAGMA index_list('post') after init-db.\n4. Verify existing tests still pass after schema change.\n5. Consider whether a migration is needed for existing databases (currently no migration framework).",
+  "affectedFiles": [
+    "flaskr/schema.sql",
+    "flaskr/db.py",
+    "tests/test_db.py"
+  ],
+  "createdAt": "2026-07-04T00:00:00.000Z",
+  "updatedAt": "2026-07-03T14:06:59.534Z"
+}

@@ -1,0 +1,112 @@
+{
+  "durationMs": 196322,
+  "endedAt": "2026-07-03T05:30:32.264Z",
+  "iteration": 0,
+  "runId": "run_1783056434905_0258529e",
+  "snapshotKey": "claude-code/directive/directive/none",
+  "startedAt": "2026-07-03T05:27:15.942Z",
+  "summary": "directive run finished with exit code 0",
+  "timeToFirstEventMs": 4561,
+  "exitCode": 0,
+  "idleWarningTimestamps": [],
+  "promptChars": 21579,
+  "backend": "claude-code",
+  "executionMode": "single_agent",
+  "mode": "directive",
+  "model": "claude-opus-4-8",
+  "phase": "directive",
+  "provider": null,
+  "reasoningEffort": "medium",
+  "allowedFeatureIds": [],
+  "commands": [
+    "ls -la && echo \"---AIDD---\" && ls -la .aidd 2>/dev/null",
+    "git log --oneline -20 && echo \"---FEATURES---\" && ls -R .aidd/features .aidd/iterations .aidd/active-runs .aidd/_common 2>/dev/null | head -50",
+    "ls .venv/Scripts/ 2>/dev/null | grep -Ei \"pytest|ruff|coverage|flask\" ; echo \"---data.sql---\"; cat tests/data.sql 2>/dev/null; echo \"---iteration001---\"; cat .aidd/iterations/001.json 2>/dev/null | head -40",
+    "./.venv/Scripts/pytest.exe -q 2>&1 | tail -30",
+    "mkdir -p .aidd/audit-reports && ls -la .aidd/audit-reports/",
+    "git add .aidd/audit-reports/CODEBASE_ANALYSIS-2026-07-03.md .aidd/CHANGELOG.md && git status --short && git commit -m \"docs(aidd): add codebase-analysis report for flaskr\n\nBroad AIDD analysis across architecture, performance, security, quality,\nevolution, and standards consistency. 24 tests pass. Records SECRET_KEY/CSRF\nsecurity findings and a keep-vs-port stack-divergence blocker.\n\nCo-Authored-By: Claude Opus 4.8 <<REDACTED_EMAIL>>\" 2>&1 | tail -8",
+    "cat .gitignore; echo \"---\"; git check-ignore -v .aidd/audit-reports/CODEBASE_ANALYSIS-2026-07-03.md",
+    "git status --short; echo \"---tracked?---\"; git ls-files .aidd/audit-reports/",
+    "git log --oneline -3; echo \"---\"; git show --stat HEAD --oneline | head -10"
+  ],
+  "commitsCreated": [
+    {
+      "hash": "ac71c57185dfa8c92ff4bf94d8fa2c4bf42602ee",
+      "subject": "docs(aidd): re-run codebase-analysis (2026-07-03)"
+    },
+    {
+      "hash": "b94a8a1f71a7004f07f3ea06c29e149f61fbbcfd",
+      "subject": "docs(aidd): add codebase-analysis report for flaskr"
+    }
+  ],
+  "completedFeatures": [],
+  "detailsSummary": {
+    "bashCommandsRun": 9,
+    "finalChecks": {},
+    "hasBuildErrors": false,
+    "hasLintErrors": false,
+    "hasTypeErrors": false,
+    "totalToolCalls": 30,
+    "uniqueFilesCreated": 1,
+    "uniqueFilesEdited": 1,
+    "uniqueFilesRead": 15
+  },
+  "errors": [],
+  "extraCompletedFeatures": [],
+  "filesCreated": [
+    "d:\\applications\\flaskr\\.aidd\\audit-reports\\CODEBASE_ANALYSIS-2026-07-03.md"
+  ],
+  "filesEdited": [
+    "d:\\applications\\flaskr\\.aidd\\CHANGELOG.md"
+  ],
+  "filesRead": [
+    "d:\\applications\\flaskr\\flaskr\\__init__.py",
+    "d:\\applications\\flaskr\\flaskr\\auth.py",
+    "d:\\applications\\flaskr\\flaskr\\db.py",
+    "d:\\applications\\flaskr\\flaskr\\blog.py",
+    "d:\\applications\\flaskr\\pyproject.toml",
+    "d:\\applications\\flaskr\\.aidd\\project.md",
+    "d:\\applications\\flaskr\\.aidd\\project-structure.md",
+    "d:\\applications\\flaskr\\.aidd\\CHANGELOG.md",
+    "d:\\applications\\flaskr\\tests\\conftest.py",
+    "d:\\applications\\flaskr\\flaskr\\schema.sql",
+    "d:\\applications\\flaskr\\flaskr\\templates\\base.html",
+    "d:\\applications\\flaskr\\flaskr\\templates\\blog\\index.html",
+    "d:\\applications\\flaskr\\tests\\test_auth.py",
+    "d:\\applications\\flaskr\\flaskr\\templates\\auth\\register.html",
+    "d:\\applications\\flaskr\\.aidd\\audit-reports\\CODEBASE_ANALYSIS-2026-07-03.md"
+  ],
+  "metrics": {
+    "cachedTokens": 0,
+    "costUsd": 1.2537684999999996,
+    "errorCount": 0,
+    "errorReasons": [],
+    "filesCreatedCount": 1,
+    "filesEditedCount": 1,
+    "idleWarningCount": 0,
+    "inputTokens": 50815,
+    "outputTokens": 13442,
+    "rateLimitCount": 0,
+    "reasoningTokens": 0,
+    "toolBreakdown": {
+      "bash": 9,
+      "glob": 2,
+      "read": 17,
+      "write": 1,
+      "edit": 1
+    },
+    "toolCallCount": 30
+  },
+  "outcome": {
+    "exitCode": 0,
+    "status": "success"
+  },
+  "scopeOverrun": false,
+  "selectedFeatures": [],
+  "unacceptedCompletedFeatures": [],
+  "commitsCreatedCount": 2,
+  "filesCreatedCount": 1,
+  "filesEditedCount": 1,
+  "residualDirtyFilesCount": 16,
+  "stopRequested": false
+}

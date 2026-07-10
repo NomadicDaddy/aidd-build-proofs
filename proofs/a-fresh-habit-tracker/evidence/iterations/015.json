@@ -1,0 +1,137 @@
+{
+  "durationMs": 316841,
+  "endedAt": "2026-07-02T22:12:48.125Z",
+  "iteration": 13,
+  "runId": "cli_1783026039958_45e2fabf",
+  "snapshotKey": "claude-code/coding/coding/none",
+  "startedAt": "2026-07-02T22:07:31.284Z",
+  "summary": "coding completed streak-computation; 11 incomplete feature(s) remain",
+  "timeToFirstEventMs": 3046,
+  "exitCode": 0,
+  "idleWarningTimestamps": [],
+  "promptChars": 56534,
+  "backend": "claude-code",
+  "executionMode": "single_agent",
+  "mode": "coding",
+  "model": "claude-opus-4-8",
+  "phase": "coding",
+  "provider": null,
+  "reasoningEffort": "medium",
+  "allowedFeatureIds": [
+    "streak-computation"
+  ],
+  "commands": [
+    "pwd && git log --oneline -10 && echo \"---STATUS---\" && git status --short",
+    "ls backend/src/routes/ && echo \"---\" && ls backend/src/db/schema/ && echo \"---services---\" && ls backend/src/services 2>/dev/null || echo \"no services dir\" && echo \"---lib---\" && ls backend/src/lib/",
+    "ls frontend/src/lib/ && echo \"---api---\" && ls frontend/src/lib/api 2>/dev/null; echo \"---find api/hooks---\" && find frontend/src -name \"*.ts\" -path \"*api*\" -o -name \"*hook*\" -o -name \"*client*\" | head -30",
+    "ls frontend/src/hooks/ && echo \"---\" && grep -rn \"computeHabitStats\\|HabitStats\\|stats\" frontend/src --include=*.ts --include=*.tsx -l",
+    "grep -n \"stats\\|Stats\\|computeHabitStats\" frontend/src/pages/habits/HabitRow.tsx frontend/src/pages/habits/HabitDetailPage.tsx",
+    "bun run format && bun run smoke:qc 2>&1 | tail -40",
+    "git status --short && echo \"---PORT---\" && (netstat -ano | grep -E \":3331\" || echo \"no 3331 listener found\")",
+    "git diff package.json && echo \"===BUNLOCK STAT===\" && git diff --stat bun.lock",
+    "curl -s http://localhost:3331/api/v1/habits | head -c 400; echo; echo \"===STATS on first habit===\"; HID=$(curl -s http://localhost:3331/api/v1/habits | grep -o '\"id\":\"[^\"]*\"' | head -1 | cut -d'\"' -f4); echo \"habit id: $HID\"; curl -s -w \"\\nHTTP %{http_code}\\n\" http://localhost:3331/api/v1/habits/$HID/stats",
+    "echo \"=== 404 missing habit ===\"; curl -s -w \"\\nHTTP %{http_code}\\n\" http://localhost:3331/api/v1/habits/does-not-exist/stats\necho \"=== empty history yields zeros ===\"\nNEW=$(curl -s -X POST http://localhost:3331/api/v1/habits -H 'Content-Type: application/json' -d '{\"name\":\"__stats_test__\"}')\nNID=$(echo \"$NEW\" | grep -o '\"id\":\"[^\"]*\"' | head -1 | cut -d'\"' -f4)\necho \"new id: $NID\"\ncurl -s http://localhost:3331/api/v1/habits/$NID/stats; echo\necho \"=== check today after a gap: mark an old day then today ===\"\ncurl -s -X POST http://localhost:3331/api/v1/habits/$NID/checkins -H 'Content-Type: application/json' -d '{\"date\":\"2026-06-01\"}' >/dev/null\nTODAY=$(date +%Y-%m-%d)\ncurl -s -X POST http://localhost:3331/api/v1/habits/$NID/checkins -H 'Content-Type: application/json' -d \"{\\\"date\\\":\\\"$TODAY\\\"}\" >/dev/null\necho \"today=$TODAY\"\ncurl -s http://localhost:3331/api/v1/habits/$NID/stats; echo\necho \"=== cleanup: delete test habit checkins + archive not enough; remove rows directly ===\"\ncurl -s -X DELETE http://localhost:3331/api/v1/habits/$NID/checkins/2026-06-01 >/dev/null\ncurl -s -X DELETE http://localhost:3331/api/v1/habits/$NID/checkins/$TODAY >/dev/null\necho \"TESTID=$NID\"",
+    "cd <WORKSPACE>/habit-tracker/backend && bun -e \"\nimport { Database } from 'bun:sqlite';\nconst db = new Database('../data/habit-tracker.db');\nconst info = db.query(\\\"DELETE FROM habits WHERE name = '__stats_test__'\\\").run();\nconsole.log('deleted habits:', info.changes);\nconst left = db.query(\\\"SELECT count(*) as c FROM checkins WHERE habit_id = '1f2235bc-1ff0-4c43-9fbb-94ece2cc20ab'\\\").get();\nconsole.log('leftover checkins:', left.c);\ndb.close();\n\"",
+    "(netstat -ano | grep -E \":3330 \" | head -3 || echo \"no 3330\") ; echo \"---\"; curl -s -o /dev/null -w \"frontend HTTP %{http_code}\\n\" http://localhost:3330/",
+    "cd <WORKSPACE>/habit-tracker && agent-browser open http://localhost:3330/habits 2>&1 | tail -5 && sleep 2 && agent-browser snapshot -i -c 2>&1 | head -40",
+    "agent-browser snapshot -c 2>&1 | grep -iE \"streak|Morning run|Read 30|day\" | head -20; echo \"=== errors ===\"; agent-browser errors 2>&1 | head -20",
+    "agent-browser eval \"Array.from(document.querySelectorAll('*')).filter(e=>/day streak/.test(e.textContent)&&e.children.length<=2).slice(0,4).map(e=>e.textContent.trim())\" 2>&1 | head -20",
+    "grep -n \"^###\\|^## \" .aidd/CHANGELOG.md | head -10",
+    "bunx prettier --write .aidd/CHANGELOG.md backend/src/services/stats.ts backend/src/routes/stats.ts 2>&1 | tail -5 && echo \"=== smoke:qc ===\" && bun run smoke:qc 2>&1 | tail -8",
+    "git add backend/src/services/stats.ts backend/src/routes/stats.ts backend/src/app.ts frontend/src/api/queryKeys.ts frontend/src/api/stats.ts frontend/src/hooks/useCheckins.ts .aidd/CHANGELOG.md .aidd/features/streak-computation/feature.json package.json bun.lock && git diff --staged --name-only",
+    "git commit -m \"feat(api): add habit streak and completion stats endpoint\" \\\n  -m \"- Add pure streak service (backend/src/services/stats.ts): current streak, longest streak, rolling 30-day completion rate, total check-ins; day-key math handles month-boundary gaps\" \\\n  -m \"- Expose GET /api/v1/habits/:id/stats (backend/src/routes/stats.ts), registered in app.ts; 404 on missing habit, zeros for empty history\" \\\n  -m \"- Wire frontend to the endpoint as source of truth: getHabitStats caller, stats query key, useHabitStats hook (replaces client-side computation)\" \\\n  -m \"- Verified via curl (seeded/empty/gap/404 cases) and agent-browser (streaks render, no console errors); bun run smoke:qc passes\" \\\n  -m \"- Bump @types/node via mandated format script (bun update)\" \\\n  -m \"- Updated .aidd/features/streak-computation/feature.json: passes true, status completed\" 2>&1 | tail -8",
+    "git status --short"
+  ],
+  "commitsCreated": [
+    {
+      "hash": "a98878910d9a126a7e317a5bfd05c3269f71b073",
+      "subject": "feat(api): add habit streak and completion stats endpoint"
+    }
+  ],
+  "completedFeatures": [
+    "streak-computation"
+  ],
+  "detailsSummary": {
+    "bashCommandsRun": 20,
+    "finalChecks": {},
+    "hasBuildErrors": false,
+    "hasLintErrors": false,
+    "hasTypeErrors": false,
+    "totalToolCalls": 50,
+    "uniqueFilesCreated": 3,
+    "uniqueFilesEdited": 5,
+    "uniqueFilesRead": 13
+  },
+  "errors": [],
+  "extraCompletedFeatures": [],
+  "filesCreated": [
+    "D:\\applications\\habit-tracker\\backend\\src\\services\\stats.ts",
+    "D:\\applications\\habit-tracker\\backend\\src\\routes\\stats.ts",
+    "D:\\applications\\habit-tracker\\frontend\\src\\api\\stats.ts"
+  ],
+  "filesEdited": [
+    "D:\\applications\\habit-tracker\\backend\\src\\app.ts",
+    "D:\\applications\\habit-tracker\\frontend\\src\\api\\queryKeys.ts",
+    "D:\\applications\\habit-tracker\\frontend\\src\\hooks\\useCheckins.ts",
+    "D:\\applications\\habit-tracker\\.aidd\\features\\streak-computation\\feature.json",
+    "D:\\applications\\habit-tracker\\.aidd\\CHANGELOG.md"
+  ],
+  "filesRead": [
+    "D:\\applications\\habit-tracker\\.aidd\\features\\streak-computation\\feature.json",
+    "D:\\applications\\habit-tracker\\.aidd\\spec.md",
+    "D:\\applications\\habit-tracker\\backend\\src\\routes\\checkins.ts",
+    "D:\\applications\\habit-tracker\\backend\\src\\routes\\habits.ts",
+    "D:\\applications\\habit-tracker\\backend\\src\\app.ts",
+    "D:\\applications\\habit-tracker\\backend\\src\\db\\schema\\checkins.ts",
+    "D:\\applications\\habit-tracker\\frontend\\src\\api\\stats.ts",
+    "D:\\applications\\habit-tracker\\frontend\\src\\api\\types.ts",
+    "D:\\applications\\habit-tracker\\frontend\\src\\api\\queryKeys.ts",
+    "D:\\applications\\habit-tracker\\frontend\\src\\api\\checkins.ts",
+    "D:\\applications\\habit-tracker\\frontend\\src\\hooks\\useCheckins.ts",
+    "D:\\applications\\habit-tracker\\backend\\src\\db\\index.ts",
+    "D:\\applications\\habit-tracker\\.aidd\\CHANGELOG.md"
+  ],
+  "metrics": {
+    "cachedTokens": 0,
+    "costUsd": 2.7550749999999997,
+    "errorCount": 0,
+    "errorReasons": [],
+    "filesCreatedCount": 3,
+    "filesEditedCount": 5,
+    "idleWarningCount": 0,
+    "inputTokens": 33230,
+    "outputTokens": 19686,
+    "rateLimitCount": 0,
+    "reasoningTokens": 0,
+    "toolBreakdown": {
+      "bash": 20,
+      "read": 17,
+      "write": 3,
+      "edit": 10
+    },
+    "toolCallCount": 50
+  },
+  "outcome": {
+    "exitCode": 0,
+    "status": "success"
+  },
+  "scopeOverrun": false,
+  "selectedFeatures": [
+    "streak-computation"
+  ],
+  "unacceptedCompletedFeatures": [],
+  "backendCompletionFinalizedEarly": true,
+  "featureSlug": "streak-computation",
+  "featureDescription": "Streak and completion computation",
+  "commitsCreatedCount": 1,
+  "filesCreatedCount": 3,
+  "filesEditedCount": 5,
+  "residualDirtyFilesCount": 0,
+  "stopRequested": false,
+  "completedFeature": "streak-computation",
+  "eligibleFeatures": 7,
+  "remainingDependencyBlockedFeatures": 4,
+  "remainingFeatures": 11,
+  "remainingPendingApproval": 0,
+  "completionOutcome": "completed"
+}

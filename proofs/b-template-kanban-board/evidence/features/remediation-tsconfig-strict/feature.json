@@ -1,0 +1,14 @@
+{
+  "id": "remediation-tsconfig-strict",
+  "title": "Enable TypeScript Strict Mode",
+  "description": "Enable TypeScript strict mode across tsconfig.app.json and tsconfig.node.json before feature code is written, per AGENTS.md zero-tolerance-for-any policy.",
+  "category": "Quality",
+  "dependencies": [],
+  "status": "completed",
+  "passes": true,
+  "priority": 1,
+  "createdAt": "2026-07-02T00:00:00Z",
+  "spec": "1. Verify tsconfig.app.json compilerOptions sets \"strict\": true\n2. Verify tsconfig.node.json compilerOptions sets \"strict\": true\n3. Verify existing noUnusedLocals / noUnusedParameters / noFallthroughCasesInSwitch options are retained (not removed)\n4. Verify `bun run build` (tsc -b && vite build) still passes with strict enabled\n5. Verify no `any` types or `@ts-expect-error`/`@ts-ignore` were introduced to force the build green\n6. Rationale: AGENTS.md mandates zero tolerance for `any`; enabling strict before any board/column/card code is authored ensures type safety from the first line rather than retrofitting later",
+  "notes": "Added \"strict\": true to compilerOptions in both tsconfig.app.json and tsconfig.node.json, preserving the existing noUnusedLocals / noUnusedParameters / noFallthroughCasesInSwitch options. `bun run smoke:qc` (typecheck + lint + tsc -b && vite build + format:check) passes clean with strict enabled; no `any`, `@ts-expect-error`, or `@ts-ignore` were introduced to force the build green.",
+  "updatedAt": "2026-07-02T00:00:00Z"
+}

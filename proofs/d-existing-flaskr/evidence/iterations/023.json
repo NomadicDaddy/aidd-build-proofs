@@ -1,0 +1,114 @@
+{
+  "durationMs": 162423,
+  "endedAt": "2026-07-03T06:51:15.406Z",
+  "iteration": 0,
+  "runId": "cli_1783061312915_ed16f26e",
+  "snapshotKey": "claude-code/audit/audit/none",
+  "startedAt": "2026-07-03T06:48:32.983Z",
+  "summary": "audit SECURITY finished with 4 finding(s)",
+  "timeToFirstEventMs": 6472,
+  "exitCode": 0,
+  "idleWarningTimestamps": [],
+  "promptChars": 90199,
+  "backend": "claude-code",
+  "executionMode": "single_agent",
+  "mode": "audit",
+  "model": "claude-opus-4-8",
+  "phase": "audit",
+  "provider": null,
+  "reasoningEffort": "medium",
+  "allowedFeatureIds": [],
+  "commands": [],
+  "commitsCreated": [],
+  "completedFeatures": [],
+  "detailsSummary": {
+    "bashCommandsRun": 0,
+    "finalChecks": {},
+    "hasBuildErrors": false,
+    "hasLintErrors": false,
+    "hasTypeErrors": false,
+    "totalToolCalls": 14,
+    "uniqueFilesCreated": 0,
+    "uniqueFilesEdited": 0,
+    "uniqueFilesRead": 9
+  },
+  "errors": [],
+  "extraCompletedFeatures": [],
+  "filesCreated": [],
+  "filesEdited": [],
+  "filesRead": [
+    "D:\\applications\\flaskr\\.aidd\\project.md",
+    "D:\\applications\\flaskr\\.aidd\\assertions.md",
+    "D:\\applications\\flaskr\\.aidd\\project-profile.json",
+    "D:\\applications\\flaskr\\flaskr\\__init__.py",
+    "D:\\applications\\flaskr\\flaskr\\auth.py",
+    "D:\\applications\\flaskr\\flaskr\\blog.py",
+    "D:\\applications\\flaskr\\flaskr\\db.py",
+    "D:\\applications\\flaskr\\.aidd\\features\\remediation-20260703-secret-key-hardcoded\\feature.json",
+    "D:\\applications\\flaskr\\.aidd\\features\\remediation-20260703-missing-csrf-protection\\feature.json"
+  ],
+  "metrics": {
+    "cachedTokens": 0,
+    "costUsd": 1.1437105,
+    "errorCount": 0,
+    "errorReasons": [],
+    "filesCreatedCount": 0,
+    "filesEditedCount": 0,
+    "idleWarningCount": 0,
+    "inputTokens": 24372,
+    "outputTokens": 11968,
+    "rateLimitCount": 0,
+    "reasoningTokens": 0,
+    "toolBreakdown": {
+      "read": 9,
+      "glob": 4,
+      "grep": 1
+    },
+    "toolCallCount": 14
+  },
+  "outcome": {
+    "exitCode": 0,
+    "status": "success"
+  },
+  "scopeOverrun": false,
+  "selectedFeatures": [],
+  "unacceptedCompletedFeatures": [],
+  "commitsCreatedCount": 0,
+  "filesCreatedCount": 0,
+  "filesEditedCount": 0,
+  "residualDirtyFilesCount": 13,
+  "stopRequested": false,
+  "auditBatchMode": false,
+  "auditBatchParallelInstruction": false,
+  "auditName": "SECURITY",
+  "completedAudits": [
+    "SECURITY"
+  ],
+  "findingIds": [
+    "audit-security-1783061475-harden-the-flask-session-cookie-session-cookie-secure-samesite-httponly",
+    "audit-security-1783061475-add-http-security-response-headers-csp-x-frame-options-x-content-type-options-re",
+    "audit-security-1783061475-remove-the-hello-debug-route-from-the-application-factory",
+    "audit-security-1783061475-remove-post-id-from-the-404-error-body-in-get-post"
+  ],
+  "findingsCreated": 4,
+  "findingsTotal": 4,
+  "invalidAuditReports": [],
+  "missingAudits": [],
+  "perAuditFindingsCreated": {
+    "SECURITY": 4
+  },
+  "perAuditFindingTotals": {
+    "SECURITY": 4
+  },
+  "perAuditReportPaths": {
+    "SECURITY": "D:\\applications\\flaskr\\.aidd\\audit-reports\\SECURITY-2026-07-03.md"
+  },
+  "remainingAudits": [],
+  "reportPath": "D:\\applications\\flaskr\\.aidd\\audit-reports\\SECURITY-2026-07-03.md",
+  "requestedAudits": [
+    "SECURITY"
+  ],
+  "selectedAuditBatch": [
+    "SECURITY"
+  ]
+}

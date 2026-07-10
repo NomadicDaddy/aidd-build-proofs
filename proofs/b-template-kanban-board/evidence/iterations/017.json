@@ -1,0 +1,86 @@
+{
+  "durationMs": 47940,
+  "endedAt": "2026-07-03T01:35:36.711Z",
+  "iteration": 15,
+  "runId": "run_1783041672831_f49ed656",
+  "snapshotKey": "claude-code/interview/interview/none",
+  "startedAt": "2026-07-03T01:34:48.771Z",
+  "summary": "interview questions generation attempted but file not found",
+  "timeToFirstEventMs": 3089,
+  "exitCode": 0,
+  "idleWarningTimestamps": [],
+  "promptChars": 12966,
+  "backend": "claude-code",
+  "executionMode": "single_agent",
+  "mode": "interview",
+  "model": "claude-opus-4-8",
+  "phase": "interview",
+  "provider": null,
+  "reasoningEffort": "medium",
+  "allowedFeatureIds": [],
+  "commands": [
+    "cat <WORKSPACE>/kanban-board/.aidd/questions.md 2>/dev/null; echo \"---RESPONSES---\"; cat <WORKSPACE>/kanban-board/.aidd/responses.md 2>/dev/null; echo \"---LS---\"; ls -la <WORKSPACE>/kanban-board/.aidd/responses/ 2>/dev/null",
+    "cat <WORKSPACE>/kanban-board/.aidd/responses/response1.md 2>/dev/null; echo \"===QUESTIONS===\"; ls -la <WORKSPACE>/kanban-board/.aidd/questions.md; echo \"===STATUS===\"; wc -l <WORKSPACE>/kanban-board/.aidd/questions.md",
+    "cd <WORKSPACE>/kanban-board; echo \"===SRC===\"; ls src/ 2>/dev/null; echo \"===FEATURES===\"; ls .aidd/features/ 2>/dev/null; echo \"===PKG SCRIPTS===\"; cat package.json 2>/dev/null | grep -A8 '\"scripts\"'; echo \"===THE QUESTION in prompt===\"; head -3 .aidd/spec.md 2>/dev/null"
+  ],
+  "commitsCreated": [],
+  "completedFeatures": [],
+  "detailsSummary": {
+    "bashCommandsRun": 3,
+    "finalChecks": {},
+    "hasBuildErrors": false,
+    "hasLintErrors": false,
+    "hasTypeErrors": true,
+    "totalToolCalls": 5,
+    "uniqueFilesCreated": 1,
+    "uniqueFilesEdited": 0,
+    "uniqueFilesRead": 1
+  },
+  "errors": [
+    {
+      "message": "Exit code 1\n# Question 1: (No question was provided)\n\n## Question\n\n_The interview harness did not supply a question._ The `### THE QUESTION`\nsection of the task prompt was empty, there is no `.aidd/questions.md` file, and\nthe launching run config\n`.aidd/active-runs/run_1783041672831_f49ed656.json`\n(`mode: \"interview\"`, `commandArgs` =\n`[\"aidd\",\"--project-dir\",\"d:\\\\applications\\\\kanban-board\",\"--interview\",\"--write-allowlist\",\".aidd\",\"--cli\",\"claude-code\",\"--model\",\"claude-opus-4-8\",\"--reasoning-",
+      "type": "typescript"
+    }
+  ],
+  "extraCompletedFeatures": [],
+  "filesCreated": [
+    "d:\\applications\\kanban-board\\.aidd\\responses\\response1.md"
+  ],
+  "filesEdited": [],
+  "filesRead": [
+    "d:\\applications\\kanban-board\\.aidd\\responses\\response1.md"
+  ],
+  "metrics": {
+    "cachedTokens": 0,
+    "costUsd": 0.3224665,
+    "errorCount": 0,
+    "errorReasons": [],
+    "filesCreatedCount": 1,
+    "filesEditedCount": 0,
+    "idleWarningCount": 0,
+    "inputTokens": 17683,
+    "outputTokens": 3451,
+    "rateLimitCount": 0,
+    "reasoningTokens": 0,
+    "toolBreakdown": {
+      "bash": 3,
+      "write": 1,
+      "read": 1
+    },
+    "toolCallCount": 5
+  },
+  "outcome": {
+    "exitCode": 0,
+    "status": "success"
+  },
+  "scopeOverrun": false,
+  "selectedFeatures": [],
+  "unacceptedCompletedFeatures": [],
+  "commitsCreatedCount": 0,
+  "filesCreatedCount": 1,
+  "filesEditedCount": 0,
+  "residualDirtyFilesCount": 0,
+  "stopRequested": false,
+  "questionsFile": "d:\\applications\\kanban-board\\.aidd\\questions.md",
+  "questionsGenerated": false
+}

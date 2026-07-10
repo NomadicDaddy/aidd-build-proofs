@@ -1,0 +1,14 @@
+{
+	"id": "password-hash-storage",
+	"title": "Salted password hashing via werkzeug generate_password_hash / check_password_hash",
+	"category": "Security",
+	"description": "Passwords are never stored in plaintext. Registration uses werkzeug.security.generate_password_hash(password) to store a salted, modern-KDF hash. Login uses check_password_hash(user['password'], password) to verify. This is a verified security control that must not regress.",
+	"priority": 2,
+	"status": "completed",
+	"passes": true,
+	"spec": "1. Verify flaskr/auth.py imports generate_password_hash and check_password_hash from werkzeug.security.\n2. Verify register() stores generate_password_hash(password) — not plaintext — in the user.password column.\n3. Verify login() verifies the submitted password via check_password_hash(user['password'], password).\n4. Verify tests/data.sql stores only hashed passwords (pbkdf2:sha256 format), never plaintext.\n5. Verify no raw password is ever stored or logged.",
+	"dependencies": ["user-authentication"],
+	"affectedFiles": ["flaskr/auth.py", "tests/data.sql", "tests/test_auth.py"],
+	"createdAt": "2026-07-04T00:00:00.000Z",
+	"updatedAt": "2026-07-04T00:00:00.000Z"
+}

@@ -1,0 +1,125 @@
+{
+  "durationMs": 189816,
+  "endedAt": "2026-07-03T04:20:22.863Z",
+  "iteration": 17,
+  "runId": "cli_1783046564992_bb3f91c0",
+  "snapshotKey": "claude-code/coding/coding/none",
+  "startedAt": "2026-07-03T04:17:13.047Z",
+  "summary": "coding completed persistence-resilience; 3 incomplete feature(s) remain",
+  "timeToFirstEventMs": 3812,
+  "exitCode": 0,
+  "idleWarningTimestamps": [],
+  "promptChars": 56852,
+  "backend": "claude-code",
+  "executionMode": "single_agent",
+  "mode": "coding",
+  "model": "claude-opus-4-8",
+  "phase": "coding",
+  "provider": null,
+  "reasoningEffort": "medium",
+  "allowedFeatureIds": [
+    "persistence-resilience"
+  ],
+  "commands": [
+    "ls D:/applications/kanban-board/frontend/src/store/",
+    "cd D:/applications/kanban-board && ls && echo \"---frontend---\" && ls frontend/ 2>/dev/null && echo \"---find stores---\" && find . -name \"boardStore.ts\" -not -path \"*/node_modules/*\"",
+    "cd D:/applications/kanban-board && ls src/store/ && echo \"---\" && cat AGENTS.md",
+    "cd D:/applications/kanban-board && ls src/ && echo \"---components---\" && ls src/components/ 2>/dev/null && echo \"---package scripts---\" && cat package.json | grep -A30 '\"scripts\"'",
+    "cd D:/applications/kanban-board && bun run smoke:qc 2>&1 | tail -40",
+    "cd D:/applications/kanban-board && curl -s -o /dev/null -w \"4173:%{http_code}\\n\" http://localhost:4173 2>&1; curl -s -o /dev/null -w \"3000:%{http_code}\\n\" http://localhost:3000 2>&1",
+    "cd D:/applications/kanban-board && agent-browser open http://localhost:4173 2>&1 | tail -5",
+    "cd D:/applications/kanban-board && agent-browser eval \"localStorage.setItem('kanban-board:v1','{not valid json at all]'); 'set:'+localStorage.getItem('kanban-board:v1')\" 2>&1 | tail -3",
+    "cd D:/applications/kanban-board && agent-browser open http://localhost:4173 2>&1 | tail -2 && echo \"=== SNAPSHOT ===\" && agent-browser snapshot -c 2>&1 | grep -iE \"My Board|To Do|Doing|Done|Welcome|No board|error\" | head -20 && echo \"=== ERRORS ===\" && agent-browser errors 2>&1 | tail -5 && echo \"=== PERSISTED ===\" && agent-browser eval \"JSON.parse(localStorage.getItem('kanban-board:v1')).version + ' | board:' + JSON.parse(localStorage.getItem('kanban-board:v1')).state.boards[Object.keys(JSON.parse(localStorage.getItem('kanban-board:v1')).state.boards)[0]].name\" 2>&1 | tail -2",
+    "cd D:/applications/kanban-board && agent-browser eval \"localStorage.setItem('kanban-board:v1', JSON.stringify({version:1, state:{foo:'bar', boards:'not-an-object', random:42}})); 'set'\" 2>&1 | tail -1 && agent-browser open http://localhost:4173 2>&1 | tail -1 && echo \"=== SNAPSHOT ===\" && agent-browser snapshot -c 2>&1 | grep -iE \"My Board|To Do|Welcome|No board|error\" | head -6 && echo \"=== ERRORS ===\" && agent-browser errors 2>&1 | tail -3",
+    "cd D:/applications/kanban-board && agent-browser eval \"var bid='b1',cid='c1'; localStorage.setItem('kanban-board:v1', JSON.stringify({version:999, state:{boards:{[bid]:{id:bid,name:'STALE BOARD',columnOrder:[cid]}}, columns:{[cid]:{id:cid,boardId:bid,name:'Old Col',cardOrder:[]}}, cards:{}, boardOrder:[bid], activeBoardId:bid}})); 'set'\" 2>&1 | tail -1 && agent-browser open http://localhost:4173 2>&1 | tail -1 && echo \"=== SNAPSHOT ===\" && agent-browser snapshot -c 2>&1 | grep -iE \"My Board|STALE BOARD|To Do|Old Col|No board\" | head -6 && echo \"=== ERRORS ===\" && agent-browser errors 2>&1 | tail -3",
+    "cd D:/applications/kanban-board && agent-browser snapshot -i -c 2>&1 | grep -iE \"Add card to To Do\" | head -2",
+    "cd D:/applications/kanban-board && agent-browser click @e11 2>&1 | tail -1 && agent-browser snapshot -i -c 2>&1 | grep -iE \"textbox|input|button \\\"(Add|Save|Create)\" | head -6",
+    "cd D:/applications/kanban-board && agent-browser fill @e44 \"Persistence check card\" 2>&1 | tail -1 && agent-browser snapshot -i -c 2>&1 | grep -iE 'button \"Add card\"' | head -1",
+    "cd D:/applications/kanban-board && agent-browser click @e23 2>&1 | tail -1 && echo \"=== PERSISTED STATE ===\" && agent-browser eval \"var e=JSON.parse(localStorage.getItem('kanban-board:v1')); var titles=Object.values(e.state.cards).map(c=>c.title); 'version='+e.version+' | board='+e.state.boards[e.state.boardOrder[0]].name+' | cards='+JSON.stringify(titles)\" 2>&1 | tail -2 && echo \"=== ERRORS ===\" && agent-browser errors 2>&1 | tail -3",
+    "cd D:/applications/kanban-board && agent-browser screenshot ./persistence-resilience-evidence.png 2>&1 | tail -1 && agent-browser eval \"localStorage.removeItem('kanban-board:v1'); 'cleared'\" 2>&1 | tail -1 && rm -f ./persistence-resilience-evidence.png 2>&1; echo \"cleanup done\"",
+    "cd D:/applications/kanban-board && bun run format 2>&1 | tail -2 && bun run smoke:qc 2>&1 | tail -8",
+    "cd D:/applications/kanban-board && git add src/store/persistence.ts .aidd/features/persistence-resilience/feature.json .aidd/CHANGELOG.md && echo \"=== staged ===\" && git diff --staged --name-only",
+    "cd D:/applications/kanban-board && git commit -m \"feat(persistence): reject version-mismatched state, fall back to seed\" -m \"- loadState() now discards any envelope whose version !== STORAGE_VERSION, so a future/unknown schema version yields the clean default board instead of adopting foreign data\" -m \"- Verified via agent-browser on :4173: invalid JSON, wrong-shape, and version-999 payloads all reload to the seed board with no console errors; a subsequent card edit re-persists a valid v1 envelope\" -m \"- Updated .aidd/features/persistence-resilience/feature.json: passes true, status completed\" 2>&1 | tail -6 && echo \"=== post-commit status ===\" && git status --short | grep -E \"persistence-resilience|persistence.ts|CHANGELOG\" || echo \"clean (feature files committed)\""
+  ],
+  "commitsCreated": [
+    {
+      "hash": "6158624e87d1bb64d2659ddcd1eff14738821c72",
+      "subject": "feat(persistence): reject version-mismatched state, fall back to seed"
+    }
+  ],
+  "completedFeatures": [
+    "persistence-resilience"
+  ],
+  "detailsSummary": {
+    "bashCommandsRun": 19,
+    "finalChecks": {},
+    "hasBuildErrors": false,
+    "hasLintErrors": false,
+    "hasTypeErrors": false,
+    "totalToolCalls": 31,
+    "uniqueFilesCreated": 0,
+    "uniqueFilesEdited": 3,
+    "uniqueFilesRead": 9
+  },
+  "errors": [],
+  "extraCompletedFeatures": [],
+  "filesCreated": [],
+  "filesEdited": [
+    "D:\\applications\\kanban-board\\src\\store\\persistence.ts",
+    "D:\\applications\\kanban-board\\.aidd\\features\\persistence-resilience\\feature.json",
+    "D:\\applications\\kanban-board\\.aidd\\CHANGELOG.md"
+  ],
+  "filesRead": [
+    "D:\\applications\\kanban-board\\.aidd\\features\\persistence-resilience\\feature.json",
+    "D:\\applications\\kanban-board\\CLAUDE.md",
+    "D:\\applications\\kanban-board\\.aidd\\project.md",
+    "D:\\applications\\kanban-board\\src\\store\\persistence.ts",
+    "D:\\applications\\kanban-board\\src\\store\\boardStore.ts",
+    "D:\\applications\\kanban-board\\src\\store\\seed.ts",
+    "D:\\applications\\kanban-board\\src\\App.tsx",
+    "D:\\applications\\kanban-board\\src\\main.tsx",
+    "D:\\applications\\kanban-board\\.aidd\\CHANGELOG.md"
+  ],
+  "metrics": {
+    "cachedTokens": 0,
+    "costUsd": 0,
+    "errorCount": 0,
+    "errorReasons": [],
+    "filesCreatedCount": 0,
+    "filesEditedCount": 3,
+    "idleWarningCount": 0,
+    "inputTokens": 18719,
+    "outputTokens": 724,
+    "rateLimitCount": 0,
+    "reasoningTokens": 0,
+    "toolBreakdown": {
+      "read": 9,
+      "bash": 19,
+      "edit": 3
+    },
+    "toolCallCount": 31
+  },
+  "outcome": {
+    "exitCode": 0,
+    "status": "success"
+  },
+  "scopeOverrun": false,
+  "selectedFeatures": [
+    "persistence-resilience"
+  ],
+  "unacceptedCompletedFeatures": [],
+  "backendCompletionFinalizedEarly": true,
+  "featureSlug": "persistence-resilience",
+  "featureDescription": "Persistence Resilience — Corrupt State Fallback",
+  "commitsCreatedCount": 1,
+  "filesCreatedCount": 0,
+  "filesEditedCount": 3,
+  "residualDirtyFilesCount": 27,
+  "stopRequested": false,
+  "completedFeature": "persistence-resilience",
+  "eligibleFeatures": 2,
+  "remainingDependencyBlockedFeatures": 0,
+  "remainingFeatures": 3,
+  "remainingPendingApproval": 1,
+  "completionOutcome": "completed"
+}

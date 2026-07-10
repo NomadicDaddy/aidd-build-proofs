@@ -1,0 +1,14 @@
+{
+  "id": "asset-domain-schema",
+  "title": "Asset domain schema and migrations",
+  "description": "Drizzle schema + migrations for the SMB infrastructure domain",
+  "category": "Core",
+  "dependencies": [],
+  "status": "completed",
+  "passes": true,
+  "priority": 1,
+  "createdAt": "2026-07-03T14:10:00.000Z",
+  "justFinishedAt": null,
+  "spec": "1. Define Drizzle tables for assets, asset_aliases, asset_hardware_profiles, asset_network_interfaces, asset_storage_allocations, asset_relationships, asset_services, service_catalog, service_dependencies, asset_ports, sites, network_zones, owners, vendors, asset_tags, imports, import_rows, asset_change_events.\n2. Use snake_case DB names and camelCase TypeScript fields.\n3. Include created/updated timestamps, actor IDs where appropriate, and soft-delete fields (is_deleted/deleted_at/deleted_by) where records may be hidden.\n4. Add asset type enum covering all required asset types and relationship type enum covering all required relationship types.\n5. Wire tables into backend/src/db/schema/index.ts.\n6. Generate Drizzle migrations via db:generate.\n7. Add PostgreSQL schema mirror if the template maintains schema-pg/.\n8. Verify autoMigrate applies the new migrations on a fresh SQLite database.\n9. Add seed data for sites, owners, and a starter service_catalog.\n10. Run bun run check:schema-parity and confirm no drift.\n11. Run bun run smoke:qc and confirm it passes.",
+  "updatedAt": "2026-07-03T19:14:15.869Z"
+}

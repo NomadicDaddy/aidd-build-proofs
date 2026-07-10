@@ -1,0 +1,124 @@
+{
+  "durationMs": 262341,
+  "endedAt": "2026-07-03T04:31:45.754Z",
+  "iteration": 0,
+  "runId": "cli_1783052843359_f1d598f6",
+  "snapshotKey": "claude-code/coding/coding/none",
+  "startedAt": "2026-07-03T04:27:23.413Z",
+  "summary": "coding has no incomplete feature work",
+  "timeToFirstEventMs": 4579,
+  "exitCode": 0,
+  "idleWarningTimestamps": [],
+  "promptChars": 56819,
+  "backend": "claude-code",
+  "executionMode": "single_agent",
+  "mode": "coding",
+  "model": "claude-opus-4-8",
+  "phase": "coding",
+  "provider": null,
+  "reasoningEffort": "medium",
+  "allowedFeatureIds": [
+    "testing-scenarios"
+  ],
+  "commands": [
+    "ls -la && echo \"---FRONTEND---\" && ls -la frontend/",
+    "for f in card-crud card-drag-and-drop local-persistence; do echo \"=== $f ===\"; grep -E '\"passes\"|\"status\"' .aidd/features/$f/feature.json 2>/dev/null || echo \"MISSING\"; done",
+    "find src -type f | sort && echo \"---\" && cat .oxlintrc.json && echo \"---TSCONFIG---\" && cat tsconfig.json tsconfig.node.json",
+    "bun scripts/scenarios.ts",
+    "bun run format 2>&1 | tail -5",
+    "bun run smoke:qc 2>&1 | tail -30",
+    "git add scripts/scenarios.ts package.json .aidd/features/testing-scenarios/feature.json .aidd/CHANGELOG.md && echo \"--- STAGED ---\" && git diff --staged --name-only",
+    "git commit -m \"test(scenarios): add headless acceptance scenarios wired into smoke:qc\" \\\n  -m \"- scripts/scenarios.ts drives the real store/persistence/selectors and asserts all 10 scenarios from .aidd/testing-scenarios.md, including reload persistence via loadState()\" \\\n  -m \"- Adds test:scenarios script and appends it to the smoke:qc gate (exits 0, all 10 pass)\" \\\n  -m \"- Updated .aidd/features/testing-scenarios/feature.json: passes true, status completed\" \\\n  -m \"Co-Authored-By: Claude Opus 4.8 <<REDACTED_EMAIL>>\" 2>&1 | tail -8",
+    "git status --short .aidd/features/testing-scenarios/feature.json package.json scripts/scenarios.ts"
+  ],
+  "commitsCreated": [
+    {
+      "hash": "d1d0eeaa6a412d88f241a191d9eff76dee81c67c",
+      "subject": "test(scenarios): add headless acceptance scenarios wired into smoke:qc"
+    }
+  ],
+  "completedFeatures": [
+    "testing-scenarios"
+  ],
+  "detailsSummary": {
+    "bashCommandsRun": 9,
+    "finalChecks": {},
+    "hasBuildErrors": false,
+    "hasLintErrors": false,
+    "hasTypeErrors": false,
+    "totalToolCalls": 28,
+    "uniqueFilesCreated": 1,
+    "uniqueFilesEdited": 3,
+    "uniqueFilesRead": 15
+  },
+  "errors": [],
+  "extraCompletedFeatures": [],
+  "filesCreated": [
+    "D:\\applications\\kanban-board\\scripts\\scenarios.ts"
+  ],
+  "filesEdited": [
+    "D:\\applications\\kanban-board\\package.json",
+    "D:\\applications\\kanban-board\\.aidd\\features\\testing-scenarios\\feature.json",
+    "D:\\applications\\kanban-board\\.aidd\\CHANGELOG.md"
+  ],
+  "filesRead": [
+    "D:\\applications\\kanban-board\\.aidd\\features\\testing-scenarios\\feature.json",
+    "D:\\applications\\kanban-board\\.aidd\\testing-scenarios.md",
+    "D:\\applications\\kanban-board\\CLAUDE.md",
+    "D:\\applications\\kanban-board\\.aidd\\project.md",
+    "D:\\applications\\kanban-board\\.aidd\\project-structure.md",
+    "D:\\applications\\kanban-board\\package.json",
+    "D:\\applications\\kanban-board\\src\\store\\boardStore.ts",
+    "D:\\applications\\kanban-board\\src\\types\\board.ts",
+    "D:\\applications\\kanban-board\\src\\store\\persistence.ts",
+    "D:\\applications\\kanban-board\\src\\store\\seed.ts",
+    "D:\\applications\\kanban-board\\src\\store\\selectors.ts",
+    "D:\\applications\\kanban-board\\tsconfig.app.json",
+    "D:\\applications\\kanban-board\\.prettierignore",
+    "D:\\applications\\kanban-board\\src\\components\\BoardFilter.tsx",
+    "D:\\applications\\kanban-board\\.aidd\\CHANGELOG.md"
+  ],
+  "metrics": {
+    "cachedTokens": 0,
+    "costUsd": 1.944071,
+    "errorCount": 0,
+    "errorReasons": [],
+    "filesCreatedCount": 1,
+    "filesEditedCount": 3,
+    "idleWarningCount": 0,
+    "inputTokens": 39198,
+    "outputTokens": 19334,
+    "rateLimitCount": 0,
+    "reasoningTokens": 0,
+    "toolBreakdown": {
+      "read": 15,
+      "bash": 9,
+      "write": 1,
+      "edit": 3
+    },
+    "toolCallCount": 28
+  },
+  "outcome": {
+    "exitCode": 0,
+    "status": "success"
+  },
+  "scopeOverrun": false,
+  "selectedFeatures": [
+    "testing-scenarios"
+  ],
+  "unacceptedCompletedFeatures": [],
+  "backendCompletionFinalizedEarly": true,
+  "featureSlug": "testing-scenarios",
+  "featureDescription": "Crawl Testing Scenarios (CRUD, DnD, Persistence)",
+  "commitsCreatedCount": 1,
+  "filesCreatedCount": 1,
+  "filesEditedCount": 3,
+  "residualDirtyFilesCount": 30,
+  "stopRequested": false,
+  "completedFeature": "testing-scenarios",
+  "eligibleFeatures": 0,
+  "remainingDependencyBlockedFeatures": 0,
+  "remainingFeatures": 0,
+  "remainingPendingApproval": 0,
+  "completionOutcome": "completed"
+}

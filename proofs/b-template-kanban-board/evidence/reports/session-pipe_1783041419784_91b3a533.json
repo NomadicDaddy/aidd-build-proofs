@@ -1,0 +1,182 @@
+{
+	"completedAt": 1783044761440,
+	"durationMs": 3341656,
+	"recipeId": "project-intake",
+	"recipeName": "project-intake",
+	"sessionId": "pipe_1783041419784_91b3a533",
+	"startedAt": 1783041419784,
+	"status": "completed",
+	"steps": [
+		{
+			"depth": 0,
+			"durationMs": 252976,
+			"errorMessage": null,
+			"name": "Analyze codebase",
+			"runId": null,
+			"status": "completed",
+			"stepType": "recipe-ref"
+		},
+		{
+			"depth": 1,
+			"durationMs": 252904,
+			"errorMessage": null,
+			"name": "Analyze codebase",
+			"runId": "run_1783041419867_3e947433",
+			"status": "completed",
+			"stepType": "ingredient"
+		},
+		{
+			"depth": 0,
+			"durationMs": 1574348,
+			"errorMessage": "Run finished with status failed",
+			"name": "Onboarding interview",
+			"runId": null,
+			"status": "failed",
+			"stepType": "recipe-ref"
+		},
+		{
+			"depth": 1,
+			"durationMs": 1574286,
+			"errorMessage": "Run finished with status failed",
+			"name": "Run interview",
+			"runId": "run_1783041672831_f49ed656",
+			"status": "failed",
+			"stepType": "aidd-cli"
+		},
+		{
+			"depth": 0,
+			"durationMs": 89745,
+			"errorMessage": null,
+			"name": "Infer project profile",
+			"runId": "run_1783043247185_a7b6b1c8",
+			"status": "completed",
+			"stepType": "aidd-cli"
+		},
+		{
+			"depth": 0,
+			"durationMs": 1120,
+			"errorMessage": "Run finished with status failed",
+			"name": "Check artifacts",
+			"runId": null,
+			"status": "failed",
+			"stepType": "recipe-ref"
+		},
+		{
+			"depth": 1,
+			"durationMs": 1064,
+			"errorMessage": "Run finished with status failed",
+			"name": "Run aidd --check-artifacts",
+			"runId": "run_1783043336989_a1c7e41a",
+			"status": "failed",
+			"stepType": "aidd-cli"
+		},
+		{
+			"depth": 0,
+			"durationMs": 432458,
+			"errorMessage": null,
+			"name": "Generate feature coverage",
+			"runId": null,
+			"status": "completed",
+			"stepType": "recipe-ref"
+		},
+		{
+			"depth": 1,
+			"durationMs": 170501,
+			"errorMessage": null,
+			"name": "Generate features",
+			"runId": "run_1783043338115_afe0cdcb",
+			"status": "completed",
+			"stepType": "ingredient"
+		},
+		{
+			"depth": 1,
+			"durationMs": 261844,
+			"errorMessage": null,
+			"name": "Review features",
+			"runId": "run_1783043508667_fef94d70",
+			"status": "completed",
+			"stepType": "ingredient"
+		},
+		{
+			"depth": 0,
+			"durationMs": 188168,
+			"errorMessage": null,
+			"name": "Review features",
+			"runId": null,
+			"status": "completed",
+			"stepType": "recipe-ref"
+		},
+		{
+			"depth": 1,
+			"durationMs": 188099,
+			"errorMessage": null,
+			"name": "Review features",
+			"runId": "run_1783043770584_2f570c21",
+			"status": "completed",
+			"stepType": "ingredient"
+		},
+		{
+			"depth": 0,
+			"durationMs": 132108,
+			"errorMessage": null,
+			"name": "Generate testing scenarios",
+			"runId": null,
+			"status": "completed",
+			"stepType": "recipe-ref"
+		},
+		{
+			"depth": 1,
+			"durationMs": 132048,
+			"errorMessage": null,
+			"name": "Generate scenarios",
+			"runId": "run_1783043958746_f3ab93ab",
+			"status": "completed",
+			"stepType": "ingredient"
+		},
+		{
+			"depth": 0,
+			"durationMs": 377329,
+			"errorMessage": "Run finished with status failed",
+			"name": "Run audits",
+			"runId": null,
+			"status": "failed",
+			"stepType": "recipe-ref"
+		},
+		{
+			"depth": 1,
+			"durationMs": 377278,
+			"errorMessage": "Run finished with status failed",
+			"name": "Run all audits",
+			"runId": "run_1783044090848_e8a8cdd1",
+			"status": "failed",
+			"stepType": "aidd-cli"
+		},
+		{
+			"depth": 0,
+			"durationMs": 171724,
+			"errorMessage": null,
+			"name": "Review audit findings",
+			"runId": null,
+			"status": "completed",
+			"stepType": "recipe-ref"
+		},
+		{
+			"depth": 1,
+			"durationMs": 171667,
+			"errorMessage": null,
+			"name": "Review audit findings",
+			"runId": "run_1783044468185_a9f30c63",
+			"status": "completed",
+			"stepType": "ingredient"
+		},
+		{
+			"depth": 0,
+			"durationMs": 121542,
+			"errorMessage": null,
+			"name": "Intake report",
+			"runId": "run_1783044639896_7d342730",
+			"status": "completed",
+			"stepType": "aidd-cli"
+		}
+	]
+}

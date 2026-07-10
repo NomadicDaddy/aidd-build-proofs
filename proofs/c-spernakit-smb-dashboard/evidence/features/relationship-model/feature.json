@@ -1,0 +1,16 @@
+{
+  "id": "relationship-model",
+  "title": "Directed asset relationship records and validation",
+  "description": "First-class relationship records with type, direction, confidence, validation",
+  "category": "Core",
+  "dependencies": [
+    "asset-domain-schema"
+  ],
+  "status": "completed",
+  "passes": true,
+  "priority": 2,
+  "createdAt": "2026-07-03T14:10:00.000Z",
+  "justFinishedAt": null,
+  "spec": "1. Add API for creating/reading/updating/deleting asset_relationships.\n2. Support all required relationship types (runs_on, hosts, depends_on, provides_service, connects_to, stores_on, backs_up_to, part_of, owned_by).\n3. Store direction, confidence, notes, and timestamps.\n4. Prevent duplicate relationships.\n5. Prevent nonsensical relationships (e.g. storage pool running on a VM) unless explicitly marked special.\n6. Audit every relationship write.\n7. Verify validation rules via API tests.",
+  "updatedAt": "2026-07-03T21:00:07.739Z"
+}

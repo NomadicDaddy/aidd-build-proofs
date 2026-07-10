@@ -1,0 +1,14 @@
+{
+  "id": "remediation-quality-gate-scripts",
+  "title": "Add Quality Gate Scripts (typecheck + smoke:qc)",
+  "description": "Add the quality-gate scripts the spec assumes exist. spec.md and AGENTS.md require `bun run smoke:qc`, but package.json defines only dev/build/lint/preview. Add typecheck + a smoke:qc composite and resolve the orphaned prettier config.",
+  "category": "Quality",
+  "dependencies": [],
+  "status": "completed",
+  "passes": true,
+  "priority": 1,
+  "createdAt": "2026-07-02T00:00:00Z",
+  "spec": "1. Verify package.json defines a `typecheck` script (e.g. `tsc -b --noEmit`) that passes\n2. Verify package.json defines a `smoke:qc` script composing at minimum typecheck + lint + build (plus crawl scenarios once testing-scenarios lands)\n3. Verify `bun run smoke:qc` exits 0 on the current tree\n4. Resolve the prettier discrepancy: either add prettier + prettier-plugin-organize-attributes/sort-json to devDependencies with a working `format` script that formats src/, OR remove the orphaned .prettierrc (do not leave a config referencing an uninstalled formatter)\n5. If prettier is adopted, verify `bun run format` reformats src/* to the AGENTS.md style (tabs, 100-col, single quotes, semicolons) without errors\n6. Rationale: spec.md acceptance criteria state `bun run smoke:qc passes`; that gate is currently unrunnable, so acceptance cannot be verified",
+  "notes": "Added `typecheck` (tsc -b --noEmit), `format` (prettier --write .), `format:check`, and `smoke:qc` (typecheck && lint && build && format:check) scripts to package.json. Resolved the prettier fork by ADOPTING prettier — .aidd/project.md (highest priority) mandates spernakit-like tooling, and spernakit ships prettier with exactly the AGENTS.md style. Installed prettier@3.9.4 + prettier-plugin-organize-attributes@1.0.0 + prettier-plugin-sort-json@4.2.0 (dropped prettier-plugin-tailwindcss from .prettierrc since this SPA has no tailwind), backing the previously-orphaned config with real deps. Added `.aidd/` to .prettierignore so aidd-managed artifacts are never reformatted. Ran `bun run format` (formatted 13 files to tabs/100-col/single-quote style) and confirmed `bun run smoke:qc` exits 0.",
+  "updatedAt": "2026-07-02T00:00:00Z"
+}

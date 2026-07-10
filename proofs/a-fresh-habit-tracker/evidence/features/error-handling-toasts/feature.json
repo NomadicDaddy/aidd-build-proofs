@@ -1,0 +1,13 @@
+{
+	"category": "UI",
+	"createdAt": "2026-07-02T20:51:56.000Z",
+	"dependencies": ["api-client-layer"],
+	"description": "sonner toasts for API errors and success feedback",
+	"id": "error-handling-toasts",
+	"passes": true,
+	"priority": 4,
+	"spec": "1. Add sonner (via shadcn/ui) toaster at the app root.\n2. Show an error toast when a mutation fails.\n3. Show a success toast on create/archive where helpful.\n4. Confirm failed check-in toggles surface a clear message and revert UI state.",
+	"status": "completed",
+	"title": "Error handling and toasts",
+	"updatedAt": "2026-07-02T22:32:32.426Z"
+}

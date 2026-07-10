@@ -1,0 +1,133 @@
+{
+  "durationMs": 367383,
+  "endedAt": "2026-07-03T14:04:13.185Z",
+  "iteration": 1,
+  "runId": "cli_1783086870091_6848db94",
+  "snapshotKey": "claude-code/coding/coding/none",
+  "startedAt": "2026-07-03T13:58:05.802Z",
+  "summary": "coding completed remediation-20260703-missing-csrf-protection; 6 incomplete feature(s) remain",
+  "timeToFirstEventMs": 6267,
+  "exitCode": 0,
+  "idleWarningTimestamps": [],
+  "promptChars": 55685,
+  "backend": "claude-code",
+  "executionMode": "single_agent",
+  "mode": "coding",
+  "model": "claude-opus-4-8",
+  "phase": "coding",
+  "provider": null,
+  "reasoningEffort": "medium",
+  "allowedFeatureIds": [
+    "remediation-20260703-missing-csrf-protection"
+  ],
+  "commands": [
+    "ls && echo \"---REQ---\" && cat requirements*.txt setup.py pyproject.toml 2>/dev/null | head -80",
+    "python --version 2>&1; echo \"---\"; pip show flask-wtf 2>&1 | head -5; echo \"---FLASK---\"; pip show flask 2>&1 | head -3",
+    "pytest --version 2>&1 | head -3; echo \"---WTF---\"; ls \"$(pytest --co -q 2>/dev/null >/dev/null; echo)\" 2>/dev/null; pip show flask-wtf wtforms 2>&1 | head -20",
+    "pytest -q 2>&1 | tail -30",
+    "pwd; echo \"---venv---\"; ls -d .venv venv 2>/dev/null; echo \"---which---\"; which pytest; echo \"---egg---\"; ls *.egg-info flaskr.egg-info 2>/dev/null; ls flaskr/__init__.py",
+    "ls .venv/Scripts/pytest* 2>/dev/null; echo \"---\"; .venv/Scripts/pytest.exe -q 2>&1 | tail -30",
+    ".venv/Scripts/ruff.exe --version 2>&1 || which ruff 2>&1 || echo \"ruff not installed\"; echo \"---check---\"; .venv/Scripts/ruff.exe check flaskr tests 2>&1 | tail -20",
+    "git status --short; echo \"---DIFF STAT---\"; git diff --stat",
+    ".venv/Scripts/pytest.exe -q 2>&1 | tail -5",
+    "git add flaskr/csrf.py flaskr/__init__.py flaskr/templates/auth/register.html flaskr/templates/auth/login.html flaskr/templates/blog/create.html flaskr/templates/blog/update.html tests/conftest.py tests/test_auth.py tests/test_blog.py .aidd/features/remediation-20260703-missing-csrf-protection/feature.json .aidd/CHANGELOG.md && git diff --staged --name-only",
+    "git commit -m \"feat(security): add CSRF protection to all state-changing forms (S2 remediation)\" \\\n  -m \"Implements dependency-free synchronizer-token CSRF protection (flaskr/csrf.py, Flask stdlib secrets+hmac) registered in create_app; enforced server-side in a before_request hook for POST/PUT/PATCH/DELETE, aborting 400 on missing/invalid token. Auto-disabled under TESTING (CSRF_ENABLED) mirroring Flask-WTF.\" \\\n  -m \"- Added hidden csrf_token field to all five mutating forms (register, login, create, update-edit, update-delete)\" \\\n  -m \"- Added csrf_client fixture + rejected-without-token tests for auth and blog endpoints\" \\\n  -m \"- Full pytest suite green: 28 passed (was 25)\" \\\n  -m \"- Updated .aidd/features/remediation-20260703-missing-csrf-protection/feature.json: passes=true, status=completed\" \\\n  -m \"Co-Authored-By: Claude Opus 4.8 <<REDACTED_EMAIL>>\" 2>&1 | tail -15",
+    "git status --short | grep -E \"feature.json|flaskr/|tests/\" || echo \"feature files clean\""
+  ],
+  "commitsCreated": [
+    {
+      "hash": "532989e183925a0423395fe7ca7b7748f998fdfb",
+      "subject": "feat(security): add CSRF protection to all state-changing forms (S2 remediation)"
+    }
+  ],
+  "completedFeatures": [
+    "remediation-20260703-missing-csrf-protection"
+  ],
+  "detailsSummary": {
+    "bashCommandsRun": 12,
+    "finalChecks": {},
+    "hasBuildErrors": false,
+    "hasLintErrors": false,
+    "hasTypeErrors": false,
+    "totalToolCalls": 42,
+    "uniqueFilesCreated": 1,
+    "uniqueFilesEdited": 10,
+    "uniqueFilesRead": 14
+  },
+  "errors": [],
+  "extraCompletedFeatures": [],
+  "filesCreated": [
+    "D:\\applications\\flaskr\\flaskr\\csrf.py"
+  ],
+  "filesEdited": [
+    "D:\\applications\\flaskr\\flaskr\\__init__.py",
+    "D:\\applications\\flaskr\\flaskr\\templates\\auth\\register.html",
+    "D:\\applications\\flaskr\\flaskr\\templates\\auth\\login.html",
+    "D:\\applications\\flaskr\\flaskr\\templates\\blog\\create.html",
+    "D:\\applications\\flaskr\\flaskr\\templates\\blog\\update.html",
+    "D:\\applications\\flaskr\\tests\\conftest.py",
+    "D:\\applications\\flaskr\\tests\\test_auth.py",
+    "D:\\applications\\flaskr\\tests\\test_blog.py",
+    "D:\\applications\\flaskr\\.aidd\\features\\remediation-20260703-missing-csrf-protection\\feature.json",
+    "D:\\applications\\flaskr\\.aidd\\CHANGELOG.md"
+  ],
+  "filesRead": [
+    "D:\\applications\\flaskr\\.aidd\\features\\remediation-20260703-missing-csrf-protection\\feature.json",
+    "D:\\applications\\flaskr\\.aidd\\project.md",
+    "D:\\applications\\flaskr\\.aidd\\spec.md",
+    "D:\\applications\\flaskr\\flaskr\\__init__.py",
+    "D:\\applications\\flaskr\\flaskr\\templates\\auth\\register.html",
+    "D:\\applications\\flaskr\\flaskr\\templates\\auth\\login.html",
+    "D:\\applications\\flaskr\\flaskr\\templates\\blog\\create.html",
+    "D:\\applications\\flaskr\\flaskr\\templates\\blog\\update.html",
+    "D:\\applications\\flaskr\\tests\\test_auth.py",
+    "D:\\applications\\flaskr\\tests\\test_blog.py",
+    "D:\\applications\\flaskr\\tests\\conftest.py",
+    "D:\\applications\\flaskr\\flaskr\\auth.py",
+    "D:\\applications\\flaskr\\flaskr\\blog.py",
+    "D:\\applications\\flaskr\\.aidd\\CHANGELOG.md"
+  ],
+  "metrics": {
+    "cachedTokens": 0,
+    "costUsd": 0,
+    "errorCount": 0,
+    "errorReasons": [],
+    "filesCreatedCount": 1,
+    "filesEditedCount": 10,
+    "idleWarningCount": 0,
+    "inputTokens": 30559,
+    "outputTokens": 647,
+    "rateLimitCount": 0,
+    "reasoningTokens": 0,
+    "toolBreakdown": {
+      "read": 14,
+      "bash": 12,
+      "write": 1,
+      "edit": 15
+    },
+    "toolCallCount": 42
+  },
+  "outcome": {
+    "exitCode": 0,
+    "status": "success"
+  },
+  "scopeOverrun": false,
+  "selectedFeatures": [
+    "remediation-20260703-missing-csrf-protection"
+  ],
+  "unacceptedCompletedFeatures": [],
+  "backendCompletionFinalizedEarly": true,
+  "featureSlug": "remediation-20260703-missing-csrf-protection",
+  "featureDescription": "Remediation: add CSRF protection to all state-changing forms",
+  "commitsCreatedCount": 1,
+  "filesCreatedCount": 1,
+  "filesEditedCount": 10,
+  "residualDirtyFilesCount": 12,
+  "stopRequested": false,
+  "completedFeature": "remediation-20260703-missing-csrf-protection",
+  "eligibleFeatures": 6,
+  "remainingDependencyBlockedFeatures": 0,
+  "remainingFeatures": 6,
+  "remainingPendingApproval": 0,
+  "completionOutcome": "completed"
+}

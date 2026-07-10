@@ -1,0 +1,16 @@
+{
+  "id": "asset-inventory-api",
+  "title": "Asset CRUD and list API",
+  "description": "Versioned REST endpoints for asset create/read/update/soft-delete/list",
+  "category": "Core",
+  "dependencies": [
+    "asset-domain-schema"
+  ],
+  "status": "completed",
+  "passes": true,
+  "priority": 1,
+  "createdAt": "2026-07-03T14:10:00.000Z",
+  "justFinishedAt": null,
+  "spec": "1. Add Elysia routes under /api/v1 for asset create, read, update, soft delete, restore, and archive.\n2. Add a paginated, filterable asset list endpoint (name, type, status, site, owner, role, OS, IP, virtualization state, criticality).\n3. Validate all input with TypeBox and reject invalid or duplicate asset names.\n4. Return standard response envelopes (DataResponse / PaginatedResponse).\n5. Enforce role checks on every route.\n6. Emit asset_change_events / audit logs on every write.\n7. Register routes and confirm they appear in the OpenAPI docs.\n8. Verify list filtering and pagination via API call.\n9. Run bun run check:api-types and bun run smoke:qc.",
+  "updatedAt": "2026-07-03T19:37:05.934Z"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "board-domain-model",
+  "title": "Board / Column / Card Domain Model + Store",
+  "description": "Typed board/column/card domain model and a client-side store holding the active board, all boards, columns, and cards with explicit ordering arrays (columnOrder / cardOrder) so drag-and-drop is deterministic.",
+  "category": "Core",
+  "dependencies": [],
+  "status": "completed",
+  "passes": true,
+  "priority": 1,
+  "createdAt": "2026-07-02T00:00:00.000Z",
+  "justFinishedAt": null,
+  "spec": "1. Define TypeScript types Board { id, name, columnOrder: string[] }, Column { id, boardId, name, cardOrder: string[] }, Card { id, columnId, title, description?, labels: string[], createdAt, updatedAt }\n2. Verify all id fields are string (uuid or crypto.randomUUID) and unique\n3. Implement a store (Zustand or React context per spec/project.md) exposing normalized entities keyed by id plus ordering arrays\n4. Verify the store exposes actions to add/update/remove boards, columns, and cards without mutating state in place\n5. Verify columnOrder and cardOrder are the single source of truth for ordering (no implicit sort)\n6. Verify no `any` types are used (AGENTS.md zero-tolerance) and strict mode compiles\n7. Verify a selector can resolve the active board -> its columns in order -> each column's cards in order\n8. Add a default seed board (e.g. To Do / Doing / Done) used when no persisted state exists\n9. Verify adding a card appends its id to the target column cardOrder\n10. Verify removing a column removes its id from board columnOrder and does not orphan card entities\n11. Verify removing a card removes its id from the owning column cardOrder\n12. Verify `bun run typecheck` and `bun run build` pass",
+  "updatedAt": "2026-07-03T02:42:45.037Z"
+}

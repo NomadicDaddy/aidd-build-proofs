@@ -1,0 +1,13 @@
+{
+	"category": "Core",
+	"createdAt": "2026-07-02T20:51:56.000Z",
+	"dependencies": ["habit-domain-schema"],
+	"description": "create/list/update/archive habits under /api/v1",
+	"id": "habit-crud-api",
+	"passes": true,
+	"priority": 2,
+	"spec": "1. Add a habits route group in backend/src/routes/ registered in create-api-app.ts.\n2. Implement POST /api/v1/habits to create a habit (name required, cadence defaults to daily).\n3. Implement GET /api/v1/habits to list non-archived habits.\n4. Implement GET /api/v1/habits/:id to fetch a single habit.\n5. Implement PATCH /api/v1/habits/:id to update name, notes, and target.\n6. Implement POST /api/v1/habits/:id/archive to set archivedAt.\n7. Return typed JSON responses with proper status codes (201 on create, 404 on missing).\n8. Extract any handler over 30 lines into a named function in the route file.\n9. Confirm updatedAt changes on every mutation.\n10. Verify archived habits are excluded from the default list.\n11. Run `bun run smoke:qc` and confirm it passes.",
+	"status": "completed",
+	"title": "Habit CRUD REST API",
+	"updatedAt": "2026-07-02T21:22:16.418Z"
+}

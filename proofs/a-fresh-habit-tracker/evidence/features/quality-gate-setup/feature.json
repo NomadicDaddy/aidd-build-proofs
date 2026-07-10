@@ -1,0 +1,13 @@
+{
+	"category": "DevEx",
+	"createdAt": "2026-07-02T20:51:56.000Z",
+	"dependencies": [],
+	"description": "smoke:qc pipeline, formatting, lint, and typecheck wiring",
+	"id": "quality-gate-setup",
+	"passes": true,
+	"priority": 1,
+	"spec": "1. Confirm root package.json exposes format, lint, typecheck, and smoke:qc scripts.\n2. Ensure bunfig.toml sets env = false (JSON-only config, no .env).\n3. Run `bun run smoke:qc` and confirm it passes on the scaffold.\n4. Verify prettier config (tabs, 100 cols, single quotes) is honored.\n5. Confirm ESLint runs with --max-warnings 0 and reports zero warnings.",
+	"status": "completed",
+	"title": "Quality gate and tooling",
+	"updatedAt": "2026-07-02T21:11:08.402Z"
+}

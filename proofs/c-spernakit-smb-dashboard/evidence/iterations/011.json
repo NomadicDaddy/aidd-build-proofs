@@ -1,0 +1,140 @@
+{
+  "durationMs": 344599,
+  "endedAt": "2026-07-03T22:20:40.712Z",
+  "iteration": 0,
+  "runId": "cli_1783116896061_1a08e22a",
+  "snapshotKey": "claude-code/coding/coding/none",
+  "startedAt": "2026-07-03T22:14:56.113Z",
+  "summary": "coding completed documentation-health; 16 incomplete feature(s) remain",
+  "timeToFirstEventMs": 3315,
+  "exitCode": 0,
+  "idleWarningTimestamps": [],
+  "promptChars": 57176,
+  "backend": "claude-code",
+  "executionMode": "single_agent",
+  "mode": "coding",
+  "model": "claude-opus-4-8",
+  "phase": "coding",
+  "provider": null,
+  "reasoningEffort": "medium",
+  "allowedFeatureIds": [
+    "documentation-health"
+  ],
+  "commands": [
+    "git log --oneline -8 && echo \"---STATUS---\" && git status --short",
+    "git diff shared/src/assetDomain.ts shared/src/index.ts backend/src/create-api-app.ts",
+    "grep -nE \"businessOwnerId|technicalOwnerId|lastVerifiedAt|role:\" backend/src/db/schema/assets.ts | head -20",
+    "grep -nE \"verifiedAt|reviewState|assetId|relationshipType|sourceAssetId|targetAssetId|isDeleted\" backend/src/db/schema/services.ts backend/src/db/schema/assetRelationships.ts | head -30",
+    "grep -nE \"backs_up_to|needs_review|RELATIONSHIP_TYPE|PORT_REVIEW\" shared/src/assetDomain.ts backend/src/db/schema/services.ts backend/src/db/schema/assetRelationships.ts | head -20",
+    "bun run format 2>&1 | tail -5",
+    "bun run typecheck 2>&1 | tail -15",
+    "bun run lint 2>&1 | tail -15",
+    "bun run check:api-types 2>&1 | tail -8 && echo \"---PARITY---\" && bun run check:schema-parity 2>&1 | tail -8",
+    "bun run check:api-types 2>&1 | grep -iE \"endpoint|error|fail|OK|extract\" | tail -10",
+    "bun run build 2>&1 | tail -12",
+    "curl -s -o /dev/null -w \"frontend:%{http_code}\\n\" http://localhost:3460 2>&1; curl -s -o /dev/null -w \"backend:%{http_code}\\n\" http://localhost:3461/api/v1/health 2>&1",
+    "cd <WORKSPACE>/smb-infrastructure-dashboard\nJ=/tmp/dh_cookies.txt\n# Login as admin\nLOGIN=$(curl -s -c $J -H \"Content-Type: application/json\" -H \"Origin: http://localhost:3461\" \\\n  -X POST http://localhost:3461/api/v1/auth/login \\\n  -d '{\"username\":\"admin\",\"password\":\"admin123\"}')\necho \"$LOGIN\" | head -c 300\necho \"\"\nCSRF=$(echo \"$LOGIN\" | bunx --bun node -e \"let s='';process.stdin.on('data',d=>s+=d).on('end',()=>{try{console.log(JSON.parse(s).data.csrfToken||'')}catch(e){console.log('')}})\" 2>/dev/null)\necho \"CSRF=$CSRF\"",
+    "cd <WORKSPACE>/smb-infrastructure-dashboard\nJ=/tmp/dh_cookies.txt\necho \"=== summary (default threshold) ===\"\ncurl -s -b $J http://localhost:3461/api/v1/infrastructure/documentation-health | head -c 400\necho \"\"\necho \"=== summary (threshold=1) ===\"\ncurl -s -b $J \"http://localhost:3461/api/v1/infrastructure/documentation-health?thresholdDays=1\" | head -c 400\necho \"\"\necho \"=== assets for stale signal ===\"\ncurl -s -b $J \"http://localhost:3461/api/v1/infrastructure/documentation-health/assets?signal=stale&limit=3\" | head -c 500\necho \"\"\necho \"=== bad signal (validation) ===\"\ncurl -s -b $J -o /dev/null -w \"%{http_code}\\n\" \"http://localhost:3461/api/v1/infrastructure/documentation-health/assets?signal=bogus\"\necho \"=== unauth ===\"\ncurl -s -o /dev/null -w \"%{http_code}\\n\" http://localhost:3461/api/v1/infrastructure/documentation-health",
+    "cd <WORKSPACE>/smb-infrastructure-dashboard\nJ=/tmp/dh_cookies.txt\necho \"=== bad signal body ===\"\ncurl -s -b $J \"http://localhost:3461/api/v1/infrastructure/documentation-health/assets?signal=bogus\"\necho \"\"\necho \"=== missing signal (required) ===\"\ncurl -s -b $J -o /dev/null -w \"%{http_code}\\n\" \"http://localhost:3461/api/v1/infrastructure/documentation-health/assets\"",
+    "cd <WORKSPACE>/smb-infrastructure-dashboard\nJ=/tmp/dh_cookies.txt\necho \"=== compare: assets history bad action ===\"\ncurl -s -b $J -o /dev/null -w \"%{http_code}\\n\" \"http://localhost:3461/api/v1/assets/1/history?action=bogus\"\necho \"=== infra summary route enum handling check ===\"\ngrep -rn \"t.Union\\|error(4\\|onError\\|VALIDATION\" backend/src/routes/infrastructureSummary.ts backend/src/routes/assets.ts | head",
+    "cd <WORKSPACE>/smb-infrastructure-dashboard\nJ=/tmp/dh_cookies.txt\nfor sig in stale missingOwner missingBackup missingRelationshipMap missingServiceRole unverifiedPorts; do\n  T=$(curl -s -b $J \"http://localhost:3461/api/v1/infrastructure/documentation-health/assets?signal=$sig&limit=1\" | bunx --bun node -e \"let s='';process.stdin.on('data',d=>s+=d).on('end',()=>{try{const j=JSON.parse(s);console.log('total='+j.total)}catch(e){console.log('ERR')}})\" 2>/dev/null)\n  echo \"$sig -> $T\"\ndone",
+    "cd <WORKSPACE>/smb-infrastructure-dashboard\nJ=/tmp/dh_cookies.txt\n# Check port data via a quick sqlite query if db accessible\nDB=$(find . -name \"*.sqlite\" -not -path \"*/node_modules/*\" 2>/dev/null | head -1)\necho \"DB=$DB\"\nif [ -n \"$DB\" ]; then\n  bunx --bun node -e \"\n  const {Database}=require('bun:sqlite');\n  const db=new Database('$DB',{readonly:true});\n  console.log('ports total:', db.query('select count(*) c from asset_ports').get());\n  console.log('unverified/needs_review:', db.query(\\\"select count(*) c from asset_ports where verified_at is null or review_state='needs_review'\\\").get());\n  \" 2>&1 || echo \"node sqlite failed\"\nfi",
+    "cd <WORKSPACE>/smb-infrastructure-dashboard\nfind . -name \"*.db\" -o -name \"*.sqlite*\" 2>/dev/null | grep -v node_modules | head; echo \"---\"; ls backend/data 2>/dev/null; ls backend/*.db backend/db 2>/dev/null; grep -rn \"filename\\|\\.db\\|sqlite\" backend/src/db/index.ts config/*.json 2>/dev/null | grep -i \"\\.db\\|sqlite\\|path\\|file\" | head",
+    "cd <WORKSPACE>/smb-infrastructure-dashboard\nbunx --bun node -e \"\nconst {Database}=require('bun:sqlite');\nconst db=new Database('./data/smb-infrastructure-dashboard.db',{readonly:true});\nconsole.log('ports total:', JSON.stringify(db.query('select count(*) c from asset_ports').get()));\nconsole.log('unverified/needs_review:', JSON.stringify(db.query(\\\"select count(*) c from asset_ports where verified_at is null or review_state='needs_review'\\\").get()));\nconsole.log('review_state distr:', JSON.stringify(db.query('select review_state, count(*) c from asset_ports group by review_state').all()));\n\" 2>&1",
+    "cd <WORKSPACE>/smb-infrastructure-dashboard\nbunx --bun node -e \"\nconst {Database}=require('bun:sqlite');\nconst db=new Database('./data/smb-infrastructure-dashboard.db',{readonly:true});\nconst cols=db.query('PRAGMA table_info(asset_ports)').all().map(c=>c.name+':'+c.type+(c.notnull?' NN':'')+(c.dflt_value?' D='+c.dflt_value:''));\nconsole.log(cols.join('\\n'));\n\"",
+    "cd <WORKSPACE>/smb-infrastructure-dashboard\nJ=/tmp/dh_cookies.txt\nbunx --bun node -e \"\nconst {Database}=require('bun:sqlite');\nconst db=new Database('./data/smb-infrastructure-dashboard.db');\nconst now=1751580000;\ndb.run(\\\"insert into asset_ports (asset_id,port_number,protocol,exposure_level,review_state,source,created_at,updated_at,verified_at) values (1,3389,'tcp','unknown','needs_review','documented',?,?,NULL)\\\",[now,now]);\nconsole.log('inserted needs_review port for asset 1');\n\"\necho \"=== unverifiedPorts after inject ===\"\ncurl -s -b $J \"http://localhost:3461/api/v1/infrastructure/documentation-health/assets?signal=unverifiedPorts&limit=3\" | bunx --bun node -e \"let s='';process.stdin.on('data',d=>s+=d).on('end',()=>{const j=JSON.parse(s);console.log('total='+j.total+' names='+j.data.map(a=>a.name).join(','))})\"\n# cleanup\nbunx --bun node -e \"\nconst {Database}=require('bun:sqlite');\nconst db=new Database('./data/smb-infrastructure-dashboard.db');\ndb.run(\\\"delete from asset_ports where port_number=3389 and asset_id=1 and review_state='needs_review'\\\");\nconsole.log('cleaned up test port');\n\"\necho \"=== unverifiedPorts after cleanup ===\"\ncurl -s -b $J \"http://localhost:3461/api/v1/infrastructure/documentation-health?\" | bunx --bun node -e \"let s='';process.stdin.on('data',d=>s+=d).on('end',()=>{console.log('unverifiedPorts='+JSON.parse(s).data.signals.unverifiedPorts)})\"",
+    "cd <WORKSPACE>/smb-infrastructure-dashboard\nV=/tmp/dh_viewer.txt\ncurl -s -c $V -H \"Content-Type: application/json\" -H \"Origin: http://localhost:3461\" \\\n  -X POST http://localhost:3461/api/v1/auth/login -d '{\"username\":\"viewer\",\"password\":\"viewer123\"}' -o /dev/null -w \"login:%{http_code}\\n\"\necho \"=== VIEWER: assets list, check sensitive fields redacted ===\"\ncurl -s -b $V \"http://localhost:3461/api/v1/infrastructure/documentation-health/assets?signal=missingOwner&limit=1\" | bunx --bun node -e \"let s='';process.stdin.on('data',d=>s+=d).on('end',()=>{const a=JSON.parse(s).data[0];console.log('name='+a.name,'notes='+a.notes,'managementUrl='+a.managementUrl,'supportContact='+a.supportContact)})\"",
+    "cd <WORKSPACE>/smb-infrastructure-dashboard\nagent-browser open \"http://localhost:3460/login\" 2>&1 | tail -3\nagent-browser snapshot -i -c 2>&1 | head -40",
+    "cd <WORKSPACE>/smb-infrastructure-dashboard\nagent-browser snapshot -i -c 2>&1 | grep -iE \"textbox|button|ref=\" | head -20",
+    "cd <WORKSPACE>/smb-infrastructure-dashboard\nagent-browser eval \"document.body.innerText.includes('Documentation Health')\" 2>&1 | tail -2\nagent-browser snapshot -i -c 2>&1 | grep -iE \"Documentation|Stale|Missing|Unverified|aria-pressed|button.*owner|backup|relationship|service role\" | head -20",
+    "cd <WORKSPACE>/smb-infrastructure-dashboard\nagent-browser click @e24 2>&1 | tail -1\nsleep 1\nagent-browser snapshot -i -c 2>&1 | grep -iE \"flagged asset|DC01|showing|link.*asset|assets\\.\" | head -10\necho \"=== console errors ===\"\nagent-browser errors 2>&1 | tail -5\nagent-browser screenshot ./doc-health-drilldown.png 2>&1 | tail -1",
+    "cd <WORKSPACE>/smb-infrastructure-dashboard\necho \"=== errors (raw) ===\"\nagent-browser errors 2>&1\necho \"=== count of flagged shown ===\"\nagent-browser eval \"document.body.innerText.match(/Showing \\d+ of \\d+/g)\" 2>&1 | tail -3",
+    "ls -la doc-health-drilldown.png 2>&1; find . -name \"doc-health-drilldown.png\" 2>/dev/null | head",
+    "cd <WORKSPACE>/smb-infrastructure-dashboard\nbun run format >/dev/null 2>&1\nbun run format:check 2>&1 | tail -3\necho \"=== git status ===\"\ngit status --short",
+    "cd <WORKSPACE>/smb-infrastructure-dashboard\ngit add backend/src/create-api-app.ts backend/src/routes/documentationHealth.ts backend/src/services/documentationHealthService.ts \\\n  frontend/src/api/documentationHealth.ts frontend/src/hooks/dashboards/useDocumentationHealth.ts \\\n  frontend/src/pages/dashboard/infrastructure/DocumentationHealth.tsx \\\n  frontend/src/pages/dashboard/infrastructure/InfrastructureDashboardPage.tsx \\\n  frontend/src/pages/dashboard/infrastructure/dashboardViews.ts \\\n  shared/src/assetDomain.ts shared/src/index.ts\ngit diff --staged --name-only",
+    "cd <WORKSPACE>/smb-infrastructure-dashboard\ngit commit -m \"feat(dashboard): surface documentation-health signals and filterable lists\" \\\n  -m \"- Add documentationHealthService computing six completeness-gap signals (stale, missing owner/backup/relationship-map/service-role, unverified ports) over the live inventory against a configurable stale threshold\" \\\n  -m \"- Add VIEWER+ GET /infrastructure/documentation-health (counts) and .../assets (paginated, name-ordered, role-redacted per-signal list) routes, wired into create-api-app\" \\\n  -m \"- Add shared DOCUMENTATION_HEALTH_SIGNALS + MIN/MAX/DEFAULT_STALE_THRESHOLD_DAYS constants\" \\\n  -m \"- Add DocumentationHealthCard with six drillable signal tiles and its api client + query hooks, registered as the health dashboard section across all saved views\" \\\n  -m \"- Verified: all six signals match seeded gap counts (unverifiedPorts proven via injected needs_review port), threshold override, 401 unauth, VIEWER redaction, UI drill-in; typecheck/lint/build/format/api-types(155)/schema-parity pass\" 2>&1 | tail -8",
+    "cd <WORKSPACE>/smb-infrastructure-dashboard\ngit status --short\necho \"=== HEAD ===\"\ngit log --oneline -1"
+  ],
+  "commitsCreated": [
+    {
+      "hash": "9db32ecfdc535a953ae5615d3658561032f05cad",
+      "subject": "feat(dashboard): surface documentation-health signals and filterable lists"
+    }
+  ],
+  "completedFeatures": [
+    "documentation-health"
+  ],
+  "detailsSummary": {
+    "bashCommandsRun": 33,
+    "finalChecks": {},
+    "hasBuildErrors": false,
+    "hasLintErrors": false,
+    "hasTypeErrors": false,
+    "totalToolCalls": 46,
+    "uniqueFilesCreated": 0,
+    "uniqueFilesEdited": 2,
+    "uniqueFilesRead": 11
+  },
+  "errors": [],
+  "extraCompletedFeatures": [],
+  "filesCreated": [],
+  "filesEdited": [
+    "D:\\applications\\smb-infrastructure-dashboard\\.aidd\\features\\documentation-health\\feature.json",
+    "D:\\applications\\smb-infrastructure-dashboard\\.aidd\\CHANGELOG.md"
+  ],
+  "filesRead": [
+    "D:\\applications\\smb-infrastructure-dashboard\\.aidd\\features\\documentation-health\\feature.json",
+    "D:\\applications\\smb-infrastructure-dashboard\\CONTEXT.md",
+    "D:\\applications\\smb-infrastructure-dashboard\\backend\\src\\services\\documentationHealthService.ts",
+    "D:\\applications\\smb-infrastructure-dashboard\\backend\\src\\routes\\documentationHealth.ts",
+    "D:\\applications\\smb-infrastructure-dashboard\\frontend\\src\\pages\\dashboard\\infrastructure\\DocumentationHealth.tsx",
+    "D:\\applications\\smb-infrastructure-dashboard\\frontend\\src\\api\\documentationHealth.ts",
+    "D:\\applications\\smb-infrastructure-dashboard\\frontend\\src\\hooks\\dashboards\\useDocumentationHealth.ts",
+    "D:\\applications\\smb-infrastructure-dashboard\\frontend\\src\\pages\\dashboard\\infrastructure\\InfrastructureDashboardPage.tsx",
+    "D:\\applications\\smb-infrastructure-dashboard\\frontend\\src\\pages\\dashboard\\infrastructure\\dashboardViews.ts",
+    "D:\\applications\\smb-infrastructure-dashboard\\doc-health-drilldown.png",
+    "D:\\applications\\smb-infrastructure-dashboard\\.aidd\\CHANGELOG.md"
+  ],
+  "metrics": {
+    "cachedTokens": 0,
+    "costUsd": 2.6451315,
+    "errorCount": 0,
+    "errorReasons": [],
+    "filesCreatedCount": 0,
+    "filesEditedCount": 2,
+    "idleWarningCount": 0,
+    "inputTokens": 53479,
+    "outputTokens": 17158,
+    "rateLimitCount": 0,
+    "reasoningTokens": 0,
+    "toolBreakdown": {
+      "read": 11,
+      "bash": 33,
+      "edit": 2
+    },
+    "toolCallCount": 46
+  },
+  "outcome": {
+    "exitCode": 0,
+    "status": "success"
+  },
+  "scopeOverrun": false,
+  "selectedFeatures": [
+    "documentation-health"
+  ],
+  "unacceptedCompletedFeatures": [],
+  "backendCompletionFinalizedEarly": true,
+  "featureSlug": "documentation-health",
+  "featureDescription": "Staleness, missing-owner, missing-backup, and gap signals",
+  "commitsCreatedCount": 1,
+  "filesCreatedCount": 0,
+  "filesEditedCount": 2,
+  "residualDirtyFilesCount": 0,
+  "stopRequested": false,
+  "completedFeature": "documentation-health",
+  "eligibleFeatures": 11,
+  "remainingDependencyBlockedFeatures": 5,
+  "remainingFeatures": 16,
+  "remainingPendingApproval": 0,
+  "completionOutcome": "completed"
+}

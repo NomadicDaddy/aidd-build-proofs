@@ -1,0 +1,14 @@
+{
+	"id": "sql-injection-prevention",
+	"title": "SQL injection prevention via parameterized queries",
+	"category": "Security",
+	"description": "All SQL queries in the application use ? placeholders with parameter tuples — no string interpolation or f-string formatting into SQL. This is a verified security control (assertions.md §3) that must not regress.",
+	"priority": 2,
+	"status": "completed",
+	"passes": true,
+	"spec": "1. Verify every db.execute() call in flaskr/auth.py and flaskr/blog.py uses ? placeholders with a parameter tuple, not string interpolation.\n2. Specifically check: INSERT INTO user, SELECT FROM user WHERE username, SELECT FROM user WHERE id, INSERT INTO post, UPDATE post, DELETE FROM post, and the index JOIN query — all parameterized.\n3. Verify no use of f-strings, .format(), or % string formatting in any SQL statement.\n4. Verify tests do not introduce raw SQL interpolation patterns.",
+	"dependencies": ["database-and-init-db-cli", "user-authentication", "blog-post-management"],
+	"affectedFiles": ["flaskr/auth.py", "flaskr/blog.py"],
+	"createdAt": "2026-07-04T00:00:00.000Z",
+	"updatedAt": "2026-07-04T00:00:00.000Z"
+}

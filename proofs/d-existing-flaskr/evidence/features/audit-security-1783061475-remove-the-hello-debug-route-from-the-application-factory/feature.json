@@ -1,0 +1,20 @@
+{
+  "id": "audit-security-1783061475-remove-the-hello-debug-route-from-the-application-factory",
+  "title": "Remove the /hello debug route from the application factory",
+  "description": "Verified: flaskr/__init__.py:26-28 registers @app.route(\"/hello\") returning \"Hello, World!\". This diagnostic endpoint ships unconditionally in create_app (not gated on debug/test mode) and is an unnecessary production surface. Corroborates assertions.md §3 S6 (Low). Not tracked by any existing feature.json.",
+  "category": "Audit",
+  "dependencies": [],
+  "status": "completed",
+  "passes": true,
+  "notes": "Resolved 2026-07-03: removed the @app.route(\"/hello\") handler and its hello() function from flaskr/__init__.py, and deleted tests/test_factory.py::test_hello. To prevent reintroduction, updated .aidd/features/app-factory-and-configuration/feature.json (description + spec point 6) to drop the /hello route and explicitly forbid unconditional diagnostic routes in create_app. Verified: ruff clean and full pytest suite green (34 passed) after removing the /hello route and its test.",
+  "priority": 4,
+  "auditSource": "SECURITY",
+  "affectedFiles": [
+    "flaskr/__init__.py",
+    "tests/test_factory.py"
+  ],
+  "auditSeverity": "Low",
+  "createdAt": "2026-07-03T06:51:15.492Z",
+  "spec": "1. Remove the @app.route(\"/hello\") handler and its hello() function from flaskr/__init__.py (currently lines 26-28).\n2. Confirm the test suite stays green — tests/test_factory.py::test_hello (if present) must be removed or updated; grep tests/ for '/hello' before deleting.\nNote: written against the current Flask app; under a Q2 stack port, drop the equivalent scaffolding health/demo route.\n\nIMPORTANT: After resolving this finding, locate the feature.json file(s) in .aidd/features/ whose spec originally produced the code or pattern that caused this audit finding. Update those feature.json spec(s) to prevent this issue from being reintroduced during a feature-based rebuild.",
+  "updatedAt": "2026-07-03T14:28:28.312Z"
+}

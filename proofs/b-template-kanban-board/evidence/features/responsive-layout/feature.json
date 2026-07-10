@@ -1,0 +1,16 @@
+{
+  "id": "responsive-layout",
+  "title": "Responsive Board Layout",
+  "description": "The board columns area is usable across viewport sizes — horizontal scroll for many columns and a sensible layout on narrow screens.",
+  "category": "UI",
+  "dependencies": [
+    "app-shell-layout"
+  ],
+  "status": "completed",
+  "passes": true,
+  "priority": 4,
+  "createdAt": "2026-07-02T00:00:00.000Z",
+  "justFinishedAt": null,
+  "spec": "1. Verify the columns area scrolls horizontally when columns exceed viewport width\n2. Verify the layout remains usable at a narrow (mobile) width\n3. Verify no horizontal overflow of the whole page (only the columns area scrolls)",
+  "updatedAt": "2026-07-03T04:20:22.990Z"
+}

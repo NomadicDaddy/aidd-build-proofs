@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+		<meta content="light dark" name="color-scheme" />
+		<meta
+			content="A single-user, local-first habit tracker with streaks and a weekly grid."
+			name="description" />
+		<title>Habit Tracker</title>
+		<script>
+			// Apply the persisted theme before first paint to avoid a flash of the
+			// wrong theme on reload. Mirrors the Zustand `habit-tracker-ui` store and
+			// its default of `light`; the RootLayout effect keeps this in sync after
+			// mount.
+			(function () {
+				try {
+					var raw = localStorage.getItem('habit-tracker-ui');
+					var theme = raw ? JSON.parse(raw).state.theme : 'light';
+					if (theme === 'dark') {
+						document.documentElement.classList.add('dark');
+					}
+				} catch (_) {
+					/* localStorage unavailable or malformed — fall back to light. */
+				}
+			})();
+		</script>
+	</head>
+	<body>
+		<div id="root"></div>
+		<script src="/src/main.tsx" type="module"></script>
+	</body>
+</html>

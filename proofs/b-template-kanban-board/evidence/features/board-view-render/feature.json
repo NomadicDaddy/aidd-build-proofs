@@ -1,0 +1,17 @@
+{
+  "id": "board-view-render",
+  "title": "Board View — Render Columns and Cards in Order",
+  "description": "Render the active board as ordered column lanes, each showing its cards in cardOrder, driven entirely by the store ordering arrays.",
+  "category": "UI",
+  "dependencies": [
+    "column-management",
+    "app-shell-layout"
+  ],
+  "status": "completed",
+  "passes": true,
+  "priority": 2,
+  "createdAt": "2026-07-02T00:00:00.000Z",
+  "justFinishedAt": null,
+  "spec": "1. Render one lane per column id in board.columnOrder\n2. Within each lane render cards in the column cardOrder\n3. Verify reordering the underlying arrays re-renders the UI in the new order\n4. Verify a column with zero cards renders an empty drop area\n5. Verify a board with zero columns renders a clear call to add a column",
+  "updatedAt": "2026-07-03T03:21:35.430Z"
+}

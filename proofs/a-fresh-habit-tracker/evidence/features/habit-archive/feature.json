@@ -1,0 +1,13 @@
+{
+	"category": "UI",
+	"createdAt": "2026-07-02T20:51:56.000Z",
+	"dependencies": ["habit-list-page", "habit-crud-api"],
+	"description": "archive a habit to hide it from the active list",
+	"id": "habit-archive",
+	"passes": true,
+	"priority": 4,
+	"spec": "1. Add an archive action on each habit with a confirm step.\n2. Call the archive endpoint and remove the habit from the active list.\n3. Confirm archived habits no longer appear on the list or dashboard.\n4. Verify existing check-ins are preserved in the database.",
+	"status": "completed",
+	"title": "Archive habit",
+	"updatedAt": "2026-07-02T22:40:48.634Z"
+}

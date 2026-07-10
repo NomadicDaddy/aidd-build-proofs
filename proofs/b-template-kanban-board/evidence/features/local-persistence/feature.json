@@ -1,0 +1,16 @@
+{
+  "id": "local-persistence",
+  "title": "localStorage Persistence + Corruption Guard",
+  "description": "Hydrate the store from localStorage on load and persist on every change so a reload restores the board. Guard against missing/corrupt state by falling back to a clean default board without crashing.",
+  "category": "Core",
+  "dependencies": [
+    "board-domain-model"
+  ],
+  "status": "completed",
+  "passes": true,
+  "priority": 1,
+  "createdAt": "2026-07-02T00:00:00.000Z",
+  "justFinishedAt": null,
+  "spec": "1. On app start, read persisted state from a namespaced localStorage key (e.g. `kanban-board:v1`)\n2. Validate the parsed shape against the domain model before adopting it\n3. If the key is missing, initialize from the default seed board\n4. If JSON.parse throws or validation fails, fall back to the clean default board and do NOT crash\n5. Persist the full store to localStorage on every mutating action (debounced or synchronous)\n6. Verify a created board + columns + cards survive a full page reload\n7. Verify reordering cards within a column persists across reload\n8. Verify dragging a card to another column persists across reload\n9. Verify a corrupted value (e.g. `\"{not json\"`) reloads to a clean default without a blank/broken screen\n10. Verify writing includes a version field so future migrations are possible\n11. Verify no unbounded growth / duplicate writes leak on rapid edits\n12. Verify `bun run smoke:qc` passes",
+  "updatedAt": "2026-07-03T02:51:51.821Z"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "column-management",
+  "title": "Column Management — Add / Rename / Delete / Reorder",
+  "description": "Add columns to the active board, rename them, delete them (subject to the non-empty rule), and reorder them, updating board.columnOrder.",
+  "category": "Core",
+  "dependencies": [
+    "board-domain-model"
+  ],
+  "status": "completed",
+  "passes": true,
+  "priority": 2,
+  "createdAt": "2026-07-02T00:00:00.000Z",
+  "justFinishedAt": null,
+  "spec": "1. Add a new named column; verify it appends to board.columnOrder and renders as a lane\n2. Rename a column; verify the header updates and persists\n3. Reorder columns; verify board.columnOrder updates and the lane order changes\n4. Delete a column per the defined non-empty rule (see column-delete-nonempty-rule)\n5. Verify column changes persist across reload",
+  "updatedAt": "2026-07-03T03:16:48.801Z"
+}

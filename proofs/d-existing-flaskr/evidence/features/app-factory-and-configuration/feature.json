@@ -1,0 +1,15 @@
+{
+	"id": "app-factory-and-configuration",
+	"title": "Application factory, configuration, and blueprint wiring",
+	"category": "Platform",
+	"description": "The app is constructed by a create_app application factory that loads default config (SECRET_KEY, instance-relative SQLite DATABASE path), optionally overlays instance/config.py or a passed test_config, ensures the instance folder exists, registers the database teardown/CLI, mounts the auth and blog blueprints, and aliases the '/' endpoint to blog.index.",
+	"priority": 3,
+	"status": "completed",
+	"passes": true,
+	"spec": "1. Verify flaskr/__init__.py defines create_app(test_config=None) that returns a configured Flask app built with instance_relative_config=True. The default config MUST harden the signed session cookie: SESSION_COOKIE_HTTPONLY=True and SESSION_COOKIE_SAMESITE=\"Lax\", plus SESSION_COOKIE_SECURE sourced from config (default False so the dev server/tests work over plaintext HTTP, overridable to True in instance/config.py for production HTTPS). Do NOT leave these cookie flags unset — that was security finding S3.\n2. Verify default config sets DATABASE to a path inside app.instance_path (flaskr.sqlite) and that the instance folder is created via os.makedirs(exist_ok=True).\n3. Verify config resolution: with test_config=None it loads instance/config.py silently; when a test_config mapping is passed it is applied via app.config.update.\n4. Verify both blueprints are registered (auth.bp, blog.bp) and db.init_app(app) is called so the DB teardown and init-db CLI are attached.\n5. Verify url_for('index') resolves to the blog index (app.add_url_rule('/', endpoint='index')).\n6. Verify create_app registers an @app.after_request handler that sets baseline security headers on EVERY response: X-Content-Type-Options=nosniff, X-Frame-Options=DENY, Referrer-Policy=no-referrer, and Content-Security-Policy=default-src 'self'; Strict-Transport-Security (max-age=31536000; includeSubDomains) MUST be gated to secure/HTTPS requests only so it is not sent over the plaintext dev server. Do NOT leave responses without these headers — that was security finding S5.\n7. Verify tests/test_factory.py exercises the factory (test_config override) and asserts the security headers are present on GET '/'. Do NOT wire a GET /hello (or any other unconditional diagnostic/demo) route into create_app — it was removed as security finding S6; the factory must not expose debug endpoints in production.",
+	"dependencies": [],
+	"affectedFiles": ["flaskr/__init__.py", "tests/test_factory.py"],
+	"notes": "Backfilled by feature-coverage-audit from current implementation evidence on 2026-07-03. Documents shipped, test-passing behavior (24 passed). NOTE: the default SECRET_KEY=\"dev\" and the /hello debug route are known security findings (S1, S6 in .aidd/assertions.md) tracked separately; this coverage record describes current behavior, not the desired hardened state. If the unresolved Q2 stack fork (project.md 'spernakit-like' vs. Python/Flask) resolves to a port, re-target this record.",
+	"createdAt": "2026-07-03T07:00:00Z",
+	"updatedAt": "2026-07-03T07:00:00Z"
+}

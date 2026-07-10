@@ -1,0 +1,21 @@
+{
+  "id": "post-index-pagination",
+  "title": "Add pagination to the blog post index",
+  "description": "The blog index (GET /) currently returns ALL posts with no pagination (blog.py:16 — SELECT ... ORDER BY created DESC returns unbounded results). This is a performance risk if the post count grows. Pagination should limit results per page and provide navigation.",
+  "category": "Performance",
+  "dependencies": [
+    "blog-post-management"
+  ],
+  "status": "completed",
+  "passes": true,
+  "notes": "Resolved: index() now reads a 1-based `page` query param (invalid/<1 falls back to page 1), counts total posts, and queries with LIMIT ?/OFFSET ? at POSTS_PER_PAGE=10. index.html renders Newer/Older nav links gated on has_prev/has_next. Tests test_index_pagination (page-sized subset + next/prev links across two pages) and test_index_ignores_invalid_page cover the behavior; 35 passed, blog.py 100% coverage, ruff clean.",
+  "priority": 4,
+  "spec": "1. Add a per-page limit (e.g. 10 or 20 posts) to the index query using LIMIT and OFFSET.\n2. Add a page query parameter (e.g. /?page=2) to control which page of posts is returned.\n3. Add next/previous navigation links to flaskr/templates/blog/index.html.\n4. Add a test verifying that the index returns only the page-sized subset of posts.\n5. Verify the index still works without a page parameter (defaults to page 1).",
+  "affectedFiles": [
+    "flaskr/blog.py",
+    "flaskr/templates/blog/index.html",
+    "tests/test_blog.py"
+  ],
+  "createdAt": "2026-07-04T00:00:00.000Z",
+  "updatedAt": "2026-07-03T14:15:27.141Z"
+}

@@ -1,0 +1,13 @@
+{
+	"category": "UI",
+	"createdAt": "2026-07-02T20:51:56.000Z",
+	"dependencies": [],
+	"description": "Vite + React 19 + Router + TanStack Query + Zustand shell",
+	"id": "frontend-bootstrap",
+	"passes": true,
+	"priority": 2,
+	"spec": "1. Scaffold a Vite + React 19 app in frontend/ with TypeScript.\n2. Wire React Router with a root layout.\n3. Provide a TanStack Query client at the app root.\n4. Set up Tailwind CSS and shadcn/ui base configuration.\n5. Confirm the frontend builds and renders a placeholder shell.\n6. Confirm named exports only (no default component exports).",
+	"status": "completed",
+	"title": "Frontend app shell",
+	"updatedAt": "2026-07-02T21:13:10.392Z"
+}

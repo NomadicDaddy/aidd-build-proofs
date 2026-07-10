@@ -1,0 +1,8 @@
+.release/
+node_modules/
+proofs/*/source/
+proofs/*/evidence/
+proofs/*/commits.tsv
+proofs/*/spec.md
+release/transcript-index.json
+proofs/manifest.json

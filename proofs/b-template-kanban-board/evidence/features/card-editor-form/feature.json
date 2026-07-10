@@ -1,0 +1,17 @@
+{
+  "id": "card-editor-form",
+  "title": "Card Editor Form / Modal",
+  "description": "A form (inline or modal) to create and edit a card's title, description, and labels, with validation and cancel/save actions.",
+  "category": "UI",
+  "dependencies": [
+    "card-crud",
+    "app-shell-layout"
+  ],
+  "status": "completed",
+  "passes": true,
+  "priority": 2,
+  "createdAt": "2026-07-02T00:00:00.000Z",
+  "justFinishedAt": null,
+  "spec": "1. Open the editor to create a new card in a column\n2. Open the editor to edit an existing card, pre-filled with its values\n3. Validate that title is required before save is allowed\n4. Support adding/removing labels in the editor\n5. Cancel discards changes; save commits to the store\n6. Verify focus management and that Escape/cancel closes the editor",
+  "updatedAt": "2026-07-03T03:31:58.049Z"
+}

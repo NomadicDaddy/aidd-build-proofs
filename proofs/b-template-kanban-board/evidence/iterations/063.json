@@ -1,0 +1,123 @@
+{
+  "durationMs": 112553,
+  "endedAt": "2026-07-03T04:25:48.654Z",
+  "iteration": 19,
+  "runId": "cli_1783046564992_bb3f91c0",
+  "snapshotKey": "claude-code/coding/coding/none",
+  "startedAt": "2026-07-03T04:23:56.101Z",
+  "summary": "coding has no approved incomplete feature work; 1 feature(s) pending approval",
+  "timeToFirstEventMs": 4489,
+  "exitCode": 0,
+  "idleWarningTimestamps": [],
+  "promptChars": 56688,
+  "backend": "claude-code",
+  "executionMode": "single_agent",
+  "mode": "coding",
+  "model": "claude-opus-4-8",
+  "phase": "coding",
+  "provider": null,
+  "reasoningEffort": "medium",
+  "allowedFeatureIds": [
+    "usage-documentation"
+  ],
+  "commands": [
+    "ls && echo \"---FRONTEND---\" && ls frontend",
+    "ls src && echo \"---COMPONENTS---\" && ls src/components 2>/dev/null && echo \"---STORE---\" && ls src/store 2>/dev/null",
+    "head -20 src/store/boardStore.ts && echo \"---\" && cat .nvmrc 2>/dev/null || echo \"no .nvmrc\"",
+    "bun run format && bun run smoke:qc 2>&1 | tail -30",
+    "git add README.md .aidd/features/usage-documentation/feature.json && git commit -m \"docs(usage): document shipped kanban UI in README\" -m \"- Rewrote README from stale scaffold notice to a usage guide covering boards, columns, and cards CRUD, drag-and-drop plus keyboard card move, filter/search, and localStorage persistence behavior (single-user, local-only)\" -m \"- Documented the non-empty-column delete rule and corrupt/version-mismatch state fallback, verified against the shipped components/store\" -m \"- Marked usage-documentation feature passing/completed\" && echo \"---STATUS---\" && git status --short",
+    "bun run format:check 2>&1 | tail -3 && git add .aidd/CHANGELOG.md && git commit -m \"docs(usage): record usage-documentation in changelog\" && git status --short .aidd/features/usage-documentation/feature.json"
+  ],
+  "commitsCreated": [
+    {
+      "hash": "1b4493453c029af814117a35775da5a8fb861959",
+      "subject": "docs(usage): document shipped kanban UI in README"
+    },
+    {
+      "hash": "f9788551f32ef8fa896fcbedfc210bc56a56d51a",
+      "subject": "docs(usage): record usage-documentation in changelog"
+    }
+  ],
+  "completedFeatures": [
+    "usage-documentation"
+  ],
+  "detailsSummary": {
+    "bashCommandsRun": 6,
+    "finalChecks": {},
+    "hasBuildErrors": false,
+    "hasLintErrors": false,
+    "hasTypeErrors": false,
+    "totalToolCalls": 23,
+    "uniqueFilesCreated": 1,
+    "uniqueFilesEdited": 2,
+    "uniqueFilesRead": 14
+  },
+  "errors": [],
+  "extraCompletedFeatures": [],
+  "filesCreated": [
+    "D:\\applications\\kanban-board\\README.md"
+  ],
+  "filesEdited": [
+    "D:\\applications\\kanban-board\\.aidd\\features\\usage-documentation\\feature.json",
+    "D:\\applications\\kanban-board\\.aidd\\CHANGELOG.md"
+  ],
+  "filesRead": [
+    "D:\\applications\\kanban-board\\.aidd\\features\\usage-documentation\\feature.json",
+    "D:\\applications\\kanban-board\\.aidd\\spec.md",
+    "D:\\applications\\kanban-board\\frontend\\README.md",
+    "D:\\applications\\kanban-board\\README.md",
+    "D:\\applications\\kanban-board\\src\\App.tsx",
+    "D:\\applications\\kanban-board\\src\\components\\BoardBar.tsx",
+    "D:\\applications\\kanban-board\\src\\components\\BoardFilter.tsx",
+    "D:\\applications\\kanban-board\\src\\components\\ColumnLane.tsx",
+    "D:\\applications\\kanban-board\\src\\components\\CardItem.tsx",
+    "D:\\applications\\kanban-board\\src\\components\\CardEditor.tsx",
+    "D:\\applications\\kanban-board\\src\\components\\AddColumn.tsx",
+    "D:\\applications\\kanban-board\\src\\components\\AddCard.tsx",
+    "D:\\applications\\kanban-board\\src\\store\\persistence.ts",
+    "D:\\applications\\kanban-board\\.aidd\\CHANGELOG.md"
+  ],
+  "metrics": {
+    "cachedTokens": 0,
+    "costUsd": 1.236562,
+    "errorCount": 0,
+    "errorReasons": [],
+    "filesCreatedCount": 1,
+    "filesEditedCount": 2,
+    "idleWarningCount": 0,
+    "inputTokens": 24840,
+    "outputTokens": 7012,
+    "rateLimitCount": 0,
+    "reasoningTokens": 0,
+    "toolBreakdown": {
+      "read": 14,
+      "bash": 6,
+      "write": 1,
+      "edit": 2
+    },
+    "toolCallCount": 23
+  },
+  "outcome": {
+    "exitCode": 0,
+    "status": "success"
+  },
+  "scopeOverrun": false,
+  "selectedFeatures": [
+    "usage-documentation"
+  ],
+  "unacceptedCompletedFeatures": [],
+  "backendCompletionFinalizedEarly": true,
+  "featureSlug": "usage-documentation",
+  "featureDescription": "User-Facing Usage Documentation",
+  "commitsCreatedCount": 2,
+  "filesCreatedCount": 1,
+  "filesEditedCount": 2,
+  "residualDirtyFilesCount": 29,
+  "stopRequested": false,
+  "completedFeature": "usage-documentation",
+  "eligibleFeatures": 0,
+  "remainingDependencyBlockedFeatures": 0,
+  "remainingFeatures": 1,
+  "remainingPendingApproval": 1,
+  "completionOutcome": "completed"
+}

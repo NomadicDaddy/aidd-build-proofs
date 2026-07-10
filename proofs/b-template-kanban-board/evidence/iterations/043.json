@@ -1,0 +1,115 @@
+{
+  "durationMs": 450777,
+  "endedAt": "2026-07-03T02:41:35.901Z",
+  "iteration": 0,
+  "runId": "cli_1783046045084_b5d64417",
+  "snapshotKey": "claude-code/coding/onboarding/none",
+  "startedAt": "2026-07-03T02:34:05.124Z",
+  "summary": "onboarding phase complete; project is ready for coding",
+  "timeToFirstEventMs": 5902,
+  "exitCode": 0,
+  "idleWarningTimestamps": [],
+  "promptChars": 39718,
+  "backend": "claude-code",
+  "executionMode": "single_agent",
+  "mode": "coding",
+  "model": "claude-opus-4-8",
+  "phase": "onboarding",
+  "provider": null,
+  "reasoningEffort": "medium",
+  "allowedFeatureIds": [],
+  "commands": [
+    "ls -la && echo \"---AIDD---\" && ls -la .aidd/ 2>/dev/null && echo \"---FEATURES---\" && ls .aidd/features/ 2>/dev/null && echo \"---FRONTEND---\" && ls -la frontend/ 2>/dev/null",
+    "echo \"=== active-runs ===\" && cat .aidd/active-runs/*.json 2>/dev/null && echo \"\" && echo \"=== features dirs ===\" && ls .aidd/features/*/ && echo \"=== latest iterations ===\" && ls -t .aidd/iterations/ | head -5",
+    "for f in .aidd/features/*/feature.json; do echo \"=== $f ===\"; cat \"$f\"; echo; done",
+    "echo \"=== src tree ===\" && find src -type f 2>/dev/null && echo \"=== public ===\" && find public -type f 2>/dev/null && echo \"=== reports ===\" && ls -la .aidd/reports/ .aidd/audit-reports/ .aidd/audits/ 2>/dev/null",
+    "git status --short && echo \"=== git log for eslint removal ===\" && git show --stat 5143148 --oneline | head -20 && echo \"=== does root eslint.config.js exist? ===\" && ls -la eslint.config.js frontend/ 2>/dev/null",
+    "echo \"=== CHANGELOG diff vs HEAD ===\" && git diff .aidd/CHANGELOG.md | head -60 && echo \"=== HEAD CHANGELOG ===\" && git show HEAD:.aidd/CHANGELOG.md | head -60",
+    "cd <WORKSPACE>/kanban-board\necho \"=== diff untracked root eslint vs committed-deleted version ===\"\ngit show 5143148^:eslint.config.js > /tmp/old-root-eslint.js 2>/dev/null && diff -q /tmp/old-root-eslint.js eslint.config.js && echo \"IDENTICAL to deleted version\"\necho \"=== diff untracked frontend eslint vs committed-deleted version ===\"\ngit show 5143148^:frontend/eslint.config.js > /tmp/old-fe-eslint.js 2>/dev/null && diff -q /tmp/old-fe-eslint.js frontend/eslint.config.js && echo \"IDENTICAL to deleted version\"",
+    "bun run smoke:qc 2>&1 | tail -40; echo \"EXIT: ${PIPESTATUS[0]}\"",
+    "bun run .aidd/gen-features.ts && echo \"---validate deps---\" && bun -e '\nimport { readdirSync, readFileSync } from \"node:fs\";\nconst dir=\".aidd/features\";\nconst ids=new Set(readdirSync(dir));\nlet ok=true;\nfor(const id of ids){\n  const f=JSON.parse(readFileSync(`${dir}/${id}/feature.json\",\"utf8\"));\n  if(f.id!==id){console.log(\"DIR/ID MISMATCH\",id,f.id);ok=false;}\n  for(const d of f.dependencies){if(!ids.has(d)){console.log(\"BAD DEP\",id,\"->\",d);ok=false;}}\n}\nconsole.log(\"total features:\",ids.size, ok?\"ALL DEPS VALID\":\"ERRORS\");\n'",
+    "bun -e '\nimport { readdirSync, readFileSync } from \"node:fs\";\nconst dir = \".aidd/features\";\nconst ids = new Set(readdirSync(dir));\nlet ok = true;\nfor (const id of ids) {\n  const f = JSON.parse(readFileSync(dir + \"/\" + id + \"/feature.json\", \"utf8\"));\n  if (f.id !== id) { console.log(\"DIR/ID MISMATCH\", id, f.id); ok = false; }\n  for (const d of f.dependencies) { if (!ids.has(d)) { console.log(\"BAD DEP\", id, \"->\", d); ok = false; } }\n}\nconsole.log(\"total features:\", ids.size, ok ? \"ALL DEPS VALID\" : \"ERRORS\");\n'",
+    "rm .aidd/gen-features.ts && git checkout HEAD -- .aidd/CHANGELOG.md && echo \"restored CHANGELOG from HEAD\" && head -8 .aidd/CHANGELOG.md",
+    "bun run smoke:qc 2>&1 | tail -25; echo \"EXIT: ${PIPESTATUS[0]}\"",
+    "cd <WORKSPACE>/kanban-board\ngit add README.md .aidd/CHANGELOG.md .aidd/project-structure.md .aidd/todo.md .aidd/features/\necho \"=== staged ===\" && git diff --cached --stat | tail -30",
+    "cd <WORKSPACE>/kanban-board\ngit commit -m \"$(cat <<'EOF'\nchore(aidd): onboard product feature backlog + fill tracking docs\n\nMaterialize the 8 spec.md backlog capabilities into 20 conservatively-marked\nproduct feature.json records (23 total with existing remediations), all\npasses:false/status:backlog with dependencies wired by id. Fill the\nproject-structure.md template with the real bare-Vite layout, add todo.md with\ndiscovered issues (incl. the reappeared vestigial eslint config drift), and\nrewrite the stock README to describe the kanban board. Restore CHANGELOG from\nHEAD (working copy had been reverted to skeleton). smoke:qc verified green.\n\nCo-Authored-By: Claude Opus 4.8 <<REDACTED_EMAIL>>\nEOF\n)\" 2>&1 | tail -20; echo \"EXIT: ${PIPESTATUS[0]}\"",
+    "git log --oneline -1 && echo \"---\" && git status --short"
+  ],
+  "commitsCreated": [
+    {
+      "hash": "b182087c42d4c6a059b6b017be447255e478571d",
+      "subject": "chore(aidd): onboard product feature backlog + fill tracking docs"
+    }
+  ],
+  "completedFeatures": [],
+  "detailsSummary": {
+    "bashCommandsRun": 15,
+    "finalChecks": {},
+    "hasBuildErrors": false,
+    "hasLintErrors": false,
+    "hasTypeErrors": false,
+    "totalToolCalls": 34,
+    "uniqueFilesCreated": 4,
+    "uniqueFilesEdited": 1,
+    "uniqueFilesRead": 13
+  },
+  "errors": [],
+  "extraCompletedFeatures": [],
+  "filesCreated": [
+    "D:\\applications\\kanban-board\\.aidd\\gen-features.ts",
+    "D:\\applications\\kanban-board\\.aidd\\project-structure.md",
+    "D:\\applications\\kanban-board\\.aidd\\todo.md",
+    "D:\\applications\\kanban-board\\README.md"
+  ],
+  "filesEdited": [
+    "D:\\applications\\kanban-board\\.aidd\\CHANGELOG.md"
+  ],
+  "filesRead": [
+    "D:\\applications\\kanban-board\\.aidd\\spec.md",
+    "D:\\applications\\kanban-board\\.aidd\\CHANGELOG.md",
+    "D:\\applications\\kanban-board\\.aidd\\iterations\\043.json",
+    "D:\\applications\\kanban-board\\package.json",
+    "D:\\applications\\kanban-board\\.aidd\\project.md",
+    "D:\\applications\\kanban-board\\.aidd\\reports\\feature-coverage-audit-2026-07-02.md",
+    "D:\\applications\\kanban-board\\.aidd\\.artifacts-check.json",
+    "D:\\applications\\kanban-board\\.aidd\\project-structure.md",
+    "D:\\applications\\kanban-board\\src\\App.tsx",
+    "D:\\applications\\kanban-board\\.aidd\\project-profile.json",
+    "D:\\applications\\kanban-board\\.aidd\\testing-scenarios.md",
+    "D:\\applications\\kanban-board\\.prettierignore",
+    "D:\\applications\\kanban-board\\README.md"
+  ],
+  "metrics": {
+    "cachedTokens": 0,
+    "costUsd": 2.63751,
+    "errorCount": 0,
+    "errorReasons": [],
+    "filesCreatedCount": 4,
+    "filesEditedCount": 1,
+    "idleWarningCount": 0,
+    "inputTokens": 39048,
+    "outputTokens": 31894,
+    "rateLimitCount": 0,
+    "reasoningTokens": 0,
+    "toolBreakdown": {
+      "bash": 15,
+      "read": 14,
+      "write": 4,
+      "edit": 1
+    },
+    "toolCallCount": 34
+  },
+  "outcome": {
+    "exitCode": 0,
+    "status": "success"
+  },
+  "scopeOverrun": false,
+  "selectedFeatures": [],
+  "unacceptedCompletedFeatures": [],
+  "commitsCreatedCount": 1,
+  "filesCreatedCount": 4,
+  "filesEditedCount": 1,
+  "residualDirtyFilesCount": 9,
+  "stopRequested": false,
+  "detectedAfter": "coding"
+}

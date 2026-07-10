@@ -1,0 +1,16 @@
+{
+  "id": "audit-change-history",
+  "title": "Asset, relationship, service, and import audit trails",
+  "description": "Audit trail for all domain write operations",
+  "category": "Security",
+  "dependencies": [
+    "asset-inventory-api"
+  ],
+  "status": "completed",
+  "passes": true,
+  "priority": 3,
+  "createdAt": "2026-07-03T14:10:00.000Z",
+  "justFinishedAt": null,
+  "spec": "1. Record asset_change_events / audit logs for asset, relationship, service, port, and import writes.\n2. Show per-asset change history on the detail page history section.\n3. Provide a filterable audit report.\n4. Verify writes produce audit entries with actor, action, target, and metadata.",
+  "updatedAt": "2026-07-03T21:41:30.040Z"
+}

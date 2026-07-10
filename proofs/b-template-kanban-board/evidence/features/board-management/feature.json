@@ -1,0 +1,17 @@
+{
+  "id": "board-management",
+  "title": "Board Management — Create / Rename / Delete / Switch",
+  "description": "Create boards, rename them, delete them, and switch the active board. The active board id is tracked in the store and persisted.",
+  "category": "Core",
+  "dependencies": [
+    "board-domain-model",
+    "local-persistence"
+  ],
+  "status": "completed",
+  "passes": true,
+  "priority": 2,
+  "createdAt": "2026-07-02T00:00:00.000Z",
+  "justFinishedAt": null,
+  "spec": "1. Create a new named board; verify it appears and becomes selectable\n2. Rename an existing board; verify the header and switcher reflect the new name\n3. Delete a board; verify its columns and cards are removed and no orphans remain\n4. Switch the active board; verify the correct columns/cards render\n5. Verify deleting the active board selects a sensible remaining board (or the default) rather than crashing\n6. Verify board set and active-board id survive reload",
+  "updatedAt": "2026-07-03T03:10:00.214Z"
+}

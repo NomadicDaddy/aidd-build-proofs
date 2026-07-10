@@ -1,0 +1,28 @@
+{
+	"completedAt": 1783088561605,
+	"durationMs": 94193,
+	"failedStepNames": [],
+	"producedArtifacts": [
+		{
+			"runId": "run_1783088467420_86a5a1a2",
+			"stepName": "promote-remediation",
+			"stepType": "ingredient"
+		}
+	],
+	"recipeId": "ingredient:promote-remediation",
+	"recipeName": "promote-remediation",
+	"sessionId": "pipe_1783088467412_51c1188b",
+	"startedAt": 1783088467412,
+	"status": "completed",
+	"steps": [
+		{
+			"depth": 0,
+			"durationMs": 94186,
+			"errorMessage": null,
+			"name": "promote-remediation",
+			"runId": "run_1783088467420_86a5a1a2",
+			"status": "completed",
+			"stepType": "ingredient"
+		}
+	]
+}

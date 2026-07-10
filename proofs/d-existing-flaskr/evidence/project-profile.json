@@ -1,0 +1,74 @@
+{
+  "$schema": "https://aidd.dev/schemas/project-profile.json",
+  "name": "flaskr",
+  "generatedAt": "2026-07-03",
+  "source": "Inferred from source tree and .aidd/audit-reports/CODEBASE_ANALYSIS-2026-07-03.md",
+  "summary": "Canonical Pallets Flask tutorial blog: a server-rendered, session-authenticated SQLite app using the application-factory + blueprint pattern. Educational/tutorial scope, not a production deployment.",
+  "stack": {
+    "language": "Python",
+    "languageVersion": ">=3.8 (CPython 3.14 in local .venv)",
+    "runtime": "CPython / WSGI",
+    "framework": "Flask",
+    "templating": "Jinja2 (server-rendered HTML, autoescaped)",
+    "frontend": "none (no JS build tooling, no SPA; static CSS only at flaskr/static/style.css)",
+    "database": "SQLite (sqlite3 stdlib driver, one connection per request via flask.g)",
+    "orm": "none (inline parameterized SQL)",
+    "packaging": "flit_core (pyproject.toml)",
+    "keyLibraries": ["flask", "werkzeug", "jinja2"]
+  },
+  "architecture": {
+    "pattern": "application-factory (create_app) + blueprints",
+    "entrypoint": "flaskr/__init__.py:create_app",
+    "blueprints": ["auth (/auth)", "blog (/ , mounted as index)"],
+    "layers": "HTTP -> blueprint view -> get_db() -> Jinja render (no service/query layer)"
+  },
+  "deployment": {
+    "mode": "development / tutorial only",
+    "target": "none configured (no Dockerfile, no CI workflow, no WSGI/production server config)",
+    "instanceConfig": "instance/config.py (silent optional override; absent by default)",
+    "notes": "Intended to run under the Flask dev server for learning. Not hardened or configured for production."
+  },
+  "auth": {
+    "mode": "session cookie",
+    "mechanism": "Flask signed session cookie; g.user hydrated per-request by load_logged_in_user (before_app_request)",
+    "passwordStorage": "werkzeug generate_password_hash / check_password_hash (salted, modern KDF)",
+    "authorization": "login_required decorator on mutations; author-ownership (abort 403) + existence (abort 404) checks in blog.get_post",
+    "sessionSecret": "<REDACTED_CREDENTIAL>'dev' (flaskr/__init__.py:11) and must be overridden via instance/config.py before any real use",
+    "gaps": ["no CSRF protection on state-changing POSTs", "no cookie hardening (SECURE / SAMESITE unset)", "no rate limiting or lockout on login/register"]
+  },
+  "dataSensitivity": {
+    "level": "low",
+    "rationale": "Tutorial blog with no real users or PII beyond a username and a hashed password. No payment, health, or regulated data.",
+    "storedData": ["username", "hashed password", "blog post title/body/timestamps"],
+    "pii": "minimal (username only); passwords stored hashed, never plaintext"
+  },
+  "criticality": {
+    "level": "low",
+    "rationale": "Educational reference application; no production users, no SLAs, no business dependency."
+  },
+  "externalIntegrations": {
+    "services": [],
+    "apis": [],
+    "notes": "No third-party services, no outbound network calls, no message queues, no cloud dependencies."
+  },
+  "validation": {
+    "command": "pytest",
+    "commandContext": "run from repo root using the project .venv; declared as [project.optional-dependencies] test = [\"pytest\"] and [tool.pytest.ini_options] testpaths=[\"tests\"]",
+    "lastKnownResult": "24 passed in 0.75s (2026-07-03)",
+    "lint": {
+      "declared": "[tool.ruff] present in pyproject.toml",
+      "status": "not installed / not wired into any gate"
+    },
+    "coverage": {
+      "declared": "[tool.coverage.run] branch=true, source=[flaskr, tests]",
+      "status": "configured but not measured (no coverage/pytest-cov installed)"
+    },
+    "build": "none (no build step for this Flask app; no JS/TS tooling)",
+    "ci": "none"
+  },
+  "notes": [
+    "project.md directive: architecture/stack/tooling should be spernakit-like unless otherwise necessary and user-approved. A pure Flask tutorial is a reasonable otherwise-necessary case; do not re-scaffold JS/spernakit tooling onto it.",
+    "Application code is safe against SQL injection (parameterized queries) and XSS (Jinja2 autoescaping) by construction.",
+    "Outstanding hardening (deployment-grade, intentionally left open by the tutorial): SECRET_KEY, CSRF, cookie flags, rate limiting, security headers, dependency lockfile."
+  ]
+}

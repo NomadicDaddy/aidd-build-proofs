@@ -1,0 +1,13 @@
+{
+	"category": "UI",
+	"createdAt": "2026-07-02T20:51:56.000Z",
+	"dependencies": ["frontend-bootstrap"],
+	"description": "nav bar and routes for dashboard, habit list, and habit detail",
+	"id": "navigation-and-routing",
+	"passes": true,
+	"priority": 3,
+	"spec": "1. Register routes in routes.tsx for dashboard and habit list.\n2. Add a navigation bar linking each page.\n3. Ensure every page in pages/ has a route and a reachable nav path.\n4. Confirm deep links resolve and unknown routes show a not-found page.",
+	"status": "completed",
+	"title": "Navigation and routing",
+	"updatedAt": "2026-07-02T21:46:26.024Z"
+}

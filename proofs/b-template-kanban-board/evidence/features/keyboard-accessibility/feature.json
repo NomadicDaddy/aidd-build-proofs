@@ -1,0 +1,17 @@
+{
+  "id": "keyboard-accessibility",
+  "title": "Keyboard Accessibility for Core Interactions",
+  "description": "Ensure core interactions (create/edit card, rename column, switch board, and a keyboard-accessible alternative to drag-and-drop) are operable via keyboard with visible focus.",
+  "category": "UI",
+  "dependencies": [
+    "card-drag-and-drop",
+    "card-editor-form"
+  ],
+  "status": "completed",
+  "passes": true,
+  "priority": 4,
+  "createdAt": "2026-07-02T00:00:00.000Z",
+  "justFinishedAt": null,
+  "spec": "1. Verify all buttons/inputs are reachable via Tab with a visible focus ring\n2. Verify the card editor traps focus and closes on Escape\n3. Provide a keyboard-operable way to move a card between columns (DnD is not keyboard-accessible alone)\n4. Verify controls have accessible names (aria-label / associated labels)",
+  "updatedAt": "2026-07-03T04:12:56.924Z"
+}

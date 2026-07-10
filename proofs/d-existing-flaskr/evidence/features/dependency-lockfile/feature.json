@@ -1,0 +1,17 @@
+{
+  "id": "dependency-lockfile",
+  "title": "Add dependency lockfile for reproducible installs",
+  "description": "pyproject.toml pins only 'flask' (unbounded) with no lockfile, making installs non-reproducible and providing no vulnerability-scan surface. A lockfile (e.g. requirements.txt with pinned versions, or pip-tools/pipenv/poetry lock) should be added for reproducibility. Verified finding (assertions.md §5).",
+  "category": "DevEx",
+  "dependencies": [],
+  "status": "completed",
+  "passes": true,
+  "notes": "Added pip lockfiles pinning the full transitive closure: requirements.txt (runtime — blinker, click, colorama[win32 marker], Flask 3.1.3, itsdangerous, Jinja2, MarkupSafe, Werkzeug) and requirements-dev.txt (-r requirements.txt plus pytest 9.1.1 and its transitive deps iniconfig, packaging, pluggy, Pygments). Versions captured from the working .venv via pip freeze. Verified: `pip install --dry-run -r requirements-dev.txt` resolves to the exact installed set, and pytest is green (33 passed) on those locked versions. Update procedure documented in README.rst under 'Dependency lockfile'. No lockfile hashes (pip-tools not in toolchain); exact == pins provide reproducibility and a vuln-scan surface.",
+  "priority": 4,
+  "spec": "1. Generate a lockfile pinning all transitive dependencies (flask, werkzeug, jinja2, click, itsdangerous, markupsafe, pytest, etc.).\n2. Verify the lockfile is committed and the install command uses it.\n3. Verify the test suite passes with the locked versions.\n4. Document the lockfile update process in README or contributing guide.",
+  "affectedFiles": [
+    "pyproject.toml"
+  ],
+  "createdAt": "2026-07-04T00:00:00.000Z",
+  "updatedAt": "2026-07-03T14:08:54.210Z"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "audit-security-1783061475-add-http-security-response-headers-csp-x-frame-options-x-content-type-options-re",
+  "title": "Add HTTP security response headers (CSP, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, HSTS)",
+  "description": "Verified: no @app.after_request handler, flask-talisman, or any of Content-Security-Policy / X-Frame-Options / X-Content-Type-Options / Strict-Transport-Security exists in flaskr/ application source (grep returns hits only in .aidd docs). Every response — including the rendered blog and auth pages — is served with no security headers, leaving clickjacking (no X-Frame-Options/frame-ancestors), MIME sniffing (no nosniff), and referrer leakage unmitigated. Corroborates assertions.md §3 S5 (Low). Not tracked by any existing feature.json.",
+  "category": "Audit",
+  "dependencies": [],
+  "status": "completed",
+  "passes": true,
+  "notes": "Resolved: flaskr/__init__.py create_app now registers an @app.after_request(add_security_headers) handler that sets X-Content-Type-Options=nosniff, X-Frame-Options=DENY, Referrer-Policy=no-referrer, and Content-Security-Policy=default-src 'self' on every response; Strict-Transport-Security (max-age=31536000; includeSubDomains) is gated to request.is_secure so it is not emitted over the plaintext dev server. Added tests/test_factory.py::test_security_headers_present asserting the four baseline headers on GET '/' and that HSTS is absent on the non-secure test request. Hardened .aidd/features/app-factory-and-configuration/feature.json spec (new point 6) so a feature-based rebuild won't reintroduce the finding. Verified: ruff clean, full pytest suite green (36 passed).",
+  "priority": 4,
+  "auditSource": "SECURITY",
+  "affectedFiles": [
+    "flaskr/__init__.py",
+    "tests/test_factory.py"
+  ],
+  "auditSeverity": "Low",
+  "createdAt": "2026-07-03T06:51:15.492Z",
+  "spec": "1. In flaskr/__init__.py create_app, register an @app.after_request(add_security_headers) handler (or flask-talisman) that sets on every response: X-Content-Type-Options: nosniff; X-Frame-Options: DENY; Referrer-Policy: no-referrer; Content-Security-Policy: default-src 'self'.\n2. Gate Strict-Transport-Security (max-age=31536000; includeSubDomains) to production only so it is not sent over the plaintext dev server.\n3. Add a test in tests/test_factory.py that GETs '/' and asserts X-Content-Type-Options and X-Frame-Options are present on the response.\nNote: written against the current Flask app; if Q2 resolves to a stack port, apply the equivalent security-headers middleware on the target framework.\n\nIMPORTANT: After resolving this finding, locate the feature.json file(s) in .aidd/features/ whose spec originally produced the code or pattern that caused this audit finding. Update those feature.json spec(s) to prevent this issue from being reintroduced during a feature-based rebuild.",
+  "updatedAt": "2026-07-03T14:34:27.675Z"
+}

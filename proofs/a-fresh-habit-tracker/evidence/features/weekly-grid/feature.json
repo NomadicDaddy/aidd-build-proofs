@@ -1,0 +1,13 @@
+{
+	"category": "UI",
+	"createdAt": "2026-07-02T20:51:56.000Z",
+	"dependencies": ["habit-list-page", "checkin-tracking"],
+	"description": "rolling 7-day grid per habit reflecting real check-ins",
+	"id": "weekly-grid",
+	"passes": true,
+	"priority": 3,
+	"spec": "1. Render a 7-day grid ending on today for each habit.\n2. Fill cells for days with check-ins, empty for missed days.\n3. Label each column with its weekday/date.\n4. Confirm the grid matches the check-in data exactly.\n5. Verify the grid rolls forward as the current day changes.",
+	"status": "completed",
+	"title": "Weekly check-in grid",
+	"updatedAt": "2026-07-02T22:17:56.003Z"
+}

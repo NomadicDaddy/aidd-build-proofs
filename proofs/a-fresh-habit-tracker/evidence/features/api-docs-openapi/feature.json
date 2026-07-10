@@ -1,0 +1,13 @@
+{
+	"category": "Documentation",
+	"createdAt": "2026-07-02T20:51:56.000Z",
+	"dependencies": ["habit-crud-api", "checkin-tracking"],
+	"description": "OpenAPI spec served at /api/v1/docs/json as the contract source of truth",
+	"id": "api-docs-openapi",
+	"passes": true,
+	"priority": 3,
+	"spec": "1. Expose the OpenAPI JSON at /api/v1/docs/json.\n2. Confirm all habit and check-in routes appear with request/response schemas.\n3. Verify the spec reflects the TypeBox validation constraints.",
+	"status": "completed",
+	"title": "OpenAPI contract",
+	"updatedAt": "2026-07-02T21:41:38.071Z"
+}

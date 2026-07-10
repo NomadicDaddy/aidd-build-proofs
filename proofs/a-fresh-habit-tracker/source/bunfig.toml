@@ -1,0 +1,3 @@
+[install]
+# JSON-only configuration: never auto-load .env files (config lives in config/*.json).
+env = false

@@ -1,0 +1,17 @@
+{
+  "id": "port-exposure-tracking",
+  "title": "Expected and observed ports by asset and service",
+  "description": "Port records distinguishing expected documentation from observed scans",
+  "category": "Core",
+  "dependencies": [
+    "asset-domain-schema",
+    "asset-service-assignment"
+  ],
+  "status": "completed",
+  "passes": true,
+  "priority": 3,
+  "createdAt": "2026-07-03T14:10:00.000Z",
+  "justFinishedAt": null,
+  "spec": "1. Persist asset_ports with protocol, port number, service name, scope, exposure level, source, verification date, and notes.\n2. Distinguish expected documentation from imported scan observations.\n3. Mark ports as expected, unexpected, ignored, historical, or needs review.\n4. Allow operators to document why a port is open and which service owns it.\n5. Filter assets by service, protocol, port number, exposure level, or review status.\n6. Verify port CRUD and review-state filtering via API and UI.",
+  "updatedAt": "2026-07-04T00:13:59.408Z"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "session-fixation-mitigation",
+	"title": "Session fixation mitigation via session.clear() on login",
+	"category": "Security",
+	"description": "The login flow calls session.clear() before setting session['user_id'], preventing session fixation attacks where an attacker pre-sets a session ID. This is a verified security control (assertions.md §3) that must not regress.",
+	"priority": 2,
+	"status": "completed",
+	"passes": true,
+	"spec": "1. Verify flaskr/auth.py login() calls session.clear() before setting session['user_id'] = user['id'] (currently at line 103).\n2. Verify flaskr/auth.py logout() calls session.clear() to destroy the session.\n3. Verify tests/test_auth.py confirms 'user_id' is not in session after logout.",
+	"dependencies": ["user-authentication"],
+	"affectedFiles": ["flaskr/auth.py", "tests/test_auth.py"],
+	"createdAt": "2026-07-04T00:00:00.000Z",
+	"updatedAt": "2026-07-04T00:00:00.000Z"
+}

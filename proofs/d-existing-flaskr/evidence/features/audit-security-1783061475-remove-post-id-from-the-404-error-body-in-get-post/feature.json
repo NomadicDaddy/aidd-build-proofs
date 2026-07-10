@@ -1,0 +1,20 @@
+{
+  "id": "audit-security-1783061475-remove-post-id-from-the-404-error-body-in-get-post",
+  "title": "Remove post id from the 404 error body in get_post",
+  "description": "Verified: flaskr/blog.py:52 — abort(404, f\"Post id {id} doesn't exist.\") echoes the requested post id back into the response body. While low impact (ids are sequential and non-secret here), it is a verbose error that reflects user-controlled input into the error page and diverges from the generic-error norm. Corroborates assertions.md §3 S7 (Info/Low). Not tracked by any existing feature.json.",
+  "category": "Audit",
+  "dependencies": [],
+  "status": "completed",
+  "passes": true,
+  "notes": "Resolved 2026-07-03: replaced abort(404, f\"Post id {id} doesn't exist.\") at flaskr/blog.py:75 with a generic abort(404), so the requested id is no longer reflected into the 404 error body. Confirmed tests/test_blog.py::test_exists_required asserts only status_code == 404 (no body/id assertion), so it still passes. Also hardened the source spec: blog-post-management/feature.json spec point 6 now requires the 404 abort to be generic and forbids interpolating the id, preventing reintroduction on a feature-based rebuild.",
+  "priority": 4,
+  "auditSource": "SECURITY",
+  "affectedFiles": [
+    "flaskr/blog.py",
+    "tests/test_blog.py"
+  ],
+  "auditSeverity": "Low",
+  "createdAt": "2026-07-03T06:51:15.492Z",
+  "spec": "1. In flaskr/blog.py get_post, replace abort(404, f\"Post id {id} doesn't exist.\") at line 52 with a generic abort(404) (or a static message that does not interpolate the id).\n2. Confirm tests/test_blog.py::test_exists_required still passes — it asserts a 404 status, not the body text; verify it does not assert on the id string before changing.\nNote: written against the current Flask app; carry the same generic-error rule forward under a Q2 stack port.\n\nIMPORTANT: After resolving this finding, locate the feature.json file(s) in .aidd/features/ whose spec originally produced the code or pattern that caused this audit finding. Update those feature.json spec(s) to prevent this issue from being reintroduced during a feature-based rebuild.",
+  "updatedAt": "2026-07-03T14:30:34.805Z"
+}

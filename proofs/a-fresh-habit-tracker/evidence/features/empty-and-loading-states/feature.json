@@ -1,0 +1,13 @@
+{
+	"category": "UI",
+	"createdAt": "2026-07-02T20:51:56.000Z",
+	"dependencies": ["habit-list-page", "dashboard-overview"],
+	"description": "consistent loading skeletons and empty states across pages",
+	"id": "empty-and-loading-states",
+	"passes": true,
+	"priority": 4,
+	"spec": "1. Show loading indicators while habits and stats fetch.\n2. Show a friendly empty state prompting the first habit.\n3. Confirm no layout shift between loading and loaded states.\n4. Verify empty states link to the create-habit action.",
+	"status": "completed",
+	"title": "Empty and loading states",
+	"updatedAt": "2026-07-02T22:27:08.648Z"
+}

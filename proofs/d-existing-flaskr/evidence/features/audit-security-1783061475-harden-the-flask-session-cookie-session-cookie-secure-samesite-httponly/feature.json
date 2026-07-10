@@ -1,0 +1,20 @@
+{
+  "id": "audit-security-1783061475-harden-the-flask-session-cookie-session-cookie-secure-samesite-httponly",
+  "title": "Harden the Flask session cookie (SESSION_COOKIE_SECURE / SAMESITE / HTTPONLY)",
+  "description": "Verified: flaskr/__init__.py:9-14 — app.config.from_mapping sets only SECRET_KEY and DATABASE. A repo-wide grep for SESSION_COOKIE_SECURE / SESSION_COOKIE_SAMESITE / SESSION_COOKIE_HTTPONLY returns zero hits in application source (only .aidd docs). The signed session cookie therefore ships with SECURE unset (sent over plaintext HTTP) and SAMESITE unset (default None), widening exposure to session interception and CSRF-style cross-site cookie replay. Corroborates assertions.md §3 S3 (Medium). Not covered by any existing feature.json (only S1 secret-key and S2 CSRF are tracked).",
+  "category": "Audit",
+  "dependencies": [],
+  "status": "completed",
+  "passes": true,
+  "notes": "Resolved 2026-07-03: flaskr/__init__.py create_app now sets SESSION_COOKIE_HTTPONLY=True, SESSION_COOKIE_SAMESITE=\"Lax\", and SESSION_COOKIE_SECURE=False (default, overridable to True via instance/config.py for production HTTPS) in app.config.from_mapping. tests/test_factory.py::test_session_cookie_hardening asserts the three flags and that SECURE is overridable. Hardened the app-factory-and-configuration feature.json spec point 1 to require these flags so a feature-based rebuild won't reintroduce S3. Verified: ruff clean; full pytest suite green.",
+  "priority": 3,
+  "auditSource": "SECURITY",
+  "affectedFiles": [
+    "flaskr/__init__.py",
+    "tests/test_factory.py"
+  ],
+  "auditSeverity": "Medium",
+  "createdAt": "2026-07-03T06:51:15.492Z",
+  "spec": "1. In flaskr/__init__.py, extend the app.config.from_mapping(...) call in create_app to set SESSION_COOKIE_HTTPONLY=True and SESSION_COOKIE_SAMESITE=\"Lax\".\n2. Add SESSION_COOKIE_SECURE sourced from config so it is True in production and False under the dev server / tests (e.g. default False in the mapping, overridable via instance/config.py), so the existing pytest suite and HTTP dev server continue to work.\n3. Confirm the flag values are present in app.config after create_app() by asserting them in tests/test_factory.py (extend the existing test_config-style assertions).\nNote: remediation approach is written against the current Flask paths; if interview Q2 resolves to a stack port these config keys map to the equivalent cookie-hardening settings on the target framework.\n\nIMPORTANT: After resolving this finding, locate the feature.json file(s) in .aidd/features/ whose spec originally produced the code or pattern that caused this audit finding. Update those feature.json spec(s) to prevent this issue from being reintroduced during a feature-based rebuild.",
+  "updatedAt": "2026-07-03T14:32:29.344Z"
+}

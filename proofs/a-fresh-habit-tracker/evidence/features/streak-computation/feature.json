@@ -1,0 +1,13 @@
+{
+	"category": "Core",
+	"createdAt": "2026-07-02T20:51:56.000Z",
+	"dependencies": ["checkin-tracking"],
+	"description": "current streak, longest streak, and 30-day completion rate per habit",
+	"id": "streak-computation",
+	"passes": true,
+	"priority": 3,
+	"spec": "1. Implement a streak service that derives stats from a habit's check-ins.\n2. Compute current streak as the run of consecutive done days ending today (or yesterday).\n3. Compute longest streak as the longest consecutive run ever recorded.\n4. Compute a 30-day completion rate (done days / 30).\n5. Ensure a missed day breaks the current streak but preserves the longest streak.\n6. Handle gaps correctly across month boundaries.\n7. Expose GET /api/v1/habits/:id/stats returning currentStreak, longestStreak, completionRate.\n8. Confirm an empty check-in history yields zero streaks and zero completion.\n9. Confirm checking today after a gap restarts the current streak at 1.\n10. Verify longest streak never decreases when current streak resets.\n11. Run `bun run smoke:qc` and confirm it passes.",
+	"status": "completed",
+	"title": "Streak and completion computation",
+	"updatedAt": "2026-07-02T22:07:31.282Z"
+}

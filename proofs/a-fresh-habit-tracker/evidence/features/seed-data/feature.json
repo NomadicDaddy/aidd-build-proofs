@@ -1,0 +1,13 @@
+{
+	"category": "DevEx",
+	"createdAt": "2026-07-02T20:51:56.000Z",
+	"dependencies": ["habit-domain-schema"],
+	"description": "dev-only seed script populating sample habits and check-ins",
+	"id": "seed-data",
+	"passes": true,
+	"priority": 3,
+	"spec": "1. Add a backend db:seed script that inserts a few sample habits.\n2. Insert check-ins that produce a visible current and longest streak.\n3. Make the seed idempotent or reset-safe for repeated dev runs.\n4. Confirm seeded data appears via the list API.",
+	"status": "completed",
+	"title": "Development seed data",
+	"updatedAt": "2026-07-02T22:04:23.875Z"
+}

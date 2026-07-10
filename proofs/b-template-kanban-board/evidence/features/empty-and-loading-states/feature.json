@@ -1,0 +1,16 @@
+{
+  "id": "empty-and-loading-states",
+  "title": "Empty / First-Run States",
+  "description": "Clear empty states for a board with no columns, a column with no cards, and a first-run with no boards, guiding the user to the next action.",
+  "category": "UI",
+  "dependencies": [
+    "board-view-render"
+  ],
+  "status": "completed",
+  "passes": true,
+  "priority": 4,
+  "createdAt": "2026-07-02T00:00:00.000Z",
+  "justFinishedAt": null,
+  "spec": "1. Render a helpful empty state when the active board has no columns\n2. Render an empty drop area with guidance when a column has no cards\n3. Render a first-run state (or default board) when there are no boards\n4. Verify empty states disappear once content is added",
+  "updatedAt": "2026-07-03T04:10:03.550Z"
+}

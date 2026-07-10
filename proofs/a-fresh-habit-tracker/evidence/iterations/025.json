@@ -1,0 +1,118 @@
+{
+  "durationMs": 290182,
+  "endedAt": "2026-07-02T23:00:40.009Z",
+  "iteration": 23,
+  "runId": "cli_1783026039958_45e2fabf",
+  "snapshotKey": "claude-code/coding/coding/none",
+  "startedAt": "2026-07-02T22:55:49.827Z",
+  "summary": "coding finished with exit code 124; 2 incomplete feature(s) remain; backend exit code 124",
+  "timeToFirstEventMs": 2933,
+  "exitCode": 124,
+  "idleWarningTimestamps": [],
+  "promptChars": 57111,
+  "backend": "claude-code",
+  "executionMode": "single_agent",
+  "mode": "coding",
+  "model": "claude-opus-4-8",
+  "phase": "coding",
+  "provider": null,
+  "reasoningEffort": "medium",
+  "allowedFeatureIds": [
+    "testing-scenarios"
+  ],
+  "commands": [
+    "cat .aidd/features/testing-scenarios/feature.json && echo \"---GIT---\" && git status --short && echo \"---LOG---\" && git log --oneline -5",
+    "git diff .aidd/features/testing-scenarios/feature.json; echo \"---SCEN---\"; ls .aidd/ ; echo \"---\"; cat .aidd/testing-scenarios.md 2>/dev/null | head -60",
+    "cat .aidd/project.md 2>/dev/null | head -80; echo \"===STRUCT===\"; cat .aidd/project-structure.md 2>/dev/null | head -60",
+    "cat package.json 2>/dev/null | head -80; echo \"===CRAWL===\"; grep -rl \"crawltest\\|crawl\" --include=\"*.json\" --include=\"*.ts\" --include=\"*.md\" . 2>/dev/null | grep -v node_modules | head -20",
+    "grep -n \"crawl\" .aidd/spec.md AGENTS.md README.md .aidd/_common/spernakit-standards.md 2>/dev/null",
+    "ls scripts/; echo \"---\"; ls scripts/*crawl* 2>/dev/null; echo \"---DEV---\"; cat DEVELOPMENT.md 2>/dev/null | grep -n -A20 -i \"crawl\" | head -60",
+    "find / -iname \"*.md\" -path \"*testing-scenarios*\" 2>/dev/null | grep -i skill | head; echo \"---\"; find ~/.claude -iname \"SKILL.md\" 2>/dev/null | grep -iE \"testing-scenarios|spernakit-tester|crawl\" | head",
+    "find ~/.claude -type d \\( -iname \"*testing-scenarios*\" -o -iname \"*spernakit-tester*\" \\) 2>/dev/null | head; echo \"===STD===\"; sed -n '220,270p' .aidd/_common/spernakit-standards.md",
+    "sed -n '1,80p' .aidd/spec.md",
+    "cat config/example.json 2>/dev/null; echo \"---LOCAL---\"; ls config/; echo \"---PORTS---\"; netstat -ano | grep -E \":3330|:3210|:3000|:5173\" | head",
+    "curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3330 ; echo \" <- frontend\"; echo \"---prettier check feature.json---\"; bunx prettier --check .aidd/features/testing-scenarios/feature.json 2>&1 | head",
+    "cat frontend/src/App.tsx 2>/dev/null | head -60; echo \"===ROUTES===\"; find frontend/src -name \"*.tsx\" | grep -iE \"route|App\" | head; echo \"---pages---\"; ls -R frontend/src/pages 2>/dev/null",
+    "cat frontend/src/routes.tsx",
+    "agent-browser open http://localhost:3330/ 2>&1 | tail -5 && echo \"===ERRORS===\" && agent-browser errors 2>&1 | tail -20",
+    "agent-browser snapshot -c 2>&1 | head -60",
+    "mkdir -p .aidd/evidence/testing-scenarios 2>/dev/null; agent-browser screenshot .aidd/evidence/testing-scenarios/dashboard.png 2>&1 | tail -2; echo \"===HABITS===\"; agent-browser open http://localhost:3330/habits 2>&1 | tail -2; agent-browser snapshot -i -c 2>&1 | head -70",
+    "agent-browser fill @e10 \"Scenario Test Habit\" 2>&1 | tail -1; agent-browser click @e9 2>&1 | tail -1; sleep 1; agent-browser snapshot -i -c 2>&1 | grep -iE \"Scenario Test|Mark today\" | head; echo \"===ERR===\"; agent-browser errors 2>&1 | tail -5",
+    "agent-browser snapshot -c 2>&1 | grep -iA12 \"Scenario Test Habit\" | grep -iE \"streak|current|longest|day\" | head; echo \"===TOGGLE===\"; agent-browser click @e32 2>&1 | tail -1; sleep 1; agent-browser snapshot -c 2>&1 | grep -iA14 \"Scenario Test Habit\" | grep -iE \"streak|current|longest|Mark today\" | head",
+    "agent-browser snapshot -c 2>&1 | grep -nA20 \"Scenario Test Habit\"",
+    "agent-browser snapshot -i -c 2>&1 | grep -nE \"Cancel|Scenario Test\" | head",
+    "agent-browser click @e60 2>&1 | tail -1; sleep 1; agent-browser snapshot -i -c 2>&1 | grep -nB1 -A6 \"Scenario Test Habit\"",
+    "agent-browser snapshot -c 2>&1 | sed -n '/Scenario Test Habit/,/Notifications/p' | head -30",
+    "agent-browser eval \"[...document.querySelectorAll('h2')].find(h=>h.textContent==='Scenario Test Habit')?.closest('li,article,div[class]')?.querySelector('dl')?.textContent\" 2>&1 | tail -3",
+    "agent-browser click @e31 2>&1 | tail -1; sleep 1; agent-browser eval \"[...document.querySelectorAll('h2')].find(h=>h.textContent==='Scenario Test Habit')?.closest('li,article,div[class]')?.querySelector('dl')?.textContent\" 2>&1 | tail -2; echo \"===button state===\"; agent-browser snapshot -c 2>&1 | sed -n '/Scenario Test Habit/,/DescriptionList/p' | grep -i \"Mark today\"; agent-browser errors 2>&1 | tail -3",
+    "agent-browser screenshot .aidd/evidence/testing-scenarios/habits-list.png 2>&1 | tail -1; agent-browser snapshot -i -c 2>&1 | grep -nE \"Archive Scenario Test\" ",
+    "agent-browser click @e33 2>&1 | tail -1; sleep 1; agent-browser snapshot -i -c 2>&1 | grep -nE \"Confirm|Cancel|Scenario Test\" | head",
+    "agent-browser click @e33 2>&1 | tail -1; sleep 1; agent-browser eval \"[...document.querySelectorAll('h2')].some(h=>h.textContent==='Scenario Test Habit')\" 2>&1 | tail -1; echo \"<- test habit still present?\"; agent-browser errors 2>&1 | tail -3",
+    "grep -niE \"empty|no habits|archived|Add your first|get started\" frontend/src/pages/habits/HabitsPage.tsx frontend/src/pages/dashboard/DashboardPage.tsx | head -20"
+  ],
+  "commitsCreated": [],
+  "completedFeatures": [],
+  "detailsSummary": {
+    "bashCommandsRun": 28,
+    "finalChecks": {},
+    "hasBuildErrors": false,
+    "hasLintErrors": false,
+    "hasTypeErrors": false,
+    "totalToolCalls": 30,
+    "uniqueFilesCreated": 0,
+    "uniqueFilesEdited": 0,
+    "uniqueFilesRead": 1
+  },
+  "errors": [
+    {
+      "message": "wall_clock_timeout",
+      "type": "timeout"
+    }
+  ],
+  "extraCompletedFeatures": [],
+  "filesCreated": [],
+  "filesEdited": [],
+  "filesRead": [
+    "C:\\Users\\phill\\AppData\\Local\\Temp\\claude\\D--applications-habit-tracker\\4391e28e-2d2f-44fd-aca9-9134faf17a17\\tasks\\bgi2s1t0b.output"
+  ],
+  "metrics": {
+    "cachedTokens": 0,
+    "costUsd": 0,
+    "errorCount": 1,
+    "errorReasons": [
+      "aborted"
+    ],
+    "filesCreatedCount": 0,
+    "filesEditedCount": 0,
+    "idleWarningCount": 0,
+    "inputTokens": 12767,
+    "outputTokens": 517,
+    "rateLimitCount": 0,
+    "reasoningTokens": 0,
+    "toolBreakdown": {
+      "bash": 28,
+      "read": 1,
+      "skill": 1
+    },
+    "toolCallCount": 30
+  },
+  "outcome": {
+    "exitCode": 124,
+    "status": "aborted"
+  },
+  "scopeOverrun": false,
+  "selectedFeatures": [],
+  "unacceptedCompletedFeatures": [],
+  "featureSlug": "testing-scenarios",
+  "featureDescription": "Crawl testing scenarios",
+  "commitsCreatedCount": 0,
+  "filesCreatedCount": 0,
+  "filesEditedCount": 0,
+  "residualDirtyFilesCount": 1,
+  "stopRequested": false,
+  "completedFeature": null,
+  "eligibleFeatures": 2,
+  "remainingDependencyBlockedFeatures": 0,
+  "remainingFeatures": 2,
+  "remainingPendingApproval": 0
+}

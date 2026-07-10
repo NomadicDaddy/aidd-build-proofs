@@ -1,0 +1,89 @@
+{
+  "durationMs": 73280,
+  "endedAt": "2026-07-03T01:48:41.517Z",
+  "iteration": 0,
+  "runId": "run_1783043247185_a7b6b1c8",
+  "snapshotKey": "claude-code/directive/directive/none",
+  "startedAt": "2026-07-03T01:47:28.237Z",
+  "summary": "directive run finished with exit code 0",
+  "timeToFirstEventMs": 3112,
+  "exitCode": 0,
+  "idleWarningTimestamps": [],
+  "promptChars": 18394,
+  "backend": "claude-code",
+  "executionMode": "single_agent",
+  "mode": "directive",
+  "model": "claude-opus-4-8",
+  "phase": "directive",
+  "provider": null,
+  "reasoningEffort": "medium",
+  "allowedFeatureIds": [],
+  "commands": [
+    "ls -la <WORKSPACE>/kanban-board/.aidd/ 2>/dev/null; echo \"---ROOT---\"; ls -la <WORKSPACE>/kanban-board/ 2>/dev/null",
+    "ls -R <WORKSPACE>/kanban-board/src 2>/dev/null | head -60; echo \"---FRONTEND---\"; ls -R <WORKSPACE>/kanban-board/frontend 2>/dev/null | head -40; echo \"---REPORTS---\"; ls -la <WORKSPACE>/kanban-board/.aidd/reports/ <WORKSPACE>/kanban-board/.aidd/audit-reports/ 2>/dev/null",
+    "cat <WORKSPACE>/kanban-board/.aidd/project-profile.json 2>/dev/null && echo \"EXISTS\" || echo \"NO PROFILE YET\"",
+    "git add .aidd/project-profile.json .aidd/CHANGELOG.md && git status --short && git commit -m \"chore(aidd): add project assurance profile\n\nInfer and write .aidd/project-profile.json from codebase analysis + source\ntree. Client-only Vite+React SPA, static-spa deploy, no auth, low data\nsensitivity, no external integrations. Records real validation command\n(build && lint) and notes the spec-declared smoke:qc gate is absent.\n\nCo-Authored-By: Claude Opus 4.8 <<REDACTED_EMAIL>>\"",
+    "git rev-parse --show-toplevel 2>/dev/null; echo \"---\"; git check-ignore -v .aidd/project-profile.json 2>/dev/null; echo \"---git dir---\"; ls -la .git 2>/dev/null | head -3 || echo \"no local .git\""
+  ],
+  "commitsCreated": [],
+  "completedFeatures": [],
+  "detailsSummary": {
+    "bashCommandsRun": 5,
+    "finalChecks": {},
+    "hasBuildErrors": false,
+    "hasLintErrors": false,
+    "hasTypeErrors": false,
+    "totalToolCalls": 13,
+    "uniqueFilesCreated": 1,
+    "uniqueFilesEdited": 1,
+    "uniqueFilesRead": 6
+  },
+  "errors": [],
+  "extraCompletedFeatures": [],
+  "filesCreated": [
+    "d:\\applications\\kanban-board\\.aidd\\project-profile.json"
+  ],
+  "filesEdited": [
+    "d:\\applications\\kanban-board\\.aidd\\CHANGELOG.md"
+  ],
+  "filesRead": [
+    "d:\\applications\\kanban-board\\package.json",
+    "d:\\applications\\kanban-board\\.aidd\\spec.md",
+    "d:\\applications\\kanban-board\\.aidd\\project-structure.md",
+    "d:\\applications\\kanban-board\\.aidd\\project.md",
+    "d:\\applications\\kanban-board\\.aidd\\audit-reports\\CODEBASE_ANALYSIS-2026-07-02.md",
+    "d:\\applications\\kanban-board\\.aidd\\CHANGELOG.md"
+  ],
+  "metrics": {
+    "cachedTokens": 0,
+    "costUsd": 0.651915,
+    "errorCount": 0,
+    "errorReasons": [],
+    "filesCreatedCount": 1,
+    "filesEditedCount": 1,
+    "idleWarningCount": 0,
+    "inputTokens": 31511,
+    "outputTokens": 5130,
+    "rateLimitCount": 0,
+    "reasoningTokens": 0,
+    "toolBreakdown": {
+      "bash": 5,
+      "read": 6,
+      "write": 1,
+      "edit": 1
+    },
+    "toolCallCount": 13
+  },
+  "outcome": {
+    "exitCode": 0,
+    "status": "success"
+  },
+  "scopeOverrun": false,
+  "selectedFeatures": [],
+  "unacceptedCompletedFeatures": [],
+  "commitsCreatedCount": 0,
+  "filesCreatedCount": 1,
+  "filesEditedCount": 1,
+  "residualDirtyFilesCount": 0,
+  "stopRequested": false
+}

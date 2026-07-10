@@ -1,0 +1,245 @@
+{
+	"completedAt": 1783058715612,
+	"durationMs": 2280798,
+	"recipeId": "project-intake",
+	"recipeName": "project-intake",
+	"sessionId": "pipe_1783056434814_fb7f9f5a",
+	"startedAt": 1783056434814,
+	"status": "failed",
+	"steps": [
+		{
+			"depth": 0,
+			"durationMs": 207317,
+			"errorMessage": null,
+			"name": "Analyze codebase",
+			"runId": null,
+			"status": "completed",
+			"stepType": "recipe-ref"
+		},
+		{
+			"depth": 1,
+			"durationMs": 207231,
+			"errorMessage": null,
+			"name": "Analyze codebase",
+			"runId": "run_1783056434905_0258529e",
+			"status": "completed",
+			"stepType": "ingredient"
+		},
+		{
+			"depth": 0,
+			"durationMs": 1297189,
+			"errorMessage": null,
+			"name": "Onboarding interview",
+			"runId": null,
+			"status": "completed",
+			"stepType": "recipe-ref"
+		},
+		{
+			"depth": 1,
+			"durationMs": 394244,
+			"errorMessage": null,
+			"name": "Run interview",
+			"runId": "run_1783056642215_b8c89a94",
+			"status": "completed",
+			"stepType": "aidd-cli"
+		},
+		{
+			"depth": 1,
+			"durationMs": 98609,
+			"errorMessage": null,
+			"name": "Review interview responses",
+			"runId": "run_1783057036527_cf454a4e",
+			"status": "completed",
+			"stepType": "aidd-cli"
+		},
+		{
+			"depth": 1,
+			"durationMs": 286513,
+			"errorMessage": null,
+			"name": "Convert responses to features",
+			"runId": "run_1783057135202_b0858b73",
+			"status": "completed",
+			"stepType": "ingredient"
+		},
+		{
+			"depth": 1,
+			"durationMs": 155503,
+			"errorMessage": null,
+			"name": "Review remediation features",
+			"runId": "run_1783057421781_65c22af3",
+			"status": "completed",
+			"stepType": "aidd-cli"
+		},
+		{
+			"depth": 1,
+			"durationMs": 166511,
+			"errorMessage": null,
+			"name": "Review features",
+			"runId": "run_1783057577355_e613f3e6",
+			"status": "completed",
+			"stepType": "ingredient"
+		},
+		{
+			"depth": 1,
+			"durationMs": 116594,
+			"errorMessage": null,
+			"name": "Generate assertions list",
+			"runId": "run_1783057743936_ae64bcc9",
+			"status": "completed",
+			"stepType": "aidd-cli"
+		},
+		{
+			"depth": 1,
+			"durationMs": 1303,
+			"errorMessage": null,
+			"name": "Validate completions",
+			"runId": "run_1783057860648_1e1daac3",
+			"status": "completed",
+			"stepType": "aidd-cli"
+		},
+		{
+			"depth": 1,
+			"durationMs": 77308,
+			"errorMessage": null,
+			"name": "Consolidate features",
+			"runId": "run_1783057862019_aeb9ddbd",
+			"status": "completed",
+			"stepType": "ingredient"
+		},
+		{
+			"depth": 0,
+			"durationMs": 88688,
+			"errorMessage": null,
+			"name": "Infer project profile",
+			"runId": "run_1783057939396_7163b546",
+			"status": "completed",
+			"stepType": "aidd-cli"
+		},
+		{
+			"depth": 0,
+			"durationMs": 1103,
+			"errorMessage": "Run finished with status failed",
+			"name": "Check artifacts",
+			"runId": null,
+			"status": "failed",
+			"stepType": "recipe-ref"
+		},
+		{
+			"depth": 1,
+			"durationMs": 1034,
+			"errorMessage": "Run finished with status failed",
+			"name": "Run aidd --check-artifacts",
+			"runId": "run_1783058028157_b158eea6",
+			"status": "failed",
+			"stepType": "aidd-cli"
+		},
+		{
+			"depth": 0,
+			"durationMs": 414437,
+			"errorMessage": null,
+			"name": "Generate feature coverage",
+			"runId": null,
+			"status": "completed",
+			"stepType": "recipe-ref"
+		},
+		{
+			"depth": 1,
+			"durationMs": 231866,
+			"errorMessage": null,
+			"name": "Generate features",
+			"runId": "run_1783058029265_4d782236",
+			"status": "completed",
+			"stepType": "ingredient"
+		},
+		{
+			"depth": 1,
+			"durationMs": 182427,
+			"errorMessage": null,
+			"name": "Review features",
+			"runId": "run_1783058261204_3317809e",
+			"status": "completed",
+			"stepType": "ingredient"
+		},
+		{
+			"depth": 0,
+			"durationMs": 149688,
+			"errorMessage": null,
+			"name": "Review features",
+			"runId": null,
+			"status": "completed",
+			"stepType": "recipe-ref"
+		},
+		{
+			"depth": 1,
+			"durationMs": 149613,
+			"errorMessage": null,
+			"name": "Review features",
+			"runId": "run_1783058443712_9314faf5",
+			"status": "completed",
+			"stepType": "ingredient"
+		},
+		{
+			"depth": 0,
+			"durationMs": 118504,
+			"errorMessage": null,
+			"name": "Generate testing scenarios",
+			"runId": null,
+			"status": "completed",
+			"stepType": "recipe-ref"
+		},
+		{
+			"depth": 1,
+			"durationMs": 118424,
+			"errorMessage": null,
+			"name": "Generate scenarios",
+			"runId": "run_1783058593406_a3bb706a",
+			"status": "completed",
+			"stepType": "ingredient"
+		},
+		{
+			"depth": 0,
+			"durationMs": 1326,
+			"errorMessage": "Run finished with status failed",
+			"name": "Run audits",
+			"runId": null,
+			"status": "failed",
+			"stepType": "recipe-ref"
+		},
+		{
+			"depth": 1,
+			"durationMs": 1238,
+			"errorMessage": "Run finished with status failed",
+			"name": "Run all audits",
+			"runId": "run_1783058711925_247e6598",
+			"status": "failed",
+			"stepType": "aidd-cli"
+		},
+		{
+			"depth": 0,
+			"durationMs": 2429,
+			"errorMessage": "Run finished with status failed",
+			"name": "Review audit findings",
+			"runId": null,
+			"status": "failed",
+			"stepType": "recipe-ref"
+		},
+		{
+			"depth": 1,
+			"durationMs": 1235,
+			"errorMessage": "Run finished with status failed",
+			"name": "Review audit findings",
+			"runId": "run_1783058713245_febd5e97",
+			"status": "failed",
+			"stepType": "ingredient"
+		},
+		{
+			"depth": 1,
+			"durationMs": 1030,
+			"errorMessage": "Run finished with status failed",
+			"name": "Review audit findings",
+			"runId": "run_1783058714562_5279137b",
+			"status": "failed",
+			"stepType": "ingredient"
+		}
+	]
+}

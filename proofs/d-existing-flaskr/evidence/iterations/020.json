@@ -1,0 +1,22 @@
+{
+  "durationMs": 0,
+  "endedAt": "2026-07-03T06:05:15.478Z",
+  "iteration": 0,
+  "runId": "run_1783058714562_5279137b",
+  "selectedWork": {
+    "kind": "none",
+    "reason": "dirty_tree_too_high"
+  },
+  "startedAt": "2026-07-03T06:05:15.478Z",
+  "summary": "Dirty working tree (97 files) exceeds threshold (50); skipping run.",
+  "backend": "claude-code",
+  "executionMode": "single_agent",
+  "mode": "directive",
+  "model": "claude-opus-4-8",
+  "phase": "directive",
+  "provider": null,
+  "reasoningEffort": "medium",
+  "blockReason": "dirty_tree_too_high",
+  "dirtyFileCount": 97,
+  "dirtyTreeThreshold": 50
+}

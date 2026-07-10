@@ -1,0 +1,107 @@
+{
+  "durationMs": 162233,
+  "endedAt": "2026-07-04T03:42:44.879Z",
+  "iteration": 0,
+  "runId": "cli_1783136402593_97711a22",
+  "snapshotKey": "claude-code/coding/coding/none",
+  "startedAt": "2026-07-04T03:40:02.646Z",
+  "summary": "coding completed testing-scenarios; 1 incomplete feature(s) remain",
+  "timeToFirstEventMs": 4071,
+  "exitCode": 0,
+  "idleWarningTimestamps": [],
+  "promptChars": 57336,
+  "backend": "claude-code",
+  "executionMode": "single_agent",
+  "mode": "coding",
+  "model": "claude-opus-4-8",
+  "phase": "coding",
+  "provider": null,
+  "reasoningEffort": "medium",
+  "allowedFeatureIds": [
+    "testing-scenarios"
+  ],
+  "commands": [
+    "cat .aidd/features/testing-scenarios/feature.json 2>/dev/null; echo \"---STATUS---\"; git status --short; echo \"---FALSE COUNT---\"; grep -rl '\"passes\": false' .aidd/features/*/feature.json 2>/dev/null",
+    "wc -l .aidd/testing-scenarios.md 2>/dev/null; echo \"---GITIGNORE aidd---\"; git check-ignore .aidd/testing-scenarios.md .aidd/features/testing-scenarios/feature.json 2>/dev/null; echo \"---workspace-scoping status---\"; grep -E '\"status\"|\"passes\"' .aidd/features/workspace-scoping/feature.json",
+    "grep -rEo 'path=\"[^\"]+\"' frontend/src 2>/dev/null | grep -oE '/(dashboard|assets|relationships|relationships/map|services|search|reports|reports/summary|imports)' | sort -u; echo \"---PROBE---\"; curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3460 2>/dev/null || echo \"probe-empty\"",
+    "agent-browser open http://localhost:3460 2>&1 | tail -3; agent-browser snapshot -i -c 2>&1 | head -40",
+    "sleep 1; agent-browser eval \"location.pathname\" 2>&1 | tail -2; agent-browser snapshot -i -c 2>&1 | head -50",
+    "agent-browser fill @e8 \"operator\" 2>&1 | tail -1; agent-browser fill @e10 \"operator123\" 2>&1 | tail -1; agent-browser click @e11 2>&1 | tail -1; sleep 2; agent-browser eval \"location.pathname\" 2>&1 | tail -1; echo \"---ERRORS---\"; agent-browser errors 2>&1 | tail -5",
+    "agent-browser errors 2>&1 | tail -8; echo \"---SNAP---\"; agent-browser snapshot -c 2>&1 | grep -iE \"stale|missing|owner|backup|documentation|summary|total\" | head -10",
+    "git status --short; echo \"---check ignored---\"; git check-ignore .aidd/CHANGELOG.md .aidd/features/testing-scenarios/feature.json .aidd/testing-scenarios.md"
+  ],
+  "commitsCreated": [],
+  "completedFeatures": [
+    "testing-scenarios"
+  ],
+  "detailsSummary": {
+    "bashCommandsRun": 8,
+    "finalChecks": {},
+    "hasBuildErrors": false,
+    "hasLintErrors": false,
+    "hasTypeErrors": false,
+    "totalToolCalls": 15,
+    "uniqueFilesCreated": 0,
+    "uniqueFilesEdited": 2,
+    "uniqueFilesRead": 3
+  },
+  "errors": [],
+  "extraCompletedFeatures": [],
+  "filesCreated": [],
+  "filesEdited": [
+    "D:\\applications\\smb-infrastructure-dashboard\\.aidd\\features\\testing-scenarios\\feature.json",
+    "D:\\applications\\smb-infrastructure-dashboard\\.aidd\\CHANGELOG.md"
+  ],
+  "filesRead": [
+    "D:\\applications\\smb-infrastructure-dashboard\\.aidd\\testing-scenarios.md",
+    "D:\\applications\\smb-infrastructure-dashboard\\.aidd\\features\\testing-scenarios\\feature.json",
+    "D:\\applications\\smb-infrastructure-dashboard\\.aidd\\CHANGELOG.md"
+  ],
+  "metrics": {
+    "cachedTokens": 0,
+    "costUsd": 1.0099360000000002,
+    "errorCount": 0,
+    "errorReasons": [],
+    "filesCreatedCount": 0,
+    "filesEditedCount": 2,
+    "idleWarningCount": 0,
+    "inputTokens": 18351,
+    "outputTokens": 6768,
+    "rateLimitCount": 0,
+    "reasoningTokens": 0,
+    "toolBreakdown": {
+      "bash": 8,
+      "read": 3,
+      "grep": 1,
+      "edit": 3
+    },
+    "toolCallCount": 15
+  },
+  "outcome": {
+    "exitCode": 0,
+    "status": "completion_pending_commit"
+  },
+  "scopeOverrun": false,
+  "selectedFeatures": [
+    "testing-scenarios"
+  ],
+  "unacceptedCompletedFeatures": [
+    "testing-scenarios"
+  ],
+  "completionMarkerIssue": "completion_marker_missing_or_unaccepted",
+  "backendCompletionFinalizedEarly": true,
+  "completionPendingCommit": true,
+  "featureSlug": "testing-scenarios",
+  "featureDescription": "End-to-end crawl scenarios for dashboard and inventory flows",
+  "commitsCreatedCount": 0,
+  "filesCreatedCount": 0,
+  "filesEditedCount": 2,
+  "residualDirtyFilesCount": 1,
+  "stopRequested": false,
+  "completedFeature": "testing-scenarios",
+  "eligibleFeatures": 1,
+  "remainingDependencyBlockedFeatures": 0,
+  "remainingFeatures": 1,
+  "remainingPendingApproval": 0,
+  "completionOutcome": "completed"
+}

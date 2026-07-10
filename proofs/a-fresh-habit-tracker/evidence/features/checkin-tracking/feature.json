@@ -1,0 +1,13 @@
+{
+	"category": "Core",
+	"createdAt": "2026-07-02T20:51:56.000Z",
+	"dependencies": ["habit-domain-schema", "habit-crud-api"],
+	"description": "mark/unmark a habit for any day; prevent duplicate same-day check-ins",
+	"id": "checkin-tracking",
+	"passes": true,
+	"priority": 2,
+	"spec": "1. Implement POST /api/v1/habits/:id/checkins with a date to mark a day done.\n2. Implement DELETE /api/v1/habits/:id/checkins/:date to unmark a day.\n3. Enforce the unique (habitId, date) constraint so duplicate same-day check-ins are impossible.\n4. Return the created check-in on mark and 204 on unmark.\n5. Attempting to mark an already-marked day returns a conflict, not a duplicate row.\n6. Implement GET /api/v1/habits/:id/checkins to list a habit's check-ins.\n7. Confirm unmarking a non-existent check-in is a safe no-op or 404.",
+	"status": "completed",
+	"title": "Check-in toggle tracking",
+	"updatedAt": "2026-07-02T21:30:14.958Z"
+}
