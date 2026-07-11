@@ -1,0 +1,20 @@
+{
+	"id": "seed-data-script",
+	"title": "Seed data script (~20 sample items)",
+	"description": "Script that loads ~20 realistic sample items across categories, including low-stock and expiring rows",
+	"category": "DevEx",
+	"dependencies": ["item-model-and-storage"],
+	"status": "completed",
+	"passes": true,
+	"priority": 2,
+	"createdAt": "2026-07-10T15:10:00.000Z",
+	"justFinishedAt": null,
+	"spec": "1. Run the seed script.\n2. Confirm it loads roughly 20 realistic sample items spanning multiple categories.\n3. Confirm the seed set includes a few items at or below their threshold so the low-stock view has content.\n4. Confirm the seed set includes a few items expiring within 7 days and at least one already expired so the expiring-soon view has content.\n5. Confirm items are written through the data-access layer (not by bypassing validation or the store).\n6. Confirm the script is idempotent or clearly documents whether it appends vs resets, and does not corrupt existing data unexpectedly.\n7. Confirm after seeding, every view (inventory, low-stock, expiring-soon, filter/search) shows data.",
+	"updatedAt": "2026-07-10T16:31:46.574Z",
+	"approval": {
+		"approvedAt": "2026-07-10T15:17:40.710Z",
+		"decision": null,
+		"decisionRequired": false,
+		"source": "web-ui"
+	}
+}

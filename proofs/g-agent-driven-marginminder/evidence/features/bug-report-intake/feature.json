@@ -1,0 +1,28 @@
+{
+	"affectedFiles": [
+		"backend/src/routes/bugs.ts",
+		"backend/src/services/bugReportService.ts",
+		"backend/src/db/schema/bugReports.ts",
+		"frontend/src/components/layout/BugReportButton.tsx",
+		"frontend/src/styles/super-theme-bbs.css",
+		"frontend/src/pages/settings/bugs/BugsTab.tsx",
+		"frontend/src/api/bugs.ts"
+	],
+	"category": "UI",
+	"createdAt": "2026-06-01T20:08:14.542Z",
+	"dependencies": ["authentication-rbac", "settings-administration"],
+	"description": "In-app bug report capture, bug report storage, and settings review tab are present.",
+	"id": "bug-report-intake",
+	"justFinishedAt": null,
+	"notes": [
+		"Backfilled by feature-coverage-audit from current implementation evidence on 2026-06-01.",
+		"Part 10 smoke remediation on 2026-06-02 made the existing controlled bug-report dialog open explicitly from the global header trigger.",
+		"Runtime verification 2026-06-04 session 16: after app lifecycle restart, the global bug-report trigger changed aria-expanded from false to true and opened the Report a Bug dialog. The trigger now uses a controlled button instead of DialogTrigger asChild, and the BBS scanline effect no longer renders as a fixed overlay above controls."
+	],
+	"passes": true,
+	"priority": 4,
+	"spec": "1. Verify bugsRoutes is registered in create-api-app.ts.\n2. Verify bugReports schema and bugReportService exist.\n3. Verify BugReportButton is mounted in the layout layer.\n4. Verify /settings/bugs is routed in the settings area.",
+	"status": "completed",
+	"title": "Bug Report Intake",
+	"updatedAt": "2026-06-04T20:45:00.000Z"
+}

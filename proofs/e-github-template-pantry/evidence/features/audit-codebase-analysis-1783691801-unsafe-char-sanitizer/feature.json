@@ -1,0 +1,23 @@
+{
+	"id": "audit-codebase-analysis-1783691801-unsafe-char-sanitizer",
+	"title": "Remove-UnsafeCharacter is redundant with parameterization and corrupts stored data",
+	"description": "Verified: Remove-UnsafeCharacter (podex.ps1:35-45) is a blacklist that doubles apostrophes and backslash-escapes \" ; -- /* */ and backslash. It is applied to POST fields at post.ps1:43-46, but the INSERT is already parameterized (post.ps1:48-57). The sanitizer is therefore redundant AND corrupts legitimate data before storage: a note containing -- becomes \\-\\-, and O'Brien is stored as O''Brien. Blacklist input-mangling is the wrong model.",
+	"category": "Audit",
+	"dependencies": [],
+	"status": "completed",
+	"passes": true,
+	"notes": "Deleted the dead Remove-UnsafeCharacter blacklist from podex.ps1 (its only caller, api/crud/post.ps1, was already removed with the demo domain, so no writers invoke it). All pantry writes go through the parameterized DAL (New-PantryItem/Update-PantryItem bind @-params), so injection-shaped input is stored as data and user text is stored verbatim. Added two round-trip tests to tests/pantry.Tests.ps1 asserting values like O'Brien and 'batch -- \"special\"; C:\\path\\' round-trip byte-for-byte through create+read and update+read (no doubled apostrophes, no backslash-escaping). Replaced the function with a comment documenting why no pre-storage sanitizer exists. npm test -> 67 passed / 0 failed.",
+	"priority": 3,
+	"auditSource": "codebase-analysis",
+	"affectedFiles": ["podex.ps1", "api/crud/post.ps1"],
+	"auditSeverity": "Medium",
+	"createdAt": "2026-07-10T13:56:34.095Z",
+	"spec": "Detailed remediation steps:\n1. Remove the Remove-UnsafeCharacter calls from post.ps1 (and any other writers); rely solely on parameterized queries to prevent injection.\n2. Store user-supplied text verbatim so display is faithful.\n3. Delete the Remove-UnsafeCharacter function from podex.ps1, or (if kept for some other purpose) rename it to a non-state-changing verb to satisfy PSScriptAnalyzer.\n4. Add a test asserting a value like O'Brien -- note round-trips unchanged through create + read.",
+	"updatedAt": "2026-07-10T18:45:11.106Z",
+	"approval": {
+		"approvedAt": "2026-07-10T15:05:25.599Z",
+		"decision": null,
+		"decisionRequired": false,
+		"source": "web-ui"
+	}
+}

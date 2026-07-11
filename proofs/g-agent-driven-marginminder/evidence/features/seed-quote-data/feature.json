@@ -1,0 +1,25 @@
+{
+	"affectedFiles": [
+		"backend/src/db/autoSeed.ts",
+		"backend/src/db/seed.ts",
+		"backend/src/db/seed/domain.ts",
+		"backend/src/db/seed/orchestration.ts"
+	],
+	"category": "DevEx",
+	"createdAt": "2026-06-01T20:08:14.542Z",
+	"dependencies": ["cost-catalog-management", "quote-scenario-api"],
+	"description": "Seed data that demonstrates a realistic service quote and supporting cost catalog assumptions.",
+	"id": "seed-quote-data",
+	"justFinishedAt": "2026-06-06T04:19:03.134Z",
+	"notes": [
+		"Required by .aidd/spec.md; current seed data is template user/workspace data and does not include a realistic service quote.",
+		"Implemented development-only domain seed data through the existing seed orchestration. Manual `bun run --cwd backend db:seed` refreshes quote data even when users already exist; production skips domain seed data.",
+		"Repeated seed runs kept one seeded scenario, one copy of each seeded catalog item, two labor entries, four line items, one fixed cost, and scenario id 20. Service summary returned directCost 3410.8, finalPrice 4294.39, grossProfit 821.52, and risk flags below_target_margin/high_discount/stale_catalog_assumption."
+	],
+	"passes": true,
+	"priority": 4,
+	"spec": "1. Add active catalog items for realistic service business labor, materials, fees, and overhead.\n2. Add at least one quote scenario with customer, title, assumptions, and target margin.\n3. Add at least one labor entry to the seeded scenario.\n4. Add at least one material or service line item to the seeded scenario.\n5. Add a fixed cost or overhead entry when useful.\n6. Ensure the seeded scenario produces nonzero direct cost, sell price, and gross profit.\n7. Include at least one risk flag case for tester visibility.\n8. Keep seed behavior idempotent.",
+	"status": "completed",
+	"title": "Seed Quote Data",
+	"updatedAt": "2026-06-06T04:19:03.134Z"
+}

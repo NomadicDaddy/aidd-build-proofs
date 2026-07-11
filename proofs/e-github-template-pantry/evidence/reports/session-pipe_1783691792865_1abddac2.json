@@ -1,0 +1,330 @@
+{
+	"completedAt": 1783695715755,
+	"durationMs": 3922890,
+	"failedStepNames": [],
+	"producedArtifacts": [
+		{
+			"runId": null,
+			"stepName": "Analyze codebase",
+			"stepType": "recipe-ref"
+		},
+		{
+			"runId": null,
+			"stepName": "Onboarding interview",
+			"stepType": "recipe-ref"
+		},
+		{
+			"runId": "run_1783693468031_6f5ca852",
+			"stepName": "Infer project profile",
+			"stepType": "aidd-cli"
+		},
+		{
+			"runId": null,
+			"stepName": "Check artifacts",
+			"stepType": "recipe-ref"
+		},
+		{
+			"runId": null,
+			"stepName": "Generate feature coverage",
+			"stepType": "recipe-ref"
+		},
+		{
+			"runId": null,
+			"stepName": "Review features",
+			"stepType": "recipe-ref"
+		},
+		{
+			"runId": null,
+			"stepName": "Generate testing scenarios",
+			"stepType": "recipe-ref"
+		},
+		{
+			"runId": null,
+			"stepName": "Run audits",
+			"stepType": "recipe-ref"
+		},
+		{
+			"runId": null,
+			"stepName": "Review audit findings",
+			"stepType": "recipe-ref"
+		},
+		{
+			"runId": "run_1783695376226_e9e01dcf",
+			"stepName": "Park features for approval",
+			"stepType": "aidd-cli"
+		},
+		{
+			"runId": "run_1783695560447_b89d7c65",
+			"stepName": "Intake report",
+			"stepType": "aidd-cli"
+		}
+	],
+	"recipeId": "project-intake",
+	"recipeName": "project-intake",
+	"sessionId": "pipe_1783691792865_1abddac2",
+	"startedAt": 1783691792865,
+	"status": "completed",
+	"steps": [
+		{
+			"depth": 0,
+			"durationMs": 390288,
+			"errorMessage": null,
+			"name": "Analyze codebase",
+			"runId": null,
+			"status": "completed",
+			"stepType": "recipe-ref"
+		},
+		{
+			"depth": 1,
+			"durationMs": 390182,
+			"errorMessage": null,
+			"name": "Analyze codebase",
+			"runId": "run_1783691792979_e0b95a1d",
+			"status": "completed",
+			"stepType": "ingredient"
+		},
+		{
+			"depth": 0,
+			"durationMs": 1284773,
+			"errorMessage": null,
+			"name": "Onboarding interview",
+			"runId": null,
+			"status": "completed",
+			"stepType": "recipe-ref"
+		},
+		{
+			"depth": 1,
+			"durationMs": 249891,
+			"errorMessage": null,
+			"name": "Run interview",
+			"runId": "run_1783692183247_6f28a429",
+			"status": "completed",
+			"stepType": "aidd-cli"
+		},
+		{
+			"depth": 1,
+			"durationMs": 104671,
+			"errorMessage": null,
+			"name": "Review interview responses",
+			"runId": "run_1783692433231_5c7c7352",
+			"status": "completed",
+			"stepType": "aidd-cli"
+		},
+		{
+			"depth": 1,
+			"durationMs": 293715,
+			"errorMessage": null,
+			"name": "Convert responses to features",
+			"runId": "run_1783692537979_8a9166c4",
+			"status": "completed",
+			"stepType": "ingredient"
+		},
+		{
+			"depth": 1,
+			"durationMs": 165087,
+			"errorMessage": null,
+			"name": "Review remediation features",
+			"runId": "run_1783692831761_3a4bc670",
+			"status": "completed",
+			"stepType": "aidd-cli"
+		},
+		{
+			"depth": 1,
+			"durationMs": 254990,
+			"errorMessage": null,
+			"name": "Review features",
+			"runId": "run_1783692996913_4f2156bd",
+			"status": "completed",
+			"stepType": "ingredient"
+		},
+		{
+			"depth": 1,
+			"durationMs": 136466,
+			"errorMessage": null,
+			"name": "Generate assertions list",
+			"runId": "run_1783693251988_329fbf8d",
+			"status": "completed",
+			"stepType": "aidd-cli"
+		},
+		{
+			"depth": 1,
+			"durationMs": 1372,
+			"errorMessage": null,
+			"name": "Validate completions",
+			"runId": "run_1783693388530_25708c3f",
+			"status": "completed",
+			"stepType": "aidd-cli"
+		},
+		{
+			"depth": 1,
+			"durationMs": 77958,
+			"errorMessage": null,
+			"name": "Consolidate features",
+			"runId": "run_1783693389985_97c08a76",
+			"status": "completed",
+			"stepType": "ingredient"
+		},
+		{
+			"depth": 0,
+			"durationMs": 97091,
+			"errorMessage": null,
+			"name": "Infer project profile",
+			"runId": "run_1783693468031_6f5ca852",
+			"status": "completed",
+			"stepType": "aidd-cli"
+		},
+		{
+			"depth": 0,
+			"durationMs": 1275,
+			"errorMessage": null,
+			"name": "Check artifacts",
+			"runId": null,
+			"status": "completed",
+			"stepType": "recipe-ref"
+		},
+		{
+			"depth": 1,
+			"durationMs": 1168,
+			"errorMessage": null,
+			"name": "Run aidd --check-artifacts",
+			"runId": "run_1783693565231_88272f28",
+			"status": "completed",
+			"stepType": "aidd-cli"
+		},
+		{
+			"depth": 0,
+			"durationMs": 483121,
+			"errorMessage": null,
+			"name": "Generate feature coverage",
+			"runId": null,
+			"status": "completed",
+			"stepType": "recipe-ref"
+		},
+		{
+			"depth": 1,
+			"durationMs": 211366,
+			"errorMessage": null,
+			"name": "Generate features",
+			"runId": "run_1783693566524_5ac5faf8",
+			"status": "completed",
+			"stepType": "ingredient"
+		},
+		{
+			"depth": 1,
+			"durationMs": 271561,
+			"errorMessage": null,
+			"name": "Review features",
+			"runId": "run_1783693777969_95cc3bf5",
+			"status": "completed",
+			"stepType": "ingredient"
+		},
+		{
+			"depth": 0,
+			"durationMs": 200003,
+			"errorMessage": null,
+			"name": "Review features",
+			"runId": null,
+			"status": "completed",
+			"stepType": "recipe-ref"
+		},
+		{
+			"depth": 1,
+			"durationMs": 199904,
+			"errorMessage": null,
+			"name": "Review features",
+			"runId": "run_1783694049632_6b1a096c",
+			"status": "completed",
+			"stepType": "ingredient"
+		},
+		{
+			"depth": 0,
+			"durationMs": 145624,
+			"errorMessage": null,
+			"name": "Generate testing scenarios",
+			"runId": null,
+			"status": "completed",
+			"stepType": "recipe-ref"
+		},
+		{
+			"depth": 1,
+			"durationMs": 145489,
+			"errorMessage": null,
+			"name": "Generate scenarios",
+			"runId": "run_1783694249680_387bc180",
+			"status": "completed",
+			"stepType": "ingredient"
+		},
+		{
+			"depth": 0,
+			"durationMs": 813272,
+			"errorMessage": null,
+			"name": "Run audits",
+			"runId": null,
+			"status": "completed",
+			"stepType": "recipe-ref"
+		},
+		{
+			"depth": 1,
+			"durationMs": 340112,
+			"errorMessage": null,
+			"name": "Run all audits",
+			"runId": "run_1783694395327_7aecb25a",
+			"status": "completed",
+			"stepType": "aidd-cli"
+		},
+		{
+			"depth": 1,
+			"durationMs": 268779,
+			"errorMessage": null,
+			"name": "Review audit findings",
+			"runId": "run_1783694735550_422ca819",
+			"status": "completed",
+			"stepType": "ingredient"
+		},
+		{
+			"depth": 1,
+			"durationMs": 204027,
+			"errorMessage": null,
+			"name": "Review features",
+			"runId": "run_1783695004416_f026569e",
+			"status": "completed",
+			"stepType": "ingredient"
+		},
+		{
+			"depth": 0,
+			"durationMs": 167642,
+			"errorMessage": null,
+			"name": "Review audit findings",
+			"runId": null,
+			"status": "completed",
+			"stepType": "recipe-ref"
+		},
+		{
+			"depth": 1,
+			"durationMs": 167476,
+			"errorMessage": null,
+			"name": "Review audit findings",
+			"runId": "run_1783695208664_ef585d7e",
+			"status": "completed",
+			"stepType": "ingredient"
+		},
+		{
+			"depth": 0,
+			"durationMs": 184070,
+			"errorMessage": null,
+			"name": "Park features for approval",
+			"runId": "run_1783695376226_e9e01dcf",
+			"status": "completed",
+			"stepType": "aidd-cli"
+		},
+		{
+			"depth": 0,
+			"durationMs": 155302,
+			"errorMessage": null,
+			"name": "Intake report",
+			"runId": "run_1783695560447_b89d7c65",
+			"status": "completed",
+			"stepType": "aidd-cli"
+		}
+	]
+}

@@ -1,5 +1,5 @@
 {
-  "archive": "aidd-build-proofs-2026-07-transcripts.zip",
+  "archive": "aidd-build-proofs-transcripts.zip",
   "entries": [
     {
       "proofId": "a-fresh-habit-tracker",
@@ -1923,9 +1923,1216 @@
       "size": 226435,
       "source": "d-existing-flaskr/iterations/037.log",
       "type": "iteration-log"
+    },
+    {
+      "proofId": "e-github-template-pantry",
+      "publishedPath": "transcripts/e-github-template-pantry/iteration-4e15720980-001.log",
+      "redactions": [
+        "email-address"
+      ],
+      "sha256": "4e157209806519765704dc7df43c7390b95d4144d137a9645687b688eb9d847f",
+      "size": 547123,
+      "source": "e-github-template-pantry/iterations/001.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "e-github-template-pantry",
+      "publishedPath": "transcripts/e-github-template-pantry/iteration-2f23454041-002.log",
+      "redactions": [],
+      "sha256": "2f234540412d7ea53bd5910fe7e9998ed8bd2b055bec3b61210d0f7b429eaf66",
+      "size": 274083,
+      "source": "e-github-template-pantry/iterations/002.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "e-github-template-pantry",
+      "publishedPath": "transcripts/e-github-template-pantry/iteration-4882391923-003.log",
+      "redactions": [
+        "email-address"
+      ],
+      "sha256": "4882391923daef6ffbe1eed4f6bbb5c8e13824ed3f4c98d03314c0f8f419f89e",
+      "size": 180306,
+      "source": "e-github-template-pantry/iterations/003.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "e-github-template-pantry",
+      "publishedPath": "transcripts/e-github-template-pantry/iteration-fee0dffbe4-004.log",
+      "redactions": [
+        "email-address"
+      ],
+      "sha256": "fee0dffbe4da5eed56109fdc78652ac8425f9ba98c0ba3557a7a1852b287d83f",
+      "size": 342011,
+      "source": "e-github-template-pantry/iterations/004.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "e-github-template-pantry",
+      "publishedPath": "transcripts/e-github-template-pantry/iteration-ef69bff5bb-005.log",
+      "redactions": [
+        "email-address"
+      ],
+      "sha256": "ef69bff5bbc8d40ba6b90ba482ce648320488d9b65cf72142b9b8c08cae55419",
+      "size": 234576,
+      "source": "e-github-template-pantry/iterations/005.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "e-github-template-pantry",
+      "publishedPath": "transcripts/e-github-template-pantry/iteration-c326d3a998-006.log",
+      "redactions": [],
+      "sha256": "c326d3a99805e32446854568e39d7462d1277608d0559f505d9ebb7b61bdf376",
+      "size": 405197,
+      "source": "e-github-template-pantry/iterations/006.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "e-github-template-pantry",
+      "publishedPath": "transcripts/e-github-template-pantry/iteration-5fe81288fd-007.log",
+      "redactions": [
+        "email-address"
+      ],
+      "sha256": "5fe81288fdae1a48852b8578b6a66dd91a416900f9a04e977c3b078028c52269",
+      "size": 233729,
+      "source": "e-github-template-pantry/iterations/007.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "e-github-template-pantry",
+      "publishedPath": "transcripts/d-existing-flaskr/iteration-01ba4719c8-011.log",
+      "redactions": [],
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size": 1,
+      "source": "e-github-template-pantry/iterations/008.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "e-github-template-pantry",
+      "publishedPath": "transcripts/e-github-template-pantry/iteration-98ff494489-009.log",
+      "redactions": [
+        "email-address"
+      ],
+      "sha256": "98ff4944895007073fa4c5176ba1b23ef9163e608849d1463378282f8c6a31c0",
+      "size": 141479,
+      "source": "e-github-template-pantry/iterations/009.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "e-github-template-pantry",
+      "publishedPath": "transcripts/e-github-template-pantry/iteration-e60e3e2149-010.log",
+      "redactions": [
+        "email-address"
+      ],
+      "sha256": "e60e3e2149f1f6640a1d812fe2b7f66849dbd4cb63b948934404ec04bc068d10",
+      "size": 171890,
+      "source": "e-github-template-pantry/iterations/010.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "e-github-template-pantry",
+      "publishedPath": "transcripts/e-github-template-pantry/iteration-68be1434ca-011.log",
+      "redactions": [
+        "email-address"
+      ],
+      "sha256": "68be1434ca70dadf347dac5cd03065e6f005b08cff9faac75be4f8c29a400771",
+      "size": 307890,
+      "source": "e-github-template-pantry/iterations/011.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "e-github-template-pantry",
+      "publishedPath": "transcripts/e-github-template-pantry/iteration-e7a8aa6dcf-012.log",
+      "redactions": [
+        "email-address"
+      ],
+      "sha256": "e7a8aa6dcf0014627b3891cdcb488af3c0897c683b56132d06c97f167104a81e",
+      "size": 506750,
+      "source": "e-github-template-pantry/iterations/012.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "e-github-template-pantry",
+      "publishedPath": "transcripts/e-github-template-pantry/iteration-16fe8eea4a-013.log",
+      "redactions": [
+        "email-address"
+      ],
+      "sha256": "16fe8eea4af74a6f6ceb965ab17a1237b3c58aa564c34bb4ab11da436873cecc",
+      "size": 353095,
+      "source": "e-github-template-pantry/iterations/013.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "e-github-template-pantry",
+      "publishedPath": "transcripts/e-github-template-pantry/iteration-d16c7ee4e6-014.log",
+      "redactions": [
+        "email-address"
+      ],
+      "sha256": "d16c7ee4e6152ff07c48515991c80236802a3048b88d1fcf550bb6a84e338290",
+      "size": 209623,
+      "source": "e-github-template-pantry/iterations/014.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "e-github-template-pantry",
+      "publishedPath": "transcripts/e-github-template-pantry/iteration-111c97f9a9-015.log",
+      "redactions": [],
+      "sha256": "111c97f9a987db66e5d264b77a28680e301791d8ffd7b169be3616da2d024960",
+      "size": 449341,
+      "source": "e-github-template-pantry/iterations/015.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "e-github-template-pantry",
+      "publishedPath": "transcripts/e-github-template-pantry/iteration-98d73b9bf3-016.log",
+      "redactions": [
+        "email-address"
+      ],
+      "sha256": "98d73b9bf3cf5698c56db2256f631adeefdc7bb8a3cd3527593e664b153eda8f",
+      "size": 486212,
+      "source": "e-github-template-pantry/iterations/016.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "e-github-template-pantry",
+      "publishedPath": "transcripts/e-github-template-pantry/iteration-db3a41cb1d-017.log",
+      "redactions": [
+        "email-address"
+      ],
+      "sha256": "db3a41cb1dae0febe4af0ea6d98acaf8d014aee68e2410826b9d014837e1f008",
+      "size": 352847,
+      "source": "e-github-template-pantry/iterations/017.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "e-github-template-pantry",
+      "publishedPath": "transcripts/e-github-template-pantry/iteration-217a056746-018.log",
+      "redactions": [
+        "email-address",
+        "workspace-root"
+      ],
+      "sha256": "217a056746a510a65f7c0e4babd2d67a6366812df4c08d1fbd58943d42750a8e",
+      "size": 257876,
+      "source": "e-github-template-pantry/iterations/018.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "e-github-template-pantry",
+      "publishedPath": "transcripts/e-github-template-pantry/iteration-cc25c4607e-019.log",
+      "redactions": [
+        "email-address"
+      ],
+      "sha256": "cc25c4607e35c68d8d8ca1a25532a71377c7c9875cd08d9910970c83f4f70c40",
+      "size": 389053,
+      "source": "e-github-template-pantry/iterations/019.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "e-github-template-pantry",
+      "publishedPath": "transcripts/e-github-template-pantry/iteration-e3b9a578d1-020.log",
+      "redactions": [
+        "email-address"
+      ],
+      "sha256": "e3b9a578d1c833d8946b95a74df59d22bf2d366535e6887639071313a3a4d5bb",
+      "size": 316625,
+      "source": "e-github-template-pantry/iterations/020.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "e-github-template-pantry",
+      "publishedPath": "transcripts/e-github-template-pantry/iteration-b0f818572e-021.log",
+      "redactions": [
+        "email-address"
+      ],
+      "sha256": "b0f818572e09d60f8b84905fecd40db5a2a5132003a0100b50f1a79d0ec3b622",
+      "size": 253896,
+      "source": "e-github-template-pantry/iterations/021.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "e-github-template-pantry",
+      "publishedPath": "transcripts/e-github-template-pantry/iteration-52a36a958a-022.log",
+      "redactions": [
+        "email-address"
+      ],
+      "sha256": "52a36a958a1d805505f0156cc8e3c98a7d1a51379fab58e68035c691d6657c7b",
+      "size": 355927,
+      "source": "e-github-template-pantry/iterations/022.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "e-github-template-pantry",
+      "publishedPath": "transcripts/e-github-template-pantry/iteration-711c287dcf-023.log",
+      "redactions": [
+        "workspace-root"
+      ],
+      "sha256": "711c287dcfef179b227bb2d3b8c3579ef67bf3611d8aa2648d9972bcef8c6439",
+      "size": 529968,
+      "source": "e-github-template-pantry/iterations/023.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "e-github-template-pantry",
+      "publishedPath": "transcripts/e-github-template-pantry/iteration-74e48735ef-024.log",
+      "redactions": [
+        "workspace-root"
+      ],
+      "sha256": "74e48735ef4535c373009fd775a5da1f5d67f8cfbab36906518159b34ba460d3",
+      "size": 767242,
+      "source": "e-github-template-pantry/iterations/024.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "e-github-template-pantry",
+      "publishedPath": "transcripts/e-github-template-pantry/iteration-49ae481bc4-025.log",
+      "redactions": [
+        "workspace-root"
+      ],
+      "sha256": "49ae481bc4d16b250544ee984aa898e00a46928d9edba9e3e0e26c66f321b8a0",
+      "size": 793373,
+      "source": "e-github-template-pantry/iterations/025.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "e-github-template-pantry",
+      "publishedPath": "transcripts/e-github-template-pantry/iteration-ef12d963d0-026.log",
+      "redactions": [
+        "email-address"
+      ],
+      "sha256": "ef12d963d04272dbe5eed567f64724c3e702d1535698c4507cd58fed772dfce7",
+      "size": 651149,
+      "source": "e-github-template-pantry/iterations/026.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "e-github-template-pantry",
+      "publishedPath": "transcripts/e-github-template-pantry/iteration-4db733241d-027.log",
+      "redactions": [
+        "workspace-root"
+      ],
+      "sha256": "4db733241d9e88338ea573757140a983c04097b833ca6da53a2331af6c83ea12",
+      "size": 799433,
+      "source": "e-github-template-pantry/iterations/027.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "e-github-template-pantry",
+      "publishedPath": "transcripts/e-github-template-pantry/iteration-0dfc1f839a-028.log",
+      "redactions": [
+        "workspace-root"
+      ],
+      "sha256": "0dfc1f839a37db35354121d72b6ef437f7e58ab915a487f8102b048f8cc7f5dd",
+      "size": 619673,
+      "source": "e-github-template-pantry/iterations/028.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "e-github-template-pantry",
+      "publishedPath": "transcripts/e-github-template-pantry/iteration-1e639d6572-029.log",
+      "redactions": [
+        "workspace-root"
+      ],
+      "sha256": "1e639d6572ca2be3e36bb41764341338e1a4afc17615c55c79120db95b20094e",
+      "size": 581421,
+      "source": "e-github-template-pantry/iterations/029.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "e-github-template-pantry",
+      "publishedPath": "transcripts/e-github-template-pantry/iteration-2081b4dc5e-030.log",
+      "redactions": [],
+      "sha256": "2081b4dc5e2c305ce2ddb377266aa35d9de72770e063ca7e1e25bbf17e2b9cec",
+      "size": 610392,
+      "source": "e-github-template-pantry/iterations/030.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "e-github-template-pantry",
+      "publishedPath": "transcripts/e-github-template-pantry/iteration-a6571f7874-031.log",
+      "redactions": [
+        "email-address",
+        "workspace-root"
+      ],
+      "sha256": "a6571f78747dbe045412047be518874c2e9454fa762900e5732588d9a499fc79",
+      "size": 1189141,
+      "source": "e-github-template-pantry/iterations/031.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "e-github-template-pantry",
+      "publishedPath": "transcripts/e-github-template-pantry/iteration-262e371d99-032.log",
+      "redactions": [],
+      "sha256": "262e371d998fdc2c6a253522461b000b434608f654988b9c3b64539934b3c1be",
+      "size": 1029062,
+      "source": "e-github-template-pantry/iterations/032.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "e-github-template-pantry",
+      "publishedPath": "transcripts/e-github-template-pantry/iteration-ca84291ba5-033.log",
+      "redactions": [
+        "workspace-root"
+      ],
+      "sha256": "ca84291ba5253c4bc265c314b004dedd60ed47a8f9d3f270aa739885f8a36c5c",
+      "size": 621680,
+      "source": "e-github-template-pantry/iterations/033.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "e-github-template-pantry",
+      "publishedPath": "transcripts/e-github-template-pantry/iteration-c21371d0a9-034.log",
+      "redactions": [],
+      "sha256": "c21371d0a95a16226285e4a790619e4d181c6a6e89b4eab03b1bf6dd1abbfd5d",
+      "size": 522543,
+      "source": "e-github-template-pantry/iterations/034.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "e-github-template-pantry",
+      "publishedPath": "transcripts/e-github-template-pantry/iteration-e0a36f6df2-035.log",
+      "redactions": [
+        "private-ip"
+      ],
+      "sha256": "e0a36f6df2fb7ba7ab588a8904aab2213a83d01b8b8c2f7557c8b9e6e629aa2b",
+      "size": 469184,
+      "source": "e-github-template-pantry/iterations/035.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "e-github-template-pantry",
+      "publishedPath": "transcripts/e-github-template-pantry/iteration-3d7381b046-036.log",
+      "redactions": [],
+      "sha256": "3d7381b046c53d450271c25278b096354bd875e1aa09e9ae3dd82d693b10f585",
+      "size": 296167,
+      "source": "e-github-template-pantry/iterations/036.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "e-github-template-pantry",
+      "publishedPath": "transcripts/e-github-template-pantry/iteration-12101d659b-037.log",
+      "redactions": [],
+      "sha256": "12101d659bf392c727a1e03e155d12f59a4647e5e8ffca31b94b6f2f050e5ead",
+      "size": 396449,
+      "source": "e-github-template-pantry/iterations/037.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "e-github-template-pantry",
+      "publishedPath": "transcripts/e-github-template-pantry/iteration-ef14f0e8ac-038.log",
+      "redactions": [],
+      "sha256": "ef14f0e8ac2a1ce641ea2f51fa3d21e3eb82686cfb4d73f701c38634284251be",
+      "size": 475021,
+      "source": "e-github-template-pantry/iterations/038.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "e-github-template-pantry",
+      "publishedPath": "transcripts/e-github-template-pantry/iteration-eb8dad4c34-039.log",
+      "redactions": [],
+      "sha256": "eb8dad4c3461aa707e11e65d2f7799a7a211cf4dcec047212f37828286c172b6",
+      "size": 590301,
+      "source": "e-github-template-pantry/iterations/039.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "e-github-template-pantry",
+      "publishedPath": "transcripts/e-github-template-pantry/iteration-220c7b152a-040.log",
+      "redactions": [],
+      "sha256": "220c7b152a390f85a2c11b9feacf50af9b1fc580f9666b31180261f5e9289bfe",
+      "size": 402460,
+      "source": "e-github-template-pantry/iterations/040.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "e-github-template-pantry",
+      "publishedPath": "transcripts/e-github-template-pantry/iteration-a1a4e1b2e4-041.log",
+      "redactions": [],
+      "sha256": "a1a4e1b2e45e05d378308320eff65da0b104c8360b0acd8851c03fa5b60e02e6",
+      "size": 735085,
+      "source": "e-github-template-pantry/iterations/041.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "e-github-template-pantry",
+      "publishedPath": "transcripts/e-github-template-pantry/iteration-4cd8d69e96-042.log",
+      "redactions": [],
+      "sha256": "4cd8d69e96f87ace42002a1c5facf8e0887fd02a6879958f4a26cc6f9a5a5a62",
+      "size": 317529,
+      "source": "e-github-template-pantry/iterations/042.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "e-github-template-pantry",
+      "publishedPath": "transcripts/e-github-template-pantry/iteration-34603af578-043.log",
+      "redactions": [],
+      "sha256": "34603af57859d949ad30d60b518307f0d683e0b931caa65d9069bc4b83851066",
+      "size": 410640,
+      "source": "e-github-template-pantry/iterations/043.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "e-github-template-pantry",
+      "publishedPath": "transcripts/e-github-template-pantry/iteration-3a01c4c834-044.log",
+      "redactions": [],
+      "sha256": "3a01c4c83429c0d7b8c2fb1b15ff6b24c93354ce4775e1e0b46ffbddda1e5499",
+      "size": 445681,
+      "source": "e-github-template-pantry/iterations/044.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "e-github-template-pantry",
+      "publishedPath": "transcripts/e-github-template-pantry/iteration-d22d98039e-045.log",
+      "redactions": [],
+      "sha256": "d22d98039e16972309a38edfb1599581346e825e0aba9089a36769775ee15162",
+      "size": 460362,
+      "source": "e-github-template-pantry/iterations/045.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "e-github-template-pantry",
+      "publishedPath": "transcripts/e-github-template-pantry/iteration-2858866a8c-046.log",
+      "redactions": [
+        "email-address"
+      ],
+      "sha256": "2858866a8cf11b27e996bdbea75f779c0226451102901cd2ca8c59fdffc57e31",
+      "size": 427512,
+      "source": "e-github-template-pantry/iterations/046.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "e-github-template-pantry",
+      "publishedPath": "transcripts/e-github-template-pantry/iteration-957ad7111b-047.log",
+      "redactions": [],
+      "sha256": "957ad7111b510dec163e935a80aa068c835144df95caa216f5401a186aaf605a",
+      "size": 526179,
+      "source": "e-github-template-pantry/iterations/047.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "e-github-template-pantry",
+      "publishedPath": "transcripts/e-github-template-pantry/iteration-dfeb336ded-048.log",
+      "redactions": [
+        "email-address"
+      ],
+      "sha256": "dfeb336dedf3ce8a072a07cded60fe08838c57ad8e94e0da0061a34b9572cf0c",
+      "size": 1056947,
+      "source": "e-github-template-pantry/iterations/048.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "e-github-template-pantry",
+      "publishedPath": "transcripts/e-github-template-pantry/iteration-cb082b0fef-049.log",
+      "redactions": [],
+      "sha256": "cb082b0fef694de59b4e1137014e2b4736a503994fe52ebc8bbaf1727966b2d9",
+      "size": 412905,
+      "source": "e-github-template-pantry/iterations/049.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "f-local-ai-md-toc",
+      "publishedPath": "transcripts/f-local-ai-md-toc/iteration-90a1166edf-001.log",
+      "redactions": [
+        "private-environment",
+        "workspace-root"
+      ],
+      "sha256": "90a1166edfa93c37123d59e60aae8cc5102aa3842519ad4e0a1ea126564297b4",
+      "size": 81946,
+      "source": "f-local-ai-md-toc/iterations/001.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "f-local-ai-md-toc",
+      "publishedPath": "transcripts/f-local-ai-md-toc/iteration-73e1fc7e43-002.log",
+      "redactions": [],
+      "sha256": "73e1fc7e43c8096827cc2285d8fd00a0f8eb5df0a7f1f3cb2265ade6de254dfe",
+      "size": 16842,
+      "source": "f-local-ai-md-toc/iterations/002.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "f-local-ai-md-toc",
+      "publishedPath": "transcripts/f-local-ai-md-toc/iteration-be591e2047-003.log",
+      "redactions": [
+        "private-environment",
+        "workspace-root"
+      ],
+      "sha256": "be591e20470de7fdd3a8768b8fb23b3406fea92e72bf6daa99f76de3a1da01b0",
+      "size": 69955,
+      "source": "f-local-ai-md-toc/iterations/003.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "f-local-ai-md-toc",
+      "publishedPath": "transcripts/f-local-ai-md-toc/iteration-3d55c6bfa8-004.log",
+      "redactions": [
+        "private-environment",
+        "workspace-root"
+      ],
+      "sha256": "3d55c6bfa8f8f61930aca06aedc73bfd83f00df6f218d797aefc77bc29d029b3",
+      "size": 40236,
+      "source": "f-local-ai-md-toc/iterations/004.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "f-local-ai-md-toc",
+      "publishedPath": "transcripts/f-local-ai-md-toc/iteration-93ed8d9e7c-005.log",
+      "redactions": [],
+      "sha256": "93ed8d9e7cca907f8f5c88c661d0ea867e55536583d54ff70686930de74f99dd",
+      "size": 29689,
+      "source": "f-local-ai-md-toc/iterations/005.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "f-local-ai-md-toc",
+      "publishedPath": "transcripts/f-local-ai-md-toc/iteration-396113001c-006.log",
+      "redactions": [
+        "private-environment",
+        "workspace-root"
+      ],
+      "sha256": "396113001cd3e191440a765c5f46b81d9ee31a986bbadfdc9b30001edb90f5b7",
+      "size": 34774,
+      "source": "f-local-ai-md-toc/iterations/006.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "f-local-ai-md-toc",
+      "publishedPath": "transcripts/f-local-ai-md-toc/iteration-2a8c380242-007.log",
+      "redactions": [],
+      "sha256": "2a8c380242b7016e0ffa777e046fd0ae9b2a74528735785157a8a325ca37ecbc",
+      "size": 1788,
+      "source": "f-local-ai-md-toc/iterations/007.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "g-agent-driven-marginminder",
+      "publishedPath": "transcripts/g-agent-driven-marginminder/iteration-a02ba5f51c-001.log",
+      "redactions": [
+        "private-environment",
+        "private-key",
+        "workspace-root"
+      ],
+      "sha256": "a02ba5f51cf5bd968613ccfebbc7fdaa728abbd6ea0506bdcf81a0bdd2aec121",
+      "size": 600527,
+      "source": "g-agent-driven-marginminder/iterations/001.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "g-agent-driven-marginminder",
+      "publishedPath": "transcripts/g-agent-driven-marginminder/iteration-5134563092-002.log",
+      "redactions": [
+        "private-environment",
+        "workspace-root"
+      ],
+      "sha256": "5134563092a26687e42cd865e3744ef8c4c2b15b5107f5d1398f36884f24484f",
+      "size": 1111026,
+      "source": "g-agent-driven-marginminder/iterations/002.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "g-agent-driven-marginminder",
+      "publishedPath": "transcripts/g-agent-driven-marginminder/iteration-5141f91e0a-003.log",
+      "redactions": [
+        "credential-assignment",
+        "email-address",
+        "private-environment",
+        "private-key",
+        "workspace-root"
+      ],
+      "sha256": "5141f91e0a78d22f8a4b17d9da8fe94d457a66ef4e4696ef0faa1a76a5f7f243",
+      "size": 580238,
+      "source": "g-agent-driven-marginminder/iterations/003.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "g-agent-driven-marginminder",
+      "publishedPath": "transcripts/g-agent-driven-marginminder/iteration-60351ad0ff-004.log",
+      "redactions": [
+        "credential-assignment",
+        "email-address",
+        "private-environment",
+        "private-key",
+        "workspace-root"
+      ],
+      "sha256": "60351ad0ffb5f2b6b734b7a064600e23dbc297e271bc90b82f0c13cd697481d7",
+      "size": 1879311,
+      "source": "g-agent-driven-marginminder/iterations/004.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "g-agent-driven-marginminder",
+      "publishedPath": "transcripts/g-agent-driven-marginminder/iteration-64272bab15-005.log",
+      "redactions": [
+        "email-address",
+        "private-environment",
+        "workspace-root"
+      ],
+      "sha256": "64272bab151eb6bb72e60ba3a5ac9bb04e08cbb2ee390bfb618b882236c29ff1",
+      "size": 2005243,
+      "source": "g-agent-driven-marginminder/iterations/005.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "g-agent-driven-marginminder",
+      "publishedPath": "transcripts/g-agent-driven-marginminder/iteration-bdc6832482-006.log",
+      "redactions": [
+        "email-address",
+        "private-environment",
+        "workspace-root"
+      ],
+      "sha256": "bdc6832482bf9e4d606290a87b35043a4453a38d07ff58bf8562ac5397845122",
+      "size": 1399077,
+      "source": "g-agent-driven-marginminder/iterations/006.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "g-agent-driven-marginminder",
+      "publishedPath": "transcripts/g-agent-driven-marginminder/iteration-89b83deff9-007.log",
+      "redactions": [
+        "email-address",
+        "private-environment",
+        "private-key",
+        "workspace-root"
+      ],
+      "sha256": "89b83deff9f0753f117e7996f7d0109edaf6868a858bae634aa9eaf6efb55d38",
+      "size": 1091236,
+      "source": "g-agent-driven-marginminder/iterations/007.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "g-agent-driven-marginminder",
+      "publishedPath": "transcripts/g-agent-driven-marginminder/iteration-c1c638f29d-008.log",
+      "redactions": [
+        "credential-assignment",
+        "email-address",
+        "private-environment",
+        "workspace-root"
+      ],
+      "sha256": "c1c638f29da6f9a00b8d57ee59f3abd0a8ea741c8d7799fe1e2f65498c7e5e7e",
+      "size": 1099725,
+      "source": "g-agent-driven-marginminder/iterations/008.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "g-agent-driven-marginminder",
+      "publishedPath": "transcripts/g-agent-driven-marginminder/iteration-e3f5d8a611-009.log",
+      "redactions": [
+        "credential-assignment",
+        "email-address",
+        "private-environment",
+        "private-key",
+        "workspace-root"
+      ],
+      "sha256": "e3f5d8a6118dab6c7464e604709964ce9c41090c8ff9a23be62294821d1e00a7",
+      "size": 491848,
+      "source": "g-agent-driven-marginminder/iterations/009.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "g-agent-driven-marginminder",
+      "publishedPath": "transcripts/g-agent-driven-marginminder/iteration-d9ea4d80bf-010.log",
+      "redactions": [
+        "credential-assignment",
+        "email-address",
+        "private-environment",
+        "private-key",
+        "workspace-root"
+      ],
+      "sha256": "d9ea4d80bfe1b8d15a95048f156c541e239d233c225119092b41b656dfac48f8",
+      "size": 1231135,
+      "source": "g-agent-driven-marginminder/iterations/010.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "g-agent-driven-marginminder",
+      "publishedPath": "transcripts/g-agent-driven-marginminder/iteration-986ddd2f05-011.log",
+      "redactions": [
+        "credential-assignment",
+        "email-address",
+        "private-environment",
+        "private-ip",
+        "private-key",
+        "workspace-root"
+      ],
+      "sha256": "986ddd2f05c21c0d56d78c51c12dd741ea733ef5cb1581ddf191f88de08a533b",
+      "size": 1741038,
+      "source": "g-agent-driven-marginminder/iterations/011.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "g-agent-driven-marginminder",
+      "publishedPath": "transcripts/g-agent-driven-marginminder/iteration-4e57a8d208-012.log",
+      "redactions": [
+        "private-environment",
+        "private-key",
+        "workspace-root"
+      ],
+      "sha256": "4e57a8d20825580c35b725585fd413c51156bb7edb371524e7e897367f600ed9",
+      "size": 372529,
+      "source": "g-agent-driven-marginminder/iterations/012.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "g-agent-driven-marginminder",
+      "publishedPath": "transcripts/g-agent-driven-marginminder/iteration-d1d143db46-013.log",
+      "redactions": [
+        "private-environment",
+        "private-key",
+        "workspace-root"
+      ],
+      "sha256": "d1d143db465fb7be9edd73425be76666b2a1db774e50c253e74ad83927eaef63",
+      "size": 936083,
+      "source": "g-agent-driven-marginminder/iterations/013.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "g-agent-driven-marginminder",
+      "publishedPath": "transcripts/g-agent-driven-marginminder/iteration-cbf25222a7-014.log",
+      "redactions": [
+        "credential-assignment",
+        "email-address",
+        "private-environment",
+        "private-ip",
+        "private-key",
+        "workspace-root"
+      ],
+      "sha256": "cbf25222a760c15112843ca7e334d4460fefd6f33d8c0ed8e5f053b2d17c24c6",
+      "size": 2342465,
+      "source": "g-agent-driven-marginminder/iterations/014.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "g-agent-driven-marginminder",
+      "publishedPath": "transcripts/g-agent-driven-marginminder/iteration-705c91d0f5-015.log",
+      "redactions": [
+        "email-address",
+        "private-environment",
+        "workspace-root"
+      ],
+      "sha256": "705c91d0f59863ea99ccbbcf73562ba61c6ce8bb3c125b86d463388a7e46c5c3",
+      "size": 580894,
+      "source": "g-agent-driven-marginminder/iterations/015.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "g-agent-driven-marginminder",
+      "publishedPath": "transcripts/g-agent-driven-marginminder/iteration-775ec6023e-016.log",
+      "redactions": [
+        "email-address",
+        "private-environment",
+        "private-ip",
+        "workspace-root"
+      ],
+      "sha256": "775ec6023e96b7fd8ecfad13d537bb3c09c301486da252a6d5ab4b8828bc8df6",
+      "size": 1237254,
+      "source": "g-agent-driven-marginminder/iterations/016.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "g-agent-driven-marginminder",
+      "publishedPath": "transcripts/g-agent-driven-marginminder/iteration-2f148ebe7f-017.log",
+      "redactions": [
+        "credential-assignment",
+        "email-address",
+        "private-environment",
+        "private-ip",
+        "workspace-root"
+      ],
+      "sha256": "2f148ebe7f64b576e5362f90dc8f080207a30bbe4f58ad5d82194661cfbb5526",
+      "size": 2681021,
+      "source": "g-agent-driven-marginminder/iterations/017.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "g-agent-driven-marginminder",
+      "publishedPath": "transcripts/g-agent-driven-marginminder/iteration-97b8662528-018.log",
+      "redactions": [
+        "email-address",
+        "private-environment",
+        "private-ip",
+        "workspace-root"
+      ],
+      "sha256": "97b866252872b22611b2d0882169b7e49ff6f85894d6c25c635c2e11f8f8af21",
+      "size": 1527333,
+      "source": "g-agent-driven-marginminder/iterations/018.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "g-agent-driven-marginminder",
+      "publishedPath": "transcripts/d-existing-flaskr/iteration-01ba4719c8-011.log",
+      "redactions": [],
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size": 1,
+      "source": "g-agent-driven-marginminder/iterations/019.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "g-agent-driven-marginminder",
+      "publishedPath": "transcripts/g-agent-driven-marginminder/iteration-f426e13153-020.log",
+      "redactions": [
+        "credential-assignment",
+        "email-address",
+        "private-environment",
+        "private-ip",
+        "private-key",
+        "workspace-root"
+      ],
+      "sha256": "f426e13153e5d09279620ffcad517237cd428512cdcfef7db7c2b9cd4489262a",
+      "size": 746705,
+      "source": "g-agent-driven-marginminder/iterations/020.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "g-agent-driven-marginminder",
+      "publishedPath": "transcripts/g-agent-driven-marginminder/iteration-345945125f-021.log",
+      "redactions": [
+        "email-address",
+        "private-environment",
+        "workspace-root"
+      ],
+      "sha256": "345945125f38f254b21d666082215f8b0e11ea7ffdd2d8e751a8f337f135b47e",
+      "size": 1969233,
+      "source": "g-agent-driven-marginminder/iterations/021.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "g-agent-driven-marginminder",
+      "publishedPath": "transcripts/g-agent-driven-marginminder/iteration-974da9a6a7-022.log",
+      "redactions": [
+        "private-environment",
+        "workspace-root"
+      ],
+      "sha256": "974da9a6a7fb7c17baa017597a4139bd0d02f5f54aca3d87321990dd8ef9d531",
+      "size": 1597656,
+      "source": "g-agent-driven-marginminder/iterations/022.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "g-agent-driven-marginminder",
+      "publishedPath": "transcripts/g-agent-driven-marginminder/iteration-918ba39750-023.log",
+      "redactions": [
+        "credential-assignment",
+        "email-address",
+        "private-environment",
+        "private-ip",
+        "workspace-root"
+      ],
+      "sha256": "918ba397506819bb9d4fc26b15911b75ade76d3edc9da8dcd035a526bda8b1ac",
+      "size": 1729412,
+      "source": "g-agent-driven-marginminder/iterations/023.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "g-agent-driven-marginminder",
+      "publishedPath": "transcripts/g-agent-driven-marginminder/iteration-000b968e69-024.log",
+      "redactions": [
+        "private-environment",
+        "private-ip",
+        "workspace-root"
+      ],
+      "sha256": "000b968e690618ff5a0c759f0a2995a5251b8fd741f090a67e3590fe5a4310a7",
+      "size": 911637,
+      "source": "g-agent-driven-marginminder/iterations/024.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "g-agent-driven-marginminder",
+      "publishedPath": "transcripts/g-agent-driven-marginminder/iteration-c7bf3984a4-025.log",
+      "redactions": [
+        "credential-assignment",
+        "private-environment",
+        "private-key",
+        "workspace-root"
+      ],
+      "sha256": "c7bf3984a403c9db186472ff8f3cdacacb81aa75c6f4d3a13b1adc9e5af57c82",
+      "size": 2340886,
+      "source": "g-agent-driven-marginminder/iterations/025.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "g-agent-driven-marginminder",
+      "publishedPath": "transcripts/g-agent-driven-marginminder/iteration-2871ca594a-026.log",
+      "redactions": [
+        "credential-assignment",
+        "private-environment",
+        "private-key",
+        "workspace-root"
+      ],
+      "sha256": "2871ca594ad07a5f4742c8cca4cd5cecfd45119878a6403fd2db5b2076cd5649",
+      "size": 292868,
+      "source": "g-agent-driven-marginminder/iterations/026.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "g-agent-driven-marginminder",
+      "publishedPath": "transcripts/g-agent-driven-marginminder/iteration-ffaea4cfbf-027.log",
+      "redactions": [
+        "private-environment",
+        "workspace-root"
+      ],
+      "sha256": "ffaea4cfbfab1a47e544a6f487a17dd02a1bef35d0d546e7883d6ffbba981ea2",
+      "size": 561729,
+      "source": "g-agent-driven-marginminder/iterations/027.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "g-agent-driven-marginminder",
+      "publishedPath": "transcripts/g-agent-driven-marginminder/iteration-87b026f2f3-028.log",
+      "redactions": [
+        "email-address",
+        "private-environment",
+        "workspace-root"
+      ],
+      "sha256": "87b026f2f37ff3d834ad878d427442ee4d9181c7ceb3e825d3e6d21ed67e4943",
+      "size": 321698,
+      "source": "g-agent-driven-marginminder/iterations/028.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "g-agent-driven-marginminder",
+      "publishedPath": "transcripts/g-agent-driven-marginminder/iteration-7285900b5c-029.log",
+      "redactions": [
+        "email-address",
+        "private-environment",
+        "workspace-root"
+      ],
+      "sha256": "7285900b5c517637def5563bb1616dc6d4630175b4d5b255fc71dc386bec6b3d",
+      "size": 280479,
+      "source": "g-agent-driven-marginminder/iterations/029.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "g-agent-driven-marginminder",
+      "publishedPath": "transcripts/g-agent-driven-marginminder/iteration-bac29e8ca2-030.log",
+      "redactions": [
+        "private-environment",
+        "workspace-root"
+      ],
+      "sha256": "bac29e8ca264c5b444afb2c0846dec1013bf9f61630bd3cebcac95c40b186393",
+      "size": 1270720,
+      "source": "g-agent-driven-marginminder/iterations/030.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "g-agent-driven-marginminder",
+      "publishedPath": "transcripts/g-agent-driven-marginminder/iteration-f7761657f3-031.log",
+      "redactions": [
+        "workspace-root"
+      ],
+      "sha256": "f7761657f31c36e3ecaad0569816259e84c7e78ba95ebf555f42bda03cccf1c2",
+      "size": 238245,
+      "source": "g-agent-driven-marginminder/iterations/031.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "g-agent-driven-marginminder",
+      "publishedPath": "transcripts/d-existing-flaskr/iteration-01ba4719c8-011.log",
+      "redactions": [],
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size": 1,
+      "source": "g-agent-driven-marginminder/iterations/032.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "g-agent-driven-marginminder",
+      "publishedPath": "transcripts/g-agent-driven-marginminder/iteration-618a05a18f-033.log",
+      "redactions": [
+        "private-environment",
+        "private-key",
+        "workspace-root"
+      ],
+      "sha256": "618a05a18f3069999e2ca7555230590418a6d8ae46e0a93ca4d1e1caeb03d540",
+      "size": 311343,
+      "source": "g-agent-driven-marginminder/iterations/033.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "g-agent-driven-marginminder",
+      "publishedPath": "transcripts/g-agent-driven-marginminder/iteration-7ad8737adb-034.log",
+      "redactions": [
+        "private-environment",
+        "workspace-root"
+      ],
+      "sha256": "7ad8737adb2f9cf6532522a764905c43e8c4b35b035e9212b24ba74e855c08a7",
+      "size": 228330,
+      "source": "g-agent-driven-marginminder/iterations/034.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "g-agent-driven-marginminder",
+      "publishedPath": "transcripts/g-agent-driven-marginminder/iteration-c6a8fd210f-035.log",
+      "redactions": [
+        "private-environment",
+        "workspace-root"
+      ],
+      "sha256": "c6a8fd210f1698a98c1c3d3f8abdeafd311d4ed643c4f5856d58ba4a2425c219",
+      "size": 153424,
+      "source": "g-agent-driven-marginminder/iterations/035.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "g-agent-driven-marginminder",
+      "publishedPath": "transcripts/g-agent-driven-marginminder/iteration-84f510663f-036.log",
+      "redactions": [
+        "private-environment",
+        "workspace-root"
+      ],
+      "sha256": "84f510663fdb75674ec41eb95d46260e7e7ba6419124c96e82929364bfd46647",
+      "size": 250343,
+      "source": "g-agent-driven-marginminder/iterations/036.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "g-agent-driven-marginminder",
+      "publishedPath": "transcripts/g-agent-driven-marginminder/iteration-9c9b8e0e2b-037.log",
+      "redactions": [
+        "private-environment",
+        "workspace-root"
+      ],
+      "sha256": "9c9b8e0e2b187ad8bdd8af37242476861ac28c02add4591f9554cdcf173f481d",
+      "size": 279556,
+      "source": "g-agent-driven-marginminder/iterations/037.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "g-agent-driven-marginminder",
+      "publishedPath": "transcripts/g-agent-driven-marginminder/iteration-dc0017e712-038.log",
+      "redactions": [
+        "private-environment",
+        "unrelated-project",
+        "workspace-root"
+      ],
+      "sha256": "dc0017e712c7e4b90acbdf09aedcdb263ded839d9bac09084bc089b1127c6f5f",
+      "size": 214893,
+      "source": "g-agent-driven-marginminder/iterations/038.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "g-agent-driven-marginminder",
+      "publishedPath": "transcripts/g-agent-driven-marginminder/iteration-2aeff0ce9e-039.log",
+      "redactions": [
+        "private-environment",
+        "workspace-root"
+      ],
+      "sha256": "2aeff0ce9eaee2caad379f670d8fb6799a57226a2473293ca44836321644bbf0",
+      "size": 218587,
+      "source": "g-agent-driven-marginminder/iterations/039.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "g-agent-driven-marginminder",
+      "publishedPath": "transcripts/g-agent-driven-marginminder/iteration-75496538a8-040.log",
+      "redactions": [
+        "private-environment",
+        "unrelated-project",
+        "workspace-root"
+      ],
+      "sha256": "75496538a8ffe65dd1c964038bc648bf0e7f4e9d7da7ca4647776b0b50a7bb69",
+      "size": 164333,
+      "source": "g-agent-driven-marginminder/iterations/040.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "g-agent-driven-marginminder",
+      "publishedPath": "transcripts/g-agent-driven-marginminder/iteration-e415b2f72c-041.log",
+      "redactions": [
+        "private-environment",
+        "unrelated-project",
+        "workspace-root"
+      ],
+      "sha256": "e415b2f72c836e31a25320a8b2c2e9886d79df1a9393433f97b792f5644bfa4c",
+      "size": 119320,
+      "source": "g-agent-driven-marginminder/iterations/041.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "g-agent-driven-marginminder",
+      "publishedPath": "transcripts/g-agent-driven-marginminder/iteration-0f8516faf0-042.log",
+      "redactions": [
+        "email-address",
+        "unrelated-project",
+        "workspace-root"
+      ],
+      "sha256": "0f8516faf045dc153a43dc47c4137e5fd72a13bafd4a899275be2919bdb47f99",
+      "size": 402739,
+      "source": "g-agent-driven-marginminder/iterations/042.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "g-agent-driven-marginminder",
+      "publishedPath": "transcripts/g-agent-driven-marginminder/iteration-18da6da2d1-043.log",
+      "redactions": [
+        "private-environment",
+        "workspace-root"
+      ],
+      "sha256": "18da6da2d1589daa7ff84b79a5fde9c08e8aafae332e99adb739b5a74f01f68a",
+      "size": 224812,
+      "source": "g-agent-driven-marginminder/iterations/043.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "g-agent-driven-marginminder",
+      "publishedPath": "transcripts/g-agent-driven-marginminder/iteration-be8198a794-044.log",
+      "redactions": [
+        "private-environment",
+        "unrelated-project",
+        "workspace-root"
+      ],
+      "sha256": "be8198a79411d3fcee7bb26208a6a7f05f147e4dc88575a8c6bc8f0d7e83cff0",
+      "size": 359791,
+      "source": "g-agent-driven-marginminder/iterations/044.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "g-agent-driven-marginminder",
+      "publishedPath": "transcripts/g-agent-driven-marginminder/iteration-4761282f62-045.log",
+      "redactions": [
+        "private-environment",
+        "unrelated-project",
+        "workspace-root"
+      ],
+      "sha256": "4761282f622e2d9473729fc7d58dfbdfb2a69525101799e37b2b43c8a1d7d792",
+      "size": 278070,
+      "source": "g-agent-driven-marginminder/iterations/045.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "g-agent-driven-marginminder",
+      "publishedPath": "transcripts/g-agent-driven-marginminder/iteration-88a4690035-046.log",
+      "redactions": [
+        "private-environment",
+        "workspace-root"
+      ],
+      "sha256": "88a469003514a224cb01ca3447f4fa246d755853f9584f6c66b9f4df2710247e",
+      "size": 116339,
+      "source": "g-agent-driven-marginminder/iterations/046.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "g-agent-driven-marginminder",
+      "publishedPath": "transcripts/g-agent-driven-marginminder/iteration-4d169e6e91-047.log",
+      "redactions": [
+        "private-environment",
+        "workspace-root"
+      ],
+      "sha256": "4d169e6e91e6eaf984b3e21c81959b231962ce0b8ae6cdd0f6ab110ab545874e",
+      "size": 218348,
+      "source": "g-agent-driven-marginminder/iterations/047.log",
+      "type": "iteration-log"
+    },
+    {
+      "proofId": "g-agent-driven-marginminder",
+      "publishedPath": "transcripts/g-agent-driven-marginminder/iteration-a187b5c569-048.log",
+      "redactions": [
+        "private-environment",
+        "unrelated-project",
+        "workspace-root"
+      ],
+      "sha256": "a187b5c569d6acaf25a0d1c76cd65e0e8fa7eb1cbb7859cc510d88a82b31781a",
+      "size": 162129,
+      "source": "g-agent-driven-marginminder/iterations/048.log",
+      "type": "iteration-log"
     }
   ],
-  "generatedAt": "2026-07-10T04:13:55.032Z",
+  "generatedAt": "2026-07-11T09:07:48.723Z",
   "policy": "Public transcripts are normalized and scrubbed for credentials, private paths, environment identifiers, private IPs, and unrelated project names.",
   "schemaVersion": 1
 }

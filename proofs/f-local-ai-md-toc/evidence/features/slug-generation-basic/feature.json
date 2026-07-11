@@ -1,0 +1,13 @@
+{
+	"category": "Core",
+	"createdAt": "2026-01-09T14:30:00.000Z",
+	"dependencies": ["heading-parser-detection"],
+	"description": "Convert heading text into a GitHub-compatible, safe anchor slug format.",
+	"id": "slug-generation-basic",
+	"passes": false,
+	"priority": 2,
+	"spec": "1. Convert the entire string to lowercase.\n2. Replace spaces with hyphens.\n3. Strip all punctuation marks (except hyphens and alphanumeric characters).4. Handle edge cases: inline code blocks (```) and markdown elements must be ignored during slug construction.",
+	"status": "backlog",
+	"title": "Basic slug generation from heading text",
+	"updatedAt": "2026-01-09T14:30:00.000Z"
+}

@@ -15,6 +15,26 @@ import { sanitizeText } from './sanitize.ts';
 
 const decoder = new TextDecoder();
 
+function normalizeEvidenceJsonText(text: string, path: string): string {
+	try {
+		JSON.parse(text);
+		return text;
+	} catch (error) {
+		const normalized = text.replaceAll('\\`', '`');
+		if (normalized === text) throw error;
+		try {
+			JSON.parse(normalized);
+			return normalized;
+		} catch {
+			throw new Error(`Invalid JSON evidence: ${path}`, { cause: error });
+		}
+	}
+}
+
+function parseEvidenceJson(text: string, path: string): unknown {
+	return JSON.parse(normalizeEvidenceJsonText(text, path));
+}
+
 function runGit(repository: string, args: string[]): Uint8Array {
 	const result = Bun.spawnSync(['git', '-C', repository, ...args], {
 		stderr: 'pipe',
@@ -90,7 +110,11 @@ export async function exportCommittedSource(
 export async function copySanitizedEvidence(source: string, destination: string): Promise<void> {
 	const bytes = await readFile(source);
 	if (isTextEvidence(source)) {
-		await writeText(destination, sanitizeText(decoder.decode(bytes)).text);
+		let text = sanitizeText(decoder.decode(bytes)).text;
+		if (extname(source).toLowerCase() === '.json') {
+			text = normalizeEvidenceJsonText(text, source);
+		}
+		await writeText(destination, text);
 		return;
 	}
 	await writeBytes(destination, bytes);
@@ -135,6 +159,12 @@ function readStringField(value: unknown, field: string, path: string): string {
 	return fieldValue;
 }
 
+function readOptionalStringField(value: unknown, field: string): string | null {
+	if (typeof value !== 'object' || value === null || !(field in value)) return null;
+	const fieldValue = (value as Record<string, unknown>)[field];
+	return typeof fieldValue === 'string' ? fieldValue : null;
+}
+
 export async function iterationRange(iterationsDirectory: string): Promise<{
 	count: number;
 	endedAt: string;
@@ -146,14 +176,19 @@ export async function iterationRange(iterationsDirectory: string): Promise<{
 	const starts: string[] = [];
 	const ends: string[] = [];
 	for (const file of files) {
-		const parsed: unknown = JSON.parse(await readFile(file, 'utf8'));
+		const parsed = parseEvidenceJson(await readFile(file, 'utf8'), file);
 		starts.push(readStringField(parsed, 'startedAt', file));
-		ends.push(readStringField(parsed, 'endedAt', file));
+		const endedAt = readOptionalStringField(parsed, 'endedAt');
+		if (endedAt) ends.push(endedAt);
 	}
 	if (starts.length === 0) throw new Error(`No iteration JSON found in ${iterationsDirectory}`);
 	starts.sort();
 	ends.sort();
-	return { count: files.length, endedAt: ends.at(-1) ?? '', startedAt: starts[0] ?? '' };
+	return {
+		count: files.length,
+		endedAt: ends.at(-1) ?? starts.at(-1) ?? '',
+		startedAt: starts[0] ?? '',
+	};
 }
 
 export async function featureCounts(
@@ -163,7 +198,7 @@ export async function featureCounts(
 	let nonPassing = 0;
 	for (const file of await listFiles(featuresDirectory)) {
 		if (basename(file) !== 'feature.json') continue;
-		const parsed: unknown = JSON.parse(await readFile(file, 'utf8'));
+		const parsed = parseEvidenceJson(await readFile(file, 'utf8'), file);
 		if (typeof parsed !== 'object' || parsed === null || !('passes' in parsed)) {
 			throw new Error(`Feature lacks passes field: ${file}`);
 		}

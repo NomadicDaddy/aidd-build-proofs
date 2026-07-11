@@ -1,0 +1,18 @@
+{
+	"affectedFiles": [],
+	"category": "UI",
+	"createdAt": "2026-06-01T20:08:14.542Z",
+	"dependencies": ["cost-catalog-management", "quote-scenario-api"],
+	"description": "Scenario create and edit experience for customer details, pricing assumptions, line items, labor, fixed costs, summary, and export.",
+	"id": "scenario-editor",
+	"justFinishedAt": null,
+	"notes": [
+		"Required by .aidd/spec.md; no scenario editor page or scenario domain frontend API module was found during onboarding."
+	],
+	"passes": true,
+	"priority": 2,
+	"spec": "1. Add scenario create form with customer name and scenario title.\n2. Add status control for draft, review, approved, and archived.\n3. Add target margin percentage input.\n4. Add default tax rate percentage input.\n5. Add contingency percentage input.\n6. Add discount percentage input.\n7. Add notes and assumptions fields.\n8. Add sections or tabs for line items, labor, fixed costs, summary, and export — extract each tab into a separate component file under a components/ subdirectory (e.g., ScenarioLineItemsTab.tsx, ScenarioLaborTab.tsx, ScenarioFixedCostsTab.tsx, ScenarioSummaryTab.tsx). Keep ScenarioEditorPage.tsx as the page-level orchestrator under 300 lines. Draft types (LineItemDraft, LaborEntryDraft, FixedCostDraft) go into types.ts; helper factories (blankLineItem, blankLaborEntry, blankFixedCost) go into helpers.ts.\n9. Save edits through the scenario API.\n10. Disable save while the mutation is pending.\n11. Show inline validation for invalid numeric fields.\n12. Keep the summary visible enough that saved edits can be connected to recalculated totals.\n13. Use React 19 `use()` API (not legacy `useContext()`) for consuming form context in tab components. Import `use` from 'react' alongside `createContext' — do NOT import `useContext`.",
+	"status": "completed",
+	"title": "Scenario Editor",
+	"updatedAt": "2026-06-11T00:00:00.000Z"
+}

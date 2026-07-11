@@ -7,8 +7,8 @@
       "os": "Windows 11",
       "shell": "PowerShell 7"
     },
-    "id": "aidd-build-proofs-2026-07",
-    "name": "AIDD four-lane build-proofs campaign",
+    "id": "aidd-build-proofs-2026",
+    "name": "AIDD seven-proof build collection",
     "publicAiddBaseline": "v2.102.0"
   },
   "proofs": [
@@ -249,14 +249,191 @@
           "status": "passed"
         }
       }
+    },
+    {
+      "appName": "Pantry",
+      "backend": {
+        "id": "claude-code",
+        "model": "claude-opus-4-8",
+        "reasoningEffort": "medium"
+      },
+      "endedAt": "2026-07-10T19:08:04.261Z",
+      "evidence": {
+        "iterationCount": 49,
+        "path": "proofs/e-github-template-pantry/evidence",
+        "treeSha256": "c5faaff007fe605eb90acaf64af4f0979026c969714fda15a8c98e3ee6592442"
+      },
+      "features": {
+        "nonPassing": 0,
+        "passing": 26,
+        "total": 26
+      },
+      "id": "e-github-template-pantry",
+      "keyArtifacts": [
+        {
+          "path": "proofs/e-github-template-pantry/spec.md",
+          "sha256": "54c433b20400370b005656eec7f779cc21a8e10d180e4047c581114391ab695b"
+        },
+        {
+          "path": "proofs/e-github-template-pantry/commits.tsv",
+          "sha256": "07f999e4bd2f06c3b7351029321be41aa80314a7921913114310e509060fc44a"
+        },
+        {
+          "path": "proofs/e-github-template-pantry/evidence/runs.jsonl",
+          "sha256": "acaa2e005ae18fc026ea8fa0ca83237387184f1d8b992f4fa7621e98df590782"
+        }
+      ],
+      "lane": "github-template",
+      "limitations": [
+        "The imported GitHub template required a manual baseline commit before coding.",
+        "Intake and coding stages required manual launches because runs did not auto-chain.",
+        "A nondeterministic Pode startup wedge complicated headless replay on the proof machine."
+      ],
+      "source": {
+        "commitCount": 50,
+        "exportedFileCount": 38,
+        "originalHeadCommit": "3520f2492b20c1f085d3b1178cd5c5a65d92db29",
+        "originalRootCommit": "b831d86a19e7fe55816655ccb19412d89542c5bb",
+        "path": "proofs/e-github-template-pantry/source",
+        "treeSha256": "7bd072370fd80dff3526eb9a52e2b6d40c962ea42a42862ad1005cf91202a40e"
+      },
+      "stack": "PowerShell, Pode, htmx, Mustache, Tailwind CSS, PSSQLite, and Pester",
+      "startedAt": "2026-07-10T13:56:34.095Z",
+      "validation": {
+        "recordedCommand": "npm run analyze && npm run test",
+        "recordedResult": "passed",
+        "replay": {
+          "checkedAt": "",
+          "command": "npm run analyze && npm run test",
+          "status": "not-run"
+        }
+      }
+    },
+    {
+      "appName": "md-toc",
+      "backend": {
+        "id": "lmstudio",
+        "model": "google/gemma-4-e4b",
+        "reasoningEffort": "high"
+      },
+      "endedAt": "2026-07-11T02:30:16.397Z",
+      "evidence": {
+        "iterationCount": 7,
+        "path": "proofs/f-local-ai-md-toc/evidence",
+        "treeSha256": "5dad187a9bdd9350806f693387e5da712ffac51eaaa52bf6bce3f7c89d1db561"
+      },
+      "features": {
+        "nonPassing": 14,
+        "passing": 0,
+        "total": 14
+      },
+      "id": "f-local-ai-md-toc",
+      "keyArtifacts": [
+        {
+          "path": "proofs/f-local-ai-md-toc/spec.md",
+          "sha256": "46884c7668ebf7a6c372324934fb6a25f19ba95d747c3ab8806b0726e71ceff9"
+        },
+        {
+          "path": "proofs/f-local-ai-md-toc/commits.tsv",
+          "sha256": "2fb85093863aba340f6741c73404f735a8dda7b8e863b040f09493bb36d192be"
+        },
+        {
+          "path": "proofs/f-local-ai-md-toc/evidence/runs.jsonl",
+          "sha256": "ddfad4768ac16a4773e3fbb1e324b6c18b7f28ac7fbe19ee047e415844463c32"
+        }
+      ],
+      "lane": "local-ai",
+      "limitations": [
+        "The initializer required the local model context window to be raised above 8,192 tokens.",
+        "Five coding runs emitted no AIDD_RESULT and completed none of the 14 features.",
+        "The retained source includes the local model's incomplete, non-compiling partial work."
+      ],
+      "source": {
+        "commitCount": 4,
+        "exportedFileCount": 17,
+        "originalHeadCommit": "acbbf5ff38c8bb0907274735271f7afb12bce6e8",
+        "originalRootCommit": "30bf9625bcb1080c58330eba74f8b7914c277a90",
+        "path": "proofs/f-local-ai-md-toc/source",
+        "treeSha256": "2e84fc01100052f3d5bf742f051a394b1f854b9c1060185cd8d7248db93e0d65"
+      },
+      "stack": "Bun and TypeScript",
+      "startedAt": "2026-07-11T02:13:05.629Z",
+      "validation": {
+        "recordedCommand": "bun run typecheck",
+        "recordedResult": "failed",
+        "replay": {
+          "checkedAt": "",
+          "command": "bun run typecheck",
+          "status": "not-run"
+        }
+      }
+    },
+    {
+      "appName": "MarginMinder",
+      "backend": {
+        "id": "codex",
+        "model": "gpt-5.5",
+        "reasoningEffort": "high"
+      },
+      "endedAt": "2026-06-12T16:26:41.902Z",
+      "evidence": {
+        "iterationCount": 48,
+        "path": "proofs/g-agent-driven-marginminder/evidence",
+        "treeSha256": "202a4536941d97cf3565d51811048070e80defb433ffd6c6dd6a303179a3ac02"
+      },
+      "features": {
+        "nonPassing": 0,
+        "passing": 29,
+        "total": 29
+      },
+      "id": "g-agent-driven-marginminder",
+      "keyArtifacts": [
+        {
+          "path": "proofs/g-agent-driven-marginminder/spec.md",
+          "sha256": "8b7a6e15470f6cdc5371df9ca222c538284d730ec499fe6722eebeaee0407fe9"
+        },
+        {
+          "path": "proofs/g-agent-driven-marginminder/commits.tsv",
+          "sha256": "d046ffc35d336d55751670eb2b01e3301860b477157e05685c83951721d3bd9c"
+        },
+        {
+          "path": "proofs/g-agent-driven-marginminder/evidence/runs.jsonl",
+          "sha256": "81ddff45d32471ba9324b04736edb116c5a90d7c91d59bbee395639591af29b8"
+        }
+      ],
+      "lane": "agent-driven",
+      "limitations": [
+        "The application was built across multiple supervised Codex runs rather than one autonomous run.",
+        "The retained snapshot includes later agent-driven audits, remediation, and feature consolidation.",
+        "The raw archive worktree has later uncommitted maintenance changes; only committed HEAD is exported."
+      ],
+      "source": {
+        "commitCount": 72,
+        "exportedFileCount": 939,
+        "originalHeadCommit": "7e12a0d4e91347ddfd0cf060caccb21e0350d7a7",
+        "originalRootCommit": "eb8f353148b39effd50d78b3c0f95cf5e65dd789",
+        "path": "proofs/g-agent-driven-marginminder/source",
+        "treeSha256": "13841beb1a02a5fc52abc6685e69845b9e49aa392f89050a9db2e12775afc7b8"
+      },
+      "stack": "Spernakit v3: Bun, Elysia, React 19, Drizzle, and SQLite",
+      "startedAt": "2026-06-01T20:05:01.382Z",
+      "validation": {
+        "recordedCommand": "bun run smoke:qc",
+        "recordedResult": "passed",
+        "replay": {
+          "checkedAt": "",
+          "command": "bun run smoke:qc",
+          "status": "not-run"
+        }
+      }
     }
   ],
   "schemaVersion": 1,
   "transcriptArchive": {
-    "assetName": "aidd-build-proofs-2026-07-transcripts.zip",
-    "entryCount": 175,
+    "assetName": "aidd-build-proofs-transcripts.zip",
+    "entryCount": 279,
     "indexPath": "release/transcript-index.json",
-    "sha256": "dcdc75d02ab0bd5244ad62b112564549562a12e95732465c851074a37f0d5b40",
-    "uniqueFileCount": 172
+    "sha256": "648fe55ae3de44fa263cb522debe20fa87b8039d9d7f04a6e321cd628c75c2b2",
+    "uniqueFileCount": 273
   }
 }

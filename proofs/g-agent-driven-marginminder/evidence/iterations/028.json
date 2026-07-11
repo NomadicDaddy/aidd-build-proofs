@@ -1,0 +1,123 @@
+{
+  "runId": "run_1780766610844_e64cda43",
+  "iteration": 0,
+  "summary": "directive run finished with exit code 0",
+  "snapshotKey": "codex/directive/directive/none",
+  "startedAt": "2026-06-06T17:23:33.283Z",
+  "endedAt": "2026-06-06T17:26:23.314Z",
+  "durationMs": 170031,
+  "timeToFirstEventMs": 16530,
+  "idleWarningTimestamps": [],
+  "promptChars": 13781,
+  "exitCode": 73,
+  "backend": "codex",
+  "executionMode": "single_agent",
+  "mode": "directive",
+  "phase": "directive",
+  "model": "gpt-5.5",
+  "provider": null,
+  "reasoningEffort": "high",
+  "metrics": {
+    "toolCallCount": 33,
+    "toolBreakdown": {
+      "bash": 33
+    },
+    "inputTokens": 564709,
+    "outputTokens": 6161,
+    "costUsd": 0,
+    "errorCount": 0,
+    "idleWarningCount": 0,
+    "rateLimitCount": 0,
+    "filesEditedCount": 0,
+    "filesCreatedCount": 0,
+    "errorReasons": []
+  },
+  "filesRead": [],
+  "filesEdited": [],
+  "filesCreated": [],
+  "commands": [
+    "\"C:\\\\Program Files\\\\PowerShell\\\\7\\\\pwsh.exe\" -Command Get-Location",
+    "\"C:\\\\Program Files\\\\PowerShell\\\\7\\\\pwsh.exe\" -Command 'Get-ChildItem -Force -Name'",
+    "\"C:\\\\Program Files\\\\PowerShell\\\\7\\\\pwsh.exe\" -Command \"if (Test-Path -LiteralPath 'AGENTS.md') { Get-Content -Raw -LiteralPath 'AGENTS.md' }\"",
+    "\"C:\\\\Program Files\\\\PowerShell\\\\7\\\\pwsh.exe\" -Command \"if (Test-Path -LiteralPath 'CLAUDE.md') { Get-Content -Raw -LiteralPath 'CLAUDE.md' }\"",
+    "\"C:\\\\Program Files\\\\PowerShell\\\\7\\\\pwsh.exe\" -Command \"Get-Content -Raw -LiteralPath 'D:\\\\applications\\\\spernakit\\\\docs\\\\template\\\\STACK.md'\"",
+    "\"C:\\\\Program Files\\\\PowerShell\\\\7\\\\pwsh.exe\" -Command \"if (Test-Path -LiteralPath '.windsurf/rules') { Get-ChildItem -Recurse -File -LiteralPath '.windsurf/rules' | Select-Object -ExpandProperty FullName }\"",
+    "\"C:\\\\Program Files\\\\PowerShell\\\\7\\\\pwsh.exe\" -Command \"Get-Content -Raw -LiteralPath 'D:\\\\applications\\\\spernakit\\\\docs\\\\template\\\\DEVELOPMENT.md'\"",
+    "\"C:\\\\Program Files\\\\PowerShell\\\\7\\\\pwsh.exe\" -Command 'git status --short'",
+    "\"C:\\\\Program Files\\\\PowerShell\\\\7\\\\pwsh.exe\" -Command 'git tag --list v0.1.0'",
+    "\"C:\\\\Program Files\\\\PowerShell\\\\7\\\\pwsh.exe\" -Command 'git log -2 --oneline --decorate'",
+    "\"C:\\\\Program Files\\\\PowerShell\\\\7\\\\pwsh.exe\" -Command \"bun -e \\\"const pkg = await Bun.file('package.json').json(); console.log(pkg.version);\\\"\"",
+    "\"C:\\\\Program Files\\\\PowerShell\\\\7\\\\pwsh.exe\" -Command 'git rev-parse HEAD''^'",
+    "\"C:\\\\Program Files\\\\PowerShell\\\\7\\\\pwsh.exe\" -Command 'git rev-parse HEAD'",
+    "\"C:\\\\Program Files\\\\PowerShell\\\\7\\\\pwsh.exe\" -Command 'rg \"2026-06-06T16-44-22-701Z_59ed|reconciliation|completed\" .aidd/runs.jsonl'",
+    "\"C:\\\\Program Files\\\\PowerShell\\\\7\\\\pwsh.exe\" -Command 'rg \"52f42067c72968117173fbd06521a83eba3cf5c1|83d6997f05bbde9dfff943fafa2da69648bcfb5c|record run ledger|reconcile README\" .aidd/runs.jsonl'",
+    "\"C:\\\\Program Files\\\\PowerShell\\\\7\\\\pwsh.exe\" -Command 'rg \"2026-06-06T16-44-22-701Z_59ed\" .aidd/runs.jsonl'",
+    "\"C:\\\\Program Files\\\\PowerShell\\\\7\\\\pwsh.exe\" -Command 'git show --no-patch --pretty=fuller HEAD'",
+    "\"C:\\\\Program Files\\\\PowerShell\\\\7\\\\pwsh.exe\" -Command 'git show --no-patch --pretty=fuller HEAD''^'",
+    "\"C:\\\\Program Files\\\\PowerShell\\\\7\\\\pwsh.exe\" -Command 'git show --stat --oneline HEAD''^'",
+    "\"C:\\\\Program Files\\\\PowerShell\\\\7\\\\pwsh.exe\" -Command 'rg \"2026-06-06T16-44-22-701Z_59ed\" .aidd'",
+    "\"C:\\\\Program Files\\\\PowerShell\\\\7\\\\pwsh.exe\" -Command 'git show --stat --oneline HEAD'",
+    "\"C:\\\\Program Files\\\\PowerShell\\\\7\\\\pwsh.exe\" -Command 'git show --name-only --pretty=oneline HEAD'",
+    "\"C:\\\\Program Files\\\\PowerShell\\\\7\\\\pwsh.exe\" -Command 'bun run smoke:qc'",
+    "\"C:\\\\Program Files\\\\PowerShell\\\\7\\\\pwsh.exe\" -Command 'git status --short'",
+    "\"C:\\\\Program Files\\\\PowerShell\\\\7\\\\pwsh.exe\" -Command 'git tag --list v0.1.0'",
+    "\"C:\\\\Program Files\\\\PowerShell\\\\7\\\\pwsh.exe\" -Command 'git tag -a v0.1.0 -m \"Margin Minder v0.1.0\" -m \"Completed the Margin Minder MVP release candidate. RC evidence: HEAD 83d6997 records the run ledger on artifact reconciliation commit 52f42067, package version is 0.1.0, and bun run smoke:qc passed.\"'",
+    "\"C:\\\\Program Files\\\\PowerShell\\\\7\\\\pwsh.exe\" -Command 'git rev-parse v0.1.0''^{}'",
+    "\"C:\\\\Program Files\\\\PowerShell\\\\7\\\\pwsh.exe\" -Command 'git cat-file -t v0.1.0'",
+    "\"C:\\\\Program Files\\\\PowerShell\\\\7\\\\pwsh.exe\" -Command 'git status --short'",
+    "\"C:\\\\Program Files\\\\PowerShell\\\\7\\\\pwsh.exe\" -Command 'git for-each-ref refs/tags/v0.1.0 --format=\"%(refname:short)%n%(objecttype)%n%(objectname)%n%(*objectname)%n%(contents)\"'",
+    "\"C:\\\\Program Files\\\\PowerShell\\\\7\\\\pwsh.exe\" -Command \"git rev-parse 'v0.1.0\"'^{commit}'\"'\"",
+    "\"C:\\\\Program Files\\\\PowerShell\\\\7\\\\pwsh.exe\" -Command 'git show --no-patch --pretty=fuller v0.1.0'",
+    "\"C:\\\\Program Files\\\\PowerShell\\\\7\\\\pwsh.exe\" -Command 'git status --short'"
+  ],
+  "errors": [
+    {
+      "type": "lint",
+      "message": "PS 7.6.2\nDon't Panic.\n\r\nAI Code aliases loaded: oc, kc, cc, cx, zr, bashrun\r\n.aidd\r\n.git\r\n.githooks\r\n.github\r\nbackend\r\nbackups\r\nconfig\r\ndata\r\ndocker\r\ndocs\r\nfrontend\r\nlogs\r\nnode_modules\r\nscripts\r\nshared\r\n.dockerignore\r\n.editorconfig\r\n.gitattributes\r\n.gitignore\r\n.nvmrc\r\n.prettierignore\r\n.prettierrc\r\nAGENTS.md\r\nbun.lock\r\nbunfig.toml\r\nCONTEXT.md\r\ndocker-compose.production.yml\r\ndocker-compose.test.yml\r\ndocker-compose.yml\r\nDockerfile\r\neslint.config.js\r\nknip.json\r\npackage.json\r\nREADME.md\r\n"
+    },
+    {
+      "type": "lint",
+      "message": "PS 7.6.2\nDon't Panic.\n\r\nAI Code aliases loaded: oc, kc, cc, cx, zr, bashrun\r\n## Personal Preferences\n\nDo not use similes unless absolutely necessary and explain why, if it is.\nUpon each initial invocation, greet me with \"Don't Panic.\"\nWhen you feel you have reached your object, declare \"I have done my best.\"\n\n## Development Environment\n\nDo not assume or fabricate time or token limits or budgets - the user controls this and will decide when you need to be concerned with either. Unless otherwise t"
+    },
+    {
+      "type": "lint",
+      "message": "PS 7.6.2\nDon't Panic.\n\r\nAI Code aliases loaded: oc, kc, cc, cx, zr, bashrun\r\n# Technical Stack and Architecture Reference for Spernakit v3\n\nThis file is the canonical tech stack and architecture reference for the Spernakit repository.\n\n> **As of v3.8.0-lts (2026-05-05):** every dependency listed below is pinned to the exact versions captured in package.json files. Updates are scoped to security advisories per [docs/template/LTS.md](LTS.md).\n\n## Prerequisites\n\n- **Bun 1.3.10+** - Required package"
+    },
+    {
+      "type": "typescript",
+      "message": "PS 7.6.2\nDon't Panic.\n\r\nAI Code aliases loaded: oc, kc, cc, cx, zr, bashrun\r\n# 🏗️ Developer Guide\n\nThis guide covers the core development patterns, architecture, and best practices for building applications with the Spernakit template.\n\n## 📋 Table of Contents\n\n1. [Architecture Overview](#architecture-overview)\n2. [Development Standards](#development-standards)\n3. [Coding Style](#coding-style)\n4. [Backend Development](#backend-development)\n5. [Frontend Development](#frontend-development)\n6. [Da"
+    },
+    {
+      "type": "lint",
+      "message": "PS 7.6.2\nDon't Panic.\n\r\nAI Code aliases loaded: oc, kc, cc, cx, zr, bashrun\r\nDon't Panic.\nRunning smoke tests for mode: qc\n\n==> Template drift check\n    [CACHED] Unchanged since 2026-06-05T20:49:55.891Z (556ms)\n\n==> Config invariants check\n    [CACHED] Unchanged since 2026-06-01T20:04:10.380Z (258ms)\n\n==> Config schema artifact drift check\n    [CACHED] Unchanged since 2026-06-01T20:04:10.694Z (310ms)\n\n==> Config schema validation (defaults + example + instance)\n    [CACHED] Unchanged since 2026-"
+    }
+  ],
+  "outcome": {
+    "status": "missing_aidd_result",
+    "exitCode": 73
+  },
+  "detailsSummary": {
+    "totalToolCalls": 33,
+    "uniqueFilesRead": 0,
+    "uniqueFilesEdited": 0,
+    "uniqueFilesCreated": 0,
+    "bashCommandsRun": 33,
+    "hasLintErrors": true,
+    "hasTypeErrors": true,
+    "hasBuildErrors": false,
+    "finalChecks": {}
+  },
+  "allowedFeatureIds": [],
+  "selectedFeatures": [],
+  "completedFeatures": [],
+  "extraCompletedFeatures": [],
+  "unacceptedCompletedFeatures": [],
+  "scopeOverrun": false,
+  "commitsCreated": [],
+  "missingAiddResult": true,
+  "filesEditedCount": 0,
+  "filesCreatedCount": 0,
+  "commitsCreatedCount": 0,
+  "residualDirtyFilesCount": 0,
+  "stopRequested": false
+}

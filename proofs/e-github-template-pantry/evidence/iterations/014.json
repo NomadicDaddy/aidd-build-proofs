@@ -1,0 +1,91 @@
+{
+	"durationMs": 134371,
+	"endedAt": "2026-07-10T14:39:45.542Z",
+	"iteration": 0,
+	"runId": "run_1783694249680_387bc180",
+	"snapshotKey": "claude-code/directive/directive/none",
+	"startedAt": "2026-07-10T14:37:31.171Z",
+	"summary": "directive run finished with exit code 0",
+	"timeToFirstEventMs": 6364,
+	"exitCode": 0,
+	"idleWarningTimestamps": [],
+	"promptChars": 29533,
+	"backend": "claude-code",
+	"executionMode": "single_agent",
+	"mode": "directive",
+	"model": "claude-opus-4-8",
+	"phase": "directive",
+	"provider": null,
+	"reasoningEffort": "medium",
+	"allowedFeatureIds": [],
+	"commands": [
+		"ls -la D:/applications/pantry/.aidd/ 2>/dev/null && echo \"---AGENTS---\" && ls D:/applications/pantry/AGENTS.md D:/applications/pantry/CLAUDE.md 2>/dev/null && echo \"---SCENARIOS---\" && ls -la D:/applications/pantry/.aidd/testing-scenarios.md 2>/dev/null",
+		"cd D:/applications/pantry && echo \"===API===\" && ls api/ 2>/dev/null && echo \"===VIEWS===\" && ls views/ 2>/dev/null && echo \"===PUBLIC===\" && ls public/ 2>/dev/null && echo \"===TESTS===\" && ls tests/ 2>/dev/null && echo \"===FEATURES===\" && ls .aidd/features/",
+		"cd D:/applications/pantry && echo \"===api/crud===\" && ls -R api/crud 2>/dev/null && echo \"===api/debug===\" && ls api/debug && echo \"===views/all===\" && find views -type f && echo \"===public/js===\" && ls public/js && echo \"===root ps===\" && ls *.ps1 *.psd1 2>/dev/null",
+		"cd D:/applications/pantry && echo \"===htmx dir===\" && find htmx -type f 2>/dev/null && echo \"===header===\" && cat views/partials/header.pode 2>/dev/null | head -60",
+		"cd D:/applications/pantry && git add .aidd/testing-scenarios.md .aidd/CHANGELOG.md && git commit -m \"docs(aidd): seed testing-scenarios for pantry (14 scenarios)\n\nSeed mode run of the AIDD testing-scenarios ingredient. Authored\n.aidd/testing-scenarios.md covering all nine spec'd core features plus two\ncross-cutting flows; no RBAC (spec mandates no auth). Grounded in spec.md as\nsource of truth; several scenarios expected to surface known scaffold drift.\n\nCo-Authored-By: Claude Opus 4.8 <<REDACTED_EMAIL>>\" 2>&1 | tail -5"
+	],
+	"commitsCreated": [
+		{
+			"hash": "44abbe33f3fd26915bf064da15141f9c7d4b86a1",
+			"subject": "docs(aidd): seed testing-scenarios for pantry (14 scenarios)"
+		}
+	],
+	"completedFeatures": [],
+	"detailsSummary": {
+		"bashCommandsRun": 5,
+		"finalChecks": {},
+		"hasBuildErrors": false,
+		"hasLintErrors": false,
+		"hasTypeErrors": false,
+		"totalToolCalls": 14,
+		"uniqueFilesCreated": 1,
+		"uniqueFilesEdited": 1,
+		"uniqueFilesRead": 7
+	},
+	"errors": [],
+	"extraCompletedFeatures": [],
+	"filesCreated": ["D:/applications/pantry/.aidd/testing-scenarios.md"],
+	"filesEdited": ["D:/applications/pantry/.aidd/CHANGELOG.md"],
+	"filesRead": [
+		"D:/applications/pantry/.aidd/spec.md",
+		"D:/applications/pantry/.aidd/project.md",
+		"D:/applications/pantry/.aidd/project-structure.md",
+		"D:/applications/pantry/api/crud/get.ps1",
+		"D:/applications/pantry/api/crud/post.ps1",
+		"D:/applications/pantry/views/components/crudmgr.pode",
+		"D:/applications/pantry/.aidd/CHANGELOG.md"
+	],
+	"metrics": {
+		"cachedTokens": 0,
+		"costUsd": 0.8990090000000002,
+		"errorCount": 0,
+		"errorReasons": [],
+		"filesCreatedCount": 1,
+		"filesEditedCount": 1,
+		"idleWarningCount": 0,
+		"inputTokens": 26413,
+		"outputTokens": 8270,
+		"rateLimitCount": 0,
+		"reasoningTokens": 0,
+		"toolBreakdown": {
+			"bash": 5,
+			"read": 7,
+			"write": 1,
+			"edit": 1
+		},
+		"toolCallCount": 14
+	},
+	"outcome": {
+		"exitCode": 0,
+		"status": "success"
+	},
+	"scopeOverrun": false,
+	"selectedFeatures": [],
+	"unacceptedCompletedFeatures": [],
+	"commitsCreatedCount": 1,
+	"filesCreatedCount": 1,
+	"filesEditedCount": 1,
+	"residualDirtyFilesCount": 69,
+	"stopRequested": false
+}

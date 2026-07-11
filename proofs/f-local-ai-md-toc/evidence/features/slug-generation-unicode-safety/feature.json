@@ -1,0 +1,13 @@
+{
+	"category": "Core",
+	"createdAt": "2026-01-09T14:35:00.000Z",
+	"dependencies": ["slug-generation-basic"],
+	"description": "Slug generation when the heading text contains various non-standard characters (emoji, Unicode).",
+	"id": "slug-generation-unicode-safety",
+	"passes": false,
+	"priority": 12,
+	"spec": "1. Ensure emojis and other Unicode characters are safely stripped or transliterated into ASCII equivalents for slug creation.\n2. Test inputs containing non-Latin scripts (e.g., Cyrillic, Chinese) to ensure predictable slug behavior (stripping/replacement).",
+	"status": "backlog",
+	"title": "Slug safety with Unicode and emoji characters",
+	"updatedAt": "2026-01-09T14:35:00.000Z"
+}

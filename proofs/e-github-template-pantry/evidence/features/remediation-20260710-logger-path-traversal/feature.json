@@ -1,0 +1,21 @@
+{
+	"id": "remediation-20260710-logger-path-traversal",
+	"title": "Remediation: harden or remove the -save logger path-traversal primitive",
+	"description": "Write-FormattedLog's -save branch (podex.ps1:31-33) writes to ./$($WebEvent.Request.Url.AbsolutePath)/$($WebEvent.Method).json, building the output path directly from the request URL. This is a latent path-traversal / arbitrary-write primitive. The switch is currently never invoked (no caller passes -save), so it is dead code, but it must be removed or hardened before any caller wires it up.",
+	"category": "Security",
+	"dependencies": [],
+	"status": "completed",
+	"passes": true,
+	"priority": 4,
+	"spec": "1. Verify the -save branch in Write-FormattedLog (podex.ps1:31-33) no longer constructs its output path from $WebEvent.Request.Url.AbsolutePath.\n2. If -save is retained, verify the destination is a fixed, server-controlled directory (e.g. ./logs) and that any request-derived filename component is sanitized to strip path separators and '..' segments so a request path cannot escape that directory.\n3. If -save is not needed, verify the entire -save branch and switch parameter are removed so the arbitrary-write primitive no longer exists.\n4. Verify no caller of Write-FormattedLog passes -save with an unsanitized request-derived path (grep the codebase for -save).",
+	"affectedFiles": ["podex.ps1"],
+	"notes": "Source: CODEBASE_ANALYSIS-2026-07-10.md | Claims: claim-logger-path-traversal (Security section [Low], Recommendation #13) | Verified: 2026-07-10 (latent; -save has no callers) | Not covered by existing audit-codebase-analysis-* features. | RESOLUTION 2026-07-10: chose spec option 3 (remove) since a codebase-wide grep confirmed no caller ever passes -save. Removed the [switch]$save parameter and the entire `if ($save) { $log | Out-File -FilePath \"./$($WebEvent.Request.Url.AbsolutePath)/...\" }` branch from Write-FormattedLog in podex.ps1, deleting the arbitrary-write primitive outright. All remaining callers pass only -tag/-log. Parse-checked podex.ps1 (OK); npm test 50/0 pass; npm run lint reports only pre-existing vendored-JS errors (ESLint does not lint .ps1).",
+	"createdAt": "2026-07-10T14:11:34.000Z",
+	"updatedAt": "2026-07-10T17:35:04.834Z",
+	"approval": {
+		"approvedAt": "2026-07-10T15:05:26.890Z",
+		"decision": null,
+		"decisionRequired": false,
+		"source": "web-ui"
+	}
+}

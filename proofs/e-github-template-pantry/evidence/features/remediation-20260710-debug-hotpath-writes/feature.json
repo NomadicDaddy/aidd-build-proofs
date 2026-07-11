@@ -1,0 +1,21 @@
+{
+	"id": "remediation-20260710-debug-hotpath-writes",
+	"title": "Remediation: remove hot-path debug file writes and full-response JSON logging",
+	"description": "Every GET /api/crud request unconditionally serializes the full response (ConvertTo-Json -Depth 5) at get.ps1:79 via Write-FormattedLog -tag 'debug' — this runs on the normal request path regardless of Podex.Debug. Separately, when Podex.Debug is on (the shipped default), get.ps1:80-82 writes a Get.json artifact into the source tree via New-Item -Path $PSScriptRoot -Force. Together these put large-object serialization (always-on) and synchronous disk I/O (Debug-gated) on the request hot path and litter the repo. Both the always-on serialization and the per-request disk writes into the source tree must be removed or gated behind an explicit non-default flag.",
+	"category": "Backend",
+	"dependencies": [],
+	"status": "completed",
+	"passes": true,
+	"priority": 4,
+	"spec": "1. Verify api/crud/get.ps1:80-82 no longer writes $($WebEvent.Method).json into $PSScriptRoot on each request (remove the write, or redirect it to a dedicated, git-ignored logs directory guarded by an explicit non-default flag).\n2. Verify the unconditional full-response serialization at get.ps1:79 (Write-FormattedLog -tag 'debug' with ConvertTo-Json -Depth 5) is removed or gated so it does not run on the normal request path.\n3. Verify a GET /api/crud request with Podex.Debug enabled produces no new file under api/crud/ and no Get.json in the source tree.\n4. Verify the endpoint's functional response (rows, tags, paging fields, status codes) is unchanged after removing the debug writes.",
+	"affectedFiles": ["api/crud/get.ps1"],
+	"notes": "Source: CODEBASE_ANALYSIS-2026-07-10.md | Claims: claim-debug-hotpath-writes (Performance section, Recommendation #12) | Verified: 2026-07-10 | Not covered by existing audit-codebase-analysis-* features. | Description corrected 2026-07-10 per remediation-review.md weak-spot #1: the get.ps1:79 serialization is unconditional, not Podex.Debug-gated; only the get.ps1:80-82 file write is gated. | Coupling: shares the Podex.Debug=$true default (server.psd1:39) with audit-codebase-analysis-1783691796-unauth-debug-routes and audit-codebase-analysis-1783691802-show-exceptions-disclosure — coordinate scheduling (if Debug defaults to $false first, the file-write urgency drops). | Caveat: edits api/crud/get.ps1, which may be substantially rewritten by audit-codebase-analysis-1783691795-data-model-mismatch; sequence after the salvage-vs-rewrite decision. | Resolution 2026-07-10: removed the unconditional `Write-FormattedLog -tag 'debug' -log ($response | ConvertTo-Json -Depth 5 -Compress)` and the Podex.Debug-gated `New-Item -Path $PSScriptRoot ... $($WebEvent.Method).json` block from api/crud/get.ps1. The route no longer serializes the full response on the hot path and writes no artifact into the source tree under any config. Response object and all response-writing branches (200/204/400/500, rows/tags/paging fields) untouched; `npm test` 50/0.",
+	"createdAt": "2026-07-10T14:11:34.000Z",
+	"updatedAt": "2026-07-10T17:32:46.805Z",
+	"approval": {
+		"approvedAt": "2026-07-10T15:05:26.611Z",
+		"decision": null,
+		"decisionRequired": false,
+		"source": "web-ui"
+	}
+}

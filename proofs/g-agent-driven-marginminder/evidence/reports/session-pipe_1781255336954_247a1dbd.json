@@ -1,0 +1,20 @@
+{
+	"completedAt": 1781256248095,
+	"durationMs": 911141,
+	"recipeId": "ingredient:consolidate-features",
+	"recipeName": "Feature Consolidation Command",
+	"sessionId": "pipe_1781255336954_247a1dbd",
+	"startedAt": 1781255336954,
+	"status": "failed",
+	"steps": [
+		{
+			"depth": 0,
+			"durationMs": 911128,
+			"errorMessage": "Managed step had no associated run id to re-attach to.",
+			"name": "Feature Consolidation Command",
+			"runId": null,
+			"status": "failed",
+			"stepType": "ingredient"
+		}
+	]
+}

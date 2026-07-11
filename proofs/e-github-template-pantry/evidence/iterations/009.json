@@ -1,0 +1,81 @@
+{
+	"durationMs": 71557,
+	"endedAt": "2026-07-10T14:24:22.545Z",
+	"iteration": 0,
+	"runId": "run_1783693389985_97c08a76",
+	"snapshotKey": "claude-code/directive/directive/none",
+	"startedAt": "2026-07-10T14:23:10.988Z",
+	"summary": "directive run finished with exit code 0",
+	"timeToFirstEventMs": 6619,
+	"exitCode": 0,
+	"idleWarningTimestamps": [],
+	"promptChars": 36628,
+	"backend": "claude-code",
+	"executionMode": "single_agent",
+	"mode": "directive",
+	"model": "claude-opus-4-8",
+	"phase": "directive",
+	"provider": null,
+	"reasoningEffort": "medium",
+	"allowedFeatureIds": [],
+	"commands": [
+		"ls -la .aidd/ && echo \"---FEATURES---\" && ls .aidd/features/ 2>/dev/null || echo \"no features dir\"",
+		"for d in .aidd/features/*/; do echo \"=== $d ===\"; cat \"$d/feature.json\" 2>/dev/null | head -c 2000; echo; echo; done",
+		"echo \"=== spernakit_version check ===\"; grep -rl \"spernakit_version\" .aidd/features/ 2>/dev/null || echo \"none\"; echo \"=== status counts ===\"; grep -rh '\"status\"' .aidd/features/*/feature.json | sort | uniq -c; echo \"=== roadmap.json exists? ===\"; ls -la .aidd/roadmap.json 2>/dev/null || echo \"NO roadmap.json\"; echo \"=== screen-map ===\"; ls -la .aidd/screen-map.md 2>/dev/null || echo \"NO screen-map.md\"",
+		"git add .aidd/CHANGELOG.md && git commit -m \"chore(features): record no-op feature consolidation run\n\nCo-Authored-By: Claude Opus 4.8 <<REDACTED_EMAIL>>\" && echo \"--- remaining dirty ---\" && git status --short | head -30"
+	],
+	"commitsCreated": [
+		{
+			"hash": "29e1f69c1ecd17baffa4a827582b3e40797c17ff",
+			"subject": "chore(features): record no-op feature consolidation run"
+		}
+	],
+	"completedFeatures": [],
+	"detailsSummary": {
+		"bashCommandsRun": 4,
+		"finalChecks": {},
+		"hasBuildErrors": false,
+		"hasLintErrors": false,
+		"hasTypeErrors": false,
+		"totalToolCalls": 6,
+		"uniqueFilesCreated": 0,
+		"uniqueFilesEdited": 1,
+		"uniqueFilesRead": 1
+	},
+	"errors": [],
+	"extraCompletedFeatures": [],
+	"filesCreated": [],
+	"filesEdited": ["D:\\applications\\pantry\\.aidd\\CHANGELOG.md"],
+	"filesRead": ["D:\\applications\\pantry\\.aidd\\CHANGELOG.md"],
+	"metrics": {
+		"cachedTokens": 0,
+		"costUsd": 0.6527950000000001,
+		"errorCount": 0,
+		"errorReasons": [],
+		"filesCreatedCount": 0,
+		"filesEditedCount": 1,
+		"idleWarningCount": 0,
+		"inputTokens": 20348,
+		"outputTokens": 4227,
+		"rateLimitCount": 0,
+		"reasoningTokens": 0,
+		"toolBreakdown": {
+			"bash": 4,
+			"read": 1,
+			"edit": 1
+		},
+		"toolCallCount": 6
+	},
+	"outcome": {
+		"exitCode": 0,
+		"status": "success"
+	},
+	"scopeOverrun": false,
+	"selectedFeatures": [],
+	"unacceptedCompletedFeatures": [],
+	"commitsCreatedCount": 1,
+	"filesCreatedCount": 0,
+	"filesEditedCount": 1,
+	"residualDirtyFilesCount": 59,
+	"stopRequested": false
+}

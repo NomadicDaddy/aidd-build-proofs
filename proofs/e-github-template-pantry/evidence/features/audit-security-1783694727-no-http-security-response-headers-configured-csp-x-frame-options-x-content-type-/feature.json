@@ -1,0 +1,23 @@
+{
+	"id": "audit-security-1783694727-no-http-security-response-headers-configured-csp-x-frame-options-x-content-type-",
+	"title": "No HTTP security response headers configured (CSP, X-Frame-Options, X-Content-Type-Options, Referrer-Policy)",
+	"description": "Verified: podex.ps1 (whole file) and server.psd1 (whole file) — `grep -rn 'Set-PodeSecurity|Add-PodeSecurityHeader|Content-Security|X-Frame|X-Content-Type' --include=*.ps1 --include=*.psd1` returns zero matches. Pode does not emit these headers by default, so every response (HTML views and JSON API) ships with no CSP, no clickjacking protection (X-Frame-Options/frame-ancestors), no MIME-sniffing protection (X-Content-Type-Options), and no Referrer-Policy. The app renders user-supplied item/description content and serves the htmx demo with no defense-in-depth against XSS or framing.",
+	"category": "Audit",
+	"dependencies": [],
+	"status": "completed",
+	"passes": true,
+	"notes": "Resolved by emitting baseline security response headers on every Pode response. Inside podex.ps1's Start-PodeServer scriptblock (before the static route) added: Set-PodeSecurityContentTypeOptions (X-Content-Type-Options: nosniff), Set-PodeSecurityFrameOptions -Type Deny (X-Frame-Options: DENY), Set-PodeSecurityReferrerPolicy -Type No-Referrer, and Set-PodeSecurityContentSecurityPolicy with a first-party policy (default/script/img/connect 'self'; object 'none'; base-uri/form-action 'self'; frame-ancestors 'none'; style 'self' 'unsafe-inline' only because htmx injects an inline indicator <style>). HSTS is emitted only when the HTTPS endpoint is active. To keep script-src strict 'self' (no 'unsafe-inline' for scripts), the former inline <script> in views/layouts/main.pode was moved to a version-controlled external file public/app/pantry.js (public/js is a gitignored build-output dir). Verified the exact header block against live Pode 2.13.4 via curl on an isolated port: all four headers plus the full CSP are emitted as intended. Regression pinned by a new Pester Describe ('HTTP security response headers are configured') asserting the cmdlet calls, the CSP policy, HSTS gating, and that the layout carries no inline script and loads /public/app/pantry.js. npm test 76/0, eslint/prettier clean on changed files.",
+	"priority": 3,
+	"auditSource": "SECURITY",
+	"affectedFiles": ["podex.ps1", "server.psd1"],
+	"auditSeverity": "Medium",
+	"createdAt": "2026-07-10T14:45:27.388Z",
+	"spec": "Detailed remediation steps:\n1. In podex.ps1, inside the Start-PodeServer scriptblock (after Add-PodeEndpoint, ~line 67), call `Set-PodeSecurity -Type Simple` (or build an explicit policy) to emit baseline headers, then tighten with `Add-PodeSecurityHeader` / `Set-PodeSecurity` directives: `X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY` (or CSP `frame-ancestors 'none'`), `Referrer-Policy: no-referrer`, and a `Content-Security-Policy` scoped to `/public` scripts/styles (allow 'self'; include 'unsafe-inline' only where hyperscript/mustache inline scripts require it, and document why).\n2. When HttpsEnabled is true (server.psd1 PodeCfg), add HSTS (`Strict-Transport-Security: max-age=...; includeSubDomains`).\n3. Verify with a Pester test in tests/ (or a manual `Invoke-WebRequest` against the running server) asserting the headers are present on both `/` and `/api/crud` responses.\n\nIMPORTANT: After resolving this finding, locate the feature.json file(s) in .aidd/features/ whose spec originally produced the code or pattern that caused this audit finding. Update those feature.json spec(s) to prevent this issue from being reintroduced during a feature-based rebuild.",
+	"updatedAt": "2026-07-10T18:52:44.540Z",
+	"approval": {
+		"approvedAt": "2026-07-10T15:05:26.113Z",
+		"decision": null,
+		"decisionRequired": false,
+		"source": "web-ui"
+	}
+}

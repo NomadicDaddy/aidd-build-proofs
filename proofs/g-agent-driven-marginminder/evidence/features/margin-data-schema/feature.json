@@ -1,0 +1,18 @@
+{
+	"affectedFiles": [],
+	"category": "Core",
+	"createdAt": "2026-06-01T20:08:14.542Z",
+	"dependencies": [],
+	"description": "Drizzle schema and migrations for Margin Minder cost catalog and quote scenario entities.",
+	"id": "margin-data-schema",
+	"justFinishedAt": null,
+	"notes": [
+		"Required by .aidd/spec.md; no cost_catalog_items, quote_scenarios, scenario_line_items, scenario_labor_entries, or scenario_fixed_costs schema files were found during onboarding."
+	],
+	"passes": true,
+	"priority": 1,
+	"spec": "1. Add SQLite and PostgreSQL Drizzle schema files for cost_catalog_items.\n2. Add SQLite and PostgreSQL Drizzle schema files for quote_scenarios.\n3. Add SQLite and PostgreSQL Drizzle schema files for scenario_line_items.\n4. Add SQLite and PostgreSQL Drizzle schema files for scenario_labor_entries.\n5. Add SQLite and PostgreSQL Drizzle schema files for scenario_fixed_costs.\n6. Use snake_case database names and camelCase TypeScript fields.\n7. Add explicit foreign keys from scenario child tables to quote_scenarios.\n8. Add indexes for scenario_id, active catalog items, status, and updated_at where appropriate.\n9. Export every schema from backend/src/db/schema/index.ts and backend/src/db/schema-pg/index.ts.\n10. Generate and apply aligned migrations without placing database files outside data/.",
+	"status": "completed",
+	"title": "Margin Data Schema",
+	"updatedAt": "2026-06-01T22:19:20.414Z"
+}

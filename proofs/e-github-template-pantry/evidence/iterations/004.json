@@ -1,0 +1,96 @@
+{
+	"durationMs": 279387,
+	"endedAt": "2026-07-10T14:13:38.369Z",
+	"iteration": 0,
+	"runId": "run_1783692537979_8a9166c4",
+	"snapshotKey": "claude-code/directive/directive/none",
+	"startedAt": "2026-07-10T14:08:58.982Z",
+	"summary": "directive run finished with exit code 0",
+	"timeToFirstEventMs": 7075,
+	"exitCode": 0,
+	"idleWarningTimestamps": [],
+	"promptChars": 48022,
+	"backend": "claude-code",
+	"executionMode": "single_agent",
+	"mode": "directive",
+	"model": "claude-opus-4-8",
+	"phase": "directive",
+	"provider": null,
+	"reasoningEffort": "medium",
+	"allowedFeatureIds": [],
+	"commands": [
+		"ls -la D:/applications/pantry/.aidd/ 2>/dev/null; echo \"---REPORTS---\"; ls -la D:/applications/pantry/.aidd/reports/ 2>/dev/null; echo \"---RESPONSES---\"; ls -la D:/applications/pantry/.aidd/responses/ 2>/dev/null; echo \"---FEATURES---\"; ls D:/applications/pantry/.aidd/features/ 2>/dev/null",
+		"echo \"===AUDIT-REPORTS===\"; ls -la D:/applications/pantry/.aidd/audit-reports/ 2>/dev/null; echo \"===REPORTS SESSION===\"; cat D:/applications/pantry/.aidd/reports/session-pipe_1783691792865_1abddac2.json 2>/dev/null; echo; echo \"===CHANGELOG===\"; cat D:/applications/pantry/.aidd/CHANGELOG.md",
+		"cd D:/applications/pantry; for f in .aidd/features/audit-codebase-analysis-*/feature.json; do echo \"=== $f ===\"; cat \"$f\"; echo; done",
+		"cd D:/applications/pantry; echo \"=== -save usages ===\"; grep -rn \"\\-save\" --include=*.ps1 . 2>/dev/null | grep -v \"podex.ps1:5\\|podex.ps1:31\" ; echo \"=== roadmap.json ===\"; ls -la .aidd/roadmap.json 2>/dev/null || echo \"NO roadmap.json\"; echo \"=== existing remediation-* features ===\"; ls .aidd/features/ | grep remediation || echo \"none\"; echo \"=== package.json name/version ===\"; grep -E '\"(name|version|spernakit_version)\"' package.json",
+		"date -u +\"%Y-%m-%dT%H:%M:%S.000Z\"",
+		"cd D:/applications/pantry; echo \"=== JSON validity + id check ===\"; for d in .aidd/features/remediation-20260710-*; do f=\"$d/feature.json\"; id=$(bunx --no-install node -e \"process.stdout.write(JSON.parse(require('fs').readFileSync('$f','utf8')).id)\" 2>/dev/null || node -e \"process.stdout.write(JSON.parse(require('fs').readFileSync('$f','utf8')).id)\" 2>/dev/null); echo \"$f -> parsed id: $id\"; done; echo \"=== dir==id sanity + no orphans ===\"; for d in .aidd/features/remediation-20260710-*; do [ -f \"$d/feature.json\" ] && echo \"OK  $(basename $d)\" || echo \"ORPHAN $d\"; done; echo \"=== collision check (all feature ids) ===\"; grep -rh '\"id\":' .aidd/features/*/feature.json | sort | uniq -d",
+		"cd D:/applications/pantry && git add .aidd/features/remediation-20260710-paging-input-validation/feature.json .aidd/features/remediation-20260710-debug-hotpath-writes/feature.json .aidd/features/remediation-20260710-logger-path-traversal/feature.json .aidd/CHANGELOG.md && git status --short -- .aidd/features/remediation-20260710-* .aidd/CHANGELOG.md",
+		"cd D:/applications/pantry && git commit -m \"docs(aidd): triage codebase-analysis report into 3 remediation features\n\nRan doc2feature over CODEBASE_ANALYSIS-2026-07-10.md: verified 14 claims\nagainst the live code, deduped 9 against existing audit-codebase-analysis-*\nentries, and created remediation features for 3 confirmed findings not\npreviously captured (paging input validation -> 400, debug hot-path file\nwrites, and the latent -save logger path-traversal primitive).\n\nCo-Authored-By: Claude Opus 4.8 <<REDACTED_EMAIL>>\" 2>&1 | tail -20"
+	],
+	"commitsCreated": [
+		{
+			"hash": "a6151516881a547cd7b2a4efa6900d1bebab71fe",
+			"subject": "docs(aidd): triage codebase-analysis report into 3 remediation features"
+		}
+	],
+	"completedFeatures": [],
+	"detailsSummary": {
+		"bashCommandsRun": 8,
+		"finalChecks": {},
+		"hasBuildErrors": false,
+		"hasLintErrors": false,
+		"hasTypeErrors": false,
+		"totalToolCalls": 18,
+		"uniqueFilesCreated": 3,
+		"uniqueFilesEdited": 1,
+		"uniqueFilesRead": 5
+	},
+	"errors": [],
+	"extraCompletedFeatures": [],
+	"filesCreated": [
+		"D:/applications/pantry/.aidd/features/remediation-20260710-paging-input-validation/feature.json",
+		"D:/applications/pantry/.aidd/features/remediation-20260710-debug-hotpath-writes/feature.json",
+		"D:/applications/pantry/.aidd/features/remediation-20260710-logger-path-traversal/feature.json"
+	],
+	"filesEdited": ["D:/applications/pantry/.aidd/CHANGELOG.md"],
+	"filesRead": [
+		"D:/applications/pantry/.aidd/response-review.md",
+		"D:/applications/pantry/.aidd/audit-reports/CODEBASE_ANALYSIS-2026-07-10.md",
+		"D:/applications/pantry/podex.ps1",
+		"D:/applications/pantry/api/crud/get.ps1",
+		"D:/applications/pantry/.aidd/CHANGELOG.md"
+	],
+	"metrics": {
+		"cachedTokens": 0,
+		"costUsd": 1.7812195000000002,
+		"errorCount": 0,
+		"errorReasons": [],
+		"filesCreatedCount": 3,
+		"filesEditedCount": 1,
+		"idleWarningCount": 0,
+		"inputTokens": 26617,
+		"outputTokens": 18439,
+		"rateLimitCount": 0,
+		"reasoningTokens": 0,
+		"toolBreakdown": {
+			"bash": 8,
+			"read": 5,
+			"write": 3,
+			"edit": 2
+		},
+		"toolCallCount": 18
+	},
+	"outcome": {
+		"exitCode": 0,
+		"status": "success"
+	},
+	"scopeOverrun": false,
+	"selectedFeatures": [],
+	"unacceptedCompletedFeatures": [],
+	"commitsCreatedCount": 1,
+	"filesCreatedCount": 3,
+	"filesEditedCount": 1,
+	"residualDirtyFilesCount": 49,
+	"stopRequested": false
+}

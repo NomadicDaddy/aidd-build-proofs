@@ -1,0 +1,21 @@
+{
+	"id": "remediation-20260710-paging-input-validation",
+	"title": "Remediation: validate paging inputs instead of a hard int cast",
+	"description": "api/crud/get.ps1:13-14 hard-casts page/pageSize with [int](...) inside the try block; a non-numeric value throws and is caught at get.ps1:100, returning HTTP 500 instead of a validated 400. Paging inputs must be parsed defensively and rejected with a 400 on failure.",
+	"category": "Backend",
+	"dependencies": [],
+	"status": "completed",
+	"passes": true,
+	"priority": 3,
+	"spec": "1. Verify api/crud/get.ps1 parses page and pageSize with [int]::TryParse (or equivalent) rather than the hard [int](...) cast at get.ps1:13-14.\n2. Verify a request with a non-numeric page or pageSize (e.g. page=abc) returns HTTP 400 with a validation message, not HTTP 500 'Internal server error'.\n3. Verify page and pageSize are clamped to sane bounds (page >= 1, pageSize between 1 and a defined maximum) before computing $offset.\n4. Verify the GET /api/crud happy path (omitted or valid numeric paging params) still returns HTTP 200 with correct paging.\n5. Verify a Pester test in tests/*.ps1 covers both the invalid-input 400 case and the valid-input 200 case.",
+	"affectedFiles": ["api/crud/get.ps1"],
+	"notes": "Source: CODEBASE_ANALYSIS-2026-07-10.md | Claims: claim-fragile-int-coercion (Quality/Tech Debt [Medium], Recommendation #9) | Verified: 2026-07-10 | Not covered by existing audit-codebase-analysis-* features. | Coupling: mutates the same api/crud/get.ps1 paging block (lines 13-18) and shares tests/*.ps1 with audit-codebase-analysis-1783691797-pagination-total-count (which fixes the count-query at get.ps1:48) — distinct defects, but sequence them to avoid an edit collision. | Caveat: get.ps1 may be superseded by audit-codebase-analysis-1783691795-data-model-mismatch; sequence after the salvage-vs-rewrite decision. | Resolution (2026-07-10): extracted a pure, storage-free helper Resolve-CrudPaging (api/_lib/crud-paging.ps1) that parses page/pageSize with [int]::TryParse — blank falls back to defaults (1 / 10), non-numeric returns IsValid=$false with a validation message, and valid values are clamped (page >= 1, pageSize in [1,100]) before Offset is computed. api/crud/get.ps1 now dot-sources it and, on IsValid=$false, returns HTTP 400 with the message and short-circuits before any DB access (previously the [int] cast threw and was caught as a 500). Added 6 Pester tests in tests/pantry.Tests.ps1 (50 pass) covering the invalid->400 and valid/omitted->200 decisions plus clamping. Verified end-to-end against a self-owned short-lived Pode server on port 8434 (never touching the user's 8433) with a seeded feature/tag DB: page=abc -> 400 {\"message\":\"page must be a whole number\"}, pageSize=xyz -> 400, omitted -> 200, page=1&pageSize=2 -> 200.",
+	"createdAt": "2026-07-10T14:11:34.000Z",
+	"updatedAt": "2026-07-10T17:26:52.821Z",
+	"approval": {
+		"approvedAt": "2026-07-10T15:05:27.139Z",
+		"decision": null,
+		"decisionRequired": false,
+		"source": "web-ui"
+	}
+}

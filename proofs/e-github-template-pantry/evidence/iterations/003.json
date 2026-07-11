@@ -1,0 +1,88 @@
+{
+	"durationMs": 94151,
+	"endedAt": "2026-07-10T14:08:48.348Z",
+	"iteration": 0,
+	"runId": "run_1783692433231_5c7c7352",
+	"snapshotKey": "claude-code/directive/directive/none",
+	"startedAt": "2026-07-10T14:07:14.197Z",
+	"summary": "directive run finished with exit code 0",
+	"timeToFirstEventMs": 3692,
+	"exitCode": 0,
+	"idleWarningTimestamps": [],
+	"promptChars": 18126,
+	"backend": "claude-code",
+	"executionMode": "single_agent",
+	"mode": "directive",
+	"model": "claude-opus-4-8",
+	"phase": "directive",
+	"provider": null,
+	"reasoningEffort": "medium",
+	"allowedFeatureIds": [],
+	"commands": [
+		"ls -la .aidd/ && echo \"---RESPONSES DIR---\" && ls -la .aidd/responses/ 2>/dev/null; echo \"---FILES---\" && ls .aidd/questions.md .aidd/responses.md .aidd/response-review.md 2>/dev/null",
+		"echo \"===grep responses===\" && grep -rli \"response\" .aidd/ 2>/dev/null; echo \"===answers/interview files anywhere===\" && find . -type f \\( -iname \"*response*\" -o -iname \"*answer*\" -o -iname \"*interview*\" \\) 2>/dev/null | grep -v node_modules; echo \"===questions.md tail check for inline answers===\"",
+		"echo \"===active run===\" && cat \".aidd/active-runs/run_1783692433231_5c7c7352.json\"; echo; echo \"===iterations 002 json===\"; cat \".aidd/iterations/002.json\" 2>/dev/null | head -c 2000",
+		"echo \"===reports dir===\"; ls -la .aidd/reports/ 2>/dev/null; echo \"===any md with answers===\"; ls -la .aidd/*.md; echo \"===runs.jsonl tail===\"; tail -3 .aidd/runs.jsonl",
+		"cd D:/applications/pantry && git add .aidd/response-review.md .aidd/CHANGELOG.md && git commit -m \"docs(aidd): add interview response review (no responses submitted)\n\nCo-Authored-By: Claude Opus 4.8 <<REDACTED_EMAIL>>\" 2>&1 | tail -15"
+	],
+	"commitsCreated": [
+		{
+			"hash": "dcbdb8dba985713706f9597824ebeff44f223deb",
+			"subject": "docs(aidd): add interview response review (no responses submitted)"
+		}
+	],
+	"completedFeatures": [],
+	"detailsSummary": {
+		"bashCommandsRun": 5,
+		"finalChecks": {},
+		"hasBuildErrors": false,
+		"hasLintErrors": false,
+		"hasTypeErrors": false,
+		"totalToolCalls": 11,
+		"uniqueFilesCreated": 1,
+		"uniqueFilesEdited": 1,
+		"uniqueFilesRead": 4
+	},
+	"errors": [],
+	"extraCompletedFeatures": [],
+	"filesCreated": ["D:\\applications\\pantry\\.aidd\\response-review.md"],
+	"filesEdited": ["D:\\applications\\pantry\\.aidd\\CHANGELOG.md"],
+	"filesRead": [
+		"D:\\applications\\pantry\\.aidd\\questions.md",
+		"D:\\applications\\pantry\\.aidd\\spec.md",
+		"D:\\applications\\pantry\\.aidd\\project.md",
+		"D:\\applications\\pantry\\.aidd\\CHANGELOG.md"
+	],
+	"metrics": {
+		"cachedTokens": 0,
+		"costUsd": 0.708986,
+		"errorCount": 0,
+		"errorReasons": [],
+		"filesCreatedCount": 1,
+		"filesEditedCount": 1,
+		"idleWarningCount": 0,
+		"inputTokens": 27426,
+		"outputTokens": 5460,
+		"rateLimitCount": 0,
+		"reasoningTokens": 0,
+		"toolBreakdown": {
+			"bash": 5,
+			"read": 4,
+			"write": 1,
+			"edit": 1
+		},
+		"toolCallCount": 11
+	},
+	"outcome": {
+		"exitCode": 0,
+		"status": "success"
+	},
+	"scopeOverrun": false,
+	"selectedFeatures": [],
+	"unacceptedCompletedFeatures": [],
+	"commitsCreatedCount": 1,
+	"filesCreatedCount": 1,
+	"filesEditedCount": 1,
+	"residualDirtyFilesCount": 47,
+	"stopRequested": false
+}

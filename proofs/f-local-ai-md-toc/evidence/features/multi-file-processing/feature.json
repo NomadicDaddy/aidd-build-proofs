@@ -1,0 +1,13 @@
+{
+	"category": "Core",
+	"createdAt": "2026-01-09T14:35:00.000Z",
+	"dependencies": ["heading-parser-detection"],
+	"description": "Locate and process files based on multiple provided file paths as CLI arguments.",
+	"id": "multi-file-processing",
+	"passes": false,
+	"priority": 5,
+	"spec": "1. Accept an array of file paths from the CLI.\n2. Iterate over each path independently.\n3. For every file, execute the full parsing, slugging, and rendering sequence (Steps 1-4) for that specific file.",
+	"status": "backlog",
+	"title": "Processing multiple files in one command call",
+	"updatedAt": "2026-01-09T14:35:00.000Z"
+}

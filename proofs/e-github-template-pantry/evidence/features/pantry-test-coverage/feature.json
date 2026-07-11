@@ -1,0 +1,20 @@
+{
+	"id": "pantry-test-coverage",
+	"title": "Pantry feature test coverage (Pester)",
+	"description": "Pester test suite in tests/ covering the pantry features, keeping build/test entry points green",
+	"category": "Testing",
+	"dependencies": ["item-crud", "inventory-list-view", "category-filter-and-search", "low-stock-view", "expiring-soon-view", "quick-adjust-quantity", "csv-export"],
+	"status": "completed",
+	"passes": true,
+	"priority": 3,
+	"createdAt": "2026-07-10T15:10:00.000Z",
+	"justFinishedAt": null,
+	"spec": "1. Confirm a Pester suite exists under tests/*.ps1 (replacing the disabled tests.ps1.old) and runs via `npm test` / the repo's test entry point.\n2. Add tests for the data-access layer: create/read/update/delete/list round-trips and persistence.\n3. Add tests for item CRUD routes: successful add, edit, and delete return the expected fragments/status codes.\n4. Add tests for server-side validation: missing name, negative quantity, non-numeric quantity, and invalid date each return a validation error (not 500) and persist nothing.\n5. Add tests for the inventory list: grouping by category, name sort, and empty state.\n6. Add tests for category filter + case-insensitive search over name and notes, including combined filters and no-match.\n7. Add tests for the low-stock view: threshold boundary (quantity == threshold is low-stock) and nav count.\n8. Add tests for the expiring-soon view: 7-day boundary, expired vs expiring ordering, and nav count.\n9. Add tests for quick-adjust: increment, decrement, and the 0 floor, with single-row persistence.\n10. Add tests for CSV export: header row, proper quoting/escaping of commas and quotes, and empty-inventory header-only output.\n11. Confirm the full suite passes and the repo's build/test scripts stay green.",
+	"updatedAt": "2026-07-10T17:22:17.302Z",
+	"approval": {
+		"approvedAt": "2026-07-10T15:17:40.188Z",
+		"decision": null,
+		"decisionRequired": false,
+		"source": "web-ui"
+	}
+}

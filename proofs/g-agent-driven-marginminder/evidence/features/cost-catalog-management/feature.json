@@ -1,0 +1,28 @@
+{
+	"affectedFiles": [
+		"backend/src/routes/cost-catalog.ts",
+		"backend/src/services/costCatalogService.ts",
+		"frontend/src/api/costCatalog.ts",
+		"frontend/src/api/types/costCatalog.ts",
+		"frontend/src/components/layout/navConfig.tsx",
+		"frontend/src/pages/cost-catalog/CostCatalogPage.tsx",
+		"frontend/src/routes.tsx",
+		"frontend/src/routes/lazyPages.ts"
+	],
+	"category": "Core",
+	"createdAt": "2026-06-01T20:08:14.542Z",
+	"dependencies": ["margin-data-schema"],
+	"description": "Reusable cost catalog CRUD or archive workflow for labor, material, subcontractor, overhead, fee, and other cost assumptions.",
+	"id": "cost-catalog-management",
+	"justFinishedAt": null,
+	"notes": [
+		"Required by .aidd/spec.md; no /api/v1/cost-catalog route, catalog service, frontend API module, or /cost-catalog page was found during onboarding.",
+		"Part 10 smoke remediation on 2026-06-02 made the create dialog trigger and archived-items switch usable from the existing /cost-catalog page while preserving the existing API wiring."
+	],
+	"passes": true,
+	"priority": 1,
+	"spec": "1. Add cost catalog backend service methods for list, create, update, and archive.\n2. Add TypeBox validation for catalog name, category, unit, unit cost, markup, taxable flag, notes, and active status.\n3. Reject missing names.\n4. Reject negative unit costs.\n5. Reject negative markup percentages.\n6. Keep archived catalog items available to existing scenarios.\n7. Exclude archived catalog items from default suggestions.\n8. Add frontend API types independently under frontend/src/api/types/.\n9. Add a searchable /cost-catalog table with create, edit, and archive actions — decompose the page into separate component files under a components/ subdirectory (e.g., CostCatalogDialog.tsx for create/edit form, CostCatalogTable.tsx for table display). Keep CostCatalogPage.tsx as the page-level orchestrator under 300 lines.\n10. Show save, archive, and error feedback through existing toast patterns.\n11. Use Intl.NumberFormat for all percentage and currency formatting — do NOT use inline `.toFixed(N)%` patterns. Call the shared formatPercent() helper from frontend/src/lib/pricingFormatters.ts.\n12. Keep backend route files under 300 lines. Extract TypeBox schemas and validation helpers into co-located schemas.ts files rather than inlining them in route handlers. Maintain Elysia type chain — do NOT extract into controller classes.",
+	"status": "completed",
+	"title": "Cost Catalog Management",
+	"updatedAt": "2026-06-11T00:00:00.000Z"
+}

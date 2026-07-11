@@ -1,0 +1,129 @@
+{
+  "durationMs": 76751,
+  "endedAt": "2026-07-11T02:28:52.036Z",
+  "iteration": 0,
+  "runId": "run_1783736854238_f050f1a2",
+  "snapshotKey": "lmstudio/coding/coding/none",
+  "startedAt": "2026-07-11T02:27:35.285Z",
+  "summary": "coding finished with exit code 0; 13 incomplete feature(s) remain",
+  "timeToFirstEventMs": 7212,
+  "exitCode": 0,
+  "idleWarningTimestamps": [],
+  "promptChars": 53227,
+  "backend": "lmstudio",
+  "executionMode": "single_agent",
+  "mode": "coding",
+  "model": "google/gemma-4-e4b",
+  "phase": "coding",
+  "provider": "lmstudio",
+  "reasoningEffort": "high",
+  "allowedFeatureIds": [
+    "heading-parser-detection"
+  ],
+  "commands": [
+    "git status",
+    "git add src/parser.ts src/renderer.ts src/slugger.ts .aidd/CHANGELOG.md .aidd/features/heading-parser-detection/feature.json src/cli.ts",
+    "git add src/parser.ts src/renderer.ts src/slugger.ts .aidd/CHANGELOG.md .aidd/features/heading-parser-detection/feature.json src/cli.ts",
+    "git commit -m \"chore(scaffold): scaffold core modules and initial feature metadata for md-toc\"",
+    "bun run lint && bun run typecheck",
+    "bun run build && bun run lint --fix || true && bun typecheck",
+    "bun run format && bun run typecheck",
+    "bun run format && bun run typecheck"
+  ],
+  "commitsCreated": [
+    {
+      "hash": "acbbf5ff38c8bb0907274735271f7afb12bce6e8",
+      "subject": "chore(scaffold): scaffold core modules and initial feature metadata for md-toc"
+    }
+  ],
+  "completedFeatures": [],
+  "detailsSummary": {
+    "bashCommandsRun": 8,
+    "finalChecks": {
+      "typecheck": "failed",
+      "build": "failed"
+    },
+    "hasBuildErrors": false,
+    "hasLintErrors": true,
+    "hasTypeErrors": true,
+    "totalToolCalls": 25,
+    "uniqueFilesCreated": 1,
+    "uniqueFilesEdited": 2,
+    "uniqueFilesRead": 7
+  },
+  "errors": [
+    {
+      "message": "STDERR:\nerror: Script not found \"lint\"\n\n[exit code: 1]",
+      "type": "lint"
+    },
+    {
+      "message": "STDERR:\n$ bun run build:tsc\nerror: Script not found \"build:tsc\"\nerror: script \"build\" exited with code 1\nerror: Script not found \"typecheck\"\n\n[exit code: 1]",
+      "type": "typescript"
+    },
+    {
+      "message": "src/cli.ts 156ms\nsrc/parser.ts 10ms\nsrc/renderer.ts 3ms\nsrc/slugger.ts 6ms\nsrc/types/common.ts 3ms\nerror TS6059: File 'D:/applications/md-toc/scripts/setup.ts' is not under 'rootDir' 'D:/applications/md-toc/src'. 'rootDir' is expected to contain all source files.\r\n  The file is in the program because:\r\n    Matched by default include pattern '**/*'\r\n  File is CommonJS module because 'D:/applications/md-toc/package.json' does not have field \"type\"\r\n\nSTDERR:\n$ prettier --write \"src/**/*.ts\"\n$ tsc -",
+      "type": "typescript"
+    },
+    {
+      "message": "\u001b[90msrc/cli.ts\u001b[39m 94ms (unchanged)\n\u001b[90msrc/parser.ts\u001b[39m 11ms (unchanged)\n\u001b[90msrc/renderer.ts\u001b[39m 4ms (unchanged)\n\u001b[90msrc/slugger.ts\u001b[39m 6ms (unchanged)\n\u001b[90msrc/types/common.ts\u001b[39m 3ms (unchanged)\nerror TS6059: File 'D:/applications/md-toc/scripts/setup.ts' is not under 'rootDir' 'D:/applications/md-toc/src'. 'rootDir' is expected to contain all source files.\r\n  The file is in the program because:\r\n    Matched by default include pattern '**/*'\r\n  File is CommonJS module because 'D:/ap",
+      "type": "typescript"
+    }
+  ],
+  "extraCompletedFeatures": [],
+  "filesCreated": [
+    "package.json"
+  ],
+  "filesEdited": [
+    "package.json",
+    ".aidd/features/heading-parser-detection/feature.json"
+  ],
+  "filesRead": [
+    ".aidd/project.md",
+    ".aidd/spec.md",
+    "package.json",
+    "tsconfig.json",
+    "src/parser.ts",
+    "src/types/common.ts",
+    "src/slugger.ts"
+  ],
+  "metrics": {
+    "cachedTokens": 0,
+    "costUsd": 0,
+    "errorCount": 0,
+    "errorReasons": [],
+    "filesCreatedCount": 1,
+    "filesEditedCount": 2,
+    "idleWarningCount": 0,
+    "inputTokens": 431030,
+    "outputTokens": 6296,
+    "rateLimitCount": 0,
+    "reasoningTokens": 2794,
+    "toolBreakdown": {
+      "list_directory": 4,
+      "read": 8,
+      "bash": 8,
+      "edit": 3,
+      "write": 2
+    },
+    "toolCallCount": 25
+  },
+  "outcome": {
+    "exitCode": 0,
+    "status": "success"
+  },
+  "scopeOverrun": false,
+  "selectedFeatures": [],
+  "unacceptedCompletedFeatures": [],
+  "featureSlug": "heading-parser-detection",
+  "featureDescription": "Heading detection and level parsing",
+  "commitsCreatedCount": 1,
+  "filesCreatedCount": 1,
+  "filesEditedCount": 2,
+  "residualDirtyFilesCount": 7,
+  "stopRequested": false,
+  "completedFeature": null,
+  "eligibleFeatures": 6,
+  "remainingDependencyBlockedFeatures": 7,
+  "remainingFeatures": 13,
+  "remainingPendingApproval": 0
+}

@@ -1,0 +1,20 @@
+{
+	"id": "csv-export",
+	"title": "CSV export endpoint",
+	"description": "Endpoint that downloads the full inventory as CSV with proper headers and quoting",
+	"category": "Core",
+	"dependencies": ["item-model-and-storage"],
+	"status": "completed",
+	"passes": true,
+	"priority": 3,
+	"createdAt": "2026-07-10T15:10:00.000Z",
+	"justFinishedAt": null,
+	"spec": "1. Request the CSV export endpoint.\n2. Confirm the response sets a text/csv content type and a Content-Disposition attachment filename so the browser downloads a file.\n3. Confirm the CSV includes a header row with the item fields (name, category, quantity, unit, expiry, threshold, notes).\n4. Confirm every item currently in the store appears as a row.\n5. Confirm fields containing commas, quotes, or newlines are properly quoted/escaped so the CSV parses correctly.\n6. Confirm an empty inventory exports a header-only CSV (no crash).\n7. Confirm the export reads through the data-access layer and reflects the current data.",
+	"updatedAt": "2026-07-10T17:14:53.931Z",
+	"approval": {
+		"approvedAt": "2026-07-10T15:17:38.599Z",
+		"decision": null,
+		"decisionRequired": false,
+		"source": "web-ui"
+	}
+}

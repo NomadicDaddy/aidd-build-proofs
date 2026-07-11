@@ -1,0 +1,23 @@
+{
+	"id": "audit-codebase-analysis-1783691795-data-model-mismatch",
+	"title": "Data-model mismatch across schema, API, and view breaks CRUD end-to-end",
+	"description": "Verified: three layers describe three different data models. api/debug/init.sql:3-9 creates items(item, description, created_at, updated_at). api/crud/get.ps1:20 and post.ps1:48 query a 'feature' table (application, featureName, featureText, tag, rank) and get.ps1:50 queries a 'tag' table that no SQL file creates. views/components/crudmgr.pode:106-107 renders {{item}}/{{description}}. Against a freshly initialized DB, every /api/crud request throws (no feature/tag tables) -> HTTP 500; the demo cannot function end-to-end.",
+	"category": "Audit",
+	"dependencies": [],
+	"status": "completed",
+	"passes": true,
+	"notes": "Resolved by deleting the demo feature/tag domain (per .aidd/responses.md approval), not patching it. Removed api/crud/{get,post,put,delete}.ps1 and views/components/crudmgr(-new).pode, and rewrote api/debug/init.sql + clear.sql to the single canonical pantry items model (name, category, quantity, unit, expiry, threshold, notes, timestamps). That schema now matches Initialize-PantryStore in api/_lib/pantry-store.ps1 (the DAL, single source of truth) and the pantry views (inventory/lowstock/expiring). A repo-wide grep confirms no orphaned feature/tag table references remain. Pester (tests/pantry.Tests.ps1) initializes the store and asserts Get-PantryItems returns rows in order; 50/50 tests pass, 0 PSScriptAnalyzer errors.",
+	"priority": 1,
+	"auditSource": "codebase-analysis",
+	"affectedFiles": ["api/debug/init.sql", "api/debug/clear.sql", "api/crud/get.ps1", "api/crud/post.ps1", "api/crud/put.ps1", "views/components/crudmgr.pode"],
+	"auditSeverity": "Critical",
+	"createdAt": "2026-07-10T13:56:34.095Z",
+	"spec": "Detailed remediation steps:\n1. Choose the single canonical entity for this project - per .aidd/spec.md this is the pantry 'items' model (name, category, quantity, unit, expiry, notes, threshold, timestamps).\n2. Rewrite api/debug/init.sql to create exactly that table (and any lookup tables actually referenced).\n3. Rewrite api/crud/get.ps1, post.ps1, put.ps1, delete.ps1 to query the same table/columns.\n4. Update views/components/crudmgr.pode template tokens to match the API response fields.\n5. Remove all orphaned 'feature'/'tag' references OR the orphaned 'items' schema so exactly one model remains.\n6. Add a Pester test that initializes the DB, performs a GET, and asserts a 200 with rows.",
+	"updatedAt": "2026-07-10T17:44:09.399Z",
+	"approval": {
+		"approvedAt": "2026-07-10T15:05:24.052Z",
+		"decision": "Approved. Per .aidd/responses.md: the feature/tag demo domain is discarded � resolve this finding by deleting the demo code path as Pantry is modeled fresh, not by patching it.",
+		"decisionRequired": true,
+		"source": "web-ui"
+	}
+}

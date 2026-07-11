@@ -1,0 +1,10 @@
+{
+	"authMode": "rbac",
+	"bucket": "multi_user_local",
+	"criticality": "business_planning",
+	"dataSensitivity": "confidential",
+	"deployment": "local_lan",
+	"externalIntegrations": "none",
+	"source": "live_artifact_refresh",
+	"updatedAt": "2026-06-06T00:00:00.000Z"
+}

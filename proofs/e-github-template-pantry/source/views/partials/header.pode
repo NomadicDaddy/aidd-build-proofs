@@ -1,0 +1,31 @@
+<header>
+	<nav aria-label="Primary" class="sticky top-0 z-50 w-full bg-white bg-linear-to-r from-blue-500 to-purple-500 px-4 py-3 shadow-sm dark:bg-gray-800">
+		<div class="mx-auto flex max-w-(--breakpoint-xl) flex-wrap items-center justify-between">
+			<a href="/" class="flex items-center">
+				<img src="/public/images/favicon.svg" class="mr-3 h-8 sm:h-10" alt="adminware" />
+				<span class="self-center text-2xl font-bold whitespace-nowrap text-white hover:text-yellow-300 dark:text-white dark:hover:text-yellow-300">Podex</span>
+			</a>
+			<ul class="mt-4 flex flex-col font-medium lg:mt-0 lg:flex-row lg:space-x-8">
+				$(foreach ($page in @(
+						@{ Name = 'Home'; Label = 'Home'; Href = '/' },
+						@{ Name = 'Inventory'; Label = 'Inventory'; Href = '/inventory' },
+						@{ Name = 'LowStock'; Label = 'Low stock'; Href = '/lowstock'; Badge = "<span id='nav-lowstock-count' hx-get='/htmx/lowstock-count' hx-trigger='load, itemChanged from:body' hx-swap='outerHTML'></span>" },
+						@{ Name = 'Expiring'; Label = 'Expiring'; Href = '/expiring'; Badge = "<span id='nav-expiring-count' hx-get='/htmx/expiring-count' hx-trigger='load, itemChanged from:body' hx-swap='outerHTML'></span>" }
+					)) {
+					$activeLight = 'block rounded-sm bg-yellow-500 py-2 pl-3 pr-4 text-white lg:bg-transparent lg:p-0 lg:text-yellow-500'
+					$inactiveLight = 'block py-2 pl-3 pr-4 text-white hover:bg-gray-600 lg:border-0 lg:p-0 lg:hover:bg-transparent lg:hover:text-yellow-500'
+					$activeDark = 'dark:text-white'
+					$inactiveDark = 'dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
+					# The LowStock and Expiring links carry a self-updating count badge: an htmx span that
+					# fetches its count route on load and re-fetches on every body-level 'itemChanged'.
+					$badge = $page.Badge ? $page.Badge : ''
+					"<li>
+						<a href='$($page.Href ;)' class='$($data.PageName -eq $page.Name ? $activeLight : $inactiveLight) $($data.PageName -eq $page.Name ? $activeDark : $inactiveDark) inline-flex items-center lg:dark:hover:bg-transparent lg:dark:hover:text-white'>
+							$($page.Label ;)$($badge ;)
+						</a>
+					</li>"
+				} ;)
+			</ul>
+		</div>
+	</nav>
+</header>

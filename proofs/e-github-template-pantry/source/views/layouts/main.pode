@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Podex - PowerShell/Pode + htmx Framework for Building Web Applications" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="generator" content="Podex 0.1.2 using PowerShell $($PSVersionTable.'PSEdition' ;) $([string]$PSVersionTable.'PSVersion' ;)" />
+		<title>Podex - $($data.Title ;)</title>
+		<link rel="stylesheet" type="text/css" href="/public/css/output.css" />
+		<link rel="icon" type="image/svg+xml" href="/public/images/favicon.svg" />
+		<script src="/public/js/htmx.js"></script>
+		<script src="/public/js/debug.js"></script>
+		<script src="/public/js/client-side-templates.js"></script>
+		<script src="/public/js/json-enc.js"></script>
+		<script src="/public/js/mustache.js"></script>
+	</head>
+	<body class="flex min-h-screen flex-col bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200" hx-boost="true">
+		<div>$(Use-PodePartialView -Path 'partials/header' -Data @{ PageName = $data.PageName } ;)</div>
+		<div class="grow overflow-auto">
+			<main class="mx-auto max-w-(--breakpoint-lg) p-6">$(foreach($component in $data.Components) { Use-PodePartialView -Path "components/$component" -Data $data } ;)</main>
+		</div>
+		<div>$(Use-PodePartialView -Path 'partials/footer' ;)</div>
+		<!-- Client behaviours live in an external file (not inline) so the Content-Security-Policy can keep script-src 'self' (no 'unsafe-inline' for scripts). Served from tracked public/app (public/js is a gitignored build-output dir for vendored libs). See public/app/pantry.js and podex.ps1. -->
+		<script src="/public/app/pantry.js"></script>
+	</body>
+</html>

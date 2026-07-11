@@ -1,0 +1,23 @@
+{
+	"id": "audit-codebase-analysis-1783691800-spec-drift-unimplemented",
+	"title": "Pantry spec unimplemented; codebase is the stock Podex demo",
+	"description": "Verified: the repository ships the stock Podex feature/CRUD demo, not the pantry tracker in .aidd/spec.md. None of the specified capabilities exist: items with category/quantity/unit/expiry/threshold/notes (post.ps1 stores application/featureName/tag instead), inventory grouped by category, category+search filter, low-stock view, expiring-soon view, quick-adjust +/- buttons, CSV export, or the seed-data script. .aidd/project-structure.md is still an unfilled {placeholder} template.",
+	"category": "Audit",
+	"dependencies": ["audit-codebase-analysis-1783691795-data-model-mismatch"],
+	"status": "completed",
+	"passes": true,
+	"notes": "Resolved. The spec-drift finding predates the pantry build-out: the stock Podex feature/tag demo it describes was removed and Pantry modeled fresh. Verified every spec.md capability is now implemented in Pode/htmx server-rendered idioms (no SPA/bundler/Node): item model + CRUD with inline htmx forms and 422 server-side validation (api/_lib/pantry-store.ps1 Test-PantryItemInput; /htmx/item-create|edit|update|delete); inventory grouped by category sorted by name with expiry badges (/inventory); category + case-insensitive name/notes search (/htmx/inventory-filter, Select-PantryItems); low-stock view with threshold default 1 and self-updating nav count (/lowstock, Select-PantryLowStockItems); expiring-soon view <=7 days with expired-vs-expiring styling and nav count (/expiring, Select-PantryExpiringItems); quick-adjust +/- single-row swap (/htmx/item-adjust, Update-PantryItemQuantity clamped at 0); CSV export (/inventory.csv, ConvertTo-PantryCsv); and the ~20-item seed script incl. low-stock + expiring rows (scripts/seed.ps1, npm run seed). Remediation step 3 completed this iteration: rewrote .aidd/project-structure.md from the stale '~0% of spec / stock demo' template to the real implemented pantry layout. Step 4 satisfied by tests/pantry.Tests.ps1 (Pester v5, 65 passing / 0 failed) covering DAL, filters, validation, low-stock/expiring selection, CSV, quick-adjust, and form/route contracts. Live browser re-verification deferred: no dev server was running on :8433 and per session constraints a server was not bootstrapped; each UI surface was browser-verified at its own implementation commit and the logic is green under the Pester suite.",
+	"priority": 2,
+	"auditSource": "codebase-analysis",
+	"affectedFiles": ["api/crud/get.ps1", "api/crud/post.ps1", "views/components/crudmgr.pode", ".aidd/project-structure.md"],
+	"auditSeverity": "High",
+	"createdAt": "2026-07-10T13:56:34.095Z",
+	"spec": "Detailed remediation steps:\n1. After unifying the data model on pantry items, implement the spec.md core features in order: item CRUD with inline htmx forms + server-side validation; inventory list grouped by category; category filter + case-insensitive search over name/notes; low-stock view (add threshold, default 1) with nav count; expiring-soon view (<=7 days) with expired vs expiring styling and nav count; quick-adjust +/- per-row row swap; CSV export endpoint; seed-data script (~20 items incl. low-stock and expiring).\n2. Keep to the Pode/htmx/server-rendered idioms; no SPA/bundler/Node server.\n3. Fill in .aidd/project-structure.md with the real layout once implemented.\n4. Cover every feature with Pester tests per the quality bar.",
+	"updatedAt": "2026-07-10T18:38:54.948Z",
+	"approval": {
+		"approvedAt": "2026-07-10T15:05:25.348Z",
+		"decision": null,
+		"decisionRequired": false,
+		"source": "web-ui"
+	}
+}

@@ -1,0 +1,13 @@
+{
+	"category": "Core",
+	"createdAt": "2026-01-09T14:35:00.000Z",
+	"dependencies": [],
+	"description": "Ensure the output file is identical to the input, except for the TOC block replacement.",
+	"id": "output-file-integrity-preservation",
+	"passes": false,
+	"priority": 11,
+	"spec": "1. The final write operation must guarantee that all content outside the designated TOC marker area remains exactly unchanged (whitespace, line breaks).\n2. This applies to both the update path and the check mode's simulated output.",
+	"status": "backlog",
+	"title": "Guaranteeing file integrity during TOC replacement",
+	"updatedAt": "2026-01-09T14:35:00.000Z"
+}

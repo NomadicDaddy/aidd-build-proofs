@@ -1,0 +1,16 @@
+{
+	"affectedFiles": [],
+	"category": "UI",
+	"createdAt": "2026-06-01T20:08:14.542Z",
+	"dependencies": ["cost-catalog-management", "scenario-editor"],
+	"description": "Scenario line item editing with optional catalog item linkage, quantity, cost, markup, taxability, sort order, and notes.",
+	"id": "scenario-line-items",
+	"justFinishedAt": null,
+	"notes": ["Required by .aidd/spec.md; no scenario_line_items schema or editor UI exists yet."],
+	"passes": true,
+	"priority": 2,
+	"spec": "1. Allow adding material, subcontractor, overhead, fee, labor, and other line items.\n2. Allow selecting an active catalog item as a starting point.\n3. Copy catalog name, unit, unit cost, default markup, and taxable defaults into the scenario line.\n4. Allow editing quantity.\n5. Allow editing unit cost.\n6. Allow editing markup percentage.\n7. Allow editing taxable flag.\n8. Persist sort order and notes.\n9. Reject negative quantity, unit cost, or markup values.\n10. Preserve existing scenario lines when a source catalog item is later archived.",
+	"status": "completed",
+	"title": "Scenario Line Items",
+	"updatedAt": "2026-06-04T12:48:58.539Z"
+}

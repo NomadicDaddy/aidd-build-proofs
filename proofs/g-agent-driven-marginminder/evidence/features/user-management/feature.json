@@ -1,0 +1,24 @@
+{
+	"affectedFiles": [
+		"backend/src/routes/users/index.ts",
+		"backend/src/services/userService.ts",
+		"backend/src/db/schema/users.ts",
+		"frontend/src/pages/settings/users/UsersTab.tsx",
+		"frontend/src/api/users.ts"
+	],
+	"category": "Core",
+	"createdAt": "2026-06-01T20:08:14.542Z",
+	"dependencies": ["authentication-rbac"],
+	"description": "Administrative user CRUD, bulk actions, profile management, impersonation, and password operations are present.",
+	"id": "user-management",
+	"justFinishedAt": null,
+	"notes": [
+		"Backfilled by feature-coverage-audit from current implementation evidence on 2026-06-01."
+	],
+	"passes": true,
+	"priority": 2,
+	"spec": "1. Verify usersRoutes is registered in create-api-app.ts.\n2. Verify user CRUD and bulk route modules are included by backend/src/routes/users/index.ts.\n3. Verify the settings users tab is reachable under /settings/users.\n4. Verify frontend API calls for users are isolated in frontend/src/api/users.ts.",
+	"status": "completed",
+	"title": "User Management",
+	"updatedAt": "2026-06-01T20:08:14.542Z"
+}

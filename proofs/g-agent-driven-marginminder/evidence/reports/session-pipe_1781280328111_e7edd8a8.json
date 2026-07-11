@@ -1,0 +1,38 @@
+{
+	"completedAt": 1781281621144,
+	"durationMs": 1293033,
+	"recipeId": "audit-all",
+	"recipeName": "audit (all)",
+	"sessionId": "pipe_1781280328111_e7edd8a8",
+	"startedAt": 1781280328111,
+	"status": "completed",
+	"steps": [
+		{
+			"depth": 0,
+			"durationMs": 459372,
+			"errorMessage": null,
+			"name": "Run all audits",
+			"runId": "run_1781280328126_6994fe9a",
+			"status": "completed",
+			"stepType": "aidd-cli"
+		},
+		{
+			"depth": 0,
+			"durationMs": 460319,
+			"errorMessage": null,
+			"name": "Review audit findings",
+			"runId": "run_1781280787498_ac77151b",
+			"status": "completed",
+			"stepType": "ingredient"
+		},
+		{
+			"depth": 0,
+			"durationMs": 373322,
+			"errorMessage": null,
+			"name": "Review features",
+			"runId": "run_1781281247822_002914ec",
+			"status": "completed",
+			"stepType": "ingredient"
+		}
+	]
+}

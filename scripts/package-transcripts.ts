@@ -33,6 +33,9 @@ function proofForCampaignLog(filename: string): string | null {
 	if (normalized.startsWith('kanban-board-')) return 'b-template-kanban-board';
 	if (normalized.startsWith('smb-')) return 'c-spernakit-smb-dashboard';
 	if (normalized.startsWith('flaskr-')) return 'd-existing-flaskr';
+	if (normalized.startsWith('pantry-')) return 'e-github-template-pantry';
+	if (normalized.startsWith('md-toc-')) return 'f-local-ai-md-toc';
+	if (normalized.startsWith('marginminder-')) return 'g-agent-driven-marginminder';
 	return null;
 }
 

@@ -1,0 +1,51 @@
+commit	authored_at	subject
+b831d86a19e7fe55816655ccb19412d89542c5bb	2026-07-10T09:02:18-05:00	docs(aidd): add codebase-analysis report and remediation backlog
+dcbdb8dba985713706f9597824ebeff44f223deb	2026-07-10T09:08:37-05:00	docs(aidd): add interview response review (no responses submitted)
+a6151516881a547cd7b2a4efa6900d1bebab71fe	2026-07-10T09:13:22-05:00	docs(aidd): triage codebase-analysis report into 3 remediation features
+9311029a7adebb70c2ea00db2a8b42b133f2bf34	2026-07-10T09:16:14-05:00	docs(aidd): review remediation features from codebase-analysis triage
+a34282e3dbf65ac61173769a85a859c341481bc4	2026-07-10T09:20:20-05:00	docs(aidd): feature-review — fix debug description, add dep + coordination notes
+382e57570e2d66cd66502b7dcb9fc74a95c908e4	2026-07-10T09:22:46-05:00	docs(aidd): consolidate assertions checklist from review artifacts
+29e1f69c1ecd17baffa4a827582b3e40797c17ff	2026-07-10T09:24:08-05:00	chore(features): record no-op feature consolidation run
+68468ab2966dbbaeb8ece84dc1ddafe4e0fcbaba	2026-07-10T09:25:46-05:00	docs(aidd): infer and write project-profile.json assurance profile
+8ab45a75c4062f9e9882f10d9f4fc45f705ae50f	2026-07-10T09:29:07-05:00	docs(aidd): feature-coverage-audit — report only, no safe auto-fixes
+57106e299bc5f40a5205443ee440b26aacf792f1	2026-07-10T09:33:37-05:00	docs(aidd): feature-review pantry — verify specs, add coordination notes
+69d6e32b0b6d7775fd9b3051040abee3571e46b7	2026-07-10T09:37:02-05:00	docs(aidd): feature-review pantry re-run — anchors re-verified, no changes
+44abbe33f3fd26915bf064da15141f9c7d4b86a1	2026-07-10T09:39:33-05:00	docs(aidd): seed testing-scenarios for pantry (14 scenarios)
+a508f0864b1db85f51e112ce82319f41ec767452	2026-07-10T09:49:16-05:00	docs(aidd): audit-finding-review pantry — all 14 findings verified, KEEP, no changes
+dcdb95f2ec8f31f467104afae992be56a341366a	2026-07-10T09:53:00-05:00	docs(aidd): feature-review pantry re-run — 14 specs re-verified, no changes
+00f209f268491420a0b597c9f3dfde00d5755b53	2026-07-10T09:55:46-05:00	docs(aidd): audit-finding-review pantry re-run — 14 findings re-verified, all KEEP
+da95e7b314fb9868174e1add3b19d186427b92a5	2026-07-10T09:58:54-05:00	chore(aidd): park 14 open features for approval (backlog -> waiting_approval)
+50b7fe869c3f63c8569f0bed118e4d993502b256	2026-07-10T10:01:31-05:00	docs(aidd): write intake report for pantry
+ffe89ee1b845cf364bea204a09ae76d50054d35e	2026-07-10T10:05:43-05:00	docs(aidd): record interview responses; approve all 14 findings to backlog
+3782eb15ca544a3ff72dea737cd289fa77b791f8	2026-07-10T10:06:09-05:00	chore: import podex template baseline
+af555eff8b97d88a0dcb5e17c4f0c11008e30b91	2026-07-10T10:09:47-05:00	docs(aidd): complete onboarding scaffolding — project-structure, CONTEXT, todo
+215334eb569d62449ac044a919c629eb5d7a24df	2026-07-10T10:14:36-05:00	docs(aidd): add 12 pantry product-feature tracking files from spec
+d61de6608c975fbe8a96241b64d4a191062f6241	2026-07-10T10:17:51-05:00	docs(aidd): approve 12 spec-generated product features to backlog
+24b18d54e50239a96eab80fcfa1e705b25d43b8f	2026-07-10T10:26:12-05:00	feat(storage): add pantry Item model and data-access layer
+b40ea2d4912a30a6b9e6b2a1ccd358d0854e4819	2026-07-10T10:40:24-05:00	feat(inventory): add server-rendered inventory list view
+71a61bf4169945609a8a89187ee2e8172b1894a2	2026-07-10T10:53:46-05:00	feat(inventory): add item CRUD with inline htmx forms and confirm delete
+3dc2ac9721555e5d8e79f540143e17048db05331	2026-07-10T11:05:18-05:00	feat(inventory): add category filter + text search with htmx list swap
+037a43a3a5d3e778c9e08464810d745c6ff9a95e	2026-07-10T11:18:14-05:00	feat(inventory): add expiring-soon view with self-updating nav count
+b87dee9ca2c03f82c81039e7aca7e85390ad3f50	2026-07-10T11:25:17-05:00	feat(inventory): add low-stock view with self-updating nav count
+2f08a79cb95e0eaf1690b9532f532d28226cf8f6	2026-07-10T11:31:32-05:00	feat(inventory): add quick-adjust +/- quantity with single-row htmx swap
+4238ce65e70ed82cddedee7dc29415d1f94445b5	2026-07-10T11:37:42-05:00	feat(seed): add pantry seed script with ~20 sample items
+08b751c8782b6d22f1adf28aca540b17ac8eddeb	2026-07-10T11:58:55-05:00	feat(validation): return 422 with error fragment and enforce integer threshold
+9ffe49ecd1d954e9bcaf5a18d517ea0cbff16427	2026-07-10T12:14:24-05:00	feat(a11y): heading structure, landmarks, and htmx focus management for pantry views
+1f1df35e2561bcebec36524d37d78d211d2af3b2	2026-07-10T12:22:01-05:00	feat(export): add CSV inventory export endpoint
+4881abc1c9b1558572db37dcf48fdc2b01856825	2026-07-10T12:26:38-05:00	test(pantry): add Pester suite covering all pantry features
+7e7678e98c923a3cc2fcd02ef76a7b3c9a3654ed	2026-07-10T12:32:32-05:00	fix(api): validate crud paging inputs with TryParse instead of hard int cast
+bd505170c33c63220be0f184a18cf5f9c9beec2f	2026-07-10T12:34:51-05:00	perf(api): remove hot-path debug serialization and source-tree file writes from crud get
+7165be451319c482b0b38d4888e65ac6c357be5a	2026-07-10T12:36:46-05:00	fix(security): remove -save logger path-traversal primitive from Write-FormattedLog
+b263f93745fe493addc98118681aac0fe4f8903b	2026-07-10T12:43:53-05:00	fix(security): remove SQL-injection tag-list query from crud get
+02323cbfdb3603472f9099a533f69769d8e9f605	2026-07-10T13:24:08-05:00	fix(db): unify data model on canonical pantry items across schema/DAL/view
+6c8a3c299f7eab58b1e7c0a164241da8830bb0cc	2026-07-10T13:30:17-05:00	fix(security): gate destructive debug routes behind Debug and default it off
+b30acc25ca2335c6cbaffc7650b9460ad51a5cbc	2026-07-10T13:32:42-05:00	fix(api): resolve pagination total-count finding via demo-crud deletion
+6c2a2968c51f99f87196af9529a9aff4408965d0	2026-07-10T13:35:15-05:00	fix(ui): resolve broken add/update wiring via demo-crud deletion + regression tests
+3a384aee8130c16ffb92f19c22dd364a8a929013	2026-07-10T13:38:37-05:00	test(pantry): close no-test-coverage finding with delete-invalid-id and SQL-injection guards
+245ffba33e9465a305f21664192339f292c1a96f	2026-07-10T13:44:57-05:00	docs(aidd): close spec-drift finding — pantry implemented, project-structure filled in
+728e21c3d4b3f2f429a3111bb225ab25d1d83e8f	2026-07-10T13:47:25-05:00	fix(security): delete dead Remove-UnsafeCharacter blacklist, store text verbatim
+1d92b776cddc38fc1804d4522b496438b703e341	2026-07-10T13:52:28-05:00	fix(security): default Web.ErrorPages.ShowExceptions to $false to stop stack-trace disclosure
+ec0c4e136ee3f6cf64cd70741a8d0b88472dca4d	2026-07-10T14:05:24-05:00	fix(security): emit CSP + X-Frame-Options/X-Content-Type-Options/Referrer-Policy headers
+c1e6226343a9ae8a98be7215e06446f2ba03f26e	2026-07-10T14:07:48-05:00	fix(security): gate OpenAPI/Swagger docs behind Podex.Debug
+3fb8fc436aab0897f8c0a3ca7e739a5da5a6a7b9	2026-07-10T14:10:25-05:00	style: commit post-run prettier formatting pass
+3520f2492b20c1f085d3b1178cd5c5a65d92db29	2026-07-10T16:21:03-05:00	fix(views): repair prettier-mangled header template; guard .pode from prettier

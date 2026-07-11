@@ -1,0 +1,24 @@
+{
+	"affectedFiles": [
+		"backend/src/routes/tasks.ts",
+		"backend/src/services/schedulerService.ts",
+		"backend/src/db/schema/scheduledTasks.ts",
+		"frontend/src/pages/settings/scheduler/ScheduledTasksTab.tsx",
+		"frontend/src/api/tasks.ts"
+	],
+	"category": "Core",
+	"createdAt": "2026-06-01T20:08:14.542Z",
+	"dependencies": ["authentication-rbac", "settings-administration"],
+	"description": "Scheduled task configuration, execution history, backend scheduler services, and admin UI are present.",
+	"id": "scheduler-administration",
+	"justFinishedAt": null,
+	"notes": [
+		"Backfilled by feature-coverage-audit from current implementation evidence on 2026-06-01."
+	],
+	"passes": true,
+	"priority": 4,
+	"spec": "1. Verify taskRoutes is registered in create-api-app.ts.\n2. Verify scheduled task schemas and scheduler service modules are present.\n3. Verify /settings/scheduled-tasks is routed under admin settings.\n4. Verify frontend task API and ScheduledTasksTab are present.",
+	"status": "completed",
+	"title": "Scheduler Administration",
+	"updatedAt": "2026-06-01T20:08:14.542Z"
+}

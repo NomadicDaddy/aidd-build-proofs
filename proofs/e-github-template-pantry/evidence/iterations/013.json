@@ -1,0 +1,87 @@
+{
+	"durationMs": 186563,
+	"endedAt": "2026-07-10T14:37:17.384Z",
+	"iteration": 0,
+	"runId": "run_1783694049632_6b1a096c",
+	"snapshotKey": "claude-code/directive/directive/none",
+	"startedAt": "2026-07-10T14:34:10.821Z",
+	"summary": "directive run finished with exit code 0",
+	"timeToFirstEventMs": 7999,
+	"exitCode": 0,
+	"idleWarningTimestamps": [],
+	"promptChars": 45847,
+	"backend": "claude-code",
+	"executionMode": "single_agent",
+	"mode": "directive",
+	"model": "claude-opus-4-8",
+	"phase": "directive",
+	"provider": null,
+	"reasoningEffort": "medium",
+	"allowedFeatureIds": [],
+	"commands": [
+		"ls -la .aidd/features/ 2>/dev/null && echo \"---ROADMAP---\" && ls -la .aidd/roadmap.json 2>/dev/null && echo \"---PROJECT---\" && ls .aidd/",
+		"cat package.json 2>/dev/null | head -60",
+		"for d in .aidd/features/*/; do echo \"=== $d ===\"; cat \"$d/feature.json\"; echo; done",
+		"ls .aidd/; echo \"---\"; cat .aidd/roadmap.json 2>/dev/null | head -80; echo \"---REMEDIATION---\"; ls .aidd/remediation-review.md 2>/dev/null && echo EXISTS || echo NONE",
+		"ls .aidd/roadmap.json 2>/dev/null && echo \"ROADMAP EXISTS\" || echo \"NO ROADMAP\"; echo \"=== spec.md ===\"; cat .aidd/spec.md 2>/dev/null | head -120",
+		"echo \"=== remediation-review.md ===\"; cat .aidd/remediation-review.md",
+		"echo \"=== server.psd1 ===\"; cat -n server.psd1; echo \"=== post.ps1 ===\"; cat -n api/crud/post.ps1; echo \"=== put.ps1 (head) ===\"; sed -n '1,40p' api/crud/put.ps1 | cat -n",
+		"echo \"=== debug files ===\"; ls -la api/debug/; echo \"--- init.sql ---\"; cat api/debug/init.sql 2>/dev/null; echo \"--- stop.ps1 ---\"; cat -n api/debug/stop.ps1 2>/dev/null; echo \"=== crudmgr.pode lines 60-120 ===\"; sed -n '60,120p' views/components/crudmgr.pode | cat -n; echo \"=== crudmgr-new file exists ===\"; ls views/components/ ; echo \"=== tests ===\"; ls tests/",
+		"tail -60 .aidd/CHANGELOG.md; echo \"=== git log ===\"; git log --oneline -6; echo \"=== git show prior feature-review commit files ===\"; git show --stat 57106e2 | head -40",
+		"git add .aidd/CHANGELOG.md && git commit -m \"docs(aidd): feature-review pantry re-run — anchors re-verified, no changes\n\nIdempotent re-run of the feature-review ingredient. Independently\nre-verified every audit/remediation anchor across all 12 backlog\nfeature.json files against live source; all accurate. No spec, priority,\nstatus, dependency, or notes changes — prior run (57106e2) already\napplied all safe metadata fixes. Remaining gaps are product decisions\n(salvage-vs-rewrite, priority scale). No roadmap.json so Phase 6.5 skipped.\n\nCo-Authored-By: Claude Opus 4.8 <<REDACTED_EMAIL>>\""
+	],
+	"commitsCreated": [
+		{
+			"hash": "69d6e32b0b6d7775fd9b3051040abee3571e46b7",
+			"subject": "docs(aidd): feature-review pantry re-run — anchors re-verified, no changes"
+		}
+	],
+	"completedFeatures": [],
+	"detailsSummary": {
+		"bashCommandsRun": 10,
+		"finalChecks": {},
+		"hasBuildErrors": false,
+		"hasLintErrors": false,
+		"hasTypeErrors": false,
+		"totalToolCalls": 14,
+		"uniqueFilesCreated": 0,
+		"uniqueFilesEdited": 1,
+		"uniqueFilesRead": 3
+	},
+	"errors": [],
+	"extraCompletedFeatures": [],
+	"filesCreated": [],
+	"filesEdited": ["D:\\applications\\pantry\\.aidd\\CHANGELOG.md"],
+	"filesRead": ["D:\\applications\\pantry\\api\\crud\\get.ps1", "D:\\applications\\pantry\\podex.ps1", "D:\\applications\\pantry\\.aidd\\CHANGELOG.md"],
+	"metrics": {
+		"cachedTokens": 0,
+		"costUsd": 1.3084219999999998,
+		"errorCount": 0,
+		"errorReasons": [],
+		"filesCreatedCount": 0,
+		"filesEditedCount": 1,
+		"idleWarningCount": 0,
+		"inputTokens": 47917,
+		"outputTokens": 11685,
+		"rateLimitCount": 0,
+		"reasoningTokens": 0,
+		"toolBreakdown": {
+			"bash": 10,
+			"read": 3,
+			"edit": 1
+		},
+		"toolCallCount": 14
+	},
+	"outcome": {
+		"exitCode": 0,
+		"status": "success"
+	},
+	"scopeOverrun": false,
+	"selectedFeatures": [],
+	"unacceptedCompletedFeatures": [],
+	"commitsCreatedCount": 1,
+	"filesCreatedCount": 0,
+	"filesEditedCount": 1,
+	"residualDirtyFilesCount": 67,
+	"stopRequested": false
+}

@@ -1,0 +1,24 @@
+{
+	"affectedFiles": [
+		"backend/src/routes/settings/index.ts",
+		"backend/src/services/settingsService.ts",
+		"frontend/src/pages/settings/SettingsLayout.tsx",
+		"frontend/src/pages/settings/application/ApplicationTab.tsx",
+		"frontend/src/pages/settings/auth/AuthenticationTab.tsx"
+	],
+	"category": "Core",
+	"createdAt": "2026-06-01T20:08:14.542Z",
+	"dependencies": ["authentication-rbac"],
+	"description": "Admin settings tabs and backed API routes for app features, auth policy, SMTP, OAuth providers, and user settings are present.",
+	"id": "settings-administration",
+	"justFinishedAt": null,
+	"notes": [
+		"Backfilled by feature-coverage-audit from current implementation evidence on 2026-06-01."
+	],
+	"passes": true,
+	"priority": 2,
+	"spec": "1. Verify settingsRoutes is registered in create-api-app.ts.\n2. Verify settings route modules include app features, general, auth security, OAuth providers, SMTP, and user preferences.\n3. Verify /settings routes are protected for ADMIN or SYSOP where required.\n4. Verify settings tabs are lazy-loaded from frontend/src/routes/lazyPages.ts.",
+	"status": "completed",
+	"title": "Settings Administration",
+	"updatedAt": "2026-06-01T20:08:14.542Z"
+}

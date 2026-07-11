@@ -1,0 +1,20 @@
+{
+	"id": "low-stock-view",
+	"title": "Low-stock view (threshold + nav count)",
+	"description": "Low-stock view/filter for items at or below their per-item reorder threshold, with a nav count",
+	"category": "UI",
+	"dependencies": ["inventory-list-view"],
+	"status": "completed",
+	"passes": true,
+	"priority": 2,
+	"createdAt": "2026-07-10T15:10:00.000Z",
+	"justFinishedAt": null,
+	"spec": "1. Confirm items carry a per-item threshold (default 1) as defined by the item model.\n2. Create an item with quantity at or below its threshold; confirm it is considered low-stock.\n3. Open the low-stock view or filter chip; confirm only items with quantity <= threshold are listed.\n4. Confirm an item with quantity above its threshold does not appear in the low-stock view.\n5. Confirm the navigation surfaces a low-stock count that matches the number of low-stock items.\n6. Adjust an item's quantity above its threshold; confirm it drops out of the low-stock view and the nav count decrements.\n7. Confirm the view reuses the server-rendered list fragment and htmx idioms.",
+	"updatedAt": "2026-07-10T16:18:32.865Z",
+	"approval": {
+		"approvedAt": "2026-07-10T15:17:39.938Z",
+		"decision": null,
+		"decisionRequired": false,
+		"source": "web-ui"
+	}
+}

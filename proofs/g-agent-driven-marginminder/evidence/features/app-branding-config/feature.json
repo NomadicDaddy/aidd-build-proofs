@@ -1,0 +1,23 @@
+{
+	"affectedFiles": [
+		"package.json",
+		"config/marginminder.json",
+		"backend/src/config/defaults.json",
+		"frontend/index.html"
+	],
+	"category": "Core",
+	"createdAt": "2026-06-01T20:08:14.542Z",
+	"dependencies": [],
+	"description": "Application identity, slug, ports, database path, and browser metadata are branded for Margin Minder.",
+	"id": "app-branding-config",
+	"justFinishedAt": null,
+	"notes": [
+		"Backfilled by feature-coverage-audit from current implementation evidence on 2026-06-01."
+	],
+	"passes": true,
+	"priority": 1,
+	"spec": "1. Verify package.json identifies the app as marginminder.\n2. Verify config/marginminder.json uses the marginminder slug and data/marginminder.db path.\n3. Verify backend/src/config/defaults.json carries the same app identity defaults.\n4. Verify frontend/index.html exposes the Margin Minder pricing-planner description.",
+	"status": "completed",
+	"title": "App Branding And Config",
+	"updatedAt": "2026-06-01T20:08:14.542Z"
+}

@@ -1,7 +1,7 @@
 import type { ProofConfig } from './types.ts';
 
-export const CAMPAIGN_ID = 'aidd-build-proofs-2026-07';
-export const TRANSCRIPT_ASSET = 'aidd-build-proofs-2026-07-transcripts.zip';
+export const CAMPAIGN_ID = 'aidd-build-proofs-2026';
+export const TRANSCRIPT_ASSET = 'aidd-build-proofs-transcripts.zip';
 
 export const PROOFS: ProofConfig[] = [
 	{
@@ -18,6 +18,7 @@ export const PROOFS: ProofConfig[] = [
 		recordedGate: 'bun run smoke:qc',
 		recordedNonPassingFeatures: 0,
 		recordedPassingFeatures: 25,
+		recordedResult: 'passed',
 		sourceDirectory: 'habit-tracker',
 		specFile: 'habit-tracker-spec.md',
 		stack: 'Bun, TypeScript, Elysia, React 19, and Drizzle',
@@ -36,6 +37,7 @@ export const PROOFS: ProofConfig[] = [
 		recordedGate: 'bun run smoke:qc',
 		recordedNonPassingFeatures: 0,
 		recordedPassingFeatures: 23,
+		recordedResult: 'passed',
 		sourceDirectory: 'kanban-board',
 		specFile: 'kanban-board-spec.md',
 		stack: 'Vite, React 19, TypeScript, and Zustand',
@@ -55,6 +57,7 @@ export const PROOFS: ProofConfig[] = [
 		recordedGate: 'bun run smoke:qc',
 		recordedNonPassingFeatures: 1,
 		recordedPassingFeatures: 26,
+		recordedResult: 'passed',
 		sourceDirectory: 'smb-infrastructure-dashboard',
 		specFile: 'smb-infrastructure-dashboard-spec.md',
 		stack: 'Spernakit v3: Bun, Elysia, React 19, Drizzle, and SQLite',
@@ -74,9 +77,70 @@ export const PROOFS: ProofConfig[] = [
 		recordedGate: 'pytest',
 		recordedNonPassingFeatures: 0,
 		recordedPassingFeatures: 22,
+		recordedResult: 'passed',
 		sourceDirectory: 'flaskr',
 		specFile: 'existing-app-ingest-proof.md',
 		stack: 'Python, Flask, SQLite, and pytest',
+	},
+	{
+		appName: 'Pantry',
+		backend: 'claude-code',
+		id: 'e-github-template-pantry',
+		lane: 'github-template',
+		limitations: [
+			'The imported GitHub template required a manual baseline commit before coding.',
+			'Intake and coding stages required manual launches because runs did not auto-chain.',
+			'A nondeterministic Pode startup wedge complicated headless replay on the proof machine.',
+		],
+		model: 'claude-opus-4-8',
+		reasoningEffort: 'medium',
+		recordedGate: 'npm run analyze && npm run test',
+		recordedNonPassingFeatures: 0,
+		recordedPassingFeatures: 26,
+		recordedResult: 'passed',
+		sourceDirectory: 'pantry',
+		specFile: 'pantry-podex-spec.md',
+		stack: 'PowerShell, Pode, htmx, Mustache, Tailwind CSS, PSSQLite, and Pester',
+	},
+	{
+		appName: 'md-toc',
+		backend: 'lmstudio',
+		id: 'f-local-ai-md-toc',
+		lane: 'local-ai',
+		limitations: [
+			'The initializer required the local model context window to be raised above 8,192 tokens.',
+			'Five coding runs emitted no AIDD_RESULT and completed none of the 14 features.',
+			"The retained source includes the local model's incomplete, non-compiling partial work.",
+		],
+		model: 'google/gemma-4-e4b',
+		reasoningEffort: 'high',
+		recordedGate: 'bun run typecheck',
+		recordedNonPassingFeatures: 14,
+		recordedPassingFeatures: 0,
+		recordedResult: 'failed',
+		sourceDirectory: 'md-toc',
+		specFile: 'md-toc-local-ai-spec.md',
+		stack: 'Bun and TypeScript',
+	},
+	{
+		appName: 'MarginMinder',
+		backend: 'codex',
+		id: 'g-agent-driven-marginminder',
+		lane: 'agent-driven',
+		limitations: [
+			'The application was built across multiple supervised Codex runs rather than one autonomous run.',
+			'The retained snapshot includes later agent-driven audits, remediation, and feature consolidation.',
+			'The raw archive worktree has later uncommitted maintenance changes; only committed HEAD is exported.',
+		],
+		model: 'gpt-5.5',
+		reasoningEffort: 'high',
+		recordedGate: 'bun run smoke:qc',
+		recordedNonPassingFeatures: 0,
+		recordedPassingFeatures: 29,
+		recordedResult: 'passed',
+		sourceDirectory: 'marginminder',
+		specFile: 'marginminder/.aidd/spec.md',
+		stack: 'Spernakit v3: Bun, Elysia, React 19, Drizzle, and SQLite',
 	},
 ];
 
@@ -106,6 +170,9 @@ export const ALLOWED_PUBLIC_PROJECTS = new Set([
 	'flaskr',
 	'habit-tracker',
 	'kanban-board',
+	'marginminder',
+	'md-toc',
+	'pantry',
 	'smb-infrastructure-dashboard',
 	'spernakit',
 ]);

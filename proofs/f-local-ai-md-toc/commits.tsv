@@ -1,0 +1,5 @@
+commit	authored_at	subject
+30bf9625bcb1080c58330eba74f8b7914c277a90	2026-07-10T21:16:21-05:00	chore: initialize project scaffolding and feature list
+c652cab90292e244995b50a8e3cf5e6b4ac9c680	2026-07-10T21:16:23-05:00	chore: complete initialization - ready for development
+c3ba54b4852d177f7744e874189655f6f004bb82	2026-07-10T21:16:33-05:00	chore: complete initialization - ready for development
+acbbf5ff38c8bb0907274735271f7afb12bce6e8	2026-07-10T21:28:05-05:00	chore(scaffold): scaffold core modules and initial feature metadata for md-toc

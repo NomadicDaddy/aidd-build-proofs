@@ -1,0 +1,13 @@
+{
+	"category": "Core",
+	"createdAt": "2026-01-09T14:35:00.000Z",
+	"dependencies": ["heading-parser-detection"],
+	"description": "Handling of markdown elements that should be ignored during heading parsing (e.g., list items, blockquotes).",
+	"id": "ignore-markdown-context",
+	"passes": false,
+	"priority": 9,
+	"spec": "1. Implement logic to skip lines or sections identified as part of other markdown elements.\n2. Specifically ignore content inside `* list item` or `> blockquote` structures when determining if a line is a heading.",
+	"status": "backlog",
+	"title": "Context-aware parsing: ignoring non-heading blocks",
+	"updatedAt": "2026-01-09T14:35:00.000Z"
+}

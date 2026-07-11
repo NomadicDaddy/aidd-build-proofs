@@ -104,7 +104,7 @@ async function curateProof(sourceRoot: string, config: ProofConfig): Promise<Pro
 		startedAt: iterations.startedAt,
 		validation: {
 			recordedCommand: config.recordedGate,
-			recordedResult: 'passed',
+			recordedResult: config.recordedResult,
 			replay: {
 				checkedAt: '',
 				command: config.recordedGate,
@@ -168,7 +168,7 @@ async function main(): Promise<void> {
 				shell: 'PowerShell 7',
 			},
 			id: CAMPAIGN_ID,
-			name: 'AIDD four-lane build-proofs campaign',
+			name: 'AIDD seven-proof build collection',
 			publicAiddBaseline: 'v2.102.0',
 		},
 		proofs: entries,

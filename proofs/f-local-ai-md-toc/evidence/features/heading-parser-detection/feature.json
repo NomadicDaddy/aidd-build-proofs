@@ -1,0 +1,13 @@
+{
+  "id": "heading-parser-detection",
+  "title": "Heading detection and level parsing",
+  "description": "Basic capability to detect ATX headings (#, ##, etc.) and their levels in a file.",
+  "category": "Core",
+  "dependencies": [],
+  "status": "in_progress",
+  "passes": false,
+  "priority": 1,
+  "createdAt": "2026-01-09T14:30:00.000Z",
+  "spec": "1. Successfully identify all standard ATX heading formats (# Heading).2. Correctly detect headings using varying numbers of hashes (e.g., # vs ##).\n3. Exclude any lines that are inside fenced code blocks (```...```) from consideration.",
+  "updatedAt": "2026-07-11T02:17:34.899Z"
+}

@@ -1,0 +1,1 @@
+{"name": "md-toc", "version": "0.1.0", "description": "CLI for Markdown Table of Contents generation.", "scripts": {"build": "bun run build:tsc", "start": "ts-node src/cli.ts"}, "dependencies": {}, "devDependencies": {} }

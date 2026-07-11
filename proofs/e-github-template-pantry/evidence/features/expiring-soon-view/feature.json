@@ -1,0 +1,20 @@
+{
+	"id": "expiring-soon-view",
+	"title": "Expiring-soon view (<=7 days, nav count)",
+	"description": "Expiring-soon view for items expiring within 7 days or already expired, soonest first, with a nav count",
+	"category": "UI",
+	"dependencies": ["inventory-list-view"],
+	"status": "completed",
+	"passes": true,
+	"priority": 2,
+	"createdAt": "2026-07-10T15:10:00.000Z",
+	"justFinishedAt": null,
+	"spec": "1. Open the expiring-soon view or filter chip.\n2. Confirm it lists items whose expiry date is within 7 days OR already past.\n3. Confirm items with no expiry date and items expiring more than 7 days out are excluded.\n4. Confirm results are ordered soonest-expiry first (expired items ahead of soon-to-expire).\n5. Confirm expired items are visually distinct from expiring-soon items.\n6. Confirm the navigation surfaces an expiring-soon count that matches the number of qualifying items.\n7. Edit an item's expiry to be beyond 7 days; confirm it drops out of the view and the nav count decrements.\n8. Confirm the view is server-rendered and uses htmx idioms consistent with the other views.",
+	"updatedAt": "2026-07-10T16:05:38.712Z",
+	"approval": {
+		"approvedAt": "2026-07-10T15:17:38.862Z",
+		"decision": null,
+		"decisionRequired": false,
+		"source": "web-ui"
+	}
+}

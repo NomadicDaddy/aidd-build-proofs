@@ -1,0 +1,122 @@
+{
+  "durationMs": 216630,
+  "endedAt": "2026-07-11T02:16:42.259Z",
+  "iteration": 0,
+  "runId": "run_1783735984170_67512dc6",
+  "snapshotKey": "lmstudio/coding/initializer/none",
+  "startedAt": "2026-07-11T02:13:05.629Z",
+  "summary": "initializer phase complete; project is ready for coding",
+  "timeToFirstEventMs": 7306,
+  "exitCode": 0,
+  "idleWarningTimestamps": [],
+  "promptChars": 36503,
+  "backend": "lmstudio",
+  "executionMode": "single_agent",
+  "mode": "coding",
+  "model": "google/gemma-4-e4b",
+  "phase": "initializer",
+  "provider": "lmstudio",
+  "reasoningEffort": "high",
+  "allowedFeatureIds": [],
+  "commands": [
+    "node scripts/setup.ts",
+    "mkdir -p src/{parser,renderer,cli}\nmkdir -p tests/unit\nmkdir -p types/common",
+    "mkdir -p src/parser src/renderer src/cli\nmkdir -p types/common\nmkdir -p tests/unit\ntouch .gitignore\ntouch package.json tsconfig.json bun.lockb README.md\necho '{\"name\": \"md-toc\", \"version\": \"0.1.0\", \"description\": \"CLI for Markdown Table of Contents generation.\", \"scripts\": {\"build\": \"bun run build:tsc\", \"start\": \"ts-node src/cli.ts\"}, \"dependencies\": {}, \"devDependencies\": {} }' > package.json\necho '{ \"compilerOptions\": { \"module\": \"NodeNext\", \"target\": \"ES2022\", \"rootDir\": \"./src\", \"outDir\": \"./dist\", \"esModuleInterop\": true, \"forceConsistentCasingInFileNames\": true, \"strict\": true } }' > tsconfig.json",
+    "mkdir -p src/parser src/renderer src/cli src/slugger types/common tests/unit",
+    "git init && git add . && echo \"node_modules/\" >> .gitignore && echo \"*.log\" >> .gitignore && echo \"./dist/\" >> .gitignore && echo \".bun/cache/\" >> .gitignore && git commit -m \"chore: initialize project scaffolding and feature list\"",
+    "bun run format || true # Attempt to format code if necessary\n\ngit status && git add . && git diff --staged && git commit -m \"chore: complete initialization - ready for development\"\n",
+    "echo \"Running final initialization verification...\"\nls .aidd/features/ | wc -l\nfind .aidd/features -name 'feature.json' -exec sh -c 'jq type \"$1\" | grep -q object || echo \"INVALID\"' _ {} \\;\ngit status && git log -1",
+    "ls .aidd/features/ | wc -l",
+    "bun run format || true\ngit status && git add . && git diff --staged && git commit -m \"chore: complete initialization - ready for development\""
+  ],
+  "commitsCreated": [
+    {
+      "hash": "30bf9625bcb1080c58330eba74f8b7914c277a90",
+      "subject": "chore: initialize project scaffolding and feature list"
+    },
+    {
+      "hash": "c652cab90292e244995b50a8e3cf5e6b4ac9c680",
+      "subject": "chore: complete initialization - ready for development"
+    },
+    {
+      "hash": "c3ba54b4852d177f7744e874189655f6f004bb82",
+      "subject": "chore: complete initialization - ready for development"
+    }
+  ],
+  "completedFeatures": [],
+  "detailsSummary": {
+    "bashCommandsRun": 9,
+    "finalChecks": {
+      "typecheck": "passed",
+      "format": "passed"
+    },
+    "hasBuildErrors": false,
+    "hasLintErrors": false,
+    "hasTypeErrors": false,
+    "totalToolCalls": 47,
+    "uniqueFilesCreated": 18,
+    "uniqueFilesEdited": 0,
+    "uniqueFilesRead": 3
+  },
+  "errors": [],
+  "extraCompletedFeatures": [],
+  "filesCreated": [
+    ".aidd/features/heading-parser-detection/feature.json",
+    ".aidd/features/slug-generation-basic/feature.json",
+    ".aidd/features/toc-rendering-nested-list/feature.json",
+    ".aidd/features/multi-file-processing/feature.json",
+    ".aidd/features/t-c-check-mode-comparison/feature.json",
+    ".aidd/features/toc-depth-limiting/feature.json",
+    ".aidd/features/slug-generation-unicode-safety/feature.json",
+    ".aidd/features/error-handling-missing-markers/feature.json",
+    ".aidd/features/output-file-integrity-preservation/feature.json",
+    ".aidd/features/full-suite-quality-control/feature.json",
+    ".aidd/features/error-handling-io-robustness/feature.json",
+    ".aidd/features/ignore-markdown-context/feature.json",
+    ".aidd/features/headings-followed-by-content-test/feature.json",
+    ".aidd/features/heading-markdown-stripping-test/feature.json",
+    "scripts/setup.ts",
+    "src/cli.ts",
+    "README.md",
+    ".aidd/CHANGELOG.md"
+  ],
+  "filesEdited": [],
+  "filesRead": [
+    "AGENTS.md",
+    ".aidd/project.md",
+    ".aidd/spec.md"
+  ],
+  "metrics": {
+    "cachedTokens": 0,
+    "costUsd": 0,
+    "errorCount": 0,
+    "errorReasons": [],
+    "filesCreatedCount": 18,
+    "filesEditedCount": 0,
+    "idleWarningCount": 0,
+    "inputTokens": 760994,
+    "outputTokens": 15300,
+    "rateLimitCount": 0,
+    "reasoningTokens": 3734,
+    "toolBreakdown": {
+      "list_directory": 2,
+      "read": 3,
+      "write": 33,
+      "bash": 9
+    },
+    "toolCallCount": 47
+  },
+  "outcome": {
+    "exitCode": 0,
+    "status": "success"
+  },
+  "scopeOverrun": false,
+  "selectedFeatures": [],
+  "unacceptedCompletedFeatures": [],
+  "commitsCreatedCount": 3,
+  "filesCreatedCount": 18,
+  "filesEditedCount": 0,
+  "residualDirtyFilesCount": 1,
+  "stopRequested": false,
+  "detectedAfter": "coding"
+}

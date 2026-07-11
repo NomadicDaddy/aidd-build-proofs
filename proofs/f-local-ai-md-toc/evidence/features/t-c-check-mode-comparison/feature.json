@@ -1,0 +1,13 @@
+{
+	"category": "Core",
+	"createdAt": "2026-01-09T14:35:00.000Z",
+	"dependencies": ["toc-rendering-nested-list"],
+	"description": "Implement the `--check` mode logic to compare generated TOC against existing content without writing.",
+	"id": "t-c-check-mode-comparison",
+	"passes": false,
+	"priority": 7,
+	"spec": "1. Read the target file's current state.\n2. Generate a hypothetical new TOC (using all previous logic).\n3. Compare the generated TOC against the existing content block between markers.\n4. If they differ, exit with status 1 and display a diff-style message showing what needs updating.",
+	"status": "backlog",
+	"title": "Implementing non-destructive check mode for CI/CD use",
+	"updatedAt": "2026-01-09T14:35:00.000Z"
+}

@@ -1,0 +1,24 @@
+{
+	"affectedFiles": [
+		"backend/src/routes/business-metrics.ts",
+		"backend/src/services/metrics/businessMetricsService.ts",
+		"backend/src/db/schema/businessEvents.ts",
+		"frontend/src/pages/analytics/BusinessMetricsPage.tsx",
+		"frontend/src/api/businessMetrics.ts"
+	],
+	"category": "Core",
+	"createdAt": "2026-06-01T20:08:14.542Z",
+	"dependencies": ["authentication-rbac"],
+	"description": "Business event storage, analytics API, and protected analytics page are present.",
+	"id": "business-metrics-analytics",
+	"justFinishedAt": null,
+	"notes": [
+		"Backfilled by feature-coverage-audit from current implementation evidence on 2026-06-01."
+	],
+	"passes": true,
+	"priority": 4,
+	"spec": "1. Verify businessMetricsRoutes is registered in create-api-app.ts.\n2. Verify businessEvents schema and business metrics services exist.\n3. Verify /analytics is routed behind OPERATOR access.\n4. Verify BusinessMetricsPage is lazy-loaded and wired to frontend/src/api/businessMetrics.ts.",
+	"status": "completed",
+	"title": "Business Metrics Analytics",
+	"updatedAt": "2026-06-01T20:08:14.542Z"
+}

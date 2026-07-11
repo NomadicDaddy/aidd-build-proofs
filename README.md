@@ -1,9 +1,10 @@
 # AIDD build proofs
 
-This repository preserves public evidence from four instrumented AIDD dogfood runs performed
-between July 2 and July 4, 2026. Each run exercised a different project-creation or ingestion lane
-and retained the resulting source, structured AIDD artifacts, feature status, validation evidence,
-and a scrubbed transcript archive.
+This repository preserves public evidence from seven instrumented AIDD builds performed between
+June 1 and July 11, 2026. The collection covers project creation, template ingestion, existing-app
+ingestion, local-only inference, and an extended agent-driven application build. Each proof retains
+the resulting source, structured AIDD artifacts, feature status, validation evidence, and a
+scrubbed transcript archive.
 
 This is historical first-party evidence. It is not an AIDD source backup, a current performance
 benchmark, an independent audit, or a promise that later AIDD versions behave identically.
@@ -16,6 +17,9 @@ benchmark, an independent audit, or a promise that later AIDD versions behave id
 | [Kanban Board](proofs/b-template-kanban-board/README.md)                   | Third-party Vite template  | 23/23 features passing             | `bun run smoke:qc`  |
 | [SMB Infrastructure Dashboard](proofs/c-spernakit-smb-dashboard/README.md) | Spernakit scaffold         | 26 passing, 1 retained remediation | `bun run smoke:qc`  |
 | [Flaskr](proofs/d-existing-flaskr/README.md)                               | Existing Python app ingest | 22/22 retained features passing    | `pytest`            |
+| [Pantry](proofs/e-github-template-pantry/README.md)                        | GitHub template            | 26/26 features passing             | Pester + analyzer   |
+| [md-toc](proofs/f-local-ai-md-toc/README.md)                               | Local AI only              | 0/14 features passing              | Failed typecheck    |
+| [MarginMinder](proofs/g-agent-driven-marginminder/README.md)               | Agent-driven build         | 29/29 retained features passing    | `bun run smoke:qc`  |
 
 The [campaign narrative](CAMPAIGN.md) explains what the runs established, where manual
 intervention was required, and which limitations matter when interpreting the results.
@@ -30,7 +34,7 @@ Use the evidence in this order:
    reports, and screenshots retained from the run.
 4. `proofs/*/source/` is an export of the proof app's committed `HEAD`, excluding `.aidd`, raw
    logs, dependencies, databases, and build output.
-5. The `v1.0.0` GitHub release carries the complete scrubbed transcript archive and checksum.
+5. The release asset carries the complete scrubbed transcript archive and checksum.
 
 The source snapshots are accompanied by commit ledgers and original root/final commit identifiers.
 The original nested Git repositories remain in the private raw archive and are not published as

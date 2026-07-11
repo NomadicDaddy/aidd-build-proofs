@@ -1,0 +1,24 @@
+{
+	"affectedFiles": [],
+	"approval": {
+		"approvedAt": "2026-06-03T13:52:44.728Z",
+		"decision": "stale catalog risk = any scenario line item referencing a cost catalog item whose lastReviewedAt is null OR more than 90 calendar days before request-time UTC date; line items without catalogItemId do NOT raise stale-catalog flags; stable risk codes are below_target_margin, high_discount, missing_contingency, and stale_catalog_assumption, all warning severity with non-destructive styling.",
+		"decisionRequired": true,
+		"source": "web-ui"
+	},
+	"category": "Core",
+	"createdAt": "2026-06-01T20:08:14.542Z",
+	"dependencies": ["pricing-calculation-engine"],
+	"description": "Pricing risk flags for below-target margin, high discount, missing contingency, and stale cost catalog assumptions.",
+	"id": "risk-flagging",
+	"justFinishedAt": null,
+	"notes": [
+		"Required by .aidd/spec.md; no scenario risk flag service or UI was found during onboarding."
+	],
+	"passes": true,
+	"priority": 2,
+	"spec": "1. Flag scenarios below their target margin.\n2. Flag discounts over 15 percent without blocking save.\n3. Flag missing contingency when contingency percentage is zero.\n4. Flag stale catalog assumptions based on last reviewed date.\n5. Return risk flags with scenario summaries.\n6. Display risk flags in scenario details, dashboard, and comparison views.\n7. Keep warning styling distinct from destructive error styling.",
+	"status": "completed",
+	"title": "Risk Flagging",
+	"updatedAt": "2026-06-03T13:58:31.447Z"
+}

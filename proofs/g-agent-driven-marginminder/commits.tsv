@@ -1,0 +1,73 @@
+commit	authored_at	subject
+eb8f353148b39effd50d78b3c0f95cf5e65dd789	2026-06-01T15:04:57-05:00	init
+a6a43b742a49c091460061ee305661e5969633b2	2026-06-01T15:15:36-05:00	chore(aidd): onboard project
+0852919ec7162b0137c06c4b741ed7992874866d	2026-06-01T17:31:02-05:00	feat(db): add margin data schema
+afc74e6be01c4d69b87c7c8bbad830f080e0ec2f	2026-06-01T17:31:22-05:00	chore(aidd): record run ledger
+1c0e482683c2aa1b95718478c480795ea0b9985d	2026-06-02T00:43:24-05:00	feat(api): implement quote scenario API
+da96274dbc7816e42a2cd2a008d2b35349d23680	2026-06-02T00:43:45-05:00	chore(aidd): record run ledger
+5738ce63f2cfa3e7c360a9962b349aea4bd8f615	2026-06-02T01:16:25-05:00	feat(catalog): implement cost catalog management
+c49e783c75bc450ccbb2fce1651584253b13b48c	2026-06-02T01:16:46-05:00	chore(aidd): record run ledger
+e182a2f1584dfe8f46d631f779ae7ff425444c71	2026-06-02T11:49:25-05:00	fix(ui): remediate part 10 smoke failures
+7813414d6b7dde0c5d4ef6cabf61de897aa6e447	2026-06-02T12:18:48-05:00	chore(aidd): record part 10 verification
+fdc37c33974ec9206e7049c9bc38ca00c9f798df	2026-06-02T12:19:07-05:00	chore(aidd): record run ledger
+baf34fa011bccbd9c04ce0344f40432cdd5a322c	2026-06-02T17:35:02-05:00	feat(pricing): implement calculation engine
+db8210f2c27fa69100ff0652b1b4632e186fbf5e	2026-06-02T17:35:24-05:00	chore(aidd): record run ledger
+3196d6ab7550d7f014ae088c32c0cbc3003e9def	2026-06-02T22:43:50-05:00	chore(aidd): record risk flagging blocker
+a6dd7d3275da001092cd32d3b9abe9d5e2fe45c2	2026-06-02T22:44:11-05:00	chore(aidd): record run ledger
+dc1343333cc63eb84284e98a1d5885da30ecb4b8	2026-06-03T09:15:15-05:00	feat(risk): implement pricing risk flags
+399c45c1999981096cfee5af98a0facbd4376e5d	2026-06-03T09:16:04-05:00	chore(aidd): record run ledger
+aaff6562646643836bf1f0a8ddbbb6535851e33a	2026-06-03T10:30:58-05:00	feat(scenarios): complete scenario list page
+dd4d442ee1c13cc9eddfc75f4659a652a3668d3d	2026-06-03T10:31:27-05:00	chore(aidd): record run ledger
+77bb80aecc7d070e29cc80e80eb258d6919aa5c4	2026-06-03T15:42:28-05:00	feat(scenarios): implement scenario editor
+495678c854f5dcae4d50d4096787088d59b39b87	2026-06-03T15:44:01-05:00	chore(aidd): record run ledger
+17a9e1a943ab59586d9acb1f17a8115aa2dd4f78	2026-06-03T19:29:44-05:00	fix scenario numeric validation clearing
+818e9ff279b3e09b2b74fb5939240659c3c22cce	2026-06-03T19:30:07-05:00	chore(aidd): record run ledger
+a9413b32a0906ca9a1905c4f034b41a10d848ad6	2026-06-04T08:03:47-05:00	feat(scenarios): complete scenario line items
+7c82ff27bc1c3ad1207ef41197c3714b1080e0c7	2026-06-04T08:04:08-05:00	chore(aidd): record run ledger
+8ae41294fdcc6dda1dedccd175b33d6de9689d44	2026-06-04T08:54:37-05:00	fix(scenarios): make line item add clickable
+54cf3b5bfbf03f9ca928c3e95ad990c13ea7ea9d	2026-06-04T09:15:25-05:00	chore(aidd): record run ledger
+d4db3346f21bfe1e6d96402f369926ad3b468b77	2026-06-04T10:19:46-05:00	feat(scenarios): complete scenario fixed costs
+bb1f4b6251eee02600bbd21a993d4658143ad840	2026-06-04T10:20:25-05:00	chore(aidd): record run ledger
+ecb4b71fbdc08389e5a1232b1277721189719587	2026-06-04T13:53:57-05:00	fix(ui): repair scenario actions and bug dialog
+b2541a61d78c1932eb73689773bd830d2d899261	2026-06-04T13:54:27-05:00	chore(aidd): record run ledger
+9082aae173a45a0735ca005376f7f490347a26a6	2026-06-04T15:05:52-05:00	fix scenarios runtime actions
+a0b1ebdc6cf9cc7626b4128749a75049b38b042a	2026-06-04T15:47:07-05:00	fix: restore live scenario and bug dialog interactions
+0a06d996c47dfd43fd2cbd16696d36dd66808052	2026-06-04T17:04:06-05:00	fix(scripts): recover from stale PIDs in single start invocation
+8f0e981ccc628c87f7c4684ce4e64dd1e628e0d1	2026-06-05T09:14:37-05:00	feat(dashboard): implement pricing dashboard
+8a2db10a82135282fa39172c9277f21ada34a7e9	2026-06-05T09:14:56-05:00	chore(aidd): record run ledger
+5c408e6fc91dcdcb90551b53266540623ee14d33	2026-06-05T14:27:47-05:00	chore: ignore AGENTS.md, db lock files, and dated benchmark manifests
+5778d3be314df3e657e1a3afdd9889691bf511dc	2026-06-05T15:06:16-05:00	feat(scenarios): complete labor modeling
+d51a6cbf2efb72f0d9f30721322211a440f752a4	2026-06-05T15:06:40-05:00	chore(aidd): record run ledger
+a6c56aab1c6b7f2cc54b654896303e5b51f189e1	2026-06-05T15:55:09-05:00	feat: add scenario comparison view
+6d6a529c57b8adf976353955ead7797e7d3dd189	2026-06-05T15:55:34-05:00	chore(aidd): record run ledger
+51fe76fc04c75a38a4597278d9c77c9ff9f4895e	2026-06-05T20:02:21-05:00	feat(scenarios): add scenario export summary workflow
+707c13aa694fd43c035eb38bc326167eb0fd9313	2026-06-05T20:02:57-05:00	chore(aidd): record run ledger
+0c52afda97504be882c35a56a2b3778045072e3f	2026-06-05T20:29:39-05:00	chore(aidd): reconcile scenario-export-summary affectedFiles metadata
+7faffdbc4aaf7dc2e82a4b2c6e80f7c5e3de84a6	2026-06-05T23:23:42-05:00	feat: seed realistic quote data
+d1566c02b7842a0d1964a9f720f69196602e12f2	2026-06-05T23:23:58-05:00	chore(aidd): record run ledger
+7543f7c95459ea45cbbb2240119fff62309de65b	2026-06-06T09:50:50-05:00	docs(aidd): refresh Margin Minder artifacts
+8a561d5a15880c3041ace3cf447dc5d0fec3d90c	2026-06-06T09:51:15-05:00	chore(aidd): record run ledger
+b293bb5b9a5baa11bc1cb9d964109b10f3b2032c	2026-06-06T10:13:20-05:00	docs: refresh Margin Minder README
+6e452858496b2b832e9e5c8bee6064930494336c	2026-06-06T10:13:44-05:00	chore(aidd): record run ledger
+52f42067c72968117173fbd06521a83eba3cf5c1	2026-06-06T11:51:01-05:00	docs(aidd): reconcile README refresh artifacts
+83d6997f05bbde9dfff943fafa2da69648bcfb5c	2026-06-06T11:51:27-05:00	chore(aidd): record run ledger
+473cefb143bb97c3c5d42cce82ccd27a50b9e5bd	2026-06-06T12:46:41-05:00	chore(aidd): record release tag run ledger
+3801446aa23d80b62f522b6ddf7f3ae1e1947105	2026-06-06T12:47:08-05:00	chore(aidd): record run ledger
+48eb69fb9d5dcdb210b81f4f85a26fb1490d06da	2026-06-06T17:59:19-05:00	docs: refresh marginminder domain context
+918043bb398bfb48144a315e8cddb4d5663d229e	2026-06-06T17:59:41-05:00	chore(aidd): record run ledger
+b111caef66d49fe7b05c3af935a5c6685d84f5e9	2026-06-08T12:08:55-05:00	docs(aidd): generate comprehensive interview questions for Margin Minder
+162677daa29606f214267cfdadf14b33d0aa3871	2026-06-09T06:30:26-05:00	docs(aidd): generate onboarding interview questionnaire for Margin Minder
+18f98997319f6756654df7cfc2882f74d0df147a	2026-06-09T08:08:33-05:00	chore(audit): review and consolidate 12 audit findings into 5, remove 2 unnecessary
+2707bb297f7f777ca20a8a024f5484e06953d8e5	2026-06-09T08:19:29-05:00	docs(aidd): feature-review — tighten 5 audit specs with explicit dependencies and parent-feature constraints
+a80cc1d6118bafa0eb59e2b8d4af8f33dcd93931	2026-06-09T09:30:45-05:00	refactor(routes): extract schemas into co-located modules to bring route files under 300 lines
+2183936e64e19ada8e2609581ebf0a23fb4ce9f2	2026-06-09T09:47:48-05:00	refactor(cost-catalog): decompose CostCatalogPage into table, dialog, and orchestrator components
+211ee698002762ae9e5c9426eec23a6cda4ca1da	2026-06-09T09:58:42-05:00	perf(dashboard): replace unbounded N+1 query with aggregate COUNT queries and capped detail loading
+8940489e3e99ab641b638af8768cf03f5b4d0b1f	2026-06-09T10:04:22-05:00	perf(i18n): replace toFixed with Intl.NumberFormat for all percentage formatting
+2d28c3e7bd10ba9f2ed83842a6f616834a211272	2026-06-09T10:31:27-05:00	refactor(scenario-editor): decompose ScenarioEditorPage into compound components with shared form context
+3b0c8ec5e9e0df89c61cfe7589a8cfe69883ccb7	2026-06-09T10:31:59-05:00	chore(aidd): record run ledger
+d763fa7a7a0c840fa198b9e4e007f8a0fe0bf11a	2026-06-12T04:06:06-05:00	fix(marginminder): resolve 5 audit findings
+ca814d3e9871122df9ee63c7da0937435cc2beb5	2026-06-12T11:20:06-05:00	docs(changelog): session 36 audit-finding-review — 0 audit findings in marginminder
+03d6adfdd59f4b63150a39cc052ba208ab0e1c37	2026-06-12T14:49:35-05:00	build(deps): bump workspace dependencies
+03ad456f603c331d258883b3883c9883527249e3	2026-06-12T14:51:45-05:00	chore(aidd): record session 37 feature-review run ledger
+5d8cd51f930d5e7370e117dc91db93da4f9c22f0	2026-06-12T14:53:32-05:00	style(scenarios): sort imports and interface members alphabetically
+7e12a0d4e91347ddfd0cf060caccb21e0350d7a7	2026-06-13T19:50:05-05:00	chore(aidd): remove stale feature-coverage-audit report

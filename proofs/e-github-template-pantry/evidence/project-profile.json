@@ -1,0 +1,89 @@
+{
+	"$schema": "https://aidd.dev/schemas/project-profile.v1.json",
+	"name": "pantry",
+	"description": "Household pantry/stock tracker built on the 'Podex' framework: a PowerShell/Pode hypermedia web app with an htmx + Mustache + Tailwind server-rendered frontend and SQLite storage. Currently the repo ships the stock Podex CRUD demo scaffold; the pantry product per .aidd/spec.md is not yet implemented.",
+	"inferred": true,
+	"inferredOn": "2026-07-10",
+	"confidence": "high",
+	"sources": ["package.json", "server.psd1", "podex.ps1", ".build.ps1", ".aidd/spec.md", ".aidd/audit-reports/CODEBASE_ANALYSIS-2026-07-10.md"],
+	"stack": {
+		"language": "PowerShell Core (pwsh)",
+		"runtime": "PowerShell 7+ (pwsh)",
+		"server": {
+			"framework": "Pode",
+			"entrypoint": "podex.ps1",
+			"routing": "file-based auto-registration under api/**/*.ps1 (filename -> HTTP method + path)"
+		},
+		"frontend": {
+			"model": "server-rendered hypermedia (htmx partial swaps)",
+			"libraries": ["htmx", "mustache (client-side-templates)"],
+			"styling": "Tailwind CSS v4",
+			"viewEngine": ".pode views (layouts/, components/, partials/)",
+			"spa": false,
+			"bundler": "none (assets vendored/copied by .build.ps1)"
+		},
+		"storage": {
+			"type": "SQLite",
+			"driver": "PSSQLite (Invoke-SqliteQuery)",
+			"file": "./podex.db",
+			"dataAccessLayer": "absent — SQL currently inlined per route handler (spec asks for a small swappable DAL)"
+		},
+		"buildTooling": {
+			"js": ["npm", "prettier", "eslint", "@tailwindcss/cli"],
+			"powershell": ["Pester", "PSScriptAnalyzer"]
+		}
+	},
+	"deployment": {
+		"target": "local / self-hosted single-instance dev server",
+		"protocol": "HTTP",
+		"host": "localhost",
+		"port": 8433,
+		"https": false,
+		"containerized": false,
+		"environment": "local development",
+		"notes": "server.psd1 PodeCfg binds HTTP localhost:8433 with HttpsEnabled=$false and no certificate. Static caching disabled. No production/hosting config present."
+	},
+	"auth": {
+		"mode": "none",
+		"rationale": "No authentication, authorization, sessions, or CSRF protection exist. Spec explicitly states 'No authentication ... single household (no multi-tenancy)'.",
+		"concerns": ["Destructive debug routes (/stop, /clear, /init) are unauthenticated and GET-triggerable, enabled by default via Podex.Debug=$true in server.psd1."]
+	},
+	"dataSensitivity": {
+		"level": "low",
+		"pii": false,
+		"regulated": false,
+		"rationale": "Data is a single household's pantry inventory (item names, categories, quantities, expiry dates, notes). No personal, financial, health, or authentication data is stored."
+	},
+	"criticality": {
+		"level": "low",
+		"rationale": "Local single-household hobby/utility app with no availability, revenue, or safety obligations. Not production-facing.",
+		"availabilityRequirement": "best-effort",
+		"dataLossTolerance": "moderate (SQLite file is recreatable from the seed-data script)"
+	},
+	"externalIntegrations": {
+		"present": false,
+		"services": [],
+		"rationale": "Spec mandates 'no external APIs'. No third-party service calls, webhooks, or outbound network dependencies exist. JS/PowerShell package registries (npm, PSGallery) are build-time only."
+	},
+	"validation": {
+		"hasProjectValidation": true,
+		"packageManager": "npm",
+		"commands": {
+			"install": ".build.ps1 (interactive: Install-Module + npm install + optional DB re-init)",
+			"format": "npm run format  (prettier --write .)",
+			"lint": "npm run lint  (eslint .)",
+			"staticAnalysis": "npm run analyze  (PSScriptAnalyzer Invoke-ScriptAnalyzer)",
+			"test": "npm run test  (Pester: Invoke-Pester -Path ./tests/*.ps1)",
+			"build": "npm run build  (pwsh ./.build.ps1)",
+			"css": "npm run css  (@tailwindcss/cli build)",
+			"start": "npm run start  (pwsh ./podex.ps1)"
+		},
+		"primaryValidationCommand": "npm run test",
+		"recommendedGate": "npm run analyze && npm run test",
+		"notes": [
+			"No combined 'smoke:qc' / single verify script exists; PowerShell static analysis (analyze) and Pester tests (test) are the closest project-native gates.",
+			"As of the 2026-07-10 codebase analysis: tests/ contains only tests.ps1.old which the Pester glob (tests/*.ps1) excludes, so effective test coverage is 0%.",
+			".build.ps1 conflates install/setup with build and is interactive; it is not a pure non-interactive verify command."
+		]
+	}
+}

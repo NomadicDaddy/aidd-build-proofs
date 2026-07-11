@@ -1,0 +1,13 @@
+{
+	"category": "Testing",
+	"createdAt": "2026-01-09T14:35:00.000Z",
+	"dependencies": [],
+	"description": "Implement a comprehensive test suite (smoke:qc) covering all specified edge cases, especially the 10+ step requirement.",
+	"id": "full-suite-quality-control",
+	"passes": false,
+	"priority": 25,
+	"spec": "1. This must be the final integration test suite.\n2. It must cover: duplicate slugs across files, deep nesting (depth=N), file path handling (multi-file processing), and `--check` mode validation.\n3. The test setup itself should define minimum required inputs to validate all other features.",
+	"status": "backlog",
+	"title": "Comprehensive Quality Control Suite execution",
+	"updatedAt": "2026-01-09T14:35:00.000Z"
+}

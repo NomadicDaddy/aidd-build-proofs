@@ -1,0 +1,13 @@
+{
+	"category": "DevEx",
+	"createdAt": "2026-01-09T14:35:00.000Z",
+	"dependencies": [],
+	"description": "Implement robust handling for file system operations (e.g., non-existent files, permission denied) without crashing the process.",
+	"id": "error-handling-io-robustness",
+	"passes": false,
+	"priority": 14,
+	"spec": "1. Wrap all file I/O operations in try/catch blocks.\n2. If a file cannot be read (e.g., permission denied), log the error to STDERR and continue processing other files without stopping.",
+	"status": "backlog",
+	"title": "Robust IO handling for CLI utility",
+	"updatedAt": "2026-01-09T14:35:00.000Z"
+}

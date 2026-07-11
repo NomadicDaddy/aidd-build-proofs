@@ -1,0 +1,20 @@
+{
+	"id": "inventory-list-view",
+	"title": "Inventory list view (grouped, sorted, badges, empty state)",
+	"description": "Main inventory page: items grouped by category, sorted by name, with expiry badges and empty state",
+	"category": "UI",
+	"dependencies": ["item-model-and-storage"],
+	"status": "completed",
+	"passes": true,
+	"priority": 1,
+	"createdAt": "2026-07-10T15:10:00.000Z",
+	"justFinishedAt": null,
+	"spec": "1. Load the main page with no items; confirm an empty state renders with a clear call-to-action to add the first item.\n2. Add several items across at least two categories.\n3. Confirm items are grouped under their category headings.\n4. Confirm items within each group are sorted by name (case-insensitive).\n5. Confirm each row shows name, quantity, and unit.\n6. Add an item with an expiry date within 7 days; confirm an 'expiring' badge renders on that row.\n7. Add an item already past its expiry; confirm an 'expired' badge renders and is visually distinct from 'expiring'.\n8. Add an item with no expiry date; confirm no expiry badge is shown and the row renders cleanly.\n9. Confirm the page is server-rendered (view under views/) and uses the repo's Tailwind/Mustache/htmx idioms.\n10. Confirm the layout is accessible: semantic headings for category groups and readable badge contrast.",
+	"updatedAt": "2026-07-10T15:26:25.990Z",
+	"approval": {
+		"approvedAt": "2026-07-10T15:17:39.131Z",
+		"decision": null,
+		"decisionRequired": false,
+		"source": "web-ui"
+	}
+}

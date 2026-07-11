@@ -1,0 +1,20 @@
+{
+	"id": "quick-adjust-quantity",
+	"title": "Quick adjust quantity (+/- row swap)",
+	"description": "Per-row +/- quantity buttons that swap just that row via htmx, without opening the edit form",
+	"category": "UI",
+	"dependencies": ["item-crud"],
+	"status": "completed",
+	"passes": true,
+	"priority": 2,
+	"createdAt": "2026-07-10T15:10:00.000Z",
+	"justFinishedAt": null,
+	"spec": "1. Confirm each inventory row has + and - quantity buttons.\n2. Click + on a row; confirm the quantity increments by 1 and only that row's fragment is swapped (no full page reload, no edit form).\n3. Click - on a row; confirm the quantity decrements by 1 with a single-row swap.\n4. Confirm quantity cannot go below 0 (the - button is disabled or the server clamps at 0).\n5. Confirm the change persists via the data-access layer (reload the page and verify).\n6. Confirm a quick-adjust that crosses the low-stock threshold updates the low-stock nav count accordingly.\n7. Confirm the buttons have accessible labels and are keyboard-operable.",
+	"updatedAt": "2026-07-10T16:25:33.875Z",
+	"approval": {
+		"approvedAt": "2026-07-10T15:17:40.441Z",
+		"decision": null,
+		"decisionRequired": false,
+		"source": "web-ui"
+	}
+}

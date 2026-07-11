@@ -1,0 +1,23 @@
+{
+	"id": "audit-codebase-analysis-1783691798-broken-add-and-update-wiring",
+	"title": "Add-Item route/component name mismatch and Update field mismatch both non-functional",
+	"description": "Verified: (a) Add Item is broken - crudmgr.pode:63 does hx-get=\"/htmx/item-new\" but no such route exists; podex.ps1:78 registers /htmx/crudmgr-new rendering component 'crud-new', while the file on disk is views/components/crudmgr-new.pode. Three inconsistent names for one modal. (b) Update always 400s - put.ps1:19-35 requires application/featureName/tag, but the Update button (crudmgr.pode:110-117) posts 'closest tr' whose hidden inputs are only id/item/description (crudmgr.pode:105-107).",
+	"category": "Audit",
+	"dependencies": ["audit-codebase-analysis-1783691795-data-model-mismatch"],
+	"status": "completed",
+	"passes": true,
+	"notes": "Resolved by deletion per approval (.aidd/responses.md): the feature/tag demo domain was discarded and Pantry modeled fresh. The three inconsistent add-modal names (hx-get /htmx/item-new vs podex route /htmx/crudmgr-new -> component 'crud-new' vs on-disk crudmgr-new.pode) and the Update field mismatch (put.ps1 required application/featureName/tag while the row posted id/item/description) no longer exist: crudmgr.pode, crudmgr-new.pode, and api/crud/put.ps1 were removed in the data-model-mismatch remediation (02323cb) and replaced by a single coherent pantry CRUD. Add now uses one name end-to-end (/htmx/item-new registered in podex.ps1:160, referenced identically in inventory.pode and the empty-state button), and Update PUTs to /htmx/item-update with the edit-row form's name= attributes (id + name/category/quantity/unit/expiry/threshold/notes) exactly matching the fields the route reads from $WebEvent.Data. Added a regression Describe in tests/pantry.Tests.ps1 pinning the add/edit forms to their routes and field sets and asserting the old demo field names (item/description/featureName/tag) cannot return. npm test: 60 passed / 0 failed (+4).",
+	"priority": 2,
+	"auditSource": "codebase-analysis",
+	"affectedFiles": ["podex.ps1", "views/components/crudmgr.pode", "api/crud/put.ps1", "views/components/crudmgr-new.pode"],
+	"auditSeverity": "High",
+	"createdAt": "2026-07-10T13:56:34.095Z",
+	"spec": "Detailed remediation steps:\n1. Pick one name for the add-item modal and make the route path, the component name in podex.ps1, the on-disk view filename, and the hx-get in crudmgr.pode all agree.\n2. Register the htmx route that the Add Item button actually calls.\n3. Align the fields the Update button submits (via closest tr hidden inputs) with the fields put.ps1 validates and updates, using the unified data model.\n4. Add tests covering a successful add and a successful update from the rendered form fields.",
+	"updatedAt": "2026-07-10T18:32:54.344Z",
+	"approval": {
+		"approvedAt": "2026-07-10T15:05:24.817Z",
+		"decision": "Approved. Per .aidd/responses.md: the feature/tag demo domain is discarded � resolve this finding by deleting the demo code path as Pantry is modeled fresh, not by patching it.",
+		"decisionRequired": true,
+		"source": "web-ui"
+	}
+}

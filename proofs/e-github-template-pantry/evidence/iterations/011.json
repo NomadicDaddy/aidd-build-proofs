@@ -1,0 +1,89 @@
+{
+	"durationMs": 196475,
+	"endedAt": "2026-07-10T14:29:24.093Z",
+	"iteration": 0,
+	"runId": "run_1783693566524_5ac5faf8",
+	"snapshotKey": "claude-code/directive/directive/none",
+	"startedAt": "2026-07-10T14:26:07.618Z",
+	"summary": "directive run finished with exit code 0",
+	"timeToFirstEventMs": 6737,
+	"exitCode": 0,
+	"idleWarningTimestamps": [],
+	"promptChars": 28198,
+	"backend": "claude-code",
+	"executionMode": "single_agent",
+	"mode": "directive",
+	"model": "claude-opus-4-8",
+	"phase": "directive",
+	"provider": null,
+	"reasoningEffort": "medium",
+	"allowedFeatureIds": [],
+	"commands": [
+		"git status --short",
+		"ls -la && echo \"---FEATURES---\" && ls .aidd/features/ 2>/dev/null && echo \"---AIDD---\" && ls .aidd/",
+		"for f in AGENTS.md CLAUDE.md .aidd/project.md README.md .aidd/spec.md; do echo \"===== $f =====\"; cat \"$f\" 2>/dev/null || echo \"(missing)\"; echo; done",
+		"echo \"===== api =====\"; ls -R api/ 2>/dev/null; echo \"===== views =====\"; ls -R views/ 2>/dev/null; echo \"===== public =====\"; ls -R public/ 2>/dev/null; echo \"===== tests =====\"; ls -R tests/ 2>/dev/null; echo \"===== htmx =====\"; ls htmx/ 2>/dev/null; echo \"===== errors =====\"; ls errors/ 2>/dev/null",
+		"for f in .aidd/roadmap.json .aidd/project-structure.md .aidd/screen-map.md .aidd/testing-scenarios.md .aidd/assertions.md; do echo \"===== $f =====\"; cat \"$f\" 2>/dev/null | head -100 || echo \"(missing)\"; echo; done",
+		"echo \"=== roadmap.json size ===\"; wc -c .aidd/roadmap.json 2>/dev/null || echo \"no roadmap.json\"; ls -la .aidd/roadmap.json 2>/dev/null; echo \"=== feature dirs ===\"; for d in .aidd/features/*/; do echo \"--- $d ---\"; cat \"$d/feature.json\" 2>/dev/null | head -40; echo; done 2>/dev/null | head -300",
+		"date -u +\"%Y-%m-%dT%H:%M:%SZ\"; echo \"---\"; date +\"%Y-%m-%d\"",
+		"tail -30 .aidd/CHANGELOG.md",
+		"head -40 .aidd/CHANGELOG.md",
+		"git add .aidd/reports/feature-coverage-audit-2026-07-10.md .aidd/CHANGELOG.md && git status --short -- .aidd/reports/feature-coverage-audit-2026-07-10.md .aidd/CHANGELOG.md",
+		"git commit -m \"docs(aidd): feature-coverage-audit — report only, no safe auto-fixes\n\nRan feature-coverage-audit --apply over pantry. Inventoried 13 implemented\ncapabilities (all stock Podex framework/CRUD demo) against natural docs and\nfeature.json coverage. No safe auto-fixes applied: every capability is either\nbroken (data-model mismatch -> 500s, broken Add/Update wiring) and cannot be\nmarked passes:true, or sits under the unresolved [OPEN] framework-vs-product /\nsalvage-vs-rewrite forks, making boundary and product intent ambiguous. The\nSafe Auto-Fix Policy forbids backfilling completed records under those\nconditions. Dispositions: 13 ambiguous, 1 stale-doc. Existing 12 feature.json\nfiles are audit/remediation bug records, left untouched. No feature metadata\nchanged (--check-features not run); no roadmap.json (roadmap:apply not run).\n\nCo-Authored-By: Claude Opus 4.8 <<REDACTED_EMAIL>>\" 2>&1 | tail -20"
+	],
+	"commitsCreated": [
+		{
+			"hash": "8ab45a75c4062f9e9882f10d9f4fc45f705ae50f",
+			"subject": "docs(aidd): feature-coverage-audit — report only, no safe auto-fixes"
+		}
+	],
+	"completedFeatures": [],
+	"detailsSummary": {
+		"bashCommandsRun": 11,
+		"finalChecks": {},
+		"hasBuildErrors": false,
+		"hasLintErrors": false,
+		"hasTypeErrors": false,
+		"totalToolCalls": 15,
+		"uniqueFilesCreated": 1,
+		"uniqueFilesEdited": 1,
+		"uniqueFilesRead": 2
+	},
+	"errors": [],
+	"extraCompletedFeatures": [],
+	"filesCreated": ["D:\\applications\\pantry\\.aidd\\reports\\feature-coverage-audit-2026-07-10.md"],
+	"filesEdited": ["D:\\applications\\pantry\\.aidd\\CHANGELOG.md"],
+	"filesRead": ["D:\\applications\\pantry\\podex.ps1", "D:\\applications\\pantry\\README.md"],
+	"metrics": {
+		"cachedTokens": 0,
+		"costUsd": 1.2310995000000002,
+		"errorCount": 0,
+		"errorReasons": [],
+		"filesCreatedCount": 1,
+		"filesEditedCount": 1,
+		"idleWarningCount": 0,
+		"inputTokens": 34639,
+		"outputTokens": 12568,
+		"rateLimitCount": 0,
+		"reasoningTokens": 0,
+		"toolBreakdown": {
+			"bash": 11,
+			"read": 2,
+			"write": 1,
+			"edit": 1
+		},
+		"toolCallCount": 15
+	},
+	"outcome": {
+		"exitCode": 0,
+		"status": "success"
+	},
+	"scopeOverrun": false,
+	"selectedFeatures": [],
+	"unacceptedCompletedFeatures": [],
+	"commitsCreatedCount": 1,
+	"filesCreatedCount": 1,
+	"filesEditedCount": 1,
+	"residualDirtyFilesCount": 63,
+	"stopRequested": false
+}

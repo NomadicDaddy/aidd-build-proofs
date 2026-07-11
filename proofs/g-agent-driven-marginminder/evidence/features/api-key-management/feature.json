@@ -1,0 +1,25 @@
+{
+	"affectedFiles": [
+		"backend/src/routes/users/api-keys.ts",
+		"backend/src/services/apiKeyService.ts",
+		"backend/src/services/apiKeySignatureService.ts",
+		"backend/src/db/schema/apiKeys.ts",
+		"frontend/src/pages/profile/ApiKeysTab.tsx",
+		"frontend/src/api/apiKeys.ts"
+	],
+	"category": "Security",
+	"createdAt": "2026-06-01T20:08:14.542Z",
+	"dependencies": ["authentication-rbac"],
+	"description": "Per-user API key creation, revocation, scope metadata, nonce storage, and profile UI are present.",
+	"id": "api-key-management",
+	"justFinishedAt": null,
+	"notes": [
+		"Backfilled by feature-coverage-audit from current implementation evidence on 2026-06-01."
+	],
+	"passes": true,
+	"priority": 3,
+	"spec": "1. Verify usersApiKeysRoutes is composed by backend/src/routes/users/index.ts.\n2. Verify api key schemas and services exist.\n3. Verify profile routes include /profile/api-keys.\n4. Verify frontend API key components support creation, display, and revocation flows.",
+	"status": "completed",
+	"title": "API Key Management",
+	"updatedAt": "2026-06-01T20:08:14.542Z"
+}

@@ -1,0 +1,18 @@
+{
+	"affectedFiles": [],
+	"category": "UI",
+	"createdAt": "2026-06-01T20:08:14.542Z",
+	"dependencies": ["pricing-calculation-engine", "quote-scenario-api", "risk-flagging"],
+	"description": "Margin Minder dashboard with saved scenario counts, average margin, below-target count, recent scenarios, and quick actions.",
+	"id": "pricing-dashboard",
+	"justFinishedAt": null,
+	"notes": [
+		"Required by .aidd/spec.md; current /dashboard is the template system dashboard rather than a pricing health dashboard."
+	],
+	"passes": true,
+	"priority": 2,
+	"spec": "1. Replace or adapt the dashboard first screen for Margin Minder pricing health.\n2. Show total saved scenarios — use aggregate COUNT queries, do NOT load full scenario details for count metrics.\n3. Show draft scenario count — use aggregate COUNT queries.\n4. Show scenarios below target margin.\n5. Show average gross margin across active scenarios.\n6. Show recent scenarios with customer, title, status, total price, margin, and last updated — limit detail loading to 5 scenarios (RECENT_SCENARIOS_LIMIT) and cap total detail queries at 100 rows (DASHBOARD_DETAIL_LIMIT).\n7. Include quick action to create a new scenario.\n8. Include quick action to open the cost catalog.\n9. Use compact operational metrics rather than a marketing hero.\n10. Keep default route pointing to /dashboard.\n11. Dashboard queries must use aggregate SQL for all count metrics (totalScenarios, draftCount) and limit detail loading to 5 recent scenarios — do NOT call getScenarioDetail() in a loop over unbounded result sets.",
+	"status": "completed",
+	"title": "Pricing Dashboard",
+	"updatedAt": "2026-06-11T00:00:00.000Z"
+}

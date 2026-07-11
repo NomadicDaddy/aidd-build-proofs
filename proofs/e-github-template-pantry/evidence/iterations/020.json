@@ -1,0 +1,93 @@
+{
+	"durationMs": 146869,
+	"endedAt": "2026-07-10T15:01:48.327Z",
+	"iteration": 0,
+	"runId": "run_1783695560447_b89d7c65",
+	"snapshotKey": "claude-code/directive/directive/none",
+	"startedAt": "2026-07-10T14:59:21.458Z",
+	"summary": "directive run finished with exit code 0",
+	"timeToFirstEventMs": 4325,
+	"exitCode": 0,
+	"idleWarningTimestamps": [],
+	"promptChars": 18505,
+	"backend": "claude-code",
+	"executionMode": "single_agent",
+	"mode": "directive",
+	"model": "claude-opus-4-8",
+	"phase": "directive",
+	"provider": null,
+	"reasoningEffort": "medium",
+	"allowedFeatureIds": [],
+	"commands": [
+		"ls -la .aidd/ && echo \"---REPORTS---\" && ls -la .aidd/reports/ 2>/dev/null && echo \"---QUESTIONS---\" && ls -la .aidd/questions.md 2>/dev/null",
+		"echo \"---FEATURES---\" && ls .aidd/features/ 2>/dev/null && echo \"---AUDIT REPORTS---\" && ls .aidd/audit-reports/ 2>/dev/null && echo \"---AUDITS---\" && ls .aidd/audits/ 2>/dev/null",
+		"for f in .aidd/features/*/feature.json; do node -e \"const j=require('./$f'); console.log([j.id||j.name||'?', j.status||'?', j.passes, (j.category||j.type||'')].join(' | '))\" 2>/dev/null || echo \"READ_FAIL $f\"; done",
+		"git log --oneline -20 && echo \"---CHANGELOG HEAD---\" && head -60 .aidd/CHANGELOG.md",
+		"git add .aidd/reports/intake.md .aidd/CHANGELOG.md && git commit -q -m \"docs(aidd): write intake report for pantry\n\nSummarize detected stack/profile, intake artifacts, feature inventory\n(14 total, 0 implemented, 14 waiting_approval incl. 3 remediation, 14\nparked during intake), audit findings, open questions, and next actions.\n\nCo-Authored-By: Claude Opus 4.8 <<REDACTED_EMAIL>>\" && git log --oneline -1"
+	],
+	"commitsCreated": [
+		{
+			"hash": "50b7fe869c3f63c8569f0bed118e4d993502b256",
+			"subject": "docs(aidd): write intake report for pantry"
+		}
+	],
+	"completedFeatures": [],
+	"detailsSummary": {
+		"bashCommandsRun": 5,
+		"finalChecks": {},
+		"hasBuildErrors": false,
+		"hasLintErrors": false,
+		"hasTypeErrors": false,
+		"totalToolCalls": 16,
+		"uniqueFilesCreated": 1,
+		"uniqueFilesEdited": 1,
+		"uniqueFilesRead": 9
+	},
+	"errors": [],
+	"extraCompletedFeatures": [],
+	"filesCreated": ["D:\\applications\\pantry\\.aidd\\reports\\intake.md"],
+	"filesEdited": ["D:\\applications\\pantry\\.aidd\\CHANGELOG.md"],
+	"filesRead": [
+		"D:\\applications\\pantry\\.aidd\\project-profile.json",
+		"D:\\applications\\pantry\\.aidd\\spec.md",
+		"D:\\applications\\pantry\\.aidd\\project.md",
+		"D:\\applications\\pantry\\.aidd\\.artifacts-check.json",
+		"D:\\applications\\pantry\\.aidd\\questions.md",
+		"D:\\applications\\pantry\\.aidd\\reports\\feature-coverage-audit-2026-07-10.md",
+		"D:\\applications\\pantry\\.aidd\\audit-reports\\CODEBASE_ANALYSIS-2026-07-10.md",
+		"D:\\applications\\pantry\\.aidd\\audit-reports\\SECURITY-2026-07-10.md",
+		"D:\\applications\\pantry\\.aidd\\CHANGELOG.md"
+	],
+	"metrics": {
+		"cachedTokens": 0,
+		"costUsd": 1.0036505000000002,
+		"errorCount": 0,
+		"errorReasons": [],
+		"filesCreatedCount": 1,
+		"filesEditedCount": 1,
+		"idleWarningCount": 0,
+		"inputTokens": 33553,
+		"outputTokens": 8834,
+		"rateLimitCount": 0,
+		"reasoningTokens": 0,
+		"toolBreakdown": {
+			"bash": 5,
+			"read": 9,
+			"write": 1,
+			"edit": 1
+		},
+		"toolCallCount": 16
+	},
+	"outcome": {
+		"exitCode": 0,
+		"status": "success"
+	},
+	"scopeOverrun": false,
+	"selectedFeatures": [],
+	"unacceptedCompletedFeatures": [],
+	"commitsCreatedCount": 1,
+	"filesCreatedCount": 1,
+	"filesEditedCount": 1,
+	"residualDirtyFilesCount": 152,
+	"stopRequested": false
+}

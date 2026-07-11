@@ -1,0 +1,24 @@
+{
+	"affectedFiles": [
+		"backend/src/routes/auth/index.ts",
+		"backend/src/plugins/auth.ts",
+		"backend/src/guards/role.ts",
+		"frontend/src/components/auth/ProtectedRoute.tsx",
+		"frontend/src/hooks/useAuthorization.ts"
+	],
+	"category": "Security",
+	"createdAt": "2026-06-01T20:08:14.542Z",
+	"dependencies": ["app-branding-config"],
+	"description": "Template authentication, session, OAuth, MFA, password reset, and role guard surfaces are present.",
+	"id": "authentication-rbac",
+	"justFinishedAt": null,
+	"notes": [
+		"Backfilled by feature-coverage-audit from current implementation evidence on 2026-06-01."
+	],
+	"passes": true,
+	"priority": 1,
+	"spec": "1. Verify auth routes are registered through backend/src/routes/auth/index.ts.\n2. Verify create-api-app.ts installs the auth plugin and password-change guard.\n3. Verify role checks use requireRoleFresh or ProtectedRoute minimum roles.\n4. Verify frontend auth pages are registered in frontend/src/routes.tsx.",
+	"status": "completed",
+	"title": "Authentication And RBAC",
+	"updatedAt": "2026-06-01T20:08:14.542Z"
+}

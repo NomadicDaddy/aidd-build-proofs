@@ -1,0 +1,24 @@
+{
+	"affectedFiles": [
+		"backend/src/routes/workspaces/index.ts",
+		"backend/src/services/workspaceService.ts",
+		"backend/src/db/schema/workspaces.ts",
+		"frontend/src/pages/workspaces/WorkspaceManagementPage.tsx",
+		"frontend/src/components/workspace/WorkspaceSwitcher.tsx"
+	],
+	"category": "Core",
+	"createdAt": "2026-06-01T20:08:14.542Z",
+	"dependencies": ["authentication-rbac"],
+	"description": "Workspace CRUD, member management, workspace route guards, and frontend workspace navigation are present.",
+	"id": "workspace-management",
+	"justFinishedAt": null,
+	"notes": [
+		"Backfilled by feature-coverage-audit from current implementation evidence on 2026-06-01."
+	],
+	"passes": true,
+	"priority": 2,
+	"spec": "1. Verify workspaceRoutes is registered in create-api-app.ts.\n2. Verify workspace CRUD and member routes are composed under backend/src/routes/workspaces/index.ts.\n3. Verify frontend routes include /workspaces and /workspaces/:id/settings.\n4. Verify workspace UI includes a workspace switcher.",
+	"status": "completed",
+	"title": "Workspace Management",
+	"updatedAt": "2026-06-01T20:08:14.542Z"
+}

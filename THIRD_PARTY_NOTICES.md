@@ -10,6 +10,9 @@ application. The applicable terms are:
 | `proofs/b-template-kanban-board/source/`                                                                                     | MIT                                            |
 | `proofs/c-spernakit-smb-dashboard/source/`                                                                                   | Its included MIT `LICENSE`                     |
 | `proofs/d-existing-flaskr/source/`                                                                                           | Its included Pallets BSD `LICENSE.txt`         |
+| `proofs/e-github-template-pantry/source/`                                                                                    | Its included MIT `LICENSE`                     |
+| `proofs/f-local-ai-md-toc/source/`                                                                                           | MIT                                            |
+| `proofs/g-agent-driven-marginminder/source/`                                                                                 | MIT                                            |
 
 ## Flaskr
 
@@ -19,12 +22,12 @@ Pallets project. Its BSD license and copyright notice are preserved in
 
 ## Generated applications
 
-Habit Tracker and Kanban Board were generated and developed during the AIDD campaign. They did not
-carry standalone license files at their recorded commits, so the repository-level MIT license
-applies to those source directories.
+Habit Tracker, Kanban Board, md-toc, and MarginMinder were generated and developed during the AIDD
+proof work. They did not carry standalone license files at their recorded commits, so the
+repository-level MIT license applies to those source directories.
 
-The SMB Infrastructure Dashboard was generated from Spernakit and already carried an MIT license at
-its recorded commit. That file is preserved unchanged in the source snapshot.
+The SMB Infrastructure Dashboard and Pantry's Podex template already carried MIT licenses at their
+recorded commits. Those files are preserved unchanged in the source snapshots.
 
 Dependency lockfiles identify third-party packages used by each application. Those packages remain
 subject to their own licenses; this repository does not relicense them.

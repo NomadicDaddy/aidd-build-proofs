@@ -1,0 +1,25 @@
+{
+	"affectedFiles": [
+		"backend/src/routes/dashboards/index.ts",
+		"backend/src/services/dashboardService.ts",
+		"backend/src/db/schema/dashboards.ts",
+		"frontend/src/pages/dashboards/DashboardListPage.tsx",
+		"frontend/src/pages/dashboards/CustomDashboardPage.tsx",
+		"frontend/src/pages/dashboards/SharedDashboardPage.tsx"
+	],
+	"category": "UI",
+	"createdAt": "2026-06-01T20:08:14.542Z",
+	"dependencies": ["authentication-rbac"],
+	"description": "Custom dashboard CRUD, widget rendering, import/export, and tokenized sharing surfaces are present.",
+	"id": "custom-dashboard-management",
+	"justFinishedAt": null,
+	"notes": [
+		"Backfilled by feature-coverage-audit from current implementation evidence on 2026-06-01."
+	],
+	"passes": true,
+	"priority": 3,
+	"spec": "1. Verify dashboardRoutes is registered in create-api-app.ts.\n2. Verify dashboard CRUD, template import, and share/export routes are composed in backend/src/routes/dashboards/index.ts.\n3. Verify dashboard list, custom dashboard, and shared dashboard pages are lazy-loaded.\n4. Verify /dashboards and /dashboards/shared/:token routes exist.",
+	"status": "completed",
+	"title": "Custom Dashboard Management",
+	"updatedAt": "2026-06-01T20:08:14.542Z"
+}

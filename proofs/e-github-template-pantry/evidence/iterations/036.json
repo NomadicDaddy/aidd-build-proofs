@@ -1,0 +1,105 @@
+{
+	"durationMs": 137800,
+	"endedAt": "2026-07-10T17:35:04.608Z",
+	"iteration": 13,
+	"runId": "run_1783696671763_486cf83c",
+	"snapshotKey": "claude-code/coding/coding/none",
+	"startedAt": "2026-07-10T17:32:46.808Z",
+	"summary": "coding completed remediation-20260710-debug-hotpath-writes; 1 incomplete feature(s) remain",
+	"timeToFirstEventMs": 4414,
+	"exitCode": 0,
+	"idleWarningTimestamps": [],
+	"promptChars": 57131,
+	"backend": "claude-code",
+	"executionMode": "single_agent",
+	"mode": "coding",
+	"model": "claude-opus-4-8",
+	"phase": "coding",
+	"provider": null,
+	"reasoningEffort": "medium",
+	"allowedFeatureIds": ["remediation-20260710-debug-hotpath-writes"],
+	"commands": [
+		"cat .aidd/features/remediation-20260710-debug-hotpath-writes/feature.json 2>/dev/null; echo \"---CLAUDE---\"; ls CLAUDE.md AGENTS.md .aidd/project.md 2>/dev/null",
+		"git ls-files \"api/crud/*.json\" \"api/**/*.json\"; echo \"---untracked---\"; git status --short api/; echo \"---getjson---\"; ls -la api/crud/ 2>/dev/null",
+		"cat package.json 2>/dev/null | grep -A15 '\"scripts\"'",
+		"pwsh -NoLogo -NoProfile -Command \"\\$ErrorActionPreference='Stop'; \\$null = [System.Management.Automation.Language.Parser]::ParseFile('api/crud/get.ps1', [ref]\\$null, [ref]\\$null); if (\\$errs = (& { \\$t=\\$null; \\$e=\\$null; [System.Management.Automation.Language.Parser]::ParseFile('api/crud/get.ps1',[ref]\\$t,[ref]\\$e); \\$e })) { \\$errs | ForEach-Object { \\$_.Message }; exit 1 } else { 'PARSE OK' }\"",
+		"pwsh -NoLogo -NoProfile -Command \"\\$e=\\$null; \\$t=\\$null; [System.Management.Automation.Language.Parser]::ParseFile((Resolve-Path 'api/crud/get.ps1'),[ref]\\$t,[ref]\\$e); if(\\$e){ \\$e | %{ \\$_.Message }; exit 1 } else { 'PARSE OK' }\"",
+		"npm test 2>&1 | tail -25",
+		"npx prettier --check api/crud/get.ps1 2>&1 | tail -5; echo \"---lint---\"; npm run lint 2>&1 | tail -15",
+		"git add api/crud/get.ps1 .aidd/features/remediation-20260710-debug-hotpath-writes/feature.json .aidd/CHANGELOG.md && git diff --staged --name-only",
+		"git commit -m \"perf(api): remove hot-path debug serialization and source-tree file writes from crud get\" -m \"- Deleted unconditional full-response ConvertTo-Json -Depth 5 debug log in api/crud/get.ps1\" -m \"- Deleted Podex.Debug-gated New-Item that wrote Get.json into \\$PSScriptRoot on every request\" -m \"- Response object and all 200/204/400/500 branches unchanged; npm test 50/0\" -m \"- Marked remediation-20260710-debug-hotpath-writes passing/completed\" 2>&1 | tail -15",
+		"git status --short .aidd/features/remediation-20260710-debug-hotpath-writes/feature.json api/crud/get.ps1"
+	],
+	"commitsCreated": [
+		{
+			"hash": "bd505170c33c63220be0f184a18cf5f9c9beec2f",
+			"subject": "perf(api): remove hot-path debug serialization and source-tree file writes from crud get"
+		}
+	],
+	"completedFeatures": ["remediation-20260710-debug-hotpath-writes"],
+	"detailsSummary": {
+		"bashCommandsRun": 10,
+		"finalChecks": {},
+		"hasBuildErrors": false,
+		"hasLintErrors": false,
+		"hasTypeErrors": false,
+		"totalToolCalls": 19,
+		"uniqueFilesCreated": 0,
+		"uniqueFilesEdited": 3,
+		"uniqueFilesRead": 4
+	},
+	"errors": [],
+	"extraCompletedFeatures": [],
+	"filesCreated": [],
+	"filesEdited": [
+		"D:\\applications\\pantry\\api\\crud\\get.ps1",
+		"D:\\applications\\pantry\\.aidd\\features\\remediation-20260710-debug-hotpath-writes\\feature.json",
+		"D:\\applications\\pantry\\.aidd\\CHANGELOG.md"
+	],
+	"filesRead": [
+		"D:\\applications\\pantry\\api\\crud\\get.ps1",
+		"D:\\applications\\pantry\\.aidd\\project.md",
+		"D:\\applications\\pantry\\.aidd\\features\\remediation-20260710-debug-hotpath-writes\\feature.json",
+		"D:\\applications\\pantry\\.aidd\\CHANGELOG.md"
+	],
+	"metrics": {
+		"cachedTokens": 0,
+		"costUsd": 1.2401160000000002,
+		"errorCount": 0,
+		"errorReasons": [],
+		"filesCreatedCount": 0,
+		"filesEditedCount": 3,
+		"idleWarningCount": 0,
+		"inputTokens": 27607,
+		"outputTokens": 6879,
+		"rateLimitCount": 0,
+		"reasoningTokens": 0,
+		"toolBreakdown": {
+			"bash": 10,
+			"read": 4,
+			"edit": 5
+		},
+		"toolCallCount": 19
+	},
+	"outcome": {
+		"exitCode": 0,
+		"status": "success"
+	},
+	"scopeOverrun": false,
+	"selectedFeatures": ["remediation-20260710-debug-hotpath-writes"],
+	"unacceptedCompletedFeatures": [],
+	"backendCompletionFinalizedEarly": true,
+	"featureSlug": "remediation-20260710-debug-hotpath-writes",
+	"featureDescription": "Remediation: remove hot-path debug file writes and full-response JSON logging",
+	"commitsCreatedCount": 1,
+	"filesCreatedCount": 0,
+	"filesEditedCount": 3,
+	"residualDirtyFilesCount": 138,
+	"stopRequested": false,
+	"completedFeature": "remediation-20260710-debug-hotpath-writes",
+	"eligibleFeatures": 1,
+	"remainingDependencyBlockedFeatures": 0,
+	"remainingFeatures": 1,
+	"remainingPendingApproval": 0,
+	"completionOutcome": "completed"
+}

@@ -1,0 +1,17 @@
+<!-- Pantry expiring-soon view: a flat, soonest-first list of items that are expired or expiring
+     within 7 days, with a clear expired-vs-expiring badge. The list markup is produced by
+     Format-PantryExpiringListHtml (see api/_lib/pantry-render.ps1) and passed in as $data.ListHtml
+     so the full-page render and the htmx refresh fragment share one source of truth. The list wrapper
+     (#expiring-list) and the nav count re-fetch themselves on the body-level 'itemChanged' event that
+     every create/edit/delete dispatches, so this view stays in sync without a full page reload. -->
+<section class="bg-gray-50 p-3 sm:p-5 dark:bg-gray-900">
+	<div class="mx-auto max-w-(--breakpoint-xl)">
+		<div class="mb-2 flex items-center justify-between">
+			<h1 class="text-2xl font-bold text-gray-800 dark:text-gray-200">Expiring soon</h1>
+		</div>
+		<p class="mb-4 text-sm text-gray-500 dark:text-gray-400">
+			Items that are already expired or expiring within the next 7 days, soonest first. Expired items are flagged in red; items expiring soon in amber.
+		</p>
+		$($data.ListHtml ;)
+	</div>
+</section>

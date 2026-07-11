@@ -1,0 +1,18 @@
+{
+	"affectedFiles": [],
+	"category": "Core",
+	"createdAt": "2026-06-01T20:08:14.542Z",
+	"dependencies": ["scenario-editor"],
+	"description": "Labor entries with hours, billable rate, internal cost rate, burden percentage, ordering, and notes.",
+	"id": "scenario-labor-modeling",
+	"justFinishedAt": null,
+	"notes": [
+		"Required by .aidd/spec.md; no scenario_labor_entries schema or labor editor UI exists yet."
+	],
+	"passes": true,
+	"priority": 2,
+	"spec": "1. Add labor entries to a scenario.\n2. Capture role name.\n3. Capture hours.\n4. Capture internal hourly cost.\n5. Capture billable hourly rate.\n6. Capture burden percentage.\n7. Persist sort order and notes.\n8. Reject negative hours, rates, or burden values.\n9. Include labor internal cost and sell price in scenario totals.",
+	"status": "completed",
+	"title": "Scenario Labor Modeling",
+	"updatedAt": "2026-06-01T20:08:14.542Z"
+}

@@ -1,0 +1,23 @@
+{
+	"id": "audit-security-1783694727-openapi-spec-and-swagger-ui-mounted-unconditionally-in-all-environments",
+	"title": "OpenAPI spec and Swagger UI mounted unconditionally in all environments",
+	"description": "Verified: podex.ps1:105 `Enable-PodeOpenApi -RouteFilter '/api/*' -Path '/docs/openapi'` and podex.ps1:107 `Enable-PodeOAViewer -Type Swagger -Path '/docs/swagger'` sit AFTER the `if ($cfg.Podex.Debug)` route-dump block that closes at line 102, so they run regardless of the Debug flag. The full API surface (`/docs/openapi`, `/docs/swagger`) is exposed on every deployment. This is distinct from the already-tracked unauth-debug-routes finding, which only covers the Debug-gated /stop /clear /init routes; the docs endpoints are never gated.",
+	"category": "Audit",
+	"dependencies": [],
+	"status": "completed",
+	"passes": true,
+	"notes": "Resolved: wrapped the Enable-PodeOpenApi / Add-PodeOAInfo / Enable-PodeOAViewer calls in podex.ps1 inside an `if ($cfg.Podex.Debug) { ... }` block, matching the existing Debug-gating for the route dump and destructive /stop /clear /init routes. server.psd1 already ships Podex.Debug=$false, so under the default configuration /docs/openapi and /docs/swagger are never mounted (Pode returns 404). Added a Pester Describe 'OpenAPI/Swagger docs are Debug-gated (podex.ps1)' asserting the Enable-Pode* calls sit inside the Debug gate; npm test = 78 passed / 0 failed (was 76). Reintroduction is pinned by that guard rather than a separate pantry feature.json spec, since the docs bootstrap is stock Podex substrate not owned by a single pantry feature.",
+	"priority": 4,
+	"auditSource": "SECURITY",
+	"affectedFiles": ["podex.ps1"],
+	"auditSeverity": "Low",
+	"createdAt": "2026-07-10T14:45:27.388Z",
+	"spec": "Detailed remediation steps:\n1. In podex.ps1, wrap the `Enable-PodeOpenApi` (line 105), `Add-PodeOAInfo` (line 106), and `Enable-PodeOAViewer` (line 107) calls inside an `if ($cfg.Podex.Debug) { ... }` block so the OpenAPI/Swagger surface is only mounted in development, matching the existing Debug-gating pattern used elsewhere in the file.\n2. Confirm `server.psd1` ships with `Podex.Debug = $false` for production deployments (coordinate with the show-exceptions-disclosure and unauth-debug-routes findings, which pivot on the same `Podex.Debug` default).\n3. Verify `/docs/swagger` and `/docs/openapi` return 404 when Debug is false.\n\nIMPORTANT: After resolving this finding, locate the feature.json file(s) in .aidd/features/ whose spec originally produced the code or pattern that caused this audit finding. Update those feature.json spec(s) to prevent this issue from being reintroduced during a feature-based rebuild.",
+	"updatedAt": "2026-07-10T19:05:49.054Z",
+	"approval": {
+		"approvedAt": "2026-07-10T15:05:26.362Z",
+		"decision": null,
+		"decisionRequired": false,
+		"source": "web-ui"
+	}
+}

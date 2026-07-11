@@ -1,0 +1,24 @@
+{
+	"id": "audit-codebase-analysis-1783691797-pagination-total-count",
+	"title": "Pagination totals computed from paginated result; count query never executed",
+	"description": "Verified: api/crud/get.ps1:48 sets $totalItems = $rs.Count, but $rs is the already-paginated result (query at get.ps1:41 applies LIMIT @pageSize OFFSET @offset). So $totalItems never exceeds pageSize (default 10). The correct count query $countSqlx is built (get.ps1:21,39) but never executed. Consequently totalPages, endIndex, hasNextPage, and the page-number list (get.ps1:52-63) are all wrong and pagination past page 1 is broken.",
+	"category": "Audit",
+	"dependencies": [],
+	"status": "completed",
+	"passes": true,
+	"notes_resolution": "Resolved via deletion per approval (.aidd/responses.md: the feature/tag demo domain is discarded, Pantry is modeled fresh). The buggy api/crud/get.ps1 — where $totalItems = $rs.Count read the already-paginated result and the built $countSqlx was never executed — was removed with the demo CRUD routes in commit 02323cb. A repo-wide grep confirms no totalItems/$countSqlx/hasNextPage/totalPages logic remains in source; the only surviving paging code is api/_lib/crud-paging.ps1, a pure input-parser with no total-count computation. The pantry views (inventory/lowstock/expiring) are grouped/derived projections, not paginated, so there is no total-count surface. Spec step 4's pagination Pester test is moot under deletion; the existing suite (56 passed / 0 failed) covers the surviving paging-input helper. Refreshed the stale §6 FACT in .aidd/assertions.md.",
+	"priority": 2,
+	"auditSource": "codebase-analysis",
+	"affectedFiles": ["api/crud/get.ps1"],
+	"auditSeverity": "High",
+	"createdAt": "2026-07-10T13:56:34.095Z",
+	"notes": "Coupling: mutates the api/crud/get.ps1 paging block (get.ps1:48-63) and adds tests/*.ps1 alongside remediation-20260710-paging-input-validation (which fixes the get.ps1:13-14 int cast) — distinct defects on the same file/test surface; sequence them to avoid an edit collision. Caveat: get.ps1 may be superseded by audit-codebase-analysis-1783691795-data-model-mismatch; sequence after the salvage-vs-rewrite decision. | Added by feature-review 2026-07-10.",
+	"spec": "Detailed remediation steps:\n1. Execute the already-built $countSqlx with the same WHERE parameters (tagFilter/search) but without pageSize/offset.\n2. Set $totalItems from the scalar count result (e.g. (Invoke-SqliteQuery ... ).count).\n3. Recompute totalPages/endIndex/hasNextPage/pages from that value.\n4. Add a Pester test seeding > pageSize rows and asserting totalItems and hasNextPage are correct on page 1.",
+	"updatedAt": "2026-07-10T18:30:38.127Z",
+	"approval": {
+		"approvedAt": "2026-07-10T15:05:24.559Z",
+		"decision": "Approved. Per .aidd/responses.md: the feature/tag demo domain is discarded � resolve this finding by deleting the demo code path as Pantry is modeled fresh, not by patching it.",
+		"decisionRequired": true,
+		"source": "web-ui"
+	}
+}

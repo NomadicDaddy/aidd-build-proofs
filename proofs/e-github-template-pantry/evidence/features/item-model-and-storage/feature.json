@@ -1,0 +1,20 @@
+{
+	"id": "item-model-and-storage",
+	"title": "Item model + storage (data-access layer)",
+	"description": "Pantry Item model and persistent storage behind a small data-access layer",
+	"category": "Core",
+	"dependencies": [],
+	"status": "completed",
+	"passes": true,
+	"priority": 1,
+	"createdAt": "2026-07-10T15:10:00.000Z",
+	"justFinishedAt": null,
+	"spec": "1. Define the pantry Item model with fields: name (required), category, quantity (>= 0), unit, expiry date (optional), threshold (default 1), notes (optional), createdAt, updatedAt.\n2. Persist items using a lightweight store that fits podex conventions (SQLite or JSON file), chosen once and kept swappable behind a small data-access layer under api/ (no direct storage calls scattered through routes/views).\n3. Verify the data-access layer exposes create/read/update/delete/list operations and that IDs are stable and unique per item.\n4. Verify a newly created item round-trips: create, then list/read returns the same field values with timestamps populated.\n5. Verify the store persists across a server restart (data is durable, not in-memory only).\n6. Follow Pode/PowerShell idioms; do not introduce a Node server, ORM, or SPA data layer.",
+	"updatedAt": "2026-07-10T15:17:52.824Z",
+	"approval": {
+		"approvedAt": "2026-07-10T15:17:39.668Z",
+		"decision": null,
+		"decisionRequired": false,
+		"source": "web-ui"
+	}
+}

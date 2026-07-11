@@ -1,0 +1,25 @@
+{
+	"affectedFiles": [
+		"backend/src/routes/files/index.ts",
+		"backend/src/services/fileService.ts",
+		"backend/src/storage/index.ts",
+		"backend/src/db/schema/fileUploads.ts",
+		"frontend/src/pages/files/FilesPage.tsx",
+		"frontend/src/components/shared/FileUpload.tsx"
+	],
+	"category": "Core",
+	"createdAt": "2026-06-01T20:08:14.542Z",
+	"dependencies": ["authentication-rbac", "workspace-management"],
+	"description": "Template file upload, metadata, storage adapter, and files page surfaces are present.",
+	"id": "file-upload-management",
+	"justFinishedAt": null,
+	"notes": [
+		"Backfilled by feature-coverage-audit from current implementation evidence on 2026-06-01."
+	],
+	"passes": true,
+	"priority": 3,
+	"spec": "1. Verify fileRoutes is registered in create-api-app.ts.\n2. Verify file upload schema and storage adapter modules are present.\n3. Verify /files is present in frontend routes and navigation behind the files feature flag.\n4. Verify the shared FileUpload component exists for frontend upload workflows.",
+	"status": "completed",
+	"title": "File Upload Management",
+	"updatedAt": "2026-06-01T20:08:14.542Z"
+}

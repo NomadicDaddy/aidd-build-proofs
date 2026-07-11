@@ -1,0 +1,23 @@
+{
+	"id": "audit-codebase-analysis-1783691794-sql-injection-tag-query",
+	"title": "SQL injection via interpolated tagFilter in tag-list query",
+	"description": "Verified: api/crud/get.ps1:50 - the tag-list query interpolates the raw query-string value directly into SQL: \"...case when [tag] = '$($tagFilter)' then 'selected'...\". $tagFilter comes from $WebEvent.Query['tagFilter'] with no parameterization, so a value like x' OR '1'='1 breaks out of the literal. Every other query in the file correctly uses -SqlParameters; this one is a live SQL injection vector.",
+	"category": "Audit",
+	"dependencies": [],
+	"status": "completed",
+	"passes": true,
+	"priority": 1,
+	"auditSource": "codebase-analysis",
+	"affectedFiles": ["api/crud/get.ps1"],
+	"auditSeverity": "Critical",
+	"createdAt": "2026-07-10T13:56:34.095Z",
+	"notes": "Coupling: edits api/crud/get.ps1, whose [tag]-table query (get.ps1:50) is removed by audit-codebase-analysis-1783691795-data-model-mismatch (which drops the orphaned feature/tag model). The interpolation is a live injection today, but sequence this after the salvage-vs-rewrite decision so the fix is not applied to code about to be replaced. | Added by feature-review 2026-07-10. | RESOLVED 2026-07-10: Per the approval decision and .aidd/responses.md (the feature/tag demo domain is discarded, not patched), the SQL-injection vector was closed by DELETING the interpolated tag-list query \"select [tag], case when [tag] = '$($tagFilter)' ... from [tag]\" at get.ps1:59 and its 'tags' response key. No parameterized replacement was added because the demo tag path is being removed as Pantry is modeled fresh. The mustache {{#tags}} filter section in views/components/crudmgr.pode renders empty when the key is absent (no render break). The remaining live query (the [feature] select) already uses -SqlParameters; a repo-wide grep confirms no interpolated SQL remains in get.ps1. Verified headless: AST parse OK, npm test 50/50 passed, PSScriptAnalyzer 0 Error-severity findings repo-wide and none on get.ps1.",
+	"spec": "Detailed remediation steps:\n1. In api/crud/get.ps1, change the tag-list query so the selected-flag comparison uses a bound parameter instead of string interpolation.\n2. Use: Invoke-SqliteQuery -DataSource $db -Query \"select [tag], case when [tag] = @tagFilter then 'selected' else '' end as [selected] from [tag] order by [tag] asc;\" -SqlParameters @{ tagFilter = $tagFilter } -As PSObject\n3. Audit the file for any other interpolated SQL and convert all to parameterized queries.\n4. Add a Pester test that passes a tagFilter containing a single quote and asserts a normal (non-error, non-injected) response.",
+	"updatedAt": "2026-07-10T17:40:40.647Z",
+	"approval": {
+		"approvedAt": "2026-07-10T15:05:23.808Z",
+		"decision": "Approved. Per .aidd/responses.md: the feature/tag demo domain is discarded � resolve this finding by deleting the demo code path as Pantry is modeled fresh, not by patching it.",
+		"decisionRequired": true,
+		"source": "web-ui"
+	}
+}

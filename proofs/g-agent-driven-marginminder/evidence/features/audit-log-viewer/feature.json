@@ -1,0 +1,24 @@
+{
+	"affectedFiles": [
+		"backend/src/routes/audit.ts",
+		"backend/src/services/auditService.ts",
+		"backend/src/db/schema/auditLogs.ts",
+		"frontend/src/pages/settings/audit/AuditLogsTab.tsx",
+		"frontend/src/api/audit.ts"
+	],
+	"category": "Security",
+	"createdAt": "2026-06-01T20:08:14.542Z",
+	"dependencies": ["authentication-rbac", "settings-administration"],
+	"description": "Audit log storage, route access, filtering API, and settings UI are present.",
+	"id": "audit-log-viewer",
+	"justFinishedAt": null,
+	"notes": [
+		"Backfilled by feature-coverage-audit from current implementation evidence on 2026-06-01."
+	],
+	"passes": true,
+	"priority": 3,
+	"spec": "1. Verify auditRoutes is registered in create-api-app.ts.\n2. Verify auditLogs schema and auditService exist.\n3. Verify /settings/audit-logs is routed behind ADMIN settings access.\n4. Verify frontend audit API and AuditLogsTab provide the UI contract.",
+	"status": "completed",
+	"title": "Audit Log Viewer",
+	"updatedAt": "2026-06-01T20:08:14.542Z"
+}

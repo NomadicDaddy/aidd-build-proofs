@@ -1,0 +1,13 @@
+{
+	"category": "DevEx",
+	"createdAt": "2026-01-09T14:35:00.000Z",
+	"dependencies": [],
+	"description": "Gracefully exit with a non-zero code and detailed message if the mandatory TOC markers are missing from the file.",
+	"id": "error-handling-missing-markers",
+	"passes": false,
+	"priority": 10,
+	"spec": "1. Check for the presence of *both* '<!-- toc -->' and '<!-- /toc -->' markers.\n2. If only one is present, or neither is present, halt processing immediately.\n3. The error message must guide the user on how to fix the file structure (i.e., add both markers).",
+	"status": "backlog",
+	"title": "Robust error handling for missing TOC markers",
+	"updatedAt": "2026-01-09T14:35:00.000Z"
+}

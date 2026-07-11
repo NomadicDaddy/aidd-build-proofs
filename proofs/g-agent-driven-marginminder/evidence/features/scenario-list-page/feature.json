@@ -1,0 +1,29 @@
+{
+	"affectedFiles": [
+		"frontend/src/api/scenarios.ts",
+		"frontend/src/api/types/index.ts",
+		"frontend/src/api/types/scenarios.ts",
+		"frontend/src/components/layout/navConfig.tsx",
+		"frontend/src/pages/scenarios/ScenarioListPage.tsx",
+		"frontend/src/routes.tsx",
+		"frontend/src/routes/lazyPages.ts",
+		"frontend/src/routes/preload.ts"
+	],
+	"category": "UI",
+	"createdAt": "2026-06-01T20:08:14.542Z",
+	"dependencies": ["quote-scenario-api"],
+	"description": "Scenario list page with status filters, customer/title search, pricing columns, and navigation to scenario creation and details.",
+	"id": "scenario-list-page",
+	"justFinishedAt": null,
+	"notes": [
+		"Owner clarification 2026-06-03: scenario-list-page owns ONLY the /scenarios list route, navigation entry, status filters, customer/title search, pricing columns, target margin, risk count display, updated date, empty state, and responsive readability.",
+		"It EXCLUDES the /scenarios/new create and /scenarios/:id edit/detail workflows, which are owned by scenario-editor. scenario-list-page may link to those routes only when they exist; otherwise actions should stay non-broken and clearly routed to the current list workflow.",
+		"Part 10 smoke remediation on 2026-06-02 added the minimal /scenarios list page and navigation path wired to the existing scenario API."
+	],
+	"passes": true,
+	"priority": 2,
+	"spec": "1. Add /scenarios list route and navigation entry.\n2. Show status filters for draft, review, approved, and archived.\n3. Support customer and title search.\n4. Show pricing columns including final price and margin — use Intl.NumberFormat for all percentage formatting via the shared formatPercent() helper from frontend/src/lib/pricingFormatters.ts. Do NOT use inline `.toFixed(N)%` patterns.\n5. Show target margin, risk count, and updated date columns.\n6. Include an empty state for the list workflow.\n7. Keep list text readable at mobile and desktop widths.\n8. Exclude /scenarios/new create and /scenarios/:id edit/detail workflows; those are owned by scenario-editor. scenario-list-page may link to those routes only when they exist, otherwise actions must stay non-broken and clearly routed to the current list workflow.",
+	"status": "completed",
+	"title": "Scenario List Page",
+	"updatedAt": "2026-06-11T00:00:00.000Z"
+}

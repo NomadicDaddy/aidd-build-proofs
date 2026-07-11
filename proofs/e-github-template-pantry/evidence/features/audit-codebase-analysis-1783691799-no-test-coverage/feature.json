@@ -1,0 +1,23 @@
+{
+	"id": "audit-codebase-analysis-1783691799-no-test-coverage",
+	"title": "No test coverage; tests directory holds only an excluded .old file",
+	"description": "Verified: the tests/ directory contains only tests.ps1.old, which does not match the Pester glob 'tests/*.ps1' used by package.json's test script (line 21). Effective automated coverage is 0%. No API method, validation branch, pagination, or filter behavior is tested, yet .aidd/spec.md's quality bar requires all features covered by tests in tests/.",
+	"category": "Audit",
+	"dependencies": [],
+	"status": "completed",
+	"passes": true,
+	"notes": "Resolved: a real Pester v5 suite (tests/pantry.Tests.ps1), discovered by `npm test` (Invoke-Pester -Path ./tests/*.ps1), now covers the canonical pantry data model that replaced the deleted /api/crud demo domain. Coverage maps to each remediation step: list+name-sort+filter+search+pagination (Get-PantryItems/Select-PantryItems/Resolve-CrudPaging), create+missing-field validation (New-PantryItem/Test-PantryItemInput), update+validation (Update-PantryItem), and delete valid + unknown-id no-op + unknown-id read. Added this iteration: a delete-unknown-id no-op guard, an unknown-id read guard, and a dedicated SQL-injection safety Describe proving the DAL's @-parameter binding stores DROP/DELETE/boolean-injection payloads literally without executing them. The stale, glob-excluded demo file tests/tests.ps1.old (referencing the removed application/featureName/tag domain) was deleted per step 1. npm test => 65 passed / 0 failed (was 60); PSScriptAnalyzer on the test file adds no new findings.",
+	"priority": 2,
+	"auditSource": "codebase-analysis",
+	"affectedFiles": ["tests/tests.ps1.old"],
+	"auditSeverity": "High",
+	"createdAt": "2026-07-10T13:56:34.095Z",
+	"spec": "Detailed remediation steps:\n1. Add a real Pester v5 suite under tests/*.ps1 (rename/replace tests.ps1.old).\n2. Cover each /api/crud method: GET (list + filter + pagination), POST (create + missing-field validation), PUT (update + validation), DELETE (valid + invalid id).\n3. Include a negative test for SQL-injection-shaped input.\n4. Ensure 'npm run test' discovers and passes the suite; keep it green in CI.",
+	"updatedAt": "2026-07-10T18:35:37.392Z",
+	"approval": {
+		"approvedAt": "2026-07-10T15:05:25.070Z",
+		"decision": null,
+		"decisionRequired": false,
+		"source": "web-ui"
+	}
+}

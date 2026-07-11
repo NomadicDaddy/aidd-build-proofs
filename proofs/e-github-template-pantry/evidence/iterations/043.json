@@ -1,0 +1,107 @@
+{
+	"durationMs": 162826,
+	"endedAt": "2026-07-10T18:35:37.173Z",
+	"iteration": 4,
+	"runId": "run_1783705239547_fcd8876b",
+	"snapshotKey": "claude-code/coding/coding/none",
+	"startedAt": "2026-07-10T18:32:54.347Z",
+	"summary": "coding completed audit-codebase-analysis-1783691798-broken-add-and-update-wiring; 6 incomplete feature(s) remain",
+	"timeToFirstEventMs": 3881,
+	"exitCode": 0,
+	"idleWarningTimestamps": [],
+	"promptChars": 57360,
+	"backend": "claude-code",
+	"executionMode": "single_agent",
+	"mode": "coding",
+	"model": "claude-opus-4-8",
+	"phase": "coding",
+	"provider": null,
+	"reasoningEffort": "medium",
+	"allowedFeatureIds": ["audit-codebase-analysis-1783691798-broken-add-and-update-wiring"],
+	"commands": [
+		"ls views/components/ 2>&1; echo \"---crud---\"; ls api/crud/ 2>&1; echo \"---grep crudmgr---\"; grep -rn \"crudmgr\\|item-new\\|crud-new\\|/htmx/crudmgr\" --include=*.ps1 --include=*.pode . 2>/dev/null | grep -v node_modules",
+		"grep -n \"hx-put\\|hx-post\\|name=\\|Format-PantryItemFormHtml\\|Format-PantryItemEditRowHtml\\|item-update\\|item-create\" api/_lib/pantry-render.ps1 | head -80",
+		"ls tests/; echo \"---\"; grep -n \"Describe\\|item-create\\|item-update\\|New-PantryItem\\|Update-PantryItem\\|Format-PantryItemEditRowHtml\\|Format-PantryItemFormHtml\" tests/*.ps1 | head -60",
+		"npm test 2>&1 | tail -40",
+		"cat package.json | grep -A20 '\"scripts\"'",
+		"pwsh -NoLogo -NoProfile -ExecutionPolicy Bypass -Command \"Import-Module PSScriptAnalyzer ; Invoke-ScriptAnalyzer -Path ./tests/pantry.Tests.ps1 -Severity Error,Warning\" 2>&1 | tail -20",
+		"cd D:/applications/pantry && git add tests/pantry.Tests.ps1 .aidd/features/audit-codebase-analysis-1783691798-broken-add-and-update-wiring/feature.json .aidd/CHANGELOG.md && git diff --staged --name-only",
+		"cd D:/applications/pantry && git commit -m \"fix(ui): resolve broken add/update wiring via demo-crud deletion + regression tests\" -m \"- Finding resolved by deletion (per approval): the crudmgr demo modal (three inconsistent names) and put.ps1 field mismatch were already removed in 02323cb and replaced by a coherent pantry CRUD\" -m \"- Add uses one name end-to-end (/htmx/item-new); Update PUTs to /htmx/item-update with edit-row field names matching the route contract\" -m \"- Added regression Describe in tests/pantry.Tests.ps1 pinning add/edit forms to their routes/fields and blocking the old demo field names\" -m \"- npm test: 60 passed / 0 failed (+4). Marked feature passing/completed\" 2>&1 | tail -15",
+		"cd D:/applications/pantry && git status --short .aidd/features/audit-codebase-analysis-1783691798-broken-add-and-update-wiring/feature.json tests/pantry.Tests.ps1 .aidd/CHANGELOG.md"
+	],
+	"commitsCreated": [
+		{
+			"hash": "6c2a2968c51f99f87196af9529a9aff4408965d0",
+			"subject": "fix(ui): resolve broken add/update wiring via demo-crud deletion + regression tests"
+		}
+	],
+	"completedFeatures": ["audit-codebase-analysis-1783691798-broken-add-and-update-wiring"],
+	"detailsSummary": {
+		"bashCommandsRun": 9,
+		"finalChecks": {},
+		"hasBuildErrors": false,
+		"hasLintErrors": false,
+		"hasTypeErrors": false,
+		"totalToolCalls": 21,
+		"uniqueFilesCreated": 0,
+		"uniqueFilesEdited": 3,
+		"uniqueFilesRead": 7
+	},
+	"errors": [],
+	"extraCompletedFeatures": [],
+	"filesCreated": [],
+	"filesEdited": [
+		"D:\\applications\\pantry\\tests\\pantry.Tests.ps1",
+		"D:\\applications\\pantry\\.aidd\\features\\audit-codebase-analysis-1783691798-broken-add-and-update-wiring\\feature.json",
+		"D:\\applications\\pantry\\.aidd\\CHANGELOG.md"
+	],
+	"filesRead": [
+		"D:\\applications\\pantry\\.aidd\\features\\audit-codebase-analysis-1783691798-broken-add-and-update-wiring\\feature.json",
+		"D:\\applications\\pantry\\CONTEXT.md",
+		"D:\\applications\\pantry\\.aidd\\spec.md",
+		"D:\\applications\\pantry\\podex.ps1",
+		"D:\\applications\\pantry\\tests\\pantry.Tests.ps1",
+		"D:\\applications\\pantry\\api\\_lib\\pantry-render.ps1",
+		"D:\\applications\\pantry\\.aidd\\CHANGELOG.md"
+	],
+	"metrics": {
+		"cachedTokens": 0,
+		"costUsd": 1.5817180000000002,
+		"errorCount": 0,
+		"errorReasons": [],
+		"filesCreatedCount": 0,
+		"filesEditedCount": 3,
+		"idleWarningCount": 0,
+		"inputTokens": 32751,
+		"outputTokens": 9588,
+		"rateLimitCount": 0,
+		"reasoningTokens": 0,
+		"toolBreakdown": {
+			"read": 9,
+			"bash": 9,
+			"edit": 3
+		},
+		"toolCallCount": 21
+	},
+	"outcome": {
+		"exitCode": 0,
+		"status": "success"
+	},
+	"scopeOverrun": false,
+	"selectedFeatures": ["audit-codebase-analysis-1783691798-broken-add-and-update-wiring"],
+	"unacceptedCompletedFeatures": [],
+	"backendCompletionFinalizedEarly": true,
+	"featureSlug": "audit-codebase-analysis-1783691798-broken-add-and-update-wiring",
+	"featureDescription": "Add-Item route/component name mismatch and Update field mismatch both non-functional",
+	"commitsCreatedCount": 1,
+	"filesCreatedCount": 0,
+	"filesEditedCount": 3,
+	"residualDirtyFilesCount": 144,
+	"stopRequested": false,
+	"completedFeature": "audit-codebase-analysis-1783691798-broken-add-and-update-wiring",
+	"eligibleFeatures": 6,
+	"remainingDependencyBlockedFeatures": 0,
+	"remainingFeatures": 6,
+	"remainingPendingApproval": 0,
+	"completionOutcome": "completed"
+}

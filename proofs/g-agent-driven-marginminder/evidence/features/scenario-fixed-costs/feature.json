@@ -1,0 +1,29 @@
+{
+	"affectedFiles": [
+		"frontend/src/components/ui/button.tsx",
+		"frontend/src/pages/scenarios/ScenarioEditorPage.tsx",
+		"frontend/src/styles/super-theme-bbs.css"
+	],
+	"category": "Core",
+	"createdAt": "2026-06-01T20:08:14.542Z",
+	"dependencies": ["scenario-editor"],
+	"description": "Scenario fixed costs with cost, markup, taxability, sort order, and notes.",
+	"id": "scenario-fixed-costs",
+	"justFinishedAt": null,
+	"notes": [
+		"Required by .aidd/spec.md; scenario_fixed_costs schema, scenario API persistence, fixed-cost editor UI, and pricing-summary inclusion are implemented.",
+		"Runtime verification 2026-06-04: cache-busted /scenarios/new loaded Vite dev modules from the current bundle; rendered scenario/editor buttons reported effective type=button.",
+		"Runtime verification 2026-06-04: Add line item produced one rendered line-item row; Fixed Costs tab activated via pointer event sequence; Add fixed cost produced one rendered fixed-cost row.",
+		"Runtime verification 2026-06-04: entering -2 in fixed cost Cost displayed 'Cost must be zero or greater.' and invalid Save showed 'Fix the highlighted validation errors before saving.' without a scenario API request.",
+		"Runtime verification 2026-06-04: valid create from /scenarios/new sent POST /api/v1/scenarios, navigated to /scenarios/16, and persisted Runtime material plus Runtime permit with fixedCostSellPrice 38.5 and lineItemSellPrice 125.",
+		"Runtime verification 2026-06-04: /scenarios/13 save sent PUT /api/v1/scenarios/13 followed by GET /api/v1/scenarios/13.",
+		"Runtime verification 2026-06-04: global bug-report trigger changed aria-expanded from false to true and opened the Report a Bug dialog.",
+		"Runtime verification 2026-06-04 session 16: after lifecycle restart, /scenarios/new rendered scenario controls with type=button and pointer-events=auto, added one line-item row and one fixed-cost row, rejected fixed cost -2 without a scenario mutation, sent POST /api/v1/scenarios with status 201 and navigated to /scenarios/17, and /scenarios/13 Save sent PUT /api/v1/scenarios/13 with status 200."
+	],
+	"passes": true,
+	"priority": 2,
+	"spec": "1. Add fixed cost entries to a scenario.\n2. Capture fixed cost name.\n3. Capture raw cost.\n4. Capture markup percentage.\n5. Capture taxable flag.\n6. Persist sort order and notes.\n7. Reject negative costs or markup values.\n8. Include fixed cost sell prices and direct costs in scenario totals.",
+	"status": "completed",
+	"title": "Scenario Fixed Costs",
+	"updatedAt": "2026-06-04T20:45:00.000Z"
+}

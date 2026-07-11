@@ -1,0 +1,18 @@
+{
+	"affectedFiles": [],
+	"category": "Core",
+	"createdAt": "2026-06-01T20:08:14.542Z",
+	"dependencies": ["margin-data-schema"],
+	"description": "Backend API for quote scenario list, create, detail, update, archive, summary, and comparison inputs.",
+	"id": "quote-scenario-api",
+	"justFinishedAt": null,
+	"notes": [
+		"Required by .aidd/spec.md; no /api/v1/scenarios route, scenario service, summary route, or scenario comparison route was found during onboarding."
+	],
+	"passes": true,
+	"priority": 1,
+	"spec": "1. Add /api/v1/scenarios list endpoint — use batch inArray() queries for child rows (line items, labor entries, fixed costs) instead of calling getScenarioDetail() per row. With a page size of 25, the list call must produce at most ~6 queries total (3 child batches + 1 catalog assumptions + 1 page + 1 count), NOT ~(N×4)+2 per page.\n2. Add /api/v1/scenarios create endpoint.\n3. Add /api/v1/scenarios/:id detail endpoint.\n4. Add /api/v1/scenarios/:id update endpoint.\n5. Add archive or delete behavior for scenarios.\n6. Add /api/v1/scenarios/:id/summary endpoint.\n7. Add /api/v1/scenario-comparison endpoint.\n8. Validate status, target margin, tax rate, contingency, discount, notes, and assumptions.\n9. Return structured validation errors.\n10. Register every scenario route module in create-api-app.ts.\n11. Keep backend route files under 300 lines. Extract TypeBox schemas and validation helpers into co-located schemas.ts files rather than inlining them in route handlers. Maintain Elysia type chain — do NOT extract into controller classes.",
+	"status": "completed",
+	"title": "Quote Scenario API",
+	"updatedAt": "2026-06-11T00:00:00.000Z"
+}

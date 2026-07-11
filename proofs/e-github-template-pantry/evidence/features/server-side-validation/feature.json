@@ -1,0 +1,20 @@
+{
+	"id": "server-side-validation",
+	"title": "Server-side form validation",
+	"description": "Server-side validation for item forms with errors rendered in the htmx fragment",
+	"category": "Core",
+	"dependencies": ["item-crud"],
+	"status": "completed",
+	"passes": true,
+	"priority": 2,
+	"createdAt": "2026-07-10T15:10:00.000Z",
+	"justFinishedAt": null,
+	"spec": "1. Submit the add form with an empty name; confirm the server rejects it and the returned fragment shows a 'name required' error next to the field (no crash, no 500).\n2. Submit with a negative quantity; confirm rejection with a 'quantity must be >= 0' error in the fragment.\n3. Submit with a non-numeric quantity; confirm defensive parsing and a validation error, not an unhandled exception.\n4. Submit with an invalid/malformed expiry date; confirm a 'valid date required' error and no partial write.\n5. Confirm that on any validation failure the previously entered field values are preserved in the re-rendered form.\n6. Confirm a valid submission after fixing errors succeeds and creates/updates the item.\n7. Confirm validation runs on both add and edit paths.\n8. Confirm threshold accepts only a non-negative integer and defaults to 1 when omitted.\n9. Confirm no invalid item is ever persisted to the store on a failed validation.\n10. Confirm error responses return an appropriate status (e.g. 422/400) with the error fragment, not a generic 500.",
+	"updatedAt": "2026-07-10T16:37:57.952Z",
+	"approval": {
+		"approvedAt": "2026-07-10T15:17:40.977Z",
+		"decision": null,
+		"decisionRequired": false,
+		"source": "web-ui"
+	}
+}

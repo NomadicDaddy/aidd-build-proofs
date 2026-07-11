@@ -1,0 +1,25 @@
+{
+	"affectedFiles": [
+		"backend/src/routes/health/index.ts",
+		"backend/src/routes/system/metrics.ts",
+		"backend/src/services/healthService.ts",
+		"backend/src/services/metricsService.ts",
+		"frontend/src/pages/settings/health/SystemHealthTab.tsx",
+		"frontend/src/pages/dashboard/sections/SystemMetrics.tsx"
+	],
+	"category": "Core",
+	"createdAt": "2026-06-01T20:08:14.542Z",
+	"dependencies": ["authentication-rbac"],
+	"description": "Health probes, health history, system metrics, alert configuration, and system health UI are present.",
+	"id": "health-monitoring",
+	"justFinishedAt": null,
+	"notes": [
+		"Backfilled by feature-coverage-audit from current implementation evidence on 2026-06-01."
+	],
+	"passes": true,
+	"priority": 3,
+	"spec": "1. Verify /api/v1/health and /api/v1/health/ready are defined in create-api-app.ts.\n2. Verify health route modules are composed under backend/src/routes/health/index.ts.\n3. Verify metrics services and system metrics routes are present.\n4. Verify system health and dashboard metric frontend sections are routed.",
+	"status": "completed",
+	"title": "Health Monitoring",
+	"updatedAt": "2026-06-01T20:08:14.542Z"
+}

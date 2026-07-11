@@ -1,0 +1,25 @@
+{
+	"durationMs": 0,
+	"endedAt": "2026-07-10T14:23:09.511Z",
+	"iteration": 0,
+	"runId": "run_1783693388530_25708c3f",
+	"selectedWork": {
+		"data": {
+			"issues": [],
+			"total": 12,
+			"valid": true
+		},
+		"description": "All feature files satisfy the typed contract",
+		"id": "validation-clean",
+		"kind": "none"
+	},
+	"startedAt": "2026-07-10T14:23:09.511Z",
+	"summary": "validate found no feature contract issues",
+	"backend": "claude-code",
+	"executionMode": "single_agent",
+	"mode": "validate",
+	"model": "claude-opus-4-8",
+	"phase": "validate",
+	"provider": null,
+	"reasoningEffort": "medium"
+}

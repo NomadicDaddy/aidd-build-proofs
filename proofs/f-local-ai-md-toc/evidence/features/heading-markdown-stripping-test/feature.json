@@ -1,0 +1,13 @@
+{
+	"category": "Testing",
+	"createdAt": "2026-01-09T14:35:00.000Z",
+	"dependencies": ["slug-generation-basic"],
+	"description": "Validate slug generation when the heading text itself contains markdown syntax that needs to be stripped.",
+	"id": "heading-markdown-stripping-test",
+	"passes": false,
+	"priority": 19,
+	"spec": "1. Input: # Text with *italics* and **bold**.\n2. Expected Slug: text-with-italics-and-bold\n3. The slug must be generated as if the markdown formatting did not exist in the original source.",
+	"status": "backlog",
+	"title": "Slug generation robustness against markdown syntax",
+	"updatedAt": "2026-01-09T14:35:00.000Z"
+}

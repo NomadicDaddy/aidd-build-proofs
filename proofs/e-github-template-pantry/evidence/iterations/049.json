@@ -1,0 +1,113 @@
+{
+  "durationMs": 135203,
+  "endedAt": "2026-07-10T19:08:04.261Z",
+  "iteration": 10,
+  "runId": "run_1783705239547_fcd8876b",
+  "snapshotKey": "claude-code/coding/coding/none",
+  "startedAt": "2026-07-10T19:05:49.058Z",
+  "summary": "coding has no incomplete feature work",
+  "timeToFirstEventMs": 3948,
+  "exitCode": 0,
+  "idleWarningTimestamps": [],
+  "promptChars": 57882,
+  "backend": "claude-code",
+  "executionMode": "single_agent",
+  "mode": "coding",
+  "model": "claude-opus-4-8",
+  "phase": "coding",
+  "provider": null,
+  "reasoningEffort": "medium",
+  "allowedFeatureIds": [
+    "audit-security-1783694727-openapi-spec-and-swagger-ui-mounted-unconditionally-in-all-environments"
+  ],
+  "commands": [
+    "cat package.json | grep -A 30 '\"scripts\"'",
+    "npm test 2>&1 | tail -30",
+    "npm run format 2>&1 | tail -5 && echo \"---LINT---\" && npm run lint 2>&1 | tail -15",
+    "npm run format 2>&1 | grep -iE \"changelog|feature.json|error|podex\" | head -10; echo \"---done---\"",
+    "git add podex.ps1 tests/pantry.Tests.ps1 .aidd/CHANGELOG.md \".aidd/features/audit-security-1783694727-openapi-spec-and-swagger-ui-mounted-unconditionally-in-all-environments/feature.json\" && git diff --staged --name-only",
+    "git commit -m \"fix(security): gate OpenAPI/Swagger docs behind Podex.Debug\" -m \"- Wrapped Enable-PodeOpenApi/Add-PodeOAInfo/Enable-PodeOAViewer in podex.ps1 inside an if (\\$cfg.Podex.Debug) block so /docs/openapi and /docs/swagger are not mounted (return 404) under the default Debug-off config\" -m \"- Added Pester guard 'OpenAPI/Swagger docs are Debug-gated (podex.ps1)'; npm test 78 passed / 0 failed\" -m \"- Updated .aidd/features/audit-security-1783694727-openapi-spec-and-swagger-ui-mounted-unconditionally-in-all-environments/feature.json: passes=true, status=completed\" 2>&1 | tail -15",
+    "git status --short | grep -i \"openapi-spec-and-swagger\" || echo \"feature file clean\""
+  ],
+  "commitsCreated": [
+    {
+      "hash": "c1e6226343a9ae8a98be7215e06446f2ba03f26e",
+      "subject": "fix(security): gate OpenAPI/Swagger docs behind Podex.Debug"
+    }
+  ],
+  "completedFeatures": [
+    "audit-security-1783694727-openapi-spec-and-swagger-ui-mounted-unconditionally-in-all-environments"
+  ],
+  "detailsSummary": {
+    "bashCommandsRun": 7,
+    "finalChecks": {},
+    "hasBuildErrors": false,
+    "hasLintErrors": false,
+    "hasTypeErrors": false,
+    "totalToolCalls": 20,
+    "uniqueFilesCreated": 0,
+    "uniqueFilesEdited": 4,
+    "uniqueFilesRead": 7
+  },
+  "errors": [],
+  "extraCompletedFeatures": [],
+  "filesCreated": [],
+  "filesEdited": [
+    "D:\\applications\\pantry\\podex.ps1",
+    "D:\\applications\\pantry\\tests\\pantry.Tests.ps1",
+    "D:\\applications\\pantry\\.aidd\\features\\audit-security-1783694727-openapi-spec-and-swagger-ui-mounted-unconditionally-in-all-environments\\feature.json",
+    "D:\\applications\\pantry\\.aidd\\CHANGELOG.md"
+  ],
+  "filesRead": [
+    "D:\\applications\\pantry\\.aidd\\features\\audit-security-1783694727-openapi-spec-and-swagger-ui-mounted-unconditionally-in-all-environments\\feature.json",
+    "D:\\applications\\pantry\\CONTEXT.md",
+    "D:\\applications\\pantry\\CLAUDE.md",
+    "D:\\applications\\pantry\\podex.ps1",
+    "D:\\applications\\pantry\\server.psd1",
+    "D:\\applications\\pantry\\tests\\pantry.Tests.ps1",
+    "D:\\applications\\pantry\\.aidd\\CHANGELOG.md"
+  ],
+  "metrics": {
+    "cachedTokens": 0,
+    "costUsd": 1.3948004999999997,
+    "errorCount": 0,
+    "errorReasons": [],
+    "filesCreatedCount": 0,
+    "filesEditedCount": 4,
+    "idleWarningCount": 0,
+    "inputTokens": 32618,
+    "outputTokens": 7592,
+    "rateLimitCount": 0,
+    "reasoningTokens": 0,
+    "toolBreakdown": {
+      "read": 8,
+      "edit": 4,
+      "grep": 1,
+      "bash": 7
+    },
+    "toolCallCount": 20
+  },
+  "outcome": {
+    "exitCode": 0,
+    "status": "success"
+  },
+  "scopeOverrun": false,
+  "selectedFeatures": [
+    "audit-security-1783694727-openapi-spec-and-swagger-ui-mounted-unconditionally-in-all-environments"
+  ],
+  "unacceptedCompletedFeatures": [],
+  "backendCompletionFinalizedEarly": true,
+  "featureSlug": "audit-security-1783694727-openapi-spec-and-swagger-ui-mounted-unconditionally-in-all-environments",
+  "featureDescription": "OpenAPI spec and Swagger UI mounted unconditionally in all environments",
+  "commitsCreatedCount": 1,
+  "filesCreatedCount": 0,
+  "filesEditedCount": 4,
+  "residualDirtyFilesCount": 154,
+  "stopRequested": false,
+  "completedFeature": "audit-security-1783694727-openapi-spec-and-swagger-ui-mounted-unconditionally-in-all-environments",
+  "eligibleFeatures": 0,
+  "remainingDependencyBlockedFeatures": 0,
+  "remainingFeatures": 0,
+  "remainingPendingApproval": 0,
+  "completionOutcome": "completed"
+}

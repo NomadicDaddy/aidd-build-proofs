@@ -3,12 +3,20 @@ export interface ProofConfig {
 	appName: string;
 	sourceDirectory: string;
 	specFile: string;
-	lane: 'existing-ingest' | 'fresh' | 'spernakit' | 'third-party-template';
+	lane:
+		| 'agent-driven'
+		| 'existing-ingest'
+		| 'fresh'
+		| 'github-template'
+		| 'local-ai'
+		| 'spernakit'
+		| 'third-party-template';
 	stack: string;
 	backend: string;
 	model: string;
 	reasoningEffort: string;
 	recordedGate: string;
+	recordedResult: 'failed' | 'passed';
 	recordedPassingFeatures: number;
 	recordedNonPassingFeatures: number;
 	limitations: string[];
@@ -58,7 +66,7 @@ export interface ProofManifestEntry {
 	};
 	validation: {
 		recordedCommand: string;
-		recordedResult: 'passed';
+		recordedResult: ProofConfig['recordedResult'];
 		replay: ReplayResult;
 	};
 	keyArtifacts: ArtifactDigest[];

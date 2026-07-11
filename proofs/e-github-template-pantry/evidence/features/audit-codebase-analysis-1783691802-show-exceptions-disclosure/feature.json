@@ -1,0 +1,23 @@
+{
+	"id": "audit-codebase-analysis-1783691802-show-exceptions-disclosure",
+	"title": "Stack-trace disclosure via ShowExceptions enabled by default",
+	"description": "Verified: server.psd1:24 sets Web.ErrorPages.ShowExceptions = $true and server.psd1:39 sets Podex.Debug = $true. With both defaults on, internal exception messages and stack traces are returned to clients, disclosing file paths and implementation details.",
+	"category": "Audit",
+	"dependencies": [],
+	"status": "completed",
+	"passes": true,
+	"priority": 3,
+	"auditSource": "codebase-analysis",
+	"affectedFiles": ["server.psd1"],
+	"auditSeverity": "Medium",
+	"createdAt": "2026-07-10T13:56:34.095Z",
+	"notes": "Coupling: edits server.psd1 defaults (Web.ErrorPages.ShowExceptions at server.psd1:24 and Podex.Debug at server.psd1:39) shared with audit-codebase-analysis-1783691796-unauth-debug-routes and remediation-20260710-debug-hotpath-writes. All three pivot on the Podex.Debug=$true default; coordinate so the server.psd1 change is made once, consistently. | Added by feature-review 2026-07-10. | RESOLVED 2026-07-10: Set Web.ErrorPages.ShowExceptions = $false in server.psd1 (documented as safe default with an explicit local-dev-only opt-in comment, mirroring the already-$false Podex.Debug posture set by the coupled unauth-debug-routes fix). With ShowExceptions off, Pode's Responses.ps1 no longer populates $data.exception, so uncaught errors render the generic errors/default.html.pode page (no exception message/stack trace) while full details are still captured server-side via Enable-PodeErrorLogging. Added a 'Security-posture config defaults' Describe to tests/pantry.Tests.ps1 that Import-PowerShellDataFile-loads server.psd1 and asserts ShowExceptions=$false, Podex.Debug=$false, and that errors/default.html.pode exists. Verification: npm test 70 passed / 0 failed (+3); npm run format clean; lint errors confined to vendored public/js/mustache.js; PSScriptAnalyzer adds no new findings.",
+	"spec": "Detailed remediation steps:\n1. Default Web.ErrorPages.ShowExceptions to $false in server.psd1.\n2. Serve generic error pages (errors/default.html.pode already exists) to clients while logging full details server-side.\n3. Only enable exception disclosure behind an explicit local-dev override.",
+	"updatedAt": "2026-07-10T18:47:40.546Z",
+	"approval": {
+		"approvedAt": "2026-07-10T15:05:25.847Z",
+		"decision": null,
+		"decisionRequired": false,
+		"source": "web-ui"
+	}
+}

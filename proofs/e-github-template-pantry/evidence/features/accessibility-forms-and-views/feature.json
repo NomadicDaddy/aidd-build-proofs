@@ -1,0 +1,20 @@
+{
+	"id": "accessibility-forms-and-views",
+	"title": "Accessibility: labeled inputs & keyboard-usable views",
+	"description": "Accessibility bar for pantry views: labeled inputs, button semantics, keyboard-usable forms",
+	"category": "UI",
+	"dependencies": ["item-crud", "inventory-list-view"],
+	"status": "completed",
+	"passes": true,
+	"priority": 3,
+	"createdAt": "2026-07-10T15:10:00.000Z",
+	"justFinishedAt": null,
+	"spec": "1. Inspect the add/edit item forms; confirm every input has an associated label (for/id or wrapping label).\n2. Confirm interactive controls use proper button semantics (real <button> elements, not click-only divs).\n3. Tab through the inventory page; confirm all forms, filters, and +/- controls are reachable and operable by keyboard alone.\n4. Confirm focus is managed sensibly after htmx swaps (focus is not lost to the top of the document unexpectedly).\n5. Confirm badges and status indicators convey meaning by more than color alone (text/label present).\n6. Confirm the page has a sensible heading structure and landmark regions.",
+	"updatedAt": "2026-07-10T16:59:15.579Z",
+	"approval": {
+		"approvedAt": "2026-07-10T15:17:38.078Z",
+		"decision": null,
+		"decisionRequired": false,
+		"source": "web-ui"
+	}
+}

@@ -1,0 +1,110 @@
+{
+	"durationMs": 197283,
+	"endedAt": "2026-07-10T18:38:54.677Z",
+	"iteration": 5,
+	"runId": "run_1783705239547_fcd8876b",
+	"snapshotKey": "claude-code/coding/coding/none",
+	"startedAt": "2026-07-10T18:35:37.394Z",
+	"summary": "coding completed audit-codebase-analysis-1783691799-no-test-coverage; 5 incomplete feature(s) remain",
+	"timeToFirstEventMs": 4522,
+	"exitCode": 0,
+	"idleWarningTimestamps": [],
+	"promptChars": 57507,
+	"backend": "claude-code",
+	"executionMode": "single_agent",
+	"mode": "coding",
+	"model": "claude-opus-4-8",
+	"phase": "coding",
+	"provider": null,
+	"reasoningEffort": "medium",
+	"allowedFeatureIds": ["audit-codebase-analysis-1783691799-no-test-coverage"],
+	"commands": [
+		"cat .aidd/features/audit-codebase-analysis-1783691799-no-test-coverage/feature.json 2>/dev/null; echo \"---STATUS---\"; git status --short | head -30",
+		"ls -la tests/ 2>/dev/null; echo \"---PKG---\"; cat package.json; echo \"---API---\"; ls -R api/ 2>/dev/null | head -60",
+		"npm test 2>&1 | tail -20",
+		"grep -nE \"Describe|Context|It \" tests/pantry.Tests.ps1",
+		"grep -niE \"inject|drop table|--|invalid id|unknown id|nonexistent|does not exist\" tests/pantry.Tests.ps1",
+		"head -20 tests/tests.ps1.old",
+		"git rm tests/tests.ps1.old 2>&1 | tail -3",
+		"npm test 2>&1 | tail -8",
+		"npm run format 2>&1 | tail -5; echo \"===LINT===\"; npm run lint 2>&1 | tail -15",
+		"pwsh -NoLogo -NoProfile -ExecutionPolicy Bypass -Command \"Import-Module PSScriptAnalyzer; Invoke-ScriptAnalyzer -Path ./tests/pantry.Tests.ps1 | Format-Table -AutoSize\" 2>&1 | head -20",
+		"node -e \"JSON.parse(require('fs').readFileSync('.aidd/features/audit-codebase-analysis-1783691799-no-test-coverage/feature.json','utf8')); console.log('JSON OK')\"",
+		"npm run format >/dev/null 2>&1; git add tests/pantry.Tests.ps1 tests/tests.ps1.old .aidd/features/audit-codebase-analysis-1783691799-no-test-coverage/feature.json .aidd/CHANGELOG.md; echo \"===STAGED===\"; git diff --staged --name-only",
+		"git add tests/pantry.Tests.ps1 .aidd/features/audit-codebase-analysis-1783691799-no-test-coverage/feature.json .aidd/CHANGELOG.md; echo \"===STAGED===\"; git diff --staged --name-only",
+		"git commit -m \"test(pantry): close no-test-coverage finding with delete-invalid-id and SQL-injection guards\" -m \"- Added delete-unknown-id no-op guard + unknown-id read guard to the DAL Describe\" -m \"- Added a SQL-injection safety Describe proving @-parameter binding stores DROP/DELETE/boolean payloads literally\" -m \"- Removed stale glob-excluded demo test tests/tests.ps1.old (referenced the deleted application/featureName/tag domain)\" -m \"- npm test: 65 passed / 0 failed (was 60); PSScriptAnalyzer adds no new findings\" -m \"- Marked feature audit-codebase-analysis-1783691799-no-test-coverage passes=true/completed\" 2>&1 | tail -15",
+		"git status --short | grep -E \"feature.json|pantry.Tests|CHANGELOG|tests.ps1.old\" || echo \"clean of feature files\""
+	],
+	"commitsCreated": [
+		{
+			"hash": "3a384aee8130c16ffb92f19c22dd364a8a929013",
+			"subject": "test(pantry): close no-test-coverage finding with delete-invalid-id and SQL-injection guards"
+		}
+	],
+	"completedFeatures": ["audit-codebase-analysis-1783691799-no-test-coverage"],
+	"detailsSummary": {
+		"bashCommandsRun": 15,
+		"finalChecks": {},
+		"hasBuildErrors": false,
+		"hasLintErrors": false,
+		"hasTypeErrors": false,
+		"totalToolCalls": 24,
+		"uniqueFilesCreated": 0,
+		"uniqueFilesEdited": 3,
+		"uniqueFilesRead": 4
+	},
+	"errors": [],
+	"extraCompletedFeatures": [],
+	"filesCreated": [],
+	"filesEdited": [
+		"D:\\applications\\pantry\\tests\\pantry.Tests.ps1",
+		"D:\\applications\\pantry\\.aidd\\features\\audit-codebase-analysis-1783691799-no-test-coverage\\feature.json",
+		"D:\\applications\\pantry\\.aidd\\CHANGELOG.md"
+	],
+	"filesRead": [
+		"D:\\applications\\pantry\\api\\_lib\\pantry-store.ps1",
+		"D:\\applications\\pantry\\tests\\pantry.Tests.ps1",
+		"D:\\applications\\pantry\\.aidd\\features\\audit-codebase-analysis-1783691799-no-test-coverage\\feature.json",
+		"D:\\applications\\pantry\\.aidd\\CHANGELOG.md"
+	],
+	"metrics": {
+		"cachedTokens": 0,
+		"costUsd": 1.7318315000000002,
+		"errorCount": 0,
+		"errorReasons": [],
+		"filesCreatedCount": 0,
+		"filesEditedCount": 3,
+		"idleWarningCount": 0,
+		"inputTokens": 28433,
+		"outputTokens": 11537,
+		"rateLimitCount": 0,
+		"reasoningTokens": 0,
+		"toolBreakdown": {
+			"bash": 15,
+			"read": 4,
+			"edit": 5
+		},
+		"toolCallCount": 24
+	},
+	"outcome": {
+		"exitCode": 0,
+		"status": "success"
+	},
+	"scopeOverrun": false,
+	"selectedFeatures": ["audit-codebase-analysis-1783691799-no-test-coverage"],
+	"unacceptedCompletedFeatures": [],
+	"backendCompletionFinalizedEarly": true,
+	"featureSlug": "audit-codebase-analysis-1783691799-no-test-coverage",
+	"featureDescription": "No test coverage; tests directory holds only an excluded .old file",
+	"commitsCreatedCount": 1,
+	"filesCreatedCount": 0,
+	"filesEditedCount": 3,
+	"residualDirtyFilesCount": 148,
+	"stopRequested": false,
+	"completedFeature": "audit-codebase-analysis-1783691799-no-test-coverage",
+	"eligibleFeatures": 5,
+	"remainingDependencyBlockedFeatures": 0,
+	"remainingFeatures": 5,
+	"remainingPendingApproval": 0,
+	"completionOutcome": "completed"
+}

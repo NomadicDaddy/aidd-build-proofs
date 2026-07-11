@@ -1,0 +1,91 @@
+{
+  "durationMs": 42315,
+  "endedAt": "2026-07-11T02:29:34.591Z",
+  "iteration": 1,
+  "runId": "run_1783736854238_f050f1a2",
+  "snapshotKey": "lmstudio/coding/coding/none",
+  "startedAt": "2026-07-11T02:28:52.276Z",
+  "summary": "coding finished with exit code 0; 13 incomplete feature(s) remain",
+  "timeToFirstEventMs": 4302,
+  "exitCode": 73,
+  "idleWarningTimestamps": [],
+  "promptChars": 53227,
+  "backend": "lmstudio",
+  "executionMode": "single_agent",
+  "mode": "coding",
+  "model": "google/gemma-4-e4b",
+  "phase": "coding",
+  "provider": "lmstudio",
+  "reasoningEffort": "high",
+  "allowedFeatureIds": [
+    "heading-parser-detection"
+  ],
+  "commands": [
+    "pwd\ngit log --oneline -5\nls -F src/"
+  ],
+  "commitsCreated": [],
+  "completedFeatures": [],
+  "detailsSummary": {
+    "bashCommandsRun": 1,
+    "finalChecks": {},
+    "hasBuildErrors": false,
+    "hasLintErrors": false,
+    "hasTypeErrors": false,
+    "totalToolCalls": 11,
+    "uniqueFilesCreated": 0,
+    "uniqueFilesEdited": 0,
+    "uniqueFilesRead": 7
+  },
+  "errors": [],
+  "extraCompletedFeatures": [],
+  "filesCreated": [],
+  "filesEdited": [],
+  "filesRead": [
+    "AGENTS.md",
+    ".aidd/project.md",
+    ".aidd/spec.md",
+    "src/types/index.ts",
+    "src/types/common.ts",
+    "src/parser.ts",
+    "src/slugger.ts"
+  ],
+  "metrics": {
+    "cachedTokens": 0,
+    "costUsd": 0,
+    "errorCount": 0,
+    "errorReasons": [],
+    "filesCreatedCount": 0,
+    "filesEditedCount": 0,
+    "idleWarningCount": 0,
+    "inputTokens": 249256,
+    "outputTokens": 3222,
+    "rateLimitCount": 0,
+    "reasoningTokens": 2116,
+    "toolBreakdown": {
+      "list_directory": 3,
+      "read": 7,
+      "bash": 1
+    },
+    "toolCallCount": 11
+  },
+  "outcome": {
+    "exitCode": 73,
+    "status": "missing_aidd_result"
+  },
+  "scopeOverrun": false,
+  "selectedFeatures": [],
+  "unacceptedCompletedFeatures": [],
+  "missingAiddResult": true,
+  "featureSlug": "heading-parser-detection",
+  "featureDescription": "Heading detection and level parsing",
+  "commitsCreatedCount": 0,
+  "filesCreatedCount": 0,
+  "filesEditedCount": 0,
+  "residualDirtyFilesCount": 7,
+  "stopRequested": false,
+  "completedFeature": null,
+  "eligibleFeatures": 6,
+  "remainingDependencyBlockedFeatures": 7,
+  "remainingFeatures": 13,
+  "remainingPendingApproval": 0
+}

@@ -1,0 +1,100 @@
+{
+	"durationMs": 248666,
+	"endedAt": "2026-07-10T14:20:46.555Z",
+	"iteration": 0,
+	"runId": "run_1783692996913_4f2156bd",
+	"snapshotKey": "claude-code/directive/directive/none",
+	"startedAt": "2026-07-10T14:16:37.889Z",
+	"summary": "directive run finished with exit code 0",
+	"timeToFirstEventMs": 4470,
+	"exitCode": 0,
+	"idleWarningTimestamps": [],
+	"promptChars": 45847,
+	"backend": "claude-code",
+	"executionMode": "single_agent",
+	"mode": "directive",
+	"model": "claude-opus-4-8",
+	"phase": "directive",
+	"provider": null,
+	"reasoningEffort": "medium",
+	"allowedFeatureIds": [],
+	"commands": [
+		"ls -la .aidd/ && echo \"---FEATURES---\" && ls .aidd/features/ 2>/dev/null && echo \"---ROADMAP---\" && ls -la .aidd/roadmap.json 2>/dev/null",
+		"for f in .aidd/features/*/feature.json; do echo \"===== $f =====\"; cat \"$f\"; echo; done",
+		"echo \"===POST===\"; cat api/crud/post.ps1; echo \"===PUT===\"; cat api/crud/put.ps1; echo \"===DELETE===\"; cat api/crud/delete.ps1 2>/dev/null || echo \"(no delete.ps1)\"; echo \"===TREE api===\"; find api -type f; echo \"===TREE views===\"; find views -type f; echo \"===server.psd1===\"; cat server.psd1",
+		"test -f .aidd/roadmap.json && echo \"ROADMAP EXISTS\" || echo \"NO roadmap.json\"; echo \"---profile---\"; test -f .aidd/project-profile.json && echo \"profile exists\" || echo \"no profile\"; echo \"---devDeps test frameworks---\"; grep -iE \"vitest|jest|pester|testing-library\" package.json || echo \"(none in package.json devDeps)\"",
+		"for f in .aidd/features/remediation-20260710-debug-hotpath-writes/feature.json .aidd/features/remediation-20260710-paging-input-validation/feature.json .aidd/features/audit-codebase-analysis-1783691798-broken-add-and-update-wiring/feature.json; do node -e \"JSON.parse(require('fs').readFileSync('$f','utf8')); console.log('OK  $f')\" || echo \"FAIL $f\"; done",
+		"git add .aidd/features/remediation-20260710-debug-hotpath-writes/feature.json .aidd/features/remediation-20260710-paging-input-validation/feature.json .aidd/features/audit-codebase-analysis-1783691798-broken-add-and-update-wiring/feature.json .aidd/CHANGELOG.md && git commit -q -m \"docs(aidd): feature-review — fix debug description, add dep + coordination notes\" && echo \"COMMITTED\" && git log --oneline -1"
+	],
+	"commitsCreated": [
+		{
+			"hash": "a34282e3dbf65ac61173769a85a859c341481bc4",
+			"subject": "docs(aidd): feature-review — fix debug description, add dep + coordination notes"
+		}
+	],
+	"completedFeatures": [],
+	"detailsSummary": {
+		"bashCommandsRun": 6,
+		"finalChecks": {},
+		"hasBuildErrors": false,
+		"hasLintErrors": false,
+		"hasTypeErrors": false,
+		"totalToolCalls": 24,
+		"uniqueFilesCreated": 0,
+		"uniqueFilesEdited": 4,
+		"uniqueFilesRead": 11
+	},
+	"errors": [],
+	"extraCompletedFeatures": [],
+	"filesCreated": [],
+	"filesEdited": [
+		"D:\\applications\\pantry\\.aidd\\features\\remediation-20260710-debug-hotpath-writes\\feature.json",
+		"D:\\applications\\pantry\\.aidd\\features\\remediation-20260710-paging-input-validation\\feature.json",
+		"D:\\applications\\pantry\\.aidd\\features\\audit-codebase-analysis-1783691798-broken-add-and-update-wiring\\feature.json",
+		"D:\\applications\\pantry\\.aidd\\CHANGELOG.md"
+	],
+	"filesRead": [
+		"D:\\applications\\pantry\\package.json",
+		"D:\\applications\\pantry\\.aidd\\project.md",
+		"D:\\applications\\pantry\\.aidd\\spec.md",
+		"D:\\applications\\pantry\\.aidd\\remediation-review.md",
+		"D:\\applications\\pantry\\.aidd\\project-structure.md",
+		"D:\\applications\\pantry\\podex.ps1",
+		"D:\\applications\\pantry\\api\\crud\\get.ps1",
+		"D:\\applications\\pantry\\.aidd\\CHANGELOG.md",
+		"D:\\applications\\pantry\\.aidd\\features\\remediation-20260710-debug-hotpath-writes\\feature.json",
+		"D:\\applications\\pantry\\.aidd\\features\\remediation-20260710-paging-input-validation\\feature.json",
+		"D:\\applications\\pantry\\.aidd\\features\\audit-codebase-analysis-1783691798-broken-add-and-update-wiring\\feature.json"
+	],
+	"metrics": {
+		"cachedTokens": 0,
+		"costUsd": 1.6290905,
+		"errorCount": 0,
+		"errorReasons": [],
+		"filesCreatedCount": 0,
+		"filesEditedCount": 4,
+		"idleWarningCount": 0,
+		"inputTokens": 41210,
+		"outputTokens": 16433,
+		"rateLimitCount": 0,
+		"reasoningTokens": 0,
+		"toolBreakdown": {
+			"bash": 6,
+			"read": 11,
+			"edit": 7
+		},
+		"toolCallCount": 24
+	},
+	"outcome": {
+		"exitCode": 0,
+		"status": "success"
+	},
+	"scopeOverrun": false,
+	"selectedFeatures": [],
+	"unacceptedCompletedFeatures": [],
+	"commitsCreatedCount": 1,
+	"filesCreatedCount": 0,
+	"filesEditedCount": 4,
+	"residualDirtyFilesCount": 53,
+	"stopRequested": false
+}

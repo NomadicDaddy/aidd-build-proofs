@@ -1,0 +1,89 @@
+{
+	"durationMs": 192755,
+	"endedAt": "2026-07-10T14:53:18.352Z",
+	"iteration": 0,
+	"runId": "run_1783695004416_f026569e",
+	"snapshotKey": "claude-code/directive/directive/none",
+	"startedAt": "2026-07-10T14:50:05.597Z",
+	"summary": "directive run finished with exit code 0",
+	"timeToFirstEventMs": 9809,
+	"exitCode": 0,
+	"idleWarningTimestamps": [],
+	"promptChars": 45847,
+	"backend": "claude-code",
+	"executionMode": "single_agent",
+	"mode": "directive",
+	"model": "claude-opus-4-8",
+	"phase": "directive",
+	"provider": null,
+	"reasoningEffort": "medium",
+	"allowedFeatureIds": [],
+	"commands": [
+		"ls -d .aidd/features/*/ 2>/dev/null && echo \"---ROADMAP---\" && ls .aidd/roadmap.json 2>/dev/null && echo \"---REMEDIATION---\" && ls .aidd/remediation-review.md 2>/dev/null",
+		"cat package.json 2>/dev/null | head -60",
+		"ls -la .aidd/roadmap.json .aidd/remediation-review.md .aidd/project.md .aidd/spec.md 2>&1; echo \"---STRUCT---\"; ls .aidd/ 2>/dev/null",
+		"for f in .aidd/features/*/feature.json; do echo \"=== $f ===\"; cat \"$f\"; echo; done 2>/dev/null | head -400",
+		"echo \"=== spec.md ===\"; cat .aidd/spec.md; echo; echo \"=== project.md ===\"; cat .aidd/project.md; echo; echo \"=== remediation-review.md ===\"; cat .aidd/remediation-review.md",
+		"echo \"=== podex.ps1 ===\"; cat -n podex.ps1 2>/dev/null; echo \"=== server.psd1 ===\"; cat -n server.psd1 2>/dev/null",
+		"echo \"=== get.ps1 ===\"; cat -n api/crud/get.ps1 2>/dev/null; echo \"=== ls api ===\"; find api -type f 2>/dev/null; echo \"=== ls views/components ===\"; ls views/components/ 2>/dev/null; echo \"=== ls tests ===\"; ls tests/ 2>/dev/null",
+		"echo \"=== post.ps1 (40-60) ===\"; sed -n '40,60p' api/crud/post.ps1; echo \"=== put.ps1 (15,40) ===\"; sed -n '15,40p' api/crud/put.ps1; echo \"=== init.sql ===\"; cat -n api/debug/init.sql; echo \"=== stop.ps1 ===\"; cat -n api/debug/stop.ps1",
+		"echo \"=== crudmgr.pode (60-70 & 100-120) ===\"; sed -n '60,70p' views/components/crudmgr.pode; echo \"...\"; sed -n '100,120p' views/components/crudmgr.pode",
+		"echo \"=== spernakit_version check ===\"; grep -rl \"spernakit_version\" .aidd/features/ 2>/dev/null || echo \"none\"; echo \"=== status values ===\"; grep -rh '\"status\"' .aidd/features/*/feature.json | sort | uniq -c; echo \"=== completed count ===\"; grep -rl '\"passes\": true' .aidd/features/ 2>/dev/null | wc -l; echo \"=== project-profile stack ===\"; grep -iE '\"(stack|framework|language|runtime|type)\"' .aidd/project-profile.json 2>/dev/null | head -20",
+		"tail -30 .aidd/CHANGELOG.md",
+		"git add .aidd/CHANGELOG.md && git commit -q -m \"docs(aidd): feature-review pantry re-run — 14 specs re-verified, no changes\n\nCo-Authored-By: Claude Opus 4.8 <<REDACTED_EMAIL>>\" && echo \"committed\" && git log --oneline -1"
+	],
+	"commitsCreated": [
+		{
+			"hash": "dcdb95f2ec8f31f467104afae992be56a341366a",
+			"subject": "docs(aidd): feature-review pantry re-run — 14 specs re-verified, no changes"
+		}
+	],
+	"completedFeatures": [],
+	"detailsSummary": {
+		"bashCommandsRun": 12,
+		"finalChecks": {},
+		"hasBuildErrors": false,
+		"hasLintErrors": false,
+		"hasTypeErrors": false,
+		"totalToolCalls": 14,
+		"uniqueFilesCreated": 0,
+		"uniqueFilesEdited": 1,
+		"uniqueFilesRead": 1
+	},
+	"errors": [],
+	"extraCompletedFeatures": [],
+	"filesCreated": [],
+	"filesEdited": ["D:\\applications\\pantry\\.aidd\\CHANGELOG.md"],
+	"filesRead": ["D:\\applications\\pantry\\.aidd\\CHANGELOG.md"],
+	"metrics": {
+		"cachedTokens": 0,
+		"costUsd": 1.3548479999999998,
+		"errorCount": 0,
+		"errorReasons": [],
+		"filesCreatedCount": 0,
+		"filesEditedCount": 1,
+		"idleWarningCount": 0,
+		"inputTokens": 32444,
+		"outputTokens": 11876,
+		"rateLimitCount": 0,
+		"reasoningTokens": 0,
+		"toolBreakdown": {
+			"bash": 12,
+			"read": 1,
+			"edit": 1
+		},
+		"toolCallCount": 14
+	},
+	"outcome": {
+		"exitCode": 0,
+		"status": "success"
+	},
+	"scopeOverrun": false,
+	"selectedFeatures": [],
+	"unacceptedCompletedFeatures": [],
+	"commitsCreatedCount": 1,
+	"filesCreatedCount": 0,
+	"filesEditedCount": 1,
+	"residualDirtyFilesCount": 148,
+	"stopRequested": false
+}

@@ -1,0 +1,28 @@
+{
+  "runId": "run_1780938288036_61d0ccbc",
+  "iteration": 0,
+  "lifecycle": "started",
+  "summary": "directive iteration started",
+  "snapshotKey": "native/directive/directive/none",
+  "startedAt": "2026-06-08T17:04:48.452Z",
+  "endedAt": null,
+  "durationMs": 0,
+  "promptChars": 14686,
+  "exitCode": null,
+  "backend": "native",
+  "executionMode": "single_agent",
+  "mode": "directive",
+  "phase": "directive",
+  "model": "glm-5.1",
+  "provider": "zhipu",
+  "reasoningEffort": "high",
+  "selectedWork": {
+    "id": "directive",
+    "kind": "generic",
+    "description": "directive run"
+  },
+  "allowedFeatureIds": [],
+  "selectedFeatures": [],
+  "completedFeatures": [],
+  "lifecycleReason": "pre_backend_claim"
+}

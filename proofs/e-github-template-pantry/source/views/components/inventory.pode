@@ -1,0 +1,79 @@
+<!-- Pantry inventory: server-rendered list (grouped by category, name-sorted, expiry badges) with
+     htmx add/edit/delete. The list markup is produced by Format-PantryInventoryListHtml (see
+     api/_lib/pantry-render.ps1) and passed in as $data.ListHtml so the full-page render and the
+     htmx partial swaps share one source of truth. -->
+<section class="bg-gray-50 p-3 sm:p-5 dark:bg-gray-900">
+	<div class="mx-auto max-w-(--breakpoint-xl)">
+		<div class="mb-4 flex items-center justify-between">
+			<h1 class="text-2xl font-bold text-gray-800 dark:text-gray-200">Inventory</h1>
+			<div class="flex items-center gap-2">
+				<a
+					id="export-csv-link"
+					href="/inventory.csv"
+					class="inline-flex items-center justify-center rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 focus:outline-hidden dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700">
+					<svg class="mr-2 h-3.5 w-3.5" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+						<path
+							clip-rule="evenodd"
+							fill-rule="evenodd"
+							d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" />
+					</svg>
+					Export CSV
+				</a>
+				<button
+					id="add-item-btn"
+					type="button"
+					class="inline-flex items-center justify-center rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 focus:outline-hidden dark:focus:ring-blue-800"
+					hx-get="/htmx/item-new"
+					hx-target="#inventoryModalContent"
+					hx-trigger="click">
+					<svg class="mr-2 h-3.5 w-3.5" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+						<path clip-rule="evenodd" fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" />
+					</svg>
+					Add item
+				</button>
+			</div>
+		</div>
+		$($data.FilterHtml ;) $($data.ListHtml ;)
+	</div>
+</section>
+
+<!-- Modal shell for the add-item flow. The add form is loaded into #inventoryModalContent via htmx;
+     the script below shows the modal once the content settles and hides it on the closeModal event
+     (the server sends HX-Trigger: closeModal after a successful create). -->
+<div id="inventoryModal" class="bg-opacity-50 fixed inset-0 z-50 hidden items-center justify-center overflow-auto bg-black p-4">
+	<div id="inventoryModalContent" class="relative">
+		<!-- Add-item form is loaded here -->
+	</div>
+</div>
+
+<script>
+	function showInventoryModal() {
+		var modal = document.getElementById('inventoryModal');
+		modal.classList.remove('hidden');
+		modal.classList.add('flex');
+		// Move keyboard focus into the dialog (first field) so it is not left on the trigger
+		// button behind the overlay.
+		var firstField = modal.querySelector('input, select, textarea, button');
+		if (firstField) {
+			firstField.focus();
+		}
+	}
+	function hideInventoryModal() {
+		document.getElementById('inventoryModal').classList.remove('flex');
+		document.getElementById('inventoryModal').classList.add('hidden');
+		// Return focus to the control that opened the dialog rather than dropping it to the
+		// top of the document.
+		var trigger = document.getElementById('add-item-btn');
+		if (trigger) {
+			trigger.focus();
+		}
+	}
+	document.body.addEventListener('htmx:afterSettle', function (event) {
+		if (event.detail.target && event.detail.target.id === 'inventoryModalContent') {
+			showInventoryModal();
+		}
+	});
+	document.body.addEventListener('closeModal', function () {
+		hideInventoryModal();
+	});
+</script>

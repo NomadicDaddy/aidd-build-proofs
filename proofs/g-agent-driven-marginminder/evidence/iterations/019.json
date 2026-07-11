@@ -1,0 +1,28 @@
+{
+  "runId": "run_1780602522871_c2de07a9",
+  "iteration": 0,
+  "lifecycle": "started",
+  "summary": "directive iteration started",
+  "snapshotKey": "codex/directive/directive/none",
+  "startedAt": "2026-06-04T20:21:38.846Z",
+  "endedAt": null,
+  "durationMs": 0,
+  "promptChars": 14012,
+  "exitCode": null,
+  "backend": "codex",
+  "executionMode": "single_agent",
+  "mode": "directive",
+  "phase": "directive",
+  "model": "gpt-5.5",
+  "provider": null,
+  "reasoningEffort": "high",
+  "selectedWork": {
+    "id": "directive",
+    "kind": "generic",
+    "description": "directive run"
+  },
+  "allowedFeatureIds": [],
+  "selectedFeatures": [],
+  "completedFeatures": [],
+  "lifecycleReason": "pre_backend_claim"
+}

@@ -1,0 +1,23 @@
+{
+	"id": "audit-codebase-analysis-1783691796-unauth-debug-routes",
+	"title": "Unauthenticated destructive debug routes (/stop, /clear, /init) enabled by default",
+	"description": "Verified: podex.ps1:87-93 registers api/debug/*.ps1 as unauthenticated top-level GET routes whenever Podex.Debug is true, and server.psd1:39 ships Podex.Debug = $true by default. GET /stop (api/debug/stop.ps1:5) calls Close-PodeServer (DoS); /clear and /init run DROP TABLE + recreate against the live DB. No auth, no CSRF token, GET-triggerable by anyone who can reach the port.",
+	"category": "Audit",
+	"dependencies": [],
+	"status": "completed",
+	"passes": true,
+	"priority": 1,
+	"auditSource": "codebase-analysis",
+	"affectedFiles": ["podex.ps1", "server.psd1", "api/debug/stop.ps1", "api/debug/clear.ps1", "api/debug/init.ps1"],
+	"auditSeverity": "Critical",
+	"createdAt": "2026-07-10T13:56:34.095Z",
+	"notes": "Coupling: shares the server.psd1:39 Podex.Debug=$true default with audit-codebase-analysis-1783691802-show-exceptions-disclosure and remediation-20260710-debug-hotpath-writes. If Podex.Debug defaults to $false first, the debug route registration (podex.ps1:87-93) stops firing by default and this feature's urgency drops — coordinate scheduling across the three so the server.psd1 change is made once, consistently. | Added by feature-review 2026-07-10. | Resolution (2026-07-10): Set Podex.Debug=$false by default in server.psd1 (per .aidd/responses.md: Debug must default OFF with explicit local-dev opt-in, destructive debug routes gated behind Debug). Extracted the file-based route auto-loader's gating into a pure, testable helper api/_lib/route-registration.ps1 (Resolve-ApiRouteRegistration): it returns $null (skip Add-PodeRoute) for /debug/* files whenever Debug is off, so /stop, /clear, /init are ABSENT under the default config rather than merely relocated to /api/debug/* (the prior loop's else->GET branch registered GET /api/debug/stop even with Debug off). podex.ps1 now delegates to it. Added 6 Pester tests asserting the debug routes are absent by default, not relocated, and only appear as GET when Debug is on. npm test 56/56 pass; npm run analyze 0 errors. Left Web.ErrorPages.ShowExceptions to the coupled show-exceptions feature.",
+	"spec": "Detailed remediation steps:\n1. Do not register /stop, /clear, /init unless an explicit, non-default local-dev flag is set (separate from general Debug logging).\n2. If retained for dev, require POST (not GET) and a shared secret / localhost-only binding.\n3. Consider defaulting Podex.Debug to $false in server.psd1 and documenting how to enable it locally.\n4. Add a test asserting these routes are absent under default configuration.",
+	"updatedAt": "2026-07-10T18:24:22.722Z",
+	"approval": {
+		"approvedAt": "2026-07-10T15:05:24.306Z",
+		"decision": null,
+		"decisionRequired": false,
+		"source": "web-ui"
+	}
+}

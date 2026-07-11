@@ -1,0 +1,13 @@
+{
+	"category": "Testing",
+	"createdAt": "2026-01-09T14:35:00.000Z",
+	"dependencies": [],
+	"description": "Test scenario for headings that are immediately followed by non-heading content, ensuring correct separation.",
+	"id": "headings-followed-by-content-test",
+	"passes": false,
+	"priority": 18,
+	"spec": "1. Test a file containing: # Heading A\nSome text here.\n## Subheading B\nMore text.\n2. Verify that the parsing logic correctly identifies both headings and does not treat 'Some text here.' as part of the heading metadata.",
+	"status": "backlog",
+	"title": "Separation test: Heading followed by content",
+	"updatedAt": "2026-01-09T14:35:00.000Z"
+}

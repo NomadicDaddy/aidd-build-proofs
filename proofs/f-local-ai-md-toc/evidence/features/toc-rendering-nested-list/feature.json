@@ -1,0 +1,13 @@
+{
+	"category": "Core",
+	"createdAt": "2026-01-09T14:35:00.000Z",
+	"dependencies": ["heading-parser-detection", "slug-generation-basic"],
+	"description": "Render the Table of Contents structure using nested Markdown bullet points and correct anchor links.",
+	"id": "toc-rendering-nested-list",
+	"passes": false,
+	"priority": 4,
+	"spec": "1. Iterate through all successfully parsed headings (with slugs).\n2. Maintain the current nesting depth based on heading level (# vs ## vs ###).3. Render a nested Markdown list structure using appropriate indentation and bullet points.\n4. Links must use the generated slug for the anchor.",
+	"status": "backlog",
+	"title": "Rendering correctly structured TOC markdown",
+	"updatedAt": "2026-01-09T14:35:00.000Z"
+}

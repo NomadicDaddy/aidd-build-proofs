@@ -1,0 +1,23 @@
+{
+	"affectedFiles": [
+		"frontend/src/pages/scenarios/ScenarioEditorPage.tsx",
+		"backend/src/routes/scenarios.ts",
+		"frontend/src/api/scenarios.ts",
+		"frontend/src/api/types/scenarios.ts"
+	],
+	"category": "UI",
+	"createdAt": "2026-06-01T20:08:14.542Z",
+	"dependencies": ["pricing-calculation-engine", "quote-scenario-api", "risk-flagging"],
+	"description": "Markdown scenario summary generation and copy workflow for proposal or email reuse.",
+	"id": "scenario-export-summary",
+	"justFinishedAt": null,
+	"notes": [
+		"Required by .aidd/spec.md; no /api/v1/scenarios/:id/summary endpoint or scenario export UI was found during onboarding."
+	],
+	"passes": true,
+	"priority": 3,
+	"spec": "1. Generate a Markdown summary for a selected scenario.\n2. Include customer and scenario title.\n3. Include status.\n4. Include final price.\n5. Include direct cost.\n6. Include gross profit.\n7. Include margin percentage and target margin.\n8. Include major assumptions.\n9. Include risk flags.\n10. Provide copy action with success and error feedback.\n11. Do not require PDF generation for the first pass.",
+	"status": "completed",
+	"title": "Scenario Export Summary",
+	"updatedAt": "2026-06-06T01:28:33.712Z"
+}

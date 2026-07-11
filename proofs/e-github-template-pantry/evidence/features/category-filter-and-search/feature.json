@@ -1,0 +1,20 @@
+{
+	"id": "category-filter-and-search",
+	"title": "Category filter + text search",
+	"description": "Filter bar (category select + text search) that swaps the list fragment via hx-get",
+	"category": "UI",
+	"dependencies": ["inventory-list-view"],
+	"status": "completed",
+	"passes": true,
+	"priority": 2,
+	"createdAt": "2026-07-10T15:10:00.000Z",
+	"justFinishedAt": null,
+	"spec": "1. Confirm a filter bar with a category select and a search input renders above the inventory list.\n2. Select a category; confirm only items in that category are shown and the list fragment is swapped via hx-get (no full page reload).\n3. Reset the category to 'all'; confirm all items return.\n4. Type a term matching an item name; confirm the list filters to matching rows via hx-get.\n5. Confirm search also matches item notes, case-insensitively.\n6. Combine a category selection and a search term; confirm both filters apply together (AND).\n7. Confirm a search with no matches renders a clear 'no results' fragment, not an error.\n8. Confirm the filter inputs are labeled and keyboard-usable.",
+	"updatedAt": "2026-07-10T15:54:02.406Z",
+	"approval": {
+		"approvedAt": "2026-07-10T15:17:38.340Z",
+		"decision": null,
+		"decisionRequired": false,
+		"source": "web-ui"
+	}
+}

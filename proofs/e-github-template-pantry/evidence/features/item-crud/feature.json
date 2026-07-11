@@ -1,0 +1,20 @@
+{
+	"id": "item-crud",
+	"title": "Item CRUD (inline htmx forms + confirm delete)",
+	"description": "Server-rendered item CRUD with inline htmx add/edit and confirm-delete",
+	"category": "Core",
+	"dependencies": ["item-model-and-storage"],
+	"status": "completed",
+	"passes": true,
+	"priority": 1,
+	"createdAt": "2026-07-10T15:10:00.000Z",
+	"justFinishedAt": null,
+	"spec": "1. Load the inventory list page and confirm it renders server-side (no SPA framework, htmx only).\n2. Click Add; confirm an inline add form appears (htmx swap, not a full page reload).\n3. Submit the add form with a valid name, category, quantity, and unit; confirm the new item's row is returned as an htmx fragment and appears in the list.\n4. Confirm the created row shows the correct name, quantity, and unit.\n5. Click Edit on an existing row; confirm an inline edit form (hx-put/hx-post) replaces the row.\n6. Change the quantity and save; confirm only that row's fragment is swapped with the updated values and updatedAt advances.\n7. Cancel an edit; confirm the original row is restored with no data change.\n8. Click Delete on a row; confirm a confirmation step is required before deletion (no accidental one-click delete).\n9. Confirm deletion; confirm the row is removed from the list via htmx swap and the item no longer persists.\n10. Confirm the add and edit forms use labeled inputs and are keyboard-usable.\n11. Reload the full page and confirm all changes (add/edit/delete) persisted through the data-access layer.",
+	"updatedAt": "2026-07-10T15:40:45.868Z",
+	"approval": {
+		"approvedAt": "2026-07-10T15:17:39.397Z",
+		"decision": null,
+		"decisionRequired": false,
+		"source": "web-ui"
+	}
+}

@@ -1,0 +1,92 @@
+{
+	"durationMs": 152885,
+	"endedAt": "2026-07-10T14:16:25.603Z",
+	"iteration": 0,
+	"runId": "run_1783692831761_3a4bc670",
+	"snapshotKey": "claude-code/directive/directive/none",
+	"startedAt": "2026-07-10T14:13:52.718Z",
+	"summary": "directive run finished with exit code 0",
+	"timeToFirstEventMs": 7145,
+	"exitCode": 0,
+	"idleWarningTimestamps": [],
+	"promptChars": 18168,
+	"backend": "claude-code",
+	"executionMode": "single_agent",
+	"mode": "directive",
+	"model": "claude-opus-4-8",
+	"phase": "directive",
+	"provider": null,
+	"reasoningEffort": "medium",
+	"allowedFeatureIds": [],
+	"commands": [
+		"ls -la D:/applications/pantry/.aidd/ && echo \"---FEATURES---\" && ls -la D:/applications/pantry/.aidd/features/ 2>/dev/null && echo \"---REPORTS---\" && ls -la D:/applications/pantry/.aidd/reports/ 2>/dev/null",
+		"for d in remediation-20260710-debug-hotpath-writes remediation-20260710-logger-path-traversal remediation-20260710-paging-input-validation; do echo \"===== $d =====\"; ls D:/applications/pantry/.aidd/features/$d/; done",
+		"for d in pagination-total-count broken-add-and-update-wiring show-exceptions-disclosure unsafe-char-sanitizer unauth-debug-routes; do echo \"===== $d =====\"; cat \"D:/applications/pantry/.aidd/features/audit-codebase-analysis-\"*\"-$d/feature.json\"; echo; done",
+		"cd D:/applications/pantry && git add .aidd/remediation-review.md .aidd/CHANGELOG.md && git commit -m \"docs(aidd): review remediation features from codebase-analysis triage\n\nAssess the three remediation-20260710-* features: verify claims against\nlive source, confirm dedup vs audit backlog, flag description imprecision,\nmissing cross-links, priority-scheme mismatch, and rewrite-supersession risk.\n\nCo-Authored-By: Claude Opus 4.8 <<REDACTED_EMAIL>>\" 2>&1 | tail -20"
+	],
+	"commitsCreated": [
+		{
+			"hash": "9311029a7adebb70c2ea00db2a8b42b133f2bf34",
+			"subject": "docs(aidd): review remediation features from codebase-analysis triage"
+		}
+	],
+	"completedFeatures": [],
+	"detailsSummary": {
+		"bashCommandsRun": 4,
+		"finalChecks": {},
+		"hasBuildErrors": false,
+		"hasLintErrors": false,
+		"hasTypeErrors": false,
+		"totalToolCalls": 15,
+		"uniqueFilesCreated": 1,
+		"uniqueFilesEdited": 1,
+		"uniqueFilesRead": 9
+	},
+	"errors": [],
+	"extraCompletedFeatures": [],
+	"filesCreated": ["D:/applications/pantry/.aidd/remediation-review.md"],
+	"filesEdited": ["D:/applications/pantry/.aidd/CHANGELOG.md"],
+	"filesRead": [
+		"D:/applications/pantry/.aidd/spec.md",
+		"D:/applications/pantry/.aidd/response-review.md",
+		"D:/applications/pantry/.aidd/CHANGELOG.md",
+		"D:/applications/pantry/.aidd/project.md",
+		"D:/applications/pantry/.aidd/features/remediation-20260710-debug-hotpath-writes/feature.json",
+		"D:/applications/pantry/.aidd/features/remediation-20260710-logger-path-traversal/feature.json",
+		"D:/applications/pantry/.aidd/features/remediation-20260710-paging-input-validation/feature.json",
+		"D:/applications/pantry/api/crud/get.ps1",
+		"D:/applications/pantry/podex.ps1"
+	],
+	"metrics": {
+		"cachedTokens": 0,
+		"costUsd": 0.8880325000000001,
+		"errorCount": 0,
+		"errorReasons": [],
+		"filesCreatedCount": 1,
+		"filesEditedCount": 1,
+		"idleWarningCount": 0,
+		"inputTokens": 26571,
+		"outputTokens": 9736,
+		"rateLimitCount": 0,
+		"reasoningTokens": 0,
+		"toolBreakdown": {
+			"bash": 4,
+			"read": 9,
+			"write": 1,
+			"edit": 1
+		},
+		"toolCallCount": 15
+	},
+	"outcome": {
+		"exitCode": 0,
+		"status": "success"
+	},
+	"scopeOverrun": false,
+	"selectedFeatures": [],
+	"unacceptedCompletedFeatures": [],
+	"commitsCreatedCount": 1,
+	"filesCreatedCount": 1,
+	"filesEditedCount": 1,
+	"residualDirtyFilesCount": 51,
+	"stopRequested": false
+}

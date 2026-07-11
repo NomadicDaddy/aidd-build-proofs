@@ -1,7 +1,7 @@
 import { basename, extname, resolve } from 'node:path';
 import { readFile, rm, stat } from 'node:fs/promises';
 
-import { PROOFS, TRANSCRIPT_ASSET } from './config.ts';
+import { CAMPAIGN_ID, PROOFS, TRANSCRIPT_ASSET } from './config.ts';
 import {
 	assertInside,
 	ensureEmptyDirectory,
@@ -254,8 +254,19 @@ async function main(): Promise<void> {
 	const actualIds = manifest.proofs.map((proof) => proof.id).sort();
 	if (JSON.stringify(actualIds) !== JSON.stringify(expectedIds))
 		fail('Manifest proof IDs are incomplete');
+	if (manifest.campaign.id !== CAMPAIGN_ID) fail('Campaign ID does not match curator config');
 	if (manifest.campaign.aiddRevisionCaptured !== false) {
 		fail('Campaign must disclose that the AIDD revision was not captured');
+	}
+	for (const config of PROOFS) {
+		const entry = manifest.proofs.find((proof) => proof.id === config.id);
+		if (!entry) continue;
+		if (entry.validation.recordedCommand !== config.recordedGate) {
+			fail(`${config.id} recorded command does not match curator config`);
+		}
+		if (entry.validation.recordedResult !== config.recordedResult) {
+			fail(`${config.id} recorded result does not match curator config`);
+		}
 	}
 	for (const proof of manifest.proofs) await verifyProof(proof);
 	await verifyRepositorySafety();

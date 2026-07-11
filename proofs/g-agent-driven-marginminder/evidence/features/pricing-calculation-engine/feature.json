@@ -1,0 +1,18 @@
+{
+	"affectedFiles": [],
+	"category": "Core",
+	"createdAt": "2026-06-01T20:08:14.542Z",
+	"dependencies": ["margin-data-schema", "quote-scenario-api"],
+	"description": "Server-side calculation service for direct cost, sell price, tax, gross profit, margin, markup, break-even, and target price.",
+	"id": "pricing-calculation-engine",
+	"justFinishedAt": null,
+	"notes": [
+		"Required by .aidd/spec.md; no pricing or margin calculation service was found during onboarding."
+	],
+	"passes": true,
+	"priority": 1,
+	"spec": "1. Calculate direct cost from line item costs, labor internal costs, and fixed costs.\n2. Calculate line item sell price as quantity times unit cost times markup factor.\n3. Calculate labor internal cost with burden percentage.\n4. Calculate labor sell price from hours and billable hourly rate.\n5. Calculate contingency amount from direct cost.\n6. Calculate subtotal before discount.\n7. Calculate discount amount from subtotal before discount.\n8. Calculate taxable subtotal after proportional discount.\n9. Calculate tax amount from taxable subtotal.\n10. Calculate final price, gross profit, margin percentage, markup percentage, break-even price, and target price.\n11. Display currency values with currency formatting and percentages with one decimal place — use Intl.NumberFormat for ALL percentage and currency formatting (e.g., `new Intl.NumberFormat(navigator.language, { style: 'percent', minimumFractionDigits: 1, maximumFractionDigits: 1 })`). Do NOT use `.toFixed(N)%` inline patterns. Centralize formatting in frontend/src/lib/pricingFormatters.ts with shared formatPercent() and formatCurrency() helpers.\n12. Return unavailable margin and markup when direct cost is zero instead of dividing by zero.",
+	"status": "completed",
+	"title": "Pricing Calculation Engine",
+	"updatedAt": "2026-06-11T00:00:00.000Z"
+}

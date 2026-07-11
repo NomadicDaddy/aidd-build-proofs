@@ -1,0 +1,17 @@
+# dependencies
+**/node_modules
+
+# logs and locks
+**/logs
+package-lock.json
+
+# build files
+**/.vscode
+podex.db
+public/css/output.css
+public/js/**
+
+# Pode view templates: HTML with embedded PowerShell $(...) blocks. Prettier parses them as
+# plain HTML and re-wraps the PowerShell mid-statement, producing template parse errors at
+# render time (500s on every page). Never format these.
+**/*.pode

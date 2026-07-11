@@ -1,0 +1,24 @@
+{
+	"affectedFiles": [
+		"backend/src/routes/system/backup.ts",
+		"backend/src/services/backupService.ts",
+		"backend/src/services/backup/backupOperations.ts",
+		"frontend/src/pages/settings/backup/BackupTab.tsx",
+		"frontend/src/api/backup.ts"
+	],
+	"category": "Core",
+	"createdAt": "2026-06-01T20:08:14.542Z",
+	"dependencies": ["authentication-rbac", "settings-administration"],
+	"description": "SYSOP backup listing, creation, restore support, encryption/integrity services, and settings UI are present.",
+	"id": "backup-administration",
+	"justFinishedAt": null,
+	"notes": [
+		"Backfilled by feature-coverage-audit from current implementation evidence on 2026-06-01."
+	],
+	"passes": true,
+	"priority": 3,
+	"spec": "1. Verify systemRoutes includes systemBackupRoutes.\n2. Verify backupService facade and backup submodules are present.\n3. Verify /settings/backup is protected for SYSOP.\n4. Verify frontend backup API and BackupTab are present.",
+	"status": "completed",
+	"title": "Backup Administration",
+	"updatedAt": "2026-06-01T20:08:14.542Z"
+}

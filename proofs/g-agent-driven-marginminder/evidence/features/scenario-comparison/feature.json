@@ -1,0 +1,29 @@
+{
+	"affectedFiles": [
+		"frontend/src/api/scenarios.ts",
+		"frontend/src/api/types/index.ts",
+		"frontend/src/api/types/scenarios.ts",
+		"frontend/src/components/layout/navConfig.tsx",
+		"frontend/src/pages/scenarios/ScenarioComparisonPage.tsx",
+		"frontend/src/pages/scenarios/ScenarioListPage.tsx",
+		"frontend/src/routes.tsx",
+		"frontend/src/routes/lazyPages.ts",
+		"frontend/src/routes/preload.ts"
+	],
+	"category": "UI",
+	"createdAt": "2026-06-01T20:08:14.542Z",
+	"dependencies": ["pricing-calculation-engine", "quote-scenario-api", "risk-flagging"],
+	"description": "Comparison page for selecting two or more saved scenarios and scanning pricing outcomes.",
+	"id": "scenario-comparison",
+	"justFinishedAt": "2026-06-05T20:46:32.924Z",
+	"notes": [
+		"Implemented a frontend /compare route on top of the existing registered backend scenario-comparison API.",
+		"The page loads saved scenarios, supports selecting two to ten scenarios, shows an explicit empty state until two scenarios are selected, and renders a responsive metric table for final price, direct cost, gross profit, margin percentage, target margin gap, discount, contingency, and risk flags."
+	],
+	"passes": true,
+	"priority": 3,
+	"spec": "1. Add /compare route and navigation path.\n2. Provide controls to select at least two saved scenarios.\n3. Show empty state when fewer than two scenarios are selected.\n4. Show selected scenario names prominently.\n5. Compare final price.\n6. Compare direct cost.\n7. Compare gross profit.\n8. Compare margin percentage.\n9. Compare target margin gap, discount amount, contingency amount, and risk flags.\n10. Use a comparison table that remains scannable on desktop and mobile — decompose the page into separate component files under a compare/ subdirectory (e.g., ComparisonTable.tsx for metrics table and RiskFlagBadges, ScenarioPicker.tsx for picker + EmptyComparisonState + SelectedScenarioStrip, types.ts for constants and ComparisonMetric type). Keep ScenarioComparisonPage.tsx as the page-level orchestrator under 300 lines.",
+	"status": "completed",
+	"title": "Scenario Comparison",
+	"updatedAt": "2026-06-11T00:00:00.000Z"
+}

@@ -1,0 +1,25 @@
+{
+	"affectedFiles": [
+		"backend/src/routes/notifications/index.ts",
+		"backend/src/routes/ws/index.ts",
+		"backend/src/services/notificationService.ts",
+		"frontend/src/pages/notifications/NotificationsPage.tsx",
+		"frontend/src/components/layout/NotificationBell.tsx",
+		"frontend/src/stores/wsStore.ts"
+	],
+	"category": "Core",
+	"createdAt": "2026-06-01T20:08:14.542Z",
+	"dependencies": ["authentication-rbac"],
+	"description": "Notification CRUD, preferences, admin broadcast, unread indicator, and WebSocket client/server plumbing are present.",
+	"id": "notifications-websocket",
+	"justFinishedAt": null,
+	"notes": [
+		"Backfilled by feature-coverage-audit from current implementation evidence on 2026-06-01."
+	],
+	"passes": true,
+	"priority": 3,
+	"spec": "1. Verify notificationRoutes is registered in create-api-app.ts.\n2. Verify notification CRUD, broadcast, and preference route modules are composed under backend/src/routes/notifications/index.ts.\n3. Verify WebSocket backend route and frontend wsStore are present.\n4. Verify NotificationsPage and NotificationBell are reachable from app navigation.",
+	"status": "completed",
+	"title": "Notifications And WebSocket",
+	"updatedAt": "2026-06-01T20:08:14.542Z"
+}
