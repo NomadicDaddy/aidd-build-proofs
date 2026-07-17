@@ -1,6 +1,10 @@
 {
 	"compilerOptions": {
 		"allowImportingTsExtensions": true,
+		"allowSyntheticDefaultImports": true,
+		"erasableSyntaxOnly": true,
+		"esModuleInterop": true,
+		"exactOptionalPropertyTypes": true,
 		"forceConsistentCasingInFileNames": true,
 		"lib": ["ES2024"],
 		"module": "Preserve",
@@ -9,12 +13,16 @@
 		"noEmit": true,
 		"noFallthroughCasesInSwitch": true,
 		"noImplicitOverride": true,
+		"noImplicitReturns": true,
 		"noUncheckedIndexedAccess": true,
+		"noUncheckedSideEffectImports": true,
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
+		"resolveJsonModule": true,
 		"strict": true,
 		"target": "ES2024",
-		"types": ["bun"]
+		"types": ["bun"],
+		"verbatimModuleSyntax": true
 	},
 	"include": ["scripts/**/*.ts"]
 }
