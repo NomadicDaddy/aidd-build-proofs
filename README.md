@@ -42,11 +42,10 @@ cloneable histories.
 
 ## Important provenance limitation
 
-The runs did not record the exact AIDD source revision at every launch. The campaign led into the
-pre-public 2.9x release line, while AIDD's public Git history begins at
-[`v2.102.0`](https://github.com/NomadicDaddy/aidd/releases/tag/v2.102.0). The proof narratives link
-to the public changelog where the observed fixes were incorporated, but they do not claim a
-reconstructable AIDD commit for each run.
+The runs did not record the exact AIDD source revision at every launch, and this repository does
+not claim a reconstructable AIDD commit for any run. Each proof states what was observed while it
+ran. The fixes those observations produced are part of the AIDD baseline that ships today; they
+are not presented here as a traceable per-run delta against any published release.
 
 ## Verify the repository
 
