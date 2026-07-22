@@ -41,10 +41,9 @@ The main interventions were:
 - MarginMinder was intentionally supervised across many agent runs rather than presented as a
   single autonomous build.
 
-Findings from the original four-lane campaign fed AIDD and Spernakit fixes that were present by
-AIDD's initial public release. See the
-[AIDD changelog at v2.102.0](https://github.com/NomadicDaddy/aidd/blob/v2.102.0/docs/CHANGELOG.md)
-for that public version record. The three additional proofs retain their later findings separately.
+Findings from the original four-lane campaign fed AIDD and Spernakit fixes that are part of the
+shipping baseline of both products. The three additional proofs retain their later findings
+separately. This repository does not map individual findings to individual releases.
 
 ## Interpretation boundaries
 
