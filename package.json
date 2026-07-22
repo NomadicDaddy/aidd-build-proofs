@@ -25,7 +25,7 @@
 		"format:check": "prettier --check .",
 		"lint": "eslint scripts --report-unused-disable-directives --max-warnings 0",
 		"package:transcripts": "bun scripts/package-transcripts.ts",
-		"preinstall": "node -e \"if(!(process.env.npm_config_user_agent||'').includes('bun')){console.error('This repo uses bun - run: bun install');process.exit(1)}\"",
+		"preinstall": "bun scripts/require-bun.ts",
 		"smoke:qc": "bun run typecheck && bun test && bun run verify && bun run format:check",
 		"test": "bun test",
 		"typecheck": "tsc --noEmit",
