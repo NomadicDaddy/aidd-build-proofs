@@ -11,7 +11,7 @@
 		"elysia": "1.4.28",
 		"jsonwebtoken": "9.0.3",
 		"lru-cache": "11.5.1",
-		"nodemailer": "8.0.11",
+		"nodemailer": "9.0.1",
 		"otpauth": "9.5.1",
 		"pg": "8.21.0",
 		"pino": "10.3.1",
