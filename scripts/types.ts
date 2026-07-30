@@ -86,7 +86,6 @@ export interface CampaignManifest {
 	campaign: {
 		id: string;
 		name: string;
-		publicAiddBaseline: string;
 		aiddRevisionCaptured: false;
 		aiddRepository: string;
 		environment: {

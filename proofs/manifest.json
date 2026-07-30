@@ -8,8 +8,7 @@
       "shell": "PowerShell 7"
     },
     "id": "aidd-build-proofs-2026",
-    "name": "AIDD seven-proof build collection",
-    "publicAiddBaseline": "v2.102.0"
+    "name": "AIDD seven-proof build collection"
   },
   "proofs": [
     {
