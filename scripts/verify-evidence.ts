@@ -2,6 +2,7 @@ import { basename, extname, resolve } from 'node:path';
 import { readFile, rm, stat } from 'node:fs/promises';
 
 import { CAMPAIGN_ID, PROOFS, TRANSCRIPT_ASSET } from './config.ts';
+import { extractArchive, listArchive } from './lib/archive.ts';
 import {
 	assertInside,
 	ensureEmptyDirectory,
@@ -16,9 +17,15 @@ import type { CampaignManifest, ProofManifestEntry, TranscriptIndex } from './ty
 
 const repositoryRoot = resolve(import.meta.dir, '..');
 const failures: string[] = [];
+const skips: string[] = [];
+const requireArchive = Bun.argv.includes('--require-archive');
 
 function fail(message: string): void {
 	failures.push(message);
+}
+
+function skip(message: string): void {
+	skips.push(message);
 }
 
 function isRecord(value: unknown): value is Record<string, unknown> {
@@ -163,7 +170,8 @@ async function verifyRepositorySafety(): Promise<void> {
 	}
 }
 
-async function verifyRelease(manifest: CampaignManifest): Promise<void> {
+/** Returns true only when the transcript archive itself was located and inspected. */
+async function verifyRelease(manifest: CampaignManifest): Promise<boolean> {
 	const index = await readTranscriptIndex();
 	if (index.archive !== TRANSCRIPT_ASSET) fail('Transcript index archive name mismatch');
 	if (index.entries.length !== manifest.transcriptArchive.entryCount) {
@@ -188,25 +196,24 @@ async function verifyRelease(manifest: CampaignManifest): Promise<void> {
 	if (sums !== expected) fail('SHA256SUMS.txt does not match the campaign manifest');
 
 	const archivePath = resolve(repositoryRoot, '.release', TRANSCRIPT_ASSET);
-	if (!(await pathExists(archivePath))) return;
+	if (!(await pathExists(archivePath))) {
+		const message =
+			`Transcript archive not present at .release/${TRANSCRIPT_ASSET}; its contents, ` +
+			'hashes, and scrubbing were NOT verified.';
+		if (requireArchive) fail(message);
+		else skip(message);
+		return false;
+	}
 	if ((await sha256File(archivePath)) !== manifest.transcriptArchive.sha256) {
 		fail('Local transcript archive checksum does not match the manifest');
-		return;
+		return false;
 	}
-	const listing = Bun.spawnSync(['tar', '-t', '-f', archivePath], {
-		stderr: 'pipe',
-		stdout: 'pipe',
-	});
-	if (listing.exitCode !== 0) {
-		fail(
-			`Unable to list transcript archive: ${new TextDecoder().decode(listing.stderr).trim()}`
-		);
-		return;
+	const listing = listArchive(archivePath);
+	if (!listing.success) {
+		fail(`Unable to list transcript archive: ${listing.stderr}`);
+		return false;
 	}
-	for (const archiveEntry of new TextDecoder()
-		.decode(listing.stdout)
-		.split(/\r?\n/)
-		.filter(Boolean)) {
+	for (const archiveEntry of listing.stdout.split(/\r?\n/).filter(Boolean)) {
 		const normalized = archiveEntry.replaceAll('\\', '/');
 		if (normalized.startsWith('/') || normalized.split('/').includes('..')) {
 			fail(`Unsafe transcript archive path: ${archiveEntry}`);
@@ -215,16 +222,11 @@ async function verifyRelease(manifest: CampaignManifest): Promise<void> {
 
 	const extractionRoot = resolve(repositoryRoot, '.release', 'archive-verification');
 	await ensureEmptyDirectory(repositoryRoot, extractionRoot);
-	const extraction = Bun.spawnSync(['tar', '-x', '-f', archivePath, '-C', extractionRoot], {
-		stderr: 'pipe',
-		stdout: 'pipe',
-	});
-	if (extraction.exitCode !== 0) {
-		fail(
-			`Unable to extract transcript archive: ${new TextDecoder().decode(extraction.stderr).trim()}`
-		);
+	const extraction = extractArchive(archivePath, extractionRoot);
+	if (!extraction.success) {
+		fail(`Unable to extract transcript archive: ${extraction.stderr}`);
 		await rm(extractionRoot, { force: true, recursive: true });
-		return;
+		return false;
 	}
 	for (const entry of index.entries) {
 		const publishedPath = assertInside(
@@ -246,6 +248,7 @@ async function verifyRelease(manifest: CampaignManifest): Promise<void> {
 		}
 	}
 	await rm(extractionRoot, { force: true, recursive: true });
+	return true;
 }
 
 async function main(): Promise<void> {
@@ -270,14 +273,18 @@ async function main(): Promise<void> {
 	}
 	for (const proof of manifest.proofs) await verifyProof(proof);
 	await verifyRepositorySafety();
-	await verifyRelease(manifest);
+	const archiveVerified = await verifyRelease(manifest);
 
 	if (failures.length > 0) {
 		for (const failure of failures) console.error(`- ${failure}`);
 		throw new Error(`Evidence verification failed with ${failures.length} issue(s)`);
 	}
+	for (const skipped of skips) console.warn(`! Skipped: ${skipped}`);
 	console.log(
-		`Verified ${manifest.proofs.length} proofs and ${manifest.transcriptArchive.entryCount} transcripts.`
+		archiveVerified
+			? `Verified ${manifest.proofs.length} proofs and ${manifest.transcriptArchive.entryCount} transcripts.`
+			: `Verified ${manifest.proofs.length} proofs and the transcript index only. ` +
+					'Re-run with --require-archive to demand the transcript archive.'
 	);
 }
 
