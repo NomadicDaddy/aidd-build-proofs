@@ -169,7 +169,6 @@ async function main(): Promise<void> {
 			},
 			id: CAMPAIGN_ID,
 			name: 'AIDD seven-proof build collection',
-			publicAiddBaseline: 'v2.102.0',
 		},
 		proofs: entries,
 		schemaVersion: 1,
