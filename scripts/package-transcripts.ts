@@ -2,6 +2,7 @@ import { mkdir, readFile, readdir, rm } from 'node:fs/promises';
 import { basename, resolve } from 'node:path';
 
 import { PROOFS, TRANSCRIPT_ASSET } from './config.ts';
+import { createArchive } from './lib/archive.ts';
 import {
 	ensureEmptyDirectory,
 	listFiles,
@@ -170,21 +171,13 @@ async function main(): Promise<void> {
 		].join('\n')
 	);
 
-	const tar = Bun.spawnSync(
-		[
-			'tar',
-			'-a',
-			'-c',
-			'-f',
-			archivePath,
-			'README.txt',
-			'transcript-index.json',
-			'transcripts',
-		],
-		{ cwd: stagingRoot, stderr: 'pipe', stdout: 'pipe' }
-	);
-	if (tar.exitCode !== 0) {
-		throw new Error(`tar failed: ${new TextDecoder().decode(tar.stderr).trim()}`);
+	const archived = createArchive(archivePath, stagingRoot, [
+		'README.txt',
+		'transcript-index.json',
+		'transcripts',
+	]);
+	if (!archived.success) {
+		throw new Error(`Unable to create transcript archive: ${archived.stderr}`);
 	}
 	const archiveSha256 = await sha256File(archivePath);
 	await writeText(
