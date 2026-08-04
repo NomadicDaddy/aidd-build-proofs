@@ -20,13 +20,15 @@
 	},
 	"packageManager": "bun@1.3.14",
 	"scripts": {
+		"check:leak-guard": "bun ./scripts/run-bash.ts scripts/check-leak-guard.sh",
 		"curate": "bun scripts/curate.ts",
 		"format": "prettier --write .",
 		"format:check": "prettier --check .",
 		"lint": "eslint scripts --report-unused-disable-directives --max-warnings 0",
 		"package:transcripts": "bun scripts/package-transcripts.ts",
 		"preinstall": "bun scripts/require-bun.ts",
-		"smoke:qc": "bun run typecheck && bun test && bun run verify && bun run format:check",
+		"prepare": "(git config core.hooksPath .githooks && bun ./scripts/run-bash.ts .githooks/leak-guard-setup.sh) || true",
+		"smoke:qc": "bun run check:leak-guard && bun run typecheck && bun test && bun run verify && bun run format:check",
 		"test": "bun test",
 		"typecheck": "tsc --noEmit",
 		"verify": "bun scripts/verify-evidence.ts"
