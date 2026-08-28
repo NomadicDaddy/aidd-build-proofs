@@ -84,4 +84,4 @@ See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for the complete mapping.
 ## AIDD
 
 AIDD is local mission control for supervising AI coding agents across project planning, coding,
-auditing, and review workflows: [github.com/NomadicDaddy/aidd](https://github.com/NomadicDaddy/aidd).
+auditing, and review workflows: [github.com/adminware/aidd](https://github.com/adminware/aidd).

@@ -160,7 +160,7 @@ async function main(): Promise<void> {
 
 	const manifest: CampaignManifest = {
 		campaign: {
-			aiddRepository: 'https://github.com/NomadicDaddy/aidd',
+			aiddRepository: 'https://github.com/adminware/aidd',
 			aiddRevisionCaptured: false,
 			environment: {
 				bun: '1.3.14',
