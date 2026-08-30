@@ -81,7 +81,7 @@ that were later corrected. The manifest and final proof summaries take precedenc
 
 See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for the complete mapping.
 
-## AIDD
+## aidd
 
-AIDD is local mission control for supervising AI coding agents across project planning, coding,
-auditing, and review workflows: [github.com/adminware/aidd](https://github.com/adminware/aidd).
+aidd is a local control panel for AI coding work. It plans, runs, audits, and reviews delegated
+work from your own machine: [github.com/NomadicDaddy/aidd](https://github.com/NomadicDaddy/aidd).

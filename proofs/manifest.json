@@ -1,6 +1,6 @@
 {
   "campaign": {
-    "aiddRepository": "https://github.com/adminware/aidd",
+    "aiddRepository": "https://github.com/NomadicDaddy/aidd",
     "aiddRevisionCaptured": false,
     "environment": {
       "bun": "1.3.14",
