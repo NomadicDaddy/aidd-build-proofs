@@ -49,7 +49,7 @@ are not presented here as a traceable per-run delta against any published releas
 
 ## Verify the repository
 
-Requires Bun 1.3.14 or newer:
+Requires Bun 1.4.0 or newer:
 
 ```powershell
 bun install --frozen-lockfile
