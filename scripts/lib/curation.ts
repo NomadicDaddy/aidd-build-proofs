@@ -42,7 +42,7 @@ function runGit(repository: string, args: string[]): Uint8Array {
 	});
 	if (result.exitCode !== 0) {
 		throw new Error(
-			`git ${args.join(' ')} failed in ${repository}: ${decoder.decode(result.stderr).trim()}`
+			`git ${args.join(' ')} failed in ${repository}: ${decoder.decode(result.stderr).trim()}`,
 		);
 	}
 	return result.stdout;
@@ -78,14 +78,14 @@ function isForbiddenSourcePath(path: string): boolean {
 
 function isTextEvidence(path: string): boolean {
 	return new Set(['.json', '.jsonl', '.md', '.rst', '.txt', '.tsv']).has(
-		extname(path).toLowerCase()
+		extname(path).toLowerCase(),
 	);
 }
 
 export async function exportCommittedSource(
 	repository: string,
 	destination: string,
-	allowedRoot: string
+	allowedRoot: string,
 ): Promise<{ commitCount: number; head: string; root: string }> {
 	await ensureEmptyDirectory(allowedRoot, destination);
 	const tracked = decoder
@@ -100,7 +100,7 @@ export async function exportCommittedSource(
 
 	return {
 		commitCount: Number(
-			decoder.decode(runGit(repository, ['rev-list', '--count', 'HEAD'])).trim()
+			decoder.decode(runGit(repository, ['rev-list', '--count', 'HEAD'])).trim(),
 		),
 		head: decoder.decode(runGit(repository, ['rev-parse', 'HEAD'])).trim(),
 		root: decoder.decode(runGit(repository, ['rev-list', '--max-parents=0', 'HEAD'])).trim(),
@@ -123,7 +123,7 @@ export async function copySanitizedEvidence(source: string, destination: string)
 export async function curateAiddEvidence(
 	aiddRoot: string,
 	destination: string,
-	allowedRoot: string
+	allowedRoot: string,
 ): Promise<void> {
 	await ensureEmptyDirectory(allowedRoot, destination);
 	for (const filename of CURATED_AIDD_FILES) {
@@ -144,7 +144,7 @@ export async function curateAiddEvidence(
 			if (extname(source).toLowerCase() === '.log') continue;
 			await copySanitizedEvidence(
 				source,
-				assertInside(destination, resolve(destination, destinationDirectory, relativePath))
+				assertInside(destination, resolve(destination, destinationDirectory, relativePath)),
 			);
 		}
 	}
@@ -171,7 +171,7 @@ export async function iterationRange(iterationsDirectory: string): Promise<{
 	startedAt: string;
 }> {
 	const files = (await listFiles(iterationsDirectory)).filter(
-		(path) => extname(path) === '.json'
+		(path) => extname(path) === '.json',
 	);
 	const starts: string[] = [];
 	const ends: string[] = [];
@@ -192,7 +192,7 @@ export async function iterationRange(iterationsDirectory: string): Promise<{
 }
 
 export async function featureCounts(
-	featuresDirectory: string
+	featuresDirectory: string,
 ): Promise<{ nonPassing: number; passing: number }> {
 	let passing = 0;
 	let nonPassing = 0;
@@ -215,7 +215,7 @@ export async function writeCommitLedger(repository: string, destination: string)
 			'--reverse',
 			'--date=iso-strict',
 			'--pretty=format:%H%x09%aI%x09%s',
-		])
+		]),
 	);
 	await writeText(destination, `commit\tauthored_at\tsubject\n${sanitizeText(log).text}`);
 }

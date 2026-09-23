@@ -44,7 +44,7 @@ export function sanitizeText(input: string): SanitizationResult {
 		() => {
 			categories.add('workspace-root');
 			return '<WORKSPACE>';
-		}
+		},
 	);
 	text = text.replace(/(?:[A-Za-z]:\\|\/[a-z]\/|\/mnt\/[a-z]\/)(?:__queue)(?=[\\/])/gi, () => {
 		categories.add('queue-root');
@@ -63,7 +63,7 @@ export function sanitizeText(input: string): SanitizationResult {
 		(_match, prefix: string, _value: string, suffix: string) => {
 			categories.add('credential-assignment');
 			return `${prefix}<REDACTED_CREDENTIAL>${suffix}`;
-		}
+		},
 	);
 	text = text.replace(PRIVATE_KEY_BLOCK, () => {
 		categories.add('private-key');

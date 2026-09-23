@@ -9,7 +9,7 @@ describe('assertInside', () => {
 		const root = resolve('sandbox');
 		expect(assertInside(root, resolve(root, 'child'))).toBe(resolve(root, 'child'));
 		expect(() => assertInside(root, resolve(root, '..', 'sibling'))).toThrow(
-			'Path escapes allowed root'
+			'Path escapes allowed root',
 		);
 	});
 });

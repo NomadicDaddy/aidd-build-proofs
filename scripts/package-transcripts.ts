@@ -85,7 +85,7 @@ function publishedPathFor(
 	proofId: string,
 	type: TranscriptIndexEntry['type'],
 	filename: string,
-	hash: string
+	hash: string,
 ): string {
 	const prefix = type === 'campaign-log' ? 'campaign' : 'iteration';
 	return `transcripts/${proofId}/${prefix}-${hash.slice(0, 10)}-${filename}`;
@@ -93,7 +93,7 @@ function publishedPathFor(
 
 async function updateCampaignManifest(
 	index: TranscriptIndex,
-	archiveSha256: string
+	archiveSha256: string,
 ): Promise<void> {
 	const manifestPath = resolve(repositoryRoot, 'proofs', 'manifest.json');
 	const parsed: unknown = JSON.parse(await readFile(manifestPath, 'utf8'));
@@ -132,7 +132,7 @@ async function main(): Promise<void> {
 				source.proofId,
 				source.type,
 				basename(source.path),
-				sha256
+				sha256,
 			);
 			published.set(sha256, publishedPath);
 			await Bun.write(resolve(stagingRoot, publishedPath), bytes);
@@ -168,7 +168,7 @@ async function main(): Promise<void> {
 			'These are historical model and tool transcripts, not authoritative product documentation.',
 			'Paths, credentials, private network identifiers, and unrelated local project names were',
 			'redacted. See transcript-index.json for provenance, hashes, and redaction categories.',
-		].join('\n')
+		].join('\n'),
 	);
 
 	const archived = createArchive(archivePath, stagingRoot, [
@@ -182,12 +182,12 @@ async function main(): Promise<void> {
 	const archiveSha256 = await sha256File(archivePath);
 	await writeText(
 		resolve(trackedReleaseRoot, 'SHA256SUMS.txt'),
-		`${archiveSha256}  ${TRANSCRIPT_ASSET}`
+		`${archiveSha256}  ${TRANSCRIPT_ASSET}`,
 	);
 	await updateCampaignManifest(index, archiveSha256);
 	await rm(stagingRoot, { force: true, recursive: true });
 	console.log(
-		`Packaged ${entries.length} transcript references (${published.size} unique files) to ${archivePath}`
+		`Packaged ${entries.length} transcript references (${published.size} unique files) to ${archivePath}`,
 	);
 }
 

@@ -51,7 +51,7 @@ async function readTranscriptIndex(): Promise<TranscriptIndex> {
 }
 
 async function countFeatureResults(
-	featuresRoot: string
+	featuresRoot: string,
 ): Promise<{ nonPassing: number; passing: number }> {
 	let passing = 0;
 	let nonPassing = 0;
@@ -91,7 +91,7 @@ async function verifyProof(entry: ProofManifestEntry): Promise<void> {
 		fail(`${entry.id} non-passing feature count mismatch`);
 	}
 	const iterations = (await listFiles(resolve(evidenceRoot, 'iterations'))).filter(
-		(path) => extname(path).toLowerCase() === '.json'
+		(path) => extname(path).toLowerCase() === '.json',
 	);
 	if (iterations.length !== entry.evidence.iterationCount) {
 		fail(`${entry.id} iteration count mismatch`);
@@ -139,7 +139,7 @@ async function verifyRepositorySafety(): Promise<void> {
 		}
 		if (
 			new Set(['.json', '.jsonl', '.md', '.rst', '.ts', '.tsv', '.txt', '.yml', '.yaml']).has(
-				extname(file).toLowerCase()
+				extname(file).toLowerCase(),
 			)
 		) {
 			const isSourceSnapshot = /^proofs\/[^/]+\/source\//.test(relativePath);
@@ -231,7 +231,7 @@ async function verifyRelease(manifest: CampaignManifest): Promise<boolean> {
 	for (const entry of index.entries) {
 		const publishedPath = assertInside(
 			extractionRoot,
-			resolve(extractionRoot, entry.publishedPath)
+			resolve(extractionRoot, entry.publishedPath),
 		);
 		if (!(await pathExists(publishedPath))) {
 			fail(`Transcript missing from archive: ${entry.publishedPath}`);
@@ -284,7 +284,7 @@ async function main(): Promise<void> {
 		archiveVerified
 			? `Verified ${manifest.proofs.length} proofs and ${manifest.transcriptArchive.entryCount} transcripts.`
 			: `Verified ${manifest.proofs.length} proofs and the transcript index only. ` +
-					'Re-run with --require-archive to demand the transcript archive.'
+					'Re-run with --require-archive to demand the transcript archive.',
 	);
 }
 

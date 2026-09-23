@@ -80,7 +80,7 @@ export async function writeText(path: string, text: string): Promise<void> {
 
 export async function artifactDigest(
 	repositoryRoot: string,
-	path: string
+	path: string,
 ): Promise<ArtifactDigest> {
 	return {
 		path: normalizeRelative(repositoryRoot, path),

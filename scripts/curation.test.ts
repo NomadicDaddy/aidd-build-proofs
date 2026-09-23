@@ -16,7 +16,7 @@ async function temporaryDirectory(): Promise<string> {
 
 afterEach(async () => {
 	await Promise.all(
-		temporaryDirectories.splice(0).map((directory) => rm(directory, { recursive: true }))
+		temporaryDirectories.splice(0).map((directory) => rm(directory, { recursive: true })),
 	);
 });
 
@@ -54,11 +54,11 @@ describe('iterationRange', () => {
 			JSON.stringify({
 				endedAt: '2026-06-01T10:10:00.000Z',
 				startedAt: '2026-06-01T10:00:00.000Z',
-			})
+			}),
 		);
 		await writeFile(
 			resolve(directory, '002.json'),
-			JSON.stringify({ endedAt: null, startedAt: '2026-06-01T10:20:00.000Z' })
+			JSON.stringify({ endedAt: null, startedAt: '2026-06-01T10:20:00.000Z' }),
 		);
 
 		expect(await iterationRange(directory)).toEqual({

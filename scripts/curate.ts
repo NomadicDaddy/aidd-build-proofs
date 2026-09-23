@@ -46,7 +46,7 @@ async function curateProof(sourceRoot: string, config: ProofConfig): Promise<Pro
 	await curateAiddEvidence(
 		resolve(sourceRepository, '.aidd'),
 		evidenceDestination,
-		repositoryRoot
+		repositoryRoot,
 	);
 	await copySanitizedEvidence(resolve(sourceRoot, config.specFile), specDestination);
 	await writeCommitLedger(sourceRepository, ledgerDestination);
@@ -58,7 +58,7 @@ async function curateProof(sourceRoot: string, config: ProofConfig): Promise<Pro
 	) {
 		throw new Error(
 			`${config.id} feature mismatch: expected ${config.recordedPassingFeatures}/` +
-				`${config.recordedNonPassingFeatures}, got ${counts.passing}/${counts.nonPassing}`
+				`${config.recordedNonPassingFeatures}, got ${counts.passing}/${counts.nonPassing}`,
 		);
 	}
 	const iterations = await iterationRange(resolve(evidenceDestination, 'iterations'));
@@ -88,7 +88,7 @@ async function curateProof(sourceRoot: string, config: ProofConfig): Promise<Pro
 		},
 		id: config.id,
 		keyArtifacts: await Promise.all(
-			keyArtifactPaths.map((path) => artifactDigest(repositoryRoot, path))
+			keyArtifactPaths.map((path) => artifactDigest(repositoryRoot, path)),
 		),
 		lane: config.lane,
 		limitations: config.limitations,
@@ -182,7 +182,7 @@ async function main(): Promise<void> {
 	};
 	await writeText(
 		resolve(repositoryRoot, 'proofs', 'manifest.json'),
-		JSON.stringify(manifest, null, 2)
+		JSON.stringify(manifest, null, 2),
 	);
 	console.log(`Curated ${entries.length} proofs from ${sourceRoot}`);
 }

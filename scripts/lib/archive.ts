@@ -39,7 +39,7 @@ export function resolveArchiveTool(): string {
 		throw new Error(
 			'No libarchive-backed tar found on PATH. The transcript archive is a .zip, which GNU ' +
 				'tar cannot read. macOS and Windows 10+ ship bsdtar as `tar`; on Debian or Ubuntu ' +
-				'install it with `apt install libarchive-tools`.'
+				'install it with `apt install libarchive-tools`.',
 		);
 	}
 	return resolvedTool;
@@ -61,7 +61,7 @@ function run(args: string[], workingDirectory?: string): ArchiveResult {
 export function createArchive(
 	archivePath: string,
 	workingDirectory: string,
-	entries: string[]
+	entries: string[],
 ): ArchiveResult {
 	return run(['-a', '-c', '-f', archivePath, ...entries], workingDirectory);
 }
