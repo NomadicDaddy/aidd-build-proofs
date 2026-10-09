@@ -10,7 +10,7 @@ format gates.
 
 - 26 retained features passing and one retained non-passing remediation record.
 - 27 commits in the embedded application repository.
-- Recorded 30-step `bun run smoke:qc` pass.
+- Recorded `bun run smoke:qc` pass.
 - Asset inventory, relationships and impact analysis, services and ports, staged CSV import,
   reports, search, saved views, RBAC redaction, audit trails, settings, and crawl scenarios were
   delivered.

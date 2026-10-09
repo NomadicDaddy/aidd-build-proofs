@@ -10,7 +10,8 @@ template's own quality gate.
 
 - 26 of 26 retained features passing.
 - 50 commits in the embedded application repository.
-- Pester 88 of 88 passing after the final template-compilation regression coverage was added.
+- Pester 78 of 78 passing in the last recorded run. The final commit added template-compilation
+  regression coverage after that run, and no retained ledger records the suite at that commit.
 - PSScriptAnalyzer completed without errors.
 - Inventory CRUD, search and filters, low-stock and expiry views, quick adjustment, CSV export,
   seed data, validation, accessibility, and security hardening were delivered.

@@ -1,7 +1,9 @@
 # June-July 2026 build-proofs collection
 
 The collection combines the original four-lane July campaign with three additional proofs. The
-original campaign used Claude Code with `claude-opus-4-8`; the additions cover a GitHub-template
+original campaign used Claude Code with `claude-opus-4-8`, apart from one Flaskr coding run on
+2026-07-03 that used aidd's native backend with `glm-5.2` (recorded in that proof's
+`evidence/runs.jsonl`); the additions cover a GitHub-template
 build with the same backend, a local-only LM Studio run, and an earlier supervised Codex build of
 MarginMinder. Passing and non-passing outcomes are both retained.
 

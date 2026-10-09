@@ -30,11 +30,12 @@ Use the evidence in this order:
 
 1. [`proofs/manifest.json`](proofs/manifest.json) is the machine-readable campaign contract.
 2. Each proof README states the claim, recorded result, intervention, and limitation.
-3. `proofs/*/evidence/` contains sanitized structured iterations, feature records, run ledgers,
-   reports, and screenshots retained from the run.
+3. `proofs/*/evidence/` contains sanitized structured iterations, feature records, run ledgers and
+   reports, plus screenshots for the Habit Tracker, the only proof that retained any.
 4. `proofs/*/source/` is an export of the proof app's committed `HEAD`, excluding `.aidd`, raw
    logs, dependencies, databases, and build output.
-5. The release asset carries the complete scrubbed transcript archive and checksum.
+5. The scrubbed transcript archive is a release asset, published beside its index and a SHA-256
+   checksum file. See [`release/README.md`](release/README.md) for which archive is published.
 
 The source snapshots are accompanied by commit ledgers and original root/final commit identifiers.
 The original nested Git repositories remain in the private raw archive and are not published as
@@ -58,7 +59,9 @@ bun run smoke:qc
 
 The verifier checks manifest structure, artifact and tree hashes, feature and iteration counts,
 license coverage, transcript metadata, forbidden generated files, private paths, and common secret
-patterns. GitHub Actions runs the same gate on pushes and pull requests.
+patterns. GitHub Actions runs the same gate on pushes and pull requests to `main` and on version
+tags. CI has no copy of the archive, so there it checks the transcript index rather than the
+archive's contents.
 
 The current replay status for each archival app is recorded separately from its historical result
 in `proofs/manifest.json`. A replay failure does not rewrite the historical source snapshot.
