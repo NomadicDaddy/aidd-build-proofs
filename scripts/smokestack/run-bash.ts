@@ -1,4 +1,7 @@
 #!/usr/bin/env bun
+// smokestack owns this file and delivers it with `bun run shared-core:write`. Change it in
+// smokestack; every repository that takes it holds a byte-identical copy.
+
 // Runs a POSIX shell script through a real bash, without trusting PATH to supply one.
 //
 // On Windows, C:\Windows\System32\bash.exe is the WSL launcher, and it shadows Git's bash for
@@ -12,8 +15,13 @@
 // System32 launcher never.
 //
 // The shell scripts this runs (.githooks/leak-guard-setup.sh, scripts/check-leak-guard.sh) are
-// kept byte-identical across the aidd, spernakit, and starsync repositories, so the portability
+// delivered byte-identical to every repository that takes them from smokestack, so the portability
 // fix cannot live inside them. It lives here, in the repository-local script that invokes them.
+//
+// This file is therefore seeded, not synced. scripts/shared-core-manifest.json lists it in the
+// leak-guard-scripts group as `seeded`: the sync writes it into a repository that lacks it and
+// never overwrites one that has it. The three copies are deliberately not byte-identical to each other, because each
+// one names its own repository's entry points.
 import { spawnSync } from 'node:child_process';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
@@ -63,7 +71,7 @@ function resolveBash(): string {
 
 const [script, ...forwarded] = argv.slice(2);
 if (script === undefined) {
-	console.error('run-bash: usage: bun ./scripts/run-bash.ts <script.sh> [args...]');
+	console.error('run-bash: usage: bun ./scripts/smokestack/run-bash.ts <script.sh> [args...]');
 	exit(1);
 }
 

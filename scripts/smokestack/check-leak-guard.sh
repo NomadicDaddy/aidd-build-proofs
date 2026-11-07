@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Self-test for .githooks/leak-guard.sh.
+# Self-test for leak-guard.sh.
 #
 # All leaky fixtures are assembled at RUNTIME by concatenation so this file
 # never contains a string the guard would flag. Runs against a scratch git
@@ -10,8 +10,10 @@
 # smokestack; every repository that takes it holds a byte-identical copy.
 set -euo pipefail
 
+# This file's own directory, where check-leak-guard-cases.sh sits beside it.
+self_dir="$(cd "$(dirname "$0")" && pwd)"
 # The repository is the parent of the nearest scripts directory above this file, at any depth.
-scripts_dir="$(cd "$(dirname "$0")" && pwd)"
+scripts_dir="$self_dir"
 while [ "$(basename "$scripts_dir")" != scripts ]; do
 	if [ "$(dirname "$scripts_dir")" = "$scripts_dir" ]; then
 		echo "check-leak-guard: no scripts directory above $0" >&2
@@ -20,7 +22,17 @@ while [ "$(basename "$scripts_dir")" != scripts ]; do
 	scripts_dir="$(dirname "$scripts_dir")"
 done
 repo_root="$(dirname "$scripts_dir")"
-hook="$repo_root/.githooks/leak-guard.sh"
+# The guard under test: in scripts/smokestack/hooks where a repository takes it, and in .githooks in
+# smokestack itself, which runs its own hooks from there.
+hook="$scripts_dir/smokestack/hooks/leak-guard.sh"
+[ -f "$hook" ] || hook="$repo_root/.githooks/leak-guard.sh"
+# Where the scratch repositories hold it, as a repository that takes it does.
+guard=scripts/smokestack/hooks/leak-guard.sh
+
+# Run from a hook, git's own environment points at the real repository: a pathspec commit hands
+# its hooks an absolute GIT_INDEX_FILE. The scratch repositories below must not write into it.
+# shellcheck disable=SC2046 # one variable name per word, which unset needs split
+unset $(git rev-parse --local-env-vars)
 
 tmp="$(mktemp -d)"
 trap 'rm -rf "$tmp"' EXIT
@@ -37,10 +49,12 @@ printf '%s\n' '# synthetic private patterns for the self-test' '' '\bzzz-synthet
 # Scratch repo names are load-bearing for cases 9 and 10: the guard drops tier-2 patterns that
 # match the repository's own directory name, so the two repos differ only in what they are called.
 make_repo() {
-	mkdir -p "$tmp/$1/.githooks"
+	mkdir -p "$tmp/$1/$(dirname "$guard")"
 	git -C "$tmp/$1" init -q
 	git -C "$tmp/$1" -c user.email=t@test -c user.name=t commit -q --allow-empty -m init
-	cp "$hook" "$tmp/$1/.githooks/leak-guard.sh"
+	cp "$hook" "$tmp/$1/$guard"
+	# The guard sources its UTF-16 decoder from its own folder when a binary file is staged.
+	cp "$(dirname "$hook")/leak-guard-decode.sh" "$tmp/$1/$(dirname "$guard")/"
 }
 make_repo repo
 make_repo zzz-synthetic-app
@@ -54,7 +68,7 @@ run_guard() {
 	printf '%s\n' "$2" >"$guard_repo/staged.txt"
 	git -C "$guard_repo" add staged.txt
 	local code=0
-	(cd "$guard_repo" && LEAK_GUARD_PATTERNS="$1" bash .githooks/leak-guard.sh) 2>"$tmp/stderr" || code=$?
+	(cd "$guard_repo" && LEAK_GUARD_PATTERNS="$1" bash "$guard") 2>"$tmp/stderr" || code=$?
 	echo "$code"
 }
 
@@ -107,7 +121,7 @@ grep -q 'no local pattern file' "$tmp/stderr" || fail 'missing pattern file did 
 code=0
 printf '%s\n' 'plain harmless content' >"$guard_repo/staged.txt"
 git -C "$guard_repo" add staged.txt
-(cd "$guard_repo" && LEAK_GUARD_PATTERNS="$tmp/does-not-exist" LEAK_GUARD_ALLOW_NO_PRIVATE=1 bash .githooks/leak-guard.sh) 2>"$tmp/stderr" || code=$?
+(cd "$guard_repo" && LEAK_GUARD_PATTERNS="$tmp/does-not-exist" LEAK_GUARD_ALLOW_NO_PRIVATE=1 bash "$guard") 2>"$tmp/stderr" || code=$?
 [ "$code" = 0 ] || fail 'LEAK_GUARD_ALLOW_NO_PRIVATE=1 did not let a clean commit through'
 grep -q 'generic checks only' "$tmp/stderr" || fail 'override did not warn that tier 2 was off'
 
@@ -125,7 +139,7 @@ run_guard_registry() {
 		reg.exe() { cat "$tmp/reg-answer"; }
 		export -f reg.exe
 		export tmp
-		cd "$guard_repo" && env -u LEAK_GUARD_PATTERNS bash .githooks/leak-guard.sh
+		cd "$guard_repo" && env -u LEAK_GUARD_PATTERNS bash "$guard"
 	) 2>"$tmp/stderr" || code=$?
 	echo "$code"
 }
@@ -141,7 +155,7 @@ printf '\r\nHKEY_CURRENT_USER\\Environment\r\n    LEAK_GUARD_PATTERNS    REG_SZ 
 	reg.exe() { cat "$tmp/reg-answer"; }
 	export -f reg.exe
 	export tmp
-	cd "$guard_repo" && LEAK_GUARD_PATTERNS="$tmp/patterns-other" bash .githooks/leak-guard.sh
+	cd "$guard_repo" && LEAK_GUARD_PATTERNS="$tmp/patterns-other" bash "$guard"
 ) 2>"$tmp/stderr" || code=$?
 [ "$code" = 0 ] || fail 'the Windows value overrode an explicit LEAK_GUARD_PATTERNS'
 
@@ -156,7 +170,7 @@ git -C "$guard_repo" add staged.txt
 	# shellcheck disable=SC2317 # exported with export -f; the guard calls it in a child bash
 	reg.exe() { return 1; }
 	export -f reg.exe
-	cd "$guard_repo" && env -u LEAK_GUARD_PATTERNS HOME="$tmp/empty-home" bash .githooks/leak-guard.sh
+	cd "$guard_repo" && env -u LEAK_GUARD_PATTERNS HOME="$tmp/empty-home" bash "$guard"
 ) 2>"$tmp/stderr" || code=$?
 [ "$code" = 0 ] || fail 'an unconfigured machine refused a clean commit'
 grep -q 'generic checks only' "$tmp/stderr" || fail 'an unconfigured machine did not warn that tier 2 was off'
@@ -186,69 +200,20 @@ printf '%s\n' '\bzzz-synthetic-app\b' '\bzzz-sibling-app\b' >"$tmp/patterns-pair
 [ "$(run_guard "$tmp/patterns-pair" 'mentions zzz-synthetic-app somewhere')" = 0 ] || fail 'self pattern survived alongside a sibling pattern'
 guard_repo="$tmp/repo"
 
-# 13. A refusal names the file and counts the lines, and never repeats what it refused. The guard
-# has just stopped that text from being committed; printing it would copy the secret into the
-# terminal and into any log that captures the hook's output.
-[ "$(run_guard "$synthetic" "key=$aws_key")" = 1 ] || fail 'synthetic AWS key was not blocked (case 13)'
-grep -q 'staged.txt: 1 line(s), secret format' "$tmp/stderr" || fail 'a refusal did not name the file and the class'
-if grep -q "$aws_key" "$tmp/stderr"; then fail 'a refusal printed the secret it refused'; fi
-[ "$(run_guard "$tmp/patterns-pair" 'mentions zzz-sibling-app somewhere')" = 1 ] || fail 'sibling name was not blocked (case 13)'
-grep -q 'staged.txt: 1 line(s), private name' "$tmp/stderr" || fail 'a private-name refusal did not name the file and the class'
-if grep -q 'zzz-sibling-app' "$tmp/stderr"; then fail 'a refusal printed the private name it refused'; fi
-
-# 14. A private pattern that is not a valid expression stops the commit. It is kept in the list on
-# purpose so that it fails closed; when the error was swallowed the whole private tier reported no
-# hits and passed. The per-commit override still lets the user commit on tier 1 alone.
-printf '%s\n' '\bzzz-sibling-app\b' '[zzz-unclosed' >"$tmp/patterns-broken"
-[ "$(run_guard "$tmp/patterns-broken" 'plain harmless content')" = 1 ] || fail 'an invalid private pattern let a commit through'
-grep -q 'not a valid expression' "$tmp/stderr" || fail 'an invalid private pattern did not say why it refused'
-code=0
-(cd "$guard_repo" && LEAK_GUARD_PATTERNS="$tmp/patterns-broken" LEAK_GUARD_ALLOW_NO_PRIVATE=1 bash .githooks/leak-guard.sh) 2>"$tmp/stderr" || code=$?
-[ "$code" = 0 ] || fail 'the per-commit override did not allow a commit past an invalid private pattern'
-
-# 15. A refusal for a private key names only the file that holds one. A second staged file that
-# merely shows the header, the shape a key takes, is not what was refused, and listing it would
-# send whoever cleans up to the wrong file.
-printf '%s\n' "$pem_header" >"$guard_repo/shape.txt"
-git -C "$guard_repo" add shape.txt
-[ "$(run_guard "$synthetic" "$(printf '%s\n%s' "$pem_header" "$b64_run")")" = 1 ] || fail 'a key beside a bare header was not blocked'
-grep -q 'staged.txt: 1 key(s), private key material' "$tmp/stderr" || fail 'a key refusal did not name the file holding the key'
-if grep -q 'shape.txt' "$tmp/stderr"; then fail 'a key refusal named a file that only shows a bare header'; fi
-git -C "$guard_repo" rm -q --cached shape.txt
-rm -f "$guard_repo/shape.txt"
-
-# 12. A public site may publish a sibling's name once the repo's staged leak-guard-publishes clears
-# it, and the guard says it did. The file is read from the index, so an unstaged edit clears nothing.
-publishes="$guard_repo/.githooks/leak-guard-publishes"
-printf '%s\n' '# names this repo may publish' 'zzz-sibling-app' >"$publishes"
-[ "$(run_guard "$tmp/patterns-pair" 'mentions zzz-sibling-app somewhere')" = 1 ] || fail 'an unstaged publishes file cleared a pattern'
-git -C "$guard_repo" add .githooks/leak-guard-publishes
-[ "$(run_guard "$tmp/patterns-pair" 'mentions zzz-sibling-app somewhere')" = 0 ] || fail 'a staged publishes entry did not clear its pattern'
-grep -q 'cleared for this repo' "$tmp/stderr" || fail 'a cleared pattern was not announced'
-
-# 12b. Clearing one name leaves every other private pattern armed, and never touches tier 1.
-[ "$(run_guard "$tmp/patterns-pair" 'mentions zzz-synthetic-app somewhere')" = 1 ] || fail 'publishes cleared a name it does not list'
-[ "$(run_guard "$tmp/patterns-pair" "key=$aws_key")" = 1 ] || fail 'publishes disarmed a tier-1 secret check'
-
-# 12c. An entry must match a pattern in full, so a longer entry that merely contains a private name
-# clears nothing. The entry is committed first: staged, its own added line would trip the guard and
-# the case would pass whether or not the full-match rule held.
-printf '%s\n' 'zzz-sibling-app-and-more' >"$publishes"
-git -C "$guard_repo" add .githooks/leak-guard-publishes
-git -C "$guard_repo" -c user.email=t@test -c user.name=t commit -q -m 'publishes entry'
-[ "$(run_guard "$tmp/patterns-pair" 'mentions zzz-sibling-app somewhere')" = 1 ] || fail 'a longer publishes entry cleared a pattern it only contains'
-git -C "$guard_repo" rm -q .githooks/leak-guard-publishes
-git -C "$guard_repo" -c user.email=t@test -c user.name=t commit -q -m 'drop publishes entry'
-
-# 11. A body pasted under a header that is ALREADY COMMITTED is blocked. The header is not an
-# addition in that commit, so a scan of additions alone cannot see the pair, and pasting a body
-# under a placeholder header left behind earlier is the likeliest way this leak actually happens.
-# Last because it is the only case that commits, and every case above stages against HEAD.
-[ "$(run_guard "$synthetic" "$pem_header")" = 0 ] || fail 'bare PEM header was blocked before the commit'
-git -C "$guard_repo" -c user.email=t@test -c user.name=t commit -q -m 'header only'
-[ "$(run_guard "$synthetic" "$(printf '%s\n%s' "$pem_header" "$b64_run")")" = 1 ] || fail 'body added under a committed PEM header was not blocked'
+# Cases 11 to 21 are in check-leak-guard-cases.sh beside this file, and 22 to 38 (binary files) in
+# check-leak-guard-binary-cases.sh. They are sourced so they share the scratch repositories, helpers
+# and failure count above. shellcheck -x follows them from any directory through SCRIPTDIR, and a
+# plain run, which follows no sourced file, skips them (SC1091).
+# shellcheck source-path=SCRIPTDIR source=check-leak-guard-cases.sh disable=SC1091
+. "$self_dir/check-leak-guard-cases.sh"
+# shellcheck source-path=SCRIPTDIR source=check-leak-guard-binary-cases.sh disable=SC1091
+. "$self_dir/check-leak-guard-binary-cases.sh"
 
 if [ "$failures" -gt 0 ]; then
+	# Both streams: a gate harness that captures only one of them still sees the failure. The
+	# per-case FAIL lines stay on stderr; this summary is the one line a log must not lose
+	# (Morticia I-4: full gates exited 1 with no failure line in their captured output).
+	echo "check-leak-guard: $failures failure(s)"
 	echo "check-leak-guard: $failures failure(s)" >&2
 	exit 1
 fi
