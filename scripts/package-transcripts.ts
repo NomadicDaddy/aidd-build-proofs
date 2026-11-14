@@ -1,6 +1,8 @@
 import { mkdir, readFile, readdir, rm } from 'node:fs/promises';
 import { basename, resolve } from 'node:path';
 
+import type { CampaignManifest, TranscriptIndex, TranscriptIndexEntry } from './types.ts';
+
 import { PROOFS, TRANSCRIPT_ASSET } from './config.ts';
 import { createArchive } from './lib/archive.ts';
 import {
@@ -12,7 +14,6 @@ import {
 	writeText,
 } from './lib/files.ts';
 import { sanitizeText } from './lib/sanitize.ts';
-import type { CampaignManifest, TranscriptIndex, TranscriptIndexEntry } from './types.ts';
 
 const repositoryRoot = resolve(import.meta.dir, '..');
 const releaseRoot = resolve(repositoryRoot, '.release');
@@ -41,19 +42,19 @@ function proofForCampaignLog(filename: string): string | null {
 }
 
 async function collectSources(sourceRoot: string): Promise<
-	Array<{
+	{
 		logicalSource: string;
 		path: string;
 		proofId: string;
 		type: TranscriptIndexEntry['type'];
-	}>
+	}[]
 > {
-	const sources: Array<{
+	const sources: {
 		logicalSource: string;
 		path: string;
 		proofId: string;
 		type: TranscriptIndexEntry['type'];
-	}> = [];
+	}[] = [];
 	for (const entry of await readdir(sourceRoot, { withFileTypes: true })) {
 		if (!entry.isFile() || !entry.name.toLowerCase().endsWith('.log')) continue;
 		const proofId = proofForCampaignLog(entry.name);

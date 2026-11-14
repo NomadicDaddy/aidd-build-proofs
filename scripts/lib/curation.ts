@@ -1,5 +1,5 @@
-import { basename, extname, resolve } from 'node:path';
 import { readFile } from 'node:fs/promises';
+import { basename, extname, resolve } from 'node:path';
 
 import { CURATED_AIDD_DIRECTORIES, CURATED_AIDD_FILES } from '../config.ts';
 import {
@@ -19,14 +19,14 @@ function normalizeEvidenceJsonText(text: string, path: string): string {
 	try {
 		JSON.parse(text);
 		return text;
-	} catch (error) {
+	} catch (err) {
 		const normalized = text.replaceAll('\\`', '`');
-		if (normalized === text) throw error;
+		if (normalized === text) throw err;
 		try {
 			JSON.parse(normalized);
 			return normalized;
 		} catch {
-			throw new Error(`Invalid JSON evidence: ${path}`, { cause: error });
+			throw new Error(`Invalid JSON evidence: ${path}`, { cause: err });
 		}
 	}
 }

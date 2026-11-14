@@ -36,8 +36,8 @@ export async function listFiles(root: string): Promise<string[]> {
 	}
 	try {
 		await visit(root);
-	} catch (error) {
-		if ((error as NodeJS.ErrnoException).code !== 'ENOENT') throw error;
+	} catch (err) {
+		if ((err as NodeJS.ErrnoException).code !== 'ENOENT') throw err;
 	}
 	return results.sort((left, right) => left.localeCompare(right));
 }
@@ -92,8 +92,8 @@ export async function pathExists(path: string): Promise<boolean> {
 	try {
 		await stat(path);
 		return true;
-	} catch (error) {
-		if ((error as NodeJS.ErrnoException).code === 'ENOENT') return false;
-		throw error;
+	} catch (err) {
+		if ((err as NodeJS.ErrnoException).code === 'ENOENT') return false;
+		throw err;
 	}
 }

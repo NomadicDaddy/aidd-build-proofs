@@ -1,5 +1,7 @@
-import { basename, extname, resolve } from 'node:path';
 import { readFile, rm, stat } from 'node:fs/promises';
+import { basename, extname, resolve } from 'node:path';
+
+import type { CampaignManifest, ProofManifestEntry, TranscriptIndex } from './types.ts';
 
 import { CAMPAIGN_ID, PROOFS, TRANSCRIPT_ASSET } from './config.ts';
 import { extractArchive, listArchive } from './lib/archive.ts';
@@ -13,7 +15,6 @@ import {
 	treeDigest,
 } from './lib/files.ts';
 import { findCredentialTokens, findSensitivePatterns } from './lib/sanitize.ts';
-import type { CampaignManifest, ProofManifestEntry, TranscriptIndex } from './types.ts';
 
 const repositoryRoot = resolve(import.meta.dir, '..');
 const failures: string[] = [];

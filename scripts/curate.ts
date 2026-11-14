@@ -1,5 +1,7 @@
-import { resolve } from 'node:path';
 import { readFile } from 'node:fs/promises';
+import { resolve } from 'node:path';
+
+import type { CampaignManifest, ProofConfig, ProofManifestEntry, ReplayResult } from './types.ts';
 
 import { CAMPAIGN_ID, PROOFS, TRANSCRIPT_ASSET } from './config.ts';
 import {
@@ -17,7 +19,6 @@ import {
 	treeDigest,
 	writeText,
 } from './lib/files.ts';
-import type { CampaignManifest, ProofConfig, ProofManifestEntry, ReplayResult } from './types.ts';
 
 const repositoryRoot = resolve(import.meta.dir, '..');
 

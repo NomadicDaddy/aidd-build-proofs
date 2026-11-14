@@ -1,8 +1,7 @@
+import { afterEach, describe, expect, test } from 'bun:test';
 import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { resolve } from 'node:path';
-
-import { afterEach, describe, expect, test } from 'bun:test';
 
 import { copySanitizedEvidence, iterationRange } from './lib/curation.ts';
 

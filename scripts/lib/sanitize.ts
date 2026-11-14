@@ -1,7 +1,8 @@
-import { ALLOWED_PUBLIC_PROJECTS } from '../config.ts';
 import type { SanitizationResult } from '../types.ts';
 
-const SECRET_REPLACEMENTS: Array<{ category: string; pattern: RegExp }> = [
+import { ALLOWED_PUBLIC_PROJECTS } from '../config.ts';
+
+const SECRET_REPLACEMENTS: { category: string; pattern: RegExp }[] = [
 	{ category: 'github-token', pattern: /\bgh[opsu]_[A-Za-z0-9]{20,}\b/g },
 	{ category: 'github-token', pattern: /\bgithub_pat_[A-Za-z0-9_]{20,}\b/g },
 	{ category: 'provider-token', pattern: /(?<![A-Za-z0-9])sk-[A-Za-z0-9_-]{24,}\b/g },
@@ -87,7 +88,7 @@ export function sanitizeText(input: string): SanitizationResult {
 
 export function findSensitivePatterns(text: string): string[] {
 	const findings = new Set<string>();
-	const patterns: Array<{ name: string; pattern: RegExp }> = [
+	const patterns: { name: string; pattern: RegExp }[] = [
 		{ name: 'absolute-user-path', pattern: /[A-Za-z]:\\Users\\/i },
 		{
 			name: 'absolute-workspace-path',
